@@ -53,54 +53,65 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameModel\Map\MapTypes\AbstractMap.cs" />
+    <Compile Include="GameModel\Map\MapTypes\HardCodedMap.cs" />
+    <Compile Include="GameModel\Map\MatterTypes\AbstractMatterType.cs" />
+    <Compile Include="GameModel\Map\MatterTypes\MatterTypeWall.cs" />
+    <Compile Include="GameModel\Map\MapTypes\WaveMap.cs" />
+    <Compile Include="GameModel\Waves\IWave.cs" />
+    <Compile Include="GameModel\Waves\Wave.cs" />
+    <Compile Include="GameModel\Waves\WaveCache.cs" />
+    <Compile Include="GameModel\Waves\WaveFunctions.cs" />
+    <Compile Include="GameModel\Waves\WavePack.cs" />
+    <Compile Include="GameModel\Waves\WaveBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="jpeg.dll">
+    <Content Include="Sdl\jpeg.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="libfreetype-6.dll">
+    <Content Include="Sdl\libfreetype-6.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="libogg-0.dll">
+    <Content Include="Sdl\libogg-0.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="libpng12-0.dll">
+    <Content Include="Sdl\libpng12-0.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="libtiff-3.dll">
+    <Content Include="Sdl\libtiff-3.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="libvorbis-0.dll">
+    <Content Include="Sdl\libvorbis-0.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="libvorbisfile-3.dll">
+    <Content Include="Sdl\libvorbisfile-3.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SDL.dll">
+    <Content Include="Sdl\SDL.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SdlDotNet.dll" />
-    <Content Include="SDL_gfx.dll">
+    <Content Include="Sdl\SdlDotNet.dll" />
+    <Content Include="Sdl\SDL_gfx.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SDL_image.dll">
+    <Content Include="Sdl\SDL_image.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SDL_mixer.dll">
+    <Content Include="Sdl\SDL_mixer.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SDL_net.dll">
+    <Content Include="Sdl\SDL_net.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SDL_ttf.dll">
+    <Content Include="Sdl\SDL_ttf.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="smpeg.dll">
+    <Content Include="Sdl\smpeg.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="zlib1.dll">
+    <Content Include="Sdl\zlib1.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
