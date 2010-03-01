@@ -71,6 +71,7 @@
     <Compile Include="GameModel\World\World.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Viewers\MiniMap\MiniMap.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sdl\jpeg.dll">
