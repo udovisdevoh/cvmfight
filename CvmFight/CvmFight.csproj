@@ -31,14 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SdlDotNet, Version=6.1.0.0, Culture=neutral, PublicKeyToken=26ad4f7e10c61408, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\SdlDotNet.dll</HintPath>
-    </Reference>
+    <Reference Include="SdlDotNet, Version=6.1.0.0, Culture=neutral, PublicKeyToken=26ad4f7e10c61408, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -74,50 +72,50 @@
     <Compile Include="Viewers\MiniMap\MiniMap.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Sdl\jpeg.dll">
+    <Content Include="jpeg.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sdl\libfreetype-6.dll">
+    <Content Include="libfreetype-6.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sdl\libogg-0.dll">
+    <Content Include="libogg-0.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sdl\libpng12-0.dll">
+    <Content Include="libpng12-0.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sdl\libtiff-3.dll">
+    <Content Include="libtiff-3.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sdl\libvorbis-0.dll">
+    <Content Include="libvorbis-0.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sdl\libvorbisfile-3.dll">
+    <Content Include="libvorbisfile-3.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sdl\SDL.dll">
+    <Content Include="SDL.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sdl\SdlDotNet.dll" />
-    <Content Include="Sdl\SDL_gfx.dll">
+    <Content Include="SdlDotNet.dll" />
+    <Content Include="SDL_gfx.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sdl\SDL_image.dll">
+    <Content Include="SDL_image.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sdl\SDL_mixer.dll">
+    <Content Include="SDL_mixer.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sdl\SDL_net.dll">
+    <Content Include="SDL_net.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sdl\SDL_ttf.dll">
+    <Content Include="SDL_ttf.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sdl\smpeg.dll">
+    <Content Include="smpeg.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sdl\zlib1.dll">
+    <Content Include="zlib1.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
