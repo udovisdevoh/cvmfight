@@ -10,6 +10,10 @@ namespace CvmFight
     /// </summary>
     class World
     {
+        #region Fields
+        private Player currentPlayer;
+        #endregion
+
         #region Parts
         /// <summary>
         /// Map
@@ -20,6 +24,16 @@ namespace CvmFight
         /// Sprite pool
         /// </summary>
         private SpritePool spritePool;
+        #endregion
+
+        #region Constructor
+        public World()
+        {
+            currentPlayer = new Player();
+            map = new HardCodedMap();
+            spritePool = new SpritePool();
+            spritePool.Add(currentPlayer);
+        }
         #endregion
     }
 }
