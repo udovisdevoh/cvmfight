@@ -14,7 +14,7 @@ namespace CvmFight
         /// <summary>
         /// Whether the sprite is alive
         /// </summary>
-        private bool isAlive;
+        private bool isAlive = false;
 
         /// <summary>
         /// Sprite's default health

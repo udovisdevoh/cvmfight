@@ -165,11 +165,7 @@ namespace Waves
         {
             double value = 0.0;
 
-            if (waveCache.ContainsKey(x))
-            {
-                value = waveCache.Get(x);
-            }
-            else
+            if (!waveCache.TryGetValue(x, out value))
             {
                 foreach (IWave iWave in waveList)
                     value += iWave.GetYValueAt(x);

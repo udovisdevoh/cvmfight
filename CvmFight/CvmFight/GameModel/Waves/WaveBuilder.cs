@@ -17,7 +17,7 @@ namespace Waves
         public IWave Build(int waveCount, Random random)
         {
             WavePack wavePack = new WavePack();
-            for (int i = 0; i < waveCount; waveCount++)
+            for (int i = 0; i < waveCount; i++)
             {
                 WaveFunction waveFunction = WaveFunctions.GetRandomWaveFunction(random);
                 double phase = (random.NextDouble() * 2.0) - 1.0;
