@@ -65,7 +65,9 @@ namespace CvmFight
 
             do
             {
-                if (map.GetMatterTypeAt(sprite.PositionX - sprite.Radius, sprite.PositionY - sprite.Radius) != null)
+                if (sprite.PositionX < 0 || sprite.PositionY < 0 || sprite.PositionX >= map.Width || sprite.PositionY >= map.Height)
+                    return true;
+                else if (map.GetMatterTypeAt(sprite.PositionX - sprite.Radius, sprite.PositionY - sprite.Radius) != null)
                     return true;
                 else if (map.GetMatterTypeAt(sprite.PositionX, sprite.PositionY - sprite.Radius) != null)
                     return true;

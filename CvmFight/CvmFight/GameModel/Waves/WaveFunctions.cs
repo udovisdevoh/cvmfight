@@ -29,16 +29,36 @@ namespace Waves
         #endregion
 
         #region Public Methods
+        /// <summary>
+        /// Random wave functions
+        /// </summary>
+        /// <param name="random">random number generator</param>
+        /// <returns>Random wave functions</returns>
         public static WaveFunction GetRandomWaveFunction(Random random)
         {
-            int functionType = random.Next(1, 5);
+            return GetRandomWaveFunction(random, false);
+        }
+
+        /// <summary>
+        /// Return random wave function
+        /// </summary>
+        /// <param name="random">random number generator</param>
+        /// <param name="isOnlyContinuous">whether we only want continuous waves (default: false)</param>
+        /// <returns>random wave function</returns>
+        public static WaveFunction GetRandomWaveFunction(Random random, bool isOnlyContinuous)
+        {
+            int functionType;
+            if (isOnlyContinuous)
+                functionType = random.Next(1, 3);
+            else
+                functionType = random.Next(1, 5);
 
             if (functionType == 1)
                 return sine;
             else if (functionType == 2)
-                return square;
-            else if (functionType == 3)
                 return triangle;
+            else if (functionType == 3)
+                return square;
             else
             {
                 if (random.Next(0, 2) == 1)

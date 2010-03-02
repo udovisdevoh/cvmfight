@@ -19,7 +19,7 @@ namespace CvmFight
             DefaultHealth = 100.0;
             Health = 0;
             MaxHealth = 200.0;
-            DefaultWalkingDistance = 0.1;
+            DefaultWalkingDistance = 0.05;
         }
         #endregion
     }

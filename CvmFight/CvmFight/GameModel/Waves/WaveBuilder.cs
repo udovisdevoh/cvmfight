@@ -19,7 +19,7 @@ namespace Waves
             WavePack wavePack = new WavePack();
             for (int i = 0; i < waveCount; i++)
             {
-                WaveFunction waveFunction = WaveFunctions.GetRandomWaveFunction(random);
+                WaveFunction waveFunction = WaveFunctions.GetRandomWaveFunction(random,true);
                 double phase = (random.NextDouble() * 2.0) - 1.0;
                 double amplitude = random.NextDouble();
                 double frequency = random.NextDouble();
