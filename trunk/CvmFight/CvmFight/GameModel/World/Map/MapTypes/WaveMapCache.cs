@@ -45,6 +45,15 @@ namespace CvmFight
             int xInt = (int)Math.Floor((double)(x) / precision);
             int yInt = (int)Math.Floor((double)(y) / precision);
 
+            if (xInt < 0)
+                xInt = 0;
+            if (yInt < 0)
+                yInt = 0;
+            if (xInt >= width)
+                xInt = width-1;
+            if (yInt >= height)
+                yInt = height-1;
+
             return internalCache[xInt, yInt];
         }
         #endregion
