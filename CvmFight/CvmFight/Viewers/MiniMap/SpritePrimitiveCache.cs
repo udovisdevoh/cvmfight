@@ -7,19 +7,19 @@ using SdlDotNet.Graphics;
 
 namespace CvmFight
 {
-    class CircleCache
+    class SpritePrimitiveCache
     {
         #region Fields
-        private Dictionary<AbstractSprite, Circle> internalCache = new Dictionary<AbstractSprite, Circle>();
+        private Dictionary<AbstractSprite, IPrimitive> internalCache = new Dictionary<AbstractSprite, IPrimitive>();
         #endregion
 
         #region Public Methods
-        public bool TryGetValue(AbstractSprite sprite, out Circle circle)
+        public bool TryGetValue(AbstractSprite sprite, out IPrimitive circle)
         {
             return internalCache.TryGetValue(sprite, out circle);
         }
 
-        public void Add(AbstractSprite sprite, Circle circle)
+        public void Add(AbstractSprite sprite, IPrimitive circle)
         {
             internalCache.Add(sprite, circle);
         }

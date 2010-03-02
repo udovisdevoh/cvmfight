@@ -5,6 +5,7 @@ using System.Text;
 using System.Drawing;
 using SdlDotNet.Graphics;
 using SdlDotNet.Core;
+using SdlDotNet.Input;
 
 namespace CvmFight
 {
