@@ -13,6 +13,24 @@ namespace CvmFight
         private List<AbstractSprite> internalList = new List<AbstractSprite>();
         #endregion
 
+        #region Constructors
+        /// <summary>
+        /// Create sprite pool
+        /// </summary>
+        /// <param name="spriteToAdd">sprite to add</param>
+        public SpritePool(AbstractSprite spriteToAdd)
+        {
+            Add(spriteToAdd);
+        }
+
+        /// <summary>
+        /// Create sprite pool
+        /// </summary>
+        public SpritePool()
+        {
+        }
+        #endregion
+
         #region IList<AbstractSprite> Membres
         public int IndexOf(AbstractSprite item)
         {

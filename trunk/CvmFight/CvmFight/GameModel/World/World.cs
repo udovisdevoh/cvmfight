@@ -10,11 +10,18 @@ namespace CvmFight
     /// </summary>
     class World
     {
+        #region Constants
+        /// <summary>
+        /// How many desired monsters
+        /// </summary>
+        private int monsterCount = 10;
+        #endregion
+
         #region Fields and parts
         /// <summary>
         /// Current player
         /// </summary>
-        private Player currentPlayer;
+        private Player currentPlayer = new Player();
 
         /// <summary>
         /// Map
@@ -35,20 +42,24 @@ namespace CvmFight
         /// Physics logic
         /// </summary>
         private Physics physics = new Physics();
+
+        /// <summary>
+        /// Random number generator
+        /// </summary>
+        private Random random = new Random();
         #endregion
 
         #region Constructor
         public World()
         {
-            Random random = new Random();
-
-
-            currentPlayer = new Player();
             spawner = new Spawner(random, physics);
             map = new WaveMap(random);
-            spritePool = new SpritePool();
+            spritePool = new SpritePool(currentPlayer);
+
+            for (int i = 0; i < monsterCount; i++)
+                spritePool.Add(new MonsterStickMan());
+
             spawner.TryRespawn(spritePool,map);
-            spritePool.Add(currentPlayer);
         }
         #endregion
 
