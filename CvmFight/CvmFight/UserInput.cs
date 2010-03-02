@@ -8,7 +8,7 @@ namespace CvmFight
     /// <summary>
     /// Which keys are up or down
     /// </summary>
-    class KeyBoardInput
+    class UserInput
     {
         #region Fields
         private bool isPressUp = false;

@@ -16,7 +16,7 @@ namespace CvmFight
 
         private AbstractGameViewer gameViewer = new MiniMap();
 
-        private KeyBoardInput keyBoardInput = new KeyBoardInput();
+        private UserInput keyBoardInput = new UserInput();
         #endregion
 
         #region Public Methods and event handlers
@@ -26,6 +26,8 @@ namespace CvmFight
             Events.Tick += Update;
             Events.KeyboardDown += OnKeyboardDown;
             Events.KeyboardUp += OnKeyboardUp;
+            Events.MouseMotion += OnMouseMotion;
+
             Events.Run();
         }
 
@@ -66,6 +68,11 @@ namespace CvmFight
                 keyBoardInput.IsPressLeft = false;
             else if (args.Key == Key.RightArrow || args.Key == Key.D)
                 keyBoardInput.IsPressRight = false;
+        }
+
+        public void OnMouseMotion(object sender, MouseMotionEventArgs args)
+        {
+            //args.RelativeX
         }
         #endregion
 
