@@ -10,11 +10,12 @@ namespace CvmFight
     /// </summary>
     class World
     {
-        #region Fields
+        #region Fields and parts
+        /// <summary>
+        /// Current player
+        /// </summary>
         private Player currentPlayer;
-        #endregion
 
-        #region Parts
         /// <summary>
         /// Map
         /// </summary>
@@ -33,6 +34,13 @@ namespace CvmFight
             map = new HardCodedMap();
             spritePool = new SpritePool();
             spritePool.Add(currentPlayer);
+        }
+        #endregion
+
+        #region Properties
+        public AbstractMap Map
+        {
+            get { return map; }
         }
         #endregion
     }

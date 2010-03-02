@@ -27,10 +27,16 @@ namespace CvmFight
         #region Public Methods
         public override void Update(World world)
         {
-            if (random.Next(2) == 0)
-                screen.Fill(Color.Beige);
-            else
-                screen.Fill(Color.Blue);
+
+
+            for (int x = 0; x < world.Map.Width; x++)
+            {
+                for (int y = 0; y < world.Map.Width; y++)
+                {
+                    screen.Draw(new Point(x, y), Color.Blue);
+                }
+            }
+
             screen.Update();
         }
         #endregion
