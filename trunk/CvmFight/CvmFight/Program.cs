@@ -22,7 +22,7 @@ namespace CvmFight
 
         public void Start()
         {
-            Events.TargetFps = 40;
+            Events.TargetFps = 60;
             Events.Tick += Update;
             Events.Run();
         }

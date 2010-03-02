@@ -10,16 +10,21 @@ namespace CvmFight
 {
     class MiniMap : AbstractGameViewer
     {
+        #region Fields and parts
         private Surface screen;
 
         private Random random = new Random();
+        #endregion
 
+        #region Constructor
         public MiniMap()
         {
             screen = new Surface(1024, 768);
             screen = Video.SetVideoMode(1024, 768);
         }
+        #endregion
 
+        #region Public Methods
         public override void Update(World world)
         {
             if (random.Next(2) == 0)
@@ -28,5 +33,6 @@ namespace CvmFight
                 screen.Fill(Color.Blue);
             screen.Update();
         }
+        #endregion
     }
 }
