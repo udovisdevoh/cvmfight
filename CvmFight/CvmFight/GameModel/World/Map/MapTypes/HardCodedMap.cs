@@ -66,7 +66,7 @@ namespace CvmFight
         {
             if (x >= width || x < 0 || y >= height || y < 0)
                 throw new ArgumentException("x-y coordinates out of bound");
-            return internalMap[(int)Math.Floor(x), (int)Math.Floor(y)];
+            return internalMap[(int)Math.Floor(y), (int)Math.Floor(x)];
         }
         #endregion
 
