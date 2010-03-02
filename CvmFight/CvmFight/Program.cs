@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 using SdlDotNet.Graphics;
 using SdlDotNet.Core;
 
@@ -10,34 +10,26 @@ namespace CvmFight
 {
     class Program
     {
-        private Surface screen;
+        private World world = new World();
 
-        private Random random = new Random();
-        
-        static void Main(string[] args)
+        private AbstractGameViewer gameViewer = new MiniMap();
+
+        public static void Main(string[] args)
         {
-            Program p = new Program();
-            p.initialisation();
+            Program program = new Program();
+            program.Start();
         }
 
-        public void initialisation()
+        public void Start()
         {
-            screen = new Surface(1024, 768);
-            screen = Video.SetVideoMode(1024, 768);
             Events.TargetFps = 40;
-            Events.Tick += run;
+            Events.Tick += Update;
             Events.Run();
         }
 
-        public void run(object sender, TickEventArgs args)
+        public void Update(object sender, TickEventArgs args)
         {
-            if (random.Next(2) == 0)
-                screen.Fill(Color.Beige);
-            else
-                screen.Fill(Color.Blue);
-
-            screen.Update();
+            gameViewer.Update(world);
         }
-      
     }
 }
