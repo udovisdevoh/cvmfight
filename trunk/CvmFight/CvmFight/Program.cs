@@ -32,14 +32,14 @@ namespace CvmFight
         public void Update(object sender, TickEventArgs args)
         {
             if (keyBoardInput.IsPressUp)
-                world.Physics.TryMakeWalk(world.CurrentPlayer);
+                world.Physics.TryMakeWalk(world.CurrentPlayer, world.SpritePool, world.Map);
             else if (keyBoardInput.IsPressDown)
-                world.Physics.TryMakeWalk(world.CurrentPlayer, Math.PI);
+                world.Physics.TryMakeWalk(world.CurrentPlayer, Math.PI, world.SpritePool, world.Map);
             
             if (keyBoardInput.IsPressLeft)
-                world.Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 1.5);
+                world.Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 1.5, world.SpritePool, world.Map);
             else if (keyBoardInput.IsPressRight)
-                world.Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 0.5);
+                world.Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 0.5, world.SpritePool, world.Map);
 
             gameViewer.Update(world);
         }
