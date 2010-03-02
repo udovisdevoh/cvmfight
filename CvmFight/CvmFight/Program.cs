@@ -17,6 +17,8 @@ namespace CvmFight
         private AbstractGameViewer gameViewer = new MiniMap();
 
         private UserInput userInput = new UserInput();
+
+        private RayTracer rayTracer = new RayTracer(200,110);
         #endregion
 
         #region Public Methods and event handlers
@@ -41,6 +43,8 @@ namespace CvmFight
                 world.Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 1.5, world.SpritePool, world.Map);
             else if (userInput.IsPressRight)
                 world.Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 0.5, world.SpritePool, world.Map);
+
+            rayTracer.Trace(world.CurrentPlayer, world.Map);
 
             world.Physics.TryMakeRotate(world.CurrentPlayer, userInput.CurrentMouseRelativeX);
             userInput.CurrentMouseRelativeX = 0;

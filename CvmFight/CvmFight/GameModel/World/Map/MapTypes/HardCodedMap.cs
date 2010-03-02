@@ -37,7 +37,7 @@ namespace CvmFight
 
             AbstractMatterType wall = new MatterTypeWall();
             AddRow(0, new AbstractMatterType[] { wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall });
-            AddRow(1, new AbstractMatterType[] { wall, null, null, null, null, null, null, wall, null, null, null, null, null, null, null, wall });
+            AddRow(1, new AbstractMatterType[] { wall, null, null, null, wall, null, null, wall, null, wall, null, null, null, null, null, wall });
             AddRow(2, new AbstractMatterType[] { wall, null, wall, null, null, null, null, wall, null, null, null, null, null, wall, null, wall });
             AddRow(3, new AbstractMatterType[] { wall, null, wall, null, null, null, null, wall, null, null, null, null, null, wall, null, wall });
             AddRow(4, new AbstractMatterType[] { wall, null, wall, wall, wall, wall, null, wall, null, null, null, null, wall, wall, null, wall });

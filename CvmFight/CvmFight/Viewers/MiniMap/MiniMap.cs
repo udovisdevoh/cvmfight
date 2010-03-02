@@ -156,7 +156,7 @@ namespace CvmFight
             circle.PositionY = (short)pixelLocationY;
 
             if (sprite is Player)
-                mainSurface.Draw(circle, Color.Blue);
+                mainSurface.Draw(circle, Color.MediumBlue);
             else if (sprite is AbstractFighter)
                 mainSurface.Draw(circle, Color.Red);
             else
