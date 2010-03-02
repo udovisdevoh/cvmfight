@@ -39,7 +39,7 @@ namespace CvmFight
         public MiniMap()
         {
             mainSurface = new Surface(screenWidth, screenHeight);
-            mainSurface = Video.SetVideoMode(screenWidth, screenHeight, true, false, false, true);
+            mainSurface = Video.SetVideoMode(screenWidth, screenHeight, true, false, true, true);
             pointGrid = new Point[screenWidth, screenHeight];
 
             for (int x = 0; x < screenWidth; x++)
