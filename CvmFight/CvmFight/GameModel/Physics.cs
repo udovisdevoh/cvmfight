@@ -103,9 +103,11 @@ namespace CvmFight
         /// Make walk sprite
         /// </summary>
         /// <param name="sprite">sprite</param>
-        public void TryMakeWalk(AbstractSprite sprite)
+        /// <param name="spritePool">other sprites</param>
+        /// <param name="map">map</param>
+        public void TryMakeWalk(AbstractSprite sprite, SpritePool spritePool, AbstractMap map)
         {
-            TryMakeWalk(sprite, 0);
+            TryMakeWalk(sprite, 0, spritePool, map);
         }
 
         /// <summary>
@@ -113,13 +115,20 @@ namespace CvmFight
         /// </summary>
         /// <param name="sprite">sprite</param>
         /// <param name="angleOffsetRadian">angle offset (default 0) (in radian)</param>
-        public void TryMakeWalk(AbstractSprite sprite, double angleOffsetRadian)
+        /// <param name="spritePool">other sprites</param>
+        /// <param name="map">map</param>
+        public void TryMakeWalk(AbstractSprite sprite, double angleOffsetRadian, SpritePool spritePool, AbstractMap map)
         {
             double xMove = Math.Cos(sprite.AngleRadian + angleOffsetRadian) * sprite.DefaultWalkingDistance;
             double yMove = Math.Sin(sprite.AngleRadian + angleOffsetRadian) * sprite.DefaultWalkingDistance;
 
             sprite.PositionX += xMove;
+            if (IsDetectCollision(sprite,spritePool,map))
+                sprite.PositionX -= xMove;
+
             sprite.PositionY += yMove;
+            if (IsDetectCollision(sprite,spritePool,map))
+                sprite.PositionY -= yMove;
         }
         #endregion
     }
