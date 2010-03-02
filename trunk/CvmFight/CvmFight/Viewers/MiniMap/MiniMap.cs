@@ -35,7 +35,7 @@ namespace CvmFight
         public MiniMap()
         {
             surface = new Surface(screenWidth, screenHeight);
-            surface = Video.SetVideoMode(screenWidth, screenHeight);
+            surface = Video.SetVideoMode(screenWidth, screenHeight, true, false, false, true);
             pointGrid = new Point[screenWidth, screenHeight];
 
             for (int x = 0; x < screenWidth; x++)
@@ -57,6 +57,8 @@ namespace CvmFight
         #region Private Methods
         private void DrawMap(AbstractMap map)
         {
+            //Surface mapSurface = GetOrCreateMapSurface(map);
+
             int pixelLocationX = 0;
             for (double mapLocationX = 0; mapLocationX < map.Width; mapLocationX += precision)
             {
