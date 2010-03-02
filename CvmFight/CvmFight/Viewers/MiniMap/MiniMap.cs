@@ -20,7 +20,7 @@ namespace CvmFight
         #endregion
 
         #region Fields and parts
-        private Surface surface;
+        private Surface mainSurface;
 
         private Random random = new Random();
 
@@ -29,13 +29,17 @@ namespace CvmFight
         private SpritePrimitiveCache circleCache = new SpritePrimitiveCache();
 
         private SpritePrimitiveCache angleLineCache = new SpritePrimitiveCache();
+
+        private AbstractMap currentMap = null;
+
+        private Surface mapSurface = null;
         #endregion
 
         #region Constructor
         public MiniMap()
         {
-            surface = new Surface(screenWidth, screenHeight);
-            surface = Video.SetVideoMode(screenWidth, screenHeight, true, false, false, true);
+            mainSurface = new Surface(screenWidth, screenHeight);
+            mainSurface = Video.SetVideoMode(screenWidth, screenHeight, true, false, false, true);
             pointGrid = new Point[screenWidth, screenHeight];
 
             for (int x = 0; x < screenWidth; x++)
@@ -47,17 +51,29 @@ namespace CvmFight
         #region Public Methods
         public override void Update(World world)
         {
-            DrawMap(world.Map);
+            mainSurface.Blit(GetOrCreateMapSurface(world.Map));
             foreach (AbstractSprite sprite in world.SpritePool)
                 DrawSprite(sprite);
-            surface.Update();
+            mainSurface.Update();
         }
         #endregion
 
         #region Private Methods
-        private void DrawMap(AbstractMap map)
+        private Surface GetOrCreateMapSurface(AbstractMap map)
         {
-            //Surface mapSurface = GetOrCreateMapSurface(map);
+            if (this.currentMap != map)
+            {
+                this.currentMap = map;
+                mapSurface = null;
+            }
+
+            if (mapSurface != null)
+                return mapSurface;
+
+            int pixelWidth = (int)Math.Ceiling((double)map.Width / precision);
+            int pixelHeight = (int)Math.Ceiling((double)map.Height / precision);
+
+            mapSurface = new Surface(pixelWidth, pixelHeight);
 
             int pixelLocationX = 0;
             for (double mapLocationX = 0; mapLocationX < map.Width; mapLocationX += precision)
@@ -66,13 +82,15 @@ namespace CvmFight
                 for (double mapLocationY = 0; mapLocationY < map.Width; mapLocationY += precision)
                 {
                     if (map.GetMatterTypeAt(mapLocationX, mapLocationY) != null)
-                        surface.Draw(pointGrid[pixelLocationX, pixelLocationY], Color.Gray);
+                        mapSurface.Draw(pointGrid[pixelLocationX, pixelLocationY], Color.Gray);
                     else
-                        surface.Draw(pointGrid[pixelLocationX, pixelLocationY], Color.Black);
+                        mapSurface.Draw(pointGrid[pixelLocationX, pixelLocationY], Color.Black);
                     pixelLocationY++;
                 }
                 pixelLocationX++;
             }
+
+            return mapSurface;
         }
 
         private void DrawSprite(AbstractSprite sprite)
@@ -112,7 +130,7 @@ namespace CvmFight
             angleLine.YPosition2 = pixelEndingLocationY;
 
 
-            surface.Draw(angleLine, Color.White);
+            mainSurface.Draw(angleLine, Color.White);
         }
 
         private void DrawSpriteBounds(AbstractSprite sprite)
@@ -138,11 +156,11 @@ namespace CvmFight
             circle.PositionY = (short)pixelLocationY;
 
             if (sprite is Player)
-                surface.Draw(circle, Color.Blue);
+                mainSurface.Draw(circle, Color.Blue);
             else if (sprite is AbstractFighter)
-                surface.Draw(circle, Color.Red);
+                mainSurface.Draw(circle, Color.Red);
             else
-                surface.Draw(circle, Color.Green);
+                mainSurface.Draw(circle, Color.Green);
         }
         #endregion
     }
