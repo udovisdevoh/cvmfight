@@ -62,7 +62,7 @@ namespace CvmFight
                 for (double mapLocationY = 0; mapLocationY < map.Width; mapLocationY += precision)
                 {
                     if (map.GetMatterTypeAt(mapLocationX, mapLocationY) != null)
-                        surface.Draw(pointGrid[pixelLocationX, pixelLocationY], Color.Blue);
+                        surface.Draw(pointGrid[pixelLocationX, pixelLocationY], Color.Gray);
                     pixelLocationY++;
                 }
                 pixelLocationX++;
@@ -87,11 +87,11 @@ namespace CvmFight
             circle.PositionY = (short)pixelLocationY;
 
             if (sprite is Player)
-                surface.Draw(circle, Color.Green);
+                surface.Draw(circle, Color.Blue);
             else if (sprite is AbstractFighter)
                 surface.Draw(circle, Color.Red);
             else
-                surface.Draw(circle, Color.Orange);
+                surface.Draw(circle, Color.Green);
         }
         #endregion
     }

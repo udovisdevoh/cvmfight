@@ -26,7 +26,7 @@ namespace CvmFight
         }
         #endregion
 
-        #region Methods
+        #region Public Methods
         public void TryRespawn(SpritePool spritePool, AbstractMap map)
         {
             AbstractFighter fighter;
@@ -55,9 +55,9 @@ namespace CvmFight
             do
             {
                 point = emptyMapLocationCache.GetRandomAvailableLocation(map, spritePool, random);
-                fighter.PositionX = (double)point.X;
-                fighter.PositionY = (double)point.Y;
-            } while (physics.IsDetectSpriteCollision(fighter, spritePool));
+                fighter.PositionX = (double)point.X + 0.5;
+                fighter.PositionY = (double)point.Y + 0.5;
+            } while (physics.IsDetectCollision(fighter, spritePool, map));
 
             fighter.Health = fighter.DefaultHealth;
             fighter.AngleDegree = random.Next(360);
