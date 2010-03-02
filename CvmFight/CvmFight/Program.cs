@@ -16,7 +16,7 @@ namespace CvmFight
 
         private AbstractGameViewer gameViewer = new MiniMap();
 
-        private UserInput keyBoardInput = new UserInput();
+        private UserInput userInput = new UserInput();
         #endregion
 
         #region Public Methods and event handlers
@@ -27,21 +27,23 @@ namespace CvmFight
             Events.KeyboardDown += OnKeyboardDown;
             Events.KeyboardUp += OnKeyboardUp;
             Events.MouseMotion += OnMouseMotion;
-
             Events.Run();
         }
 
         public void Update(object sender, TickEventArgs args)
         {
-            if (keyBoardInput.IsPressUp)
+            if (userInput.IsPressUp)
                 world.Physics.TryMakeWalk(world.CurrentPlayer, world.SpritePool, world.Map);
-            else if (keyBoardInput.IsPressDown)
+            else if (userInput.IsPressDown)
                 world.Physics.TryMakeWalk(world.CurrentPlayer, Math.PI, world.SpritePool, world.Map);
             
-            if (keyBoardInput.IsPressLeft)
+            if (userInput.IsPressLeft)
                 world.Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 1.5, world.SpritePool, world.Map);
-            else if (keyBoardInput.IsPressRight)
+            else if (userInput.IsPressRight)
                 world.Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 0.5, world.SpritePool, world.Map);
+
+            world.Physics.TryMakeRotate(world.CurrentPlayer, userInput.CurrentMouseRelativeX);
+            userInput.CurrentMouseRelativeX = 0;
 
             gameViewer.Update(world);
         }
@@ -49,30 +51,31 @@ namespace CvmFight
         public void OnKeyboardDown(object sender, KeyboardEventArgs args)
         {
             if (args.Key == Key.UpArrow || args.Key == Key.W)
-                keyBoardInput.IsPressUp = true;
+                userInput.IsPressUp = true;
             else if (args.Key == Key.DownArrow || args.Key == Key.S)
-                keyBoardInput.IsPressDown = true;
+                userInput.IsPressDown = true;
             else if (args.Key == Key.LeftArrow || args.Key == Key.A)
-                keyBoardInput.IsPressLeft = true;
+                userInput.IsPressLeft = true;
             else if (args.Key == Key.RightArrow || args.Key == Key.D)
-                keyBoardInput.IsPressRight = true;
+                userInput.IsPressRight = true;
         }
 
         public void OnKeyboardUp(object sender, KeyboardEventArgs args)
         {
             if (args.Key == Key.UpArrow || args.Key == Key.W)
-                keyBoardInput.IsPressUp = false;
+                userInput.IsPressUp = false;
             else if (args.Key == Key.DownArrow || args.Key == Key.S)
-                keyBoardInput.IsPressDown = false;
+                userInput.IsPressDown = false;
             else if (args.Key == Key.LeftArrow || args.Key == Key.A)
-                keyBoardInput.IsPressLeft = false;
+                userInput.IsPressLeft = false;
             else if (args.Key == Key.RightArrow || args.Key == Key.D)
-                keyBoardInput.IsPressRight = false;
+                userInput.IsPressRight = false;
         }
 
         public void OnMouseMotion(object sender, MouseMotionEventArgs args)
         {
-            //args.RelativeX
+            userInput.CurrentMouseRelativeX = args.RelativeX;
+            userInput.CurrentMouseRelativeY = args.RelativeY;
         }
         #endregion
 

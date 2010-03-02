@@ -131,5 +131,10 @@ namespace CvmFight
                 sprite.PositionY -= yMove;
         }
         #endregion
+
+        public void TryMakeRotate(AbstractSprite sprite, short angleRotationStrength)
+        {
+            sprite.AngleRadian += ((double)angleRotationStrength) / 100.0;
+        }
     }
 }
