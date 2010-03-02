@@ -25,14 +25,23 @@ namespace CvmFight
         /// Sprite pool
         /// </summary>
         private SpritePool spritePool;
+
+        /// <summary>
+        /// Manages spawning and respawning
+        /// </summary>
+        private Spawner spawner;
         #endregion
 
         #region Constructor
         public World()
         {
+            Random random = new Random();
+
+            spawner = new Spawner(random);
             currentPlayer = new Player();
-            map = new HardCodedMap();
+            map = new WaveMap(random);
             spritePool = new SpritePool();
+            spawner.TryRespawn(spritePool,map);
             spritePool.Add(currentPlayer);
         }
         #endregion
@@ -41,6 +50,11 @@ namespace CvmFight
         public AbstractMap Map
         {
             get { return map; }
+        }
+
+        public SpritePool SpritePool
+        {
+            get { return spritePool; }
         }
         #endregion
     }

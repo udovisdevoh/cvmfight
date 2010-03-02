@@ -1,7 +1,6 @@
 C:\Users\r3lacasgu\Desktop\CvmFight\CvmFight\bin\Debug\CvmFight.exe
 C:\Users\r3lacasgu\Desktop\CvmFight\CvmFight\bin\Debug\CvmFight.pdb
 C:\Users\r3lacasgu\Desktop\CvmFight\CvmFight\bin\Debug\SdlDotNet.dll
-C:\Users\r3lacasgu\Desktop\CvmFight\CvmFight\bin\Debug\Tao.Sdl.dll
 C:\Users\r3lacasgu\Desktop\CvmFight\CvmFight\bin\Debug\Tao.Sdl.xml
 C:\Users\r3lacasgu\Desktop\CvmFight\CvmFight\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\r3lacasgu\Desktop\CvmFight\CvmFight\obj\Debug\CvmFight.exe

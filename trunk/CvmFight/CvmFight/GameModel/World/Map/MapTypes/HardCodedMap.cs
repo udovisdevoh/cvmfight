@@ -40,11 +40,11 @@ namespace CvmFight
             AddRow(1, new AbstractMatterType[] { wall, null, null, null, null, null, null, wall, null, null, null, null, null, null, null, wall });
             AddRow(2, new AbstractMatterType[] { wall, null, wall, null, null, null, null, wall, null, null, null, null, null, wall, null, wall });
             AddRow(3, new AbstractMatterType[] { wall, null, wall, null, null, null, null, wall, null, null, null, null, null, wall, null, wall });
-            AddRow(4, new AbstractMatterType[] { wall, null, wall, wall, null, null, null, wall, null, null, null, null, wall, wall, null, wall });
-            AddRow(5, new AbstractMatterType[] { wall, null, null, wall, null, null, null, wall, null, null, null, null, wall, null, null, wall });
-            AddRow(6, new AbstractMatterType[] { wall, null, null, wall, null, null, null, wall, null, null, null, null, wall, null, wall, wall });
-            AddRow(7, new AbstractMatterType[] { wall, null, null, wall, null, null, wall, wall, wall, wall, null, null, wall, null, wall, wall });
-            AddRow(8, new AbstractMatterType[] { wall, null, null, wall, null, null, wall, wall, wall, wall, null, null, wall, null, null, wall });
+            AddRow(4, new AbstractMatterType[] { wall, null, wall, wall, wall, wall, null, wall, null, null, null, null, wall, wall, null, wall });
+            AddRow(5, new AbstractMatterType[] { wall, null, null, wall, wall, wall, null, wall, null, null, null, null, wall, null, null, wall });
+            AddRow(6, new AbstractMatterType[] { wall, null, null, wall, wall, null, null, wall, null, null, null, null, wall, null, wall, wall });
+            AddRow(7, new AbstractMatterType[] { wall, null, null, wall, wall, null, wall, wall, wall, wall, null, null, wall, null, wall, wall });
+            AddRow(8, new AbstractMatterType[] { wall, null, null, wall, wall, null, wall, wall, wall, wall, null, null, wall, null, null, wall });
             AddRow(9, new AbstractMatterType[] { wall, null, null, wall, null, null, wall, wall, wall, wall, null, wall, wall, null, null, wall });
             AddRow(10, new AbstractMatterType[] { wall, null, null, wall, null, null, wall, wall, null, null, null, null, wall, null, wall, wall });
             AddRow(11, new AbstractMatterType[] { wall, null, null, wall, null, null, null, wall, wall, null, null, null, wall, null, wall, wall });
