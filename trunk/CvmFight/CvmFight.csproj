@@ -53,7 +53,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CvmFight\GameModel\Optics.cs" />
     <Compile Include="CvmFight\GameModel\Physics.cs" />
+    <Compile Include="CvmFight\GameModel\RayTracer\RayTracer.cs" />
+    <Compile Include="CvmFight\GameModel\RayTracer\RayTracerPoint.cs" />
     <Compile Include="CvmFight\GameModel\Spawner\EmptyMapLocationCache.cs" />
     <Compile Include="CvmFight\GameModel\Spawner\Spawner..cs" />
     <Compile Include="CvmFight\GameModel\World\Map\MapTypes\AbstractMap.cs" />
