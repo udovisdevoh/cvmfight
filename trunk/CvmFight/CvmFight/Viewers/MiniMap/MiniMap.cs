@@ -26,7 +26,9 @@ namespace CvmFight
 
         private Point[,] pointGrid;
 
-        private CircleCache circleCache = new CircleCache();
+        private SpritePrimitiveCache circleCache = new SpritePrimitiveCache();
+
+        private SpritePrimitiveCache angleLineCache = new SpritePrimitiveCache();
         #endregion
 
         #region Constructor
@@ -71,13 +73,58 @@ namespace CvmFight
 
         private void DrawSprite(AbstractSprite sprite)
         {
+            DrawSpriteBounds(sprite);
+            DrawSpriteAngle(sprite);
+        }
+
+        private void DrawSpriteAngle(AbstractSprite sprite)
+        {
+            int pixelLocationX = (int)(sprite.PositionX / precision);
+            int pixelLocationY = (int)(sprite.PositionY / precision);
+
+            double realEndingLocationX = sprite.PositionX + Math.Cos(sprite.AngleRadian) * sprite.Diameter;
+            double realEndingLocationY = sprite.PositionY + Math.Sin(sprite.AngleRadian) * sprite.Diameter;
+
+            short pixelEndingLocationX = (short)(realEndingLocationX / precision);
+            short pixelEndingLocationY = (short)(realEndingLocationY / precision);
+
+            IPrimitive primitive;
+            Line angleLine;
+
+            if (angleLineCache.TryGetValue(sprite, out primitive))
+            {
+                angleLine = (Line)primitive;
+            }
+            else
+            {
+                angleLine = new Line();
+            }
+
+            angleLine.XPosition1 = (short)pixelLocationX;
+            angleLine.YPosition1 = (short)pixelLocationY;
+
+
+            angleLine.XPosition2 = pixelEndingLocationX;
+            angleLine.YPosition2 = pixelEndingLocationY;
+
+
+            surface.Draw(angleLine, Color.White);
+        }
+
+        private void DrawSpriteBounds(AbstractSprite sprite)
+        {
             int pixelLocationX = (int)(sprite.PositionX / precision);
             int pixelLocationY = (int)(sprite.PositionY / precision);
             int radius = (int)(sprite.Radius / precision);
 
+            IPrimitive primitive;
             Circle circle;
 
-            if (!circleCache.TryGetValue(sprite, out circle))
+            if (circleCache.TryGetValue(sprite, out primitive))
+            {
+                circle = (Circle)primitive;
+            }
+            else
             {
                 circle = new Circle((short)pixelLocationX, (short)pixelLocationY, (short)radius);
                 circleCache.Add(sprite, circle);
