@@ -30,6 +30,11 @@ namespace CvmFight
         /// Manages spawning and respawning
         /// </summary>
         private Spawner spawner;
+
+        /// <summary>
+        /// Physics logic
+        /// </summary>
+        private Physics physics = new Physics();
         #endregion
 
         #region Constructor
@@ -37,8 +42,9 @@ namespace CvmFight
         {
             Random random = new Random();
 
-            spawner = new Spawner(random);
+
             currentPlayer = new Player();
+            spawner = new Spawner(random, physics);
             map = new WaveMap(random);
             spritePool = new SpritePool();
             spawner.TryRespawn(spritePool,map);
