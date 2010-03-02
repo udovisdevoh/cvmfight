@@ -53,7 +53,7 @@ namespace CvmFight
         public World()
         {
             spawner = new Spawner(random, physics);
-            map = new WaveMap(random);
+            map = new CachedWaveMap(random);
             spritePool = new SpritePool(currentPlayer);
 
             for (int i = 0; i < monsterCount; i++)
