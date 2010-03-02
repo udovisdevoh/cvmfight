@@ -18,6 +18,10 @@ namespace CvmFight
         private bool isPressLeft = false;
 
         private bool isPressRight = false;
+
+        private short currentMouseRelativeX = 0;
+        
+        private short currentMouseRelativeY = 0;
         #endregion
 
         #region Properties
@@ -43,6 +47,18 @@ namespace CvmFight
         {
             get { return isPressRight; }
             set { isPressRight = value; }
+        }
+
+        public short CurrentMouseRelativeX
+        {
+            get { return currentMouseRelativeX; }
+            set { currentMouseRelativeX = value; }
+        }
+
+        public short CurrentMouseRelativeY
+        {
+            get { return currentMouseRelativeY; }
+            set { currentMouseRelativeY = value; }
         }
         #endregion
     }
