@@ -8,18 +8,21 @@ namespace CvmFight
 {
     class Spawner
     {
-        #region Fields
+        #region Fields and parts
         private AbstractMap map = null;
 
         private EmptyMapLocationCache emptyMapLocationCache;
+
+        private Physics physics;
 
         private Random random;
         #endregion
 
         #region Constructor
-        public Spawner(Random random)
+        public Spawner(Random random, Physics physics)
         {
             this.random = random;
+            this.physics = physics;
         }
         #endregion
 
@@ -46,12 +49,18 @@ namespace CvmFight
             {
                 this.map = map;
                 emptyMapLocationCache = new EmptyMapLocationCache(this.map);
-                Point point = emptyMapLocationCache.GetAvailableLocation(map, spritePool);
+            }
+
+            Point point;
+            do
+            {
+                point = emptyMapLocationCache.GetRandomAvailableLocation(map, spritePool, random);
                 fighter.PositionX = (double)point.X;
                 fighter.PositionY = (double)point.Y;
-                fighter.Health = fighter.DefaultHealth;
-                fighter.AngleDegree = random.Next(360);
-            }
+            } while (physics.IsDetectSpriteCollision(fighter, spritePool));
+
+            fighter.Health = fighter.DefaultHealth;
+            fighter.AngleDegree = random.Next(360);
         }
         #endregion
     }
