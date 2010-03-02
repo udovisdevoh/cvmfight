@@ -73,6 +73,16 @@ namespace CvmFight
         {
             get { return spritePool; }
         }
+
+        public Player CurrentPlayer
+        {
+            get{return currentPlayer;}
+        }
+
+        public Physics Physics
+        {
+            get { return physics; }
+        }
         #endregion
     }
 }

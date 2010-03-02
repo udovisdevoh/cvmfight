@@ -42,14 +42,9 @@ namespace CvmFight
         private double height = 0.0;
 
         /// <summary>
-        /// sprite's weight
+        /// Sprite's default walking distance per tick
         /// </summary>
-        private double weight = 0.0;
-
-        /// <summary>
-        /// sprite's velocity
-        /// </summary>
-        private double velocity = 0.0;
+        private double defaultWalkingDistance = 0.1;
         #endregion
 
         #region Properties
@@ -145,22 +140,10 @@ namespace CvmFight
             set { height = value; }
         }
 
-        /// <summary>
-        /// Sprite's weight
-        /// </summary>
-        public double Weight
+        public double DefaultWalkingDistance
         {
-            get { return weight; }
-            set { weight = value; }
-        }
-
-        /// <summary>
-        /// Sprite's velocity
-        /// </summary>
-        public double Velocity
-        {
-            get { return velocity; }
-            set { velocity = value; }
+            get { return defaultWalkingDistance; }
+            set { defaultWalkingDistance = value; }
         }
         #endregion
     }

@@ -65,6 +65,8 @@ namespace CvmFight
                 {
                     if (map.GetMatterTypeAt(mapLocationX, mapLocationY) != null)
                         surface.Draw(pointGrid[pixelLocationX, pixelLocationY], Color.Gray);
+                    else
+                        surface.Draw(pointGrid[pixelLocationX, pixelLocationY], Color.Black);
                     pixelLocationY++;
                 }
                 pixelLocationX++;
