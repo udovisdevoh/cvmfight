@@ -12,6 +12,7 @@ namespace CvmFight
             DefaultHealth = 100;
             MaxHealth = 200;
             Radius = 0.1;
+            DefaultWalkingDistance = 0.1;
         }
     }
 }

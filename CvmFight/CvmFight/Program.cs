@@ -16,21 +16,31 @@ namespace CvmFight
 
         private AbstractGameViewer gameViewer = new MiniMap();
 
-        private KeyBoardInput keyBoardInput = new KeyboardInput();
+        private KeyBoardInput keyBoardInput = new KeyBoardInput();
         #endregion
 
-        #region Public Methods
+        #region Public Methods and event handlers
         public void Start()
         {
             Events.TargetFps = 60;
             Events.Tick += Update;
-            Events.Run();
             Events.KeyboardDown += OnKeyboardDown;
             Events.KeyboardUp += OnKeyboardUp;
+            Events.Run();
         }
 
         public void Update(object sender, TickEventArgs args)
         {
+            if (keyBoardInput.IsPressUp)
+                world.Physics.TryMakeWalk(world.CurrentPlayer);
+            else if (keyBoardInput.IsPressDown)
+                world.Physics.TryMakeWalk(world.CurrentPlayer, Math.PI);
+            
+            if (keyBoardInput.IsPressLeft)
+                world.Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 1.5);
+            else if (keyBoardInput.IsPressRight)
+                world.Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 0.5);
+
             gameViewer.Update(world);
         }
 

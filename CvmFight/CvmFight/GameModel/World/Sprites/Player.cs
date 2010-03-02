@@ -14,12 +14,12 @@ namespace CvmFight
         public Player()
         {
             IsAlive = false;
-            Weight = 1.0;
             Height = 1.0;
             Radius = 0.1;
             DefaultHealth = 100.0;
             Health = 0;
             MaxHealth = 200.0;
+            DefaultWalkingDistance = 0.1;
         }
         #endregion
     }

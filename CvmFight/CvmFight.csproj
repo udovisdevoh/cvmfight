@@ -73,6 +73,7 @@
     <Compile Include="CvmFight\GameModel\Waves\WavePack.cs" />
     <Compile Include="CvmFight\GameModel\Waves\WaveBuilder.cs" />
     <Compile Include="CvmFight\GameModel\World\World.cs" />
+    <Compile Include="CvmFight\KeyBoardInput.cs" />
     <Compile Include="CvmFight\Program.cs" />
     <Compile Include="CvmFight\Viewers\AbstractGameViewer.cs" />
     <Compile Include="CvmFight\Viewers\MiniMap\SpritePrimitiveCache.cs" />

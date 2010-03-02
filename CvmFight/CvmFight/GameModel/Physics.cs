@@ -98,6 +98,29 @@ namespace CvmFight
         {
             return Math.Sqrt(Math.Pow(sprite2.PositionX - sprite1.PositionX, 2) + Math.Pow(sprite2.PositionY - sprite1.PositionY, 2));
         }
+
+        /// <summary>
+        /// Make walk sprite
+        /// </summary>
+        /// <param name="sprite">sprite</param>
+        public void TryMakeWalk(AbstractSprite sprite)
+        {
+            TryMakeWalk(sprite, 0);
+        }
+
+        /// <summary>
+        /// Make walk sprite
+        /// </summary>
+        /// <param name="sprite">sprite</param>
+        /// <param name="angleOffsetRadian">angle offset (default 0) (in radian)</param>
+        public void TryMakeWalk(AbstractSprite sprite, double angleOffsetRadian)
+        {
+            double xMove = Math.Cos(sprite.AngleRadian + angleOffsetRadian) * sprite.DefaultWalkingDistance;
+            double yMove = Math.Sin(sprite.AngleRadian + angleOffsetRadian) * sprite.DefaultWalkingDistance;
+
+            sprite.PositionX += xMove;
+            sprite.PositionY += yMove;
+        }
         #endregion
     }
 }
