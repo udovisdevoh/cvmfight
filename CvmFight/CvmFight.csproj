@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CvmFight\Class1.cs" />
     <Compile Include="CvmFight\GameModel\World\Map\MapTypes\AbstractMap.cs" />
     <Compile Include="CvmFight\GameModel\World\Map\MapTypes\HardCodedMap.cs" />
     <Compile Include="CvmFight\GameModel\World\Map\MatterTypes\AbstractMatterType.cs" />
