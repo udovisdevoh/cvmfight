@@ -38,7 +38,8 @@ namespace CvmFight
         #region Public Methods
         public override void Update(World world, RayTracer rayTracer)
         {
-            columnViewer.Update(rayTracer);
+            columnViewer.Update(world.CurrentPlayer, rayTracer, mainSurface);
+            mainSurface.Update();
         }
         #endregion
     }

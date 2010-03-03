@@ -96,6 +96,38 @@ namespace CvmFight
             double fullVectorY = viewedSprite.PositionY - viewerSprite.PositionY;
             return Math.Atan2(fullVectorY, fullVectorX);
         }
+
+        public static double GetStraightDistance(AbstractSprite sprite, RayTracerPoint rayTracerPoint)
+        {
+            double viewAxisX = Math.Cos(sprite.AngleRadian);
+            double viewAxisY = Math.Sin(sprite.AngleRadian);
+            double relativePointX = rayTracerPoint.X - sprite.PositionX;
+            double relativePointY = rayTracerPoint.Y - sprite.PositionY;
+            return viewAxisX * relativePointX + viewAxisY * relativePointY;
+        }
+
+        public static double GetColumnHeight(double distance, double maxColumnHeight, double heightDistanceRatio)
+        {
+            double columnHeight;
+            if (distance == 0)
+                columnHeight = maxColumnHeight;
+            else
+                columnHeight = maxColumnHeight / (distance * heightDistanceRatio);
+
+            columnHeight = Math.Min(maxColumnHeight, columnHeight);
+
+            return columnHeight;
+        }
+
+        public static double GetColumnTopMargin(double maxColumnHeight, double columnHeight, double zPosition, bool isCrouch)
+        {
+            if (isCrouch)
+                zPosition = -0.75;
+
+            //Jump height from 0 to 1
+            double jumpOffset = (zPosition * columnHeight / 2);
+            return Math.Round((maxColumnHeight - columnHeight) / 2 + jumpOffset);
+        }
         #endregion
     }
 }
