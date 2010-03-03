@@ -8,12 +8,14 @@ namespace CvmFight
 {
     class RayTracer : IEnumerable<RayTracerPoint>
     {
+        #region Constants
+        private const double rayDistanceResolution = 0.01;
+        #endregion
+
         #region Fields
         private int fov;
 
         private int columnCount;
-
-        private double rayDistanceResolution = 0.01;
 
         private List<RayTracerPoint> pointList;
         #endregion
