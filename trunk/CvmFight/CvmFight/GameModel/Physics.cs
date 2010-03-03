@@ -132,11 +132,11 @@ namespace CvmFight
             if (IsDetectCollision(sprite,spritePool,map))
                 sprite.PositionY -= yMove;
         }
-        #endregion
 
         public void TryMakeRotate(AbstractSprite sprite, short angleRotationStrength)
         {
-            sprite.AngleRadian += ((double)angleRotationStrength) / 100.0;
+            sprite.AngleRadian += ((double)angleRotationStrength);
         }
+        #endregion
     }
 }
