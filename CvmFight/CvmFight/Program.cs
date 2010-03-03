@@ -6,24 +6,42 @@ using System.Drawing;
 using SdlDotNet.Graphics;
 using SdlDotNet.Core;
 using SdlDotNet.Input;
+using System.Windows.Forms;
 
 namespace CvmFight
 {
     class Program
     {
+        #region Constants
+        private int screenWidth = 1024;
+
+        private int screenHeight = 768;
+        #endregion
+
         #region Fields and parts
         private World world = new World();
 
-        private AbstractGameViewer gameViewer = new MiniMap();
+        private AbstractGameViewer gameViewer;
 
         private UserInput userInput = new UserInput();
 
         private RayTracer rayTracer = new RayTracer(200,110);
+        
+        private Point centerMousePositon;
+        #endregion
+
+        #region Constructor
+        public Program()
+        {
+            gameViewer = new MiniMap(screenWidth, screenHeight);
+            centerMousePositon = new Point(screenWidth / 2, screenHeight / 2);
+        }
         #endregion
 
         #region Public Methods and event handlers
         public void Start()
         {
+            Cursor.Hide();
             Events.TargetFps = 60;
             Events.Tick += Update;
             Events.KeyboardDown += OnKeyboardDown;
@@ -46,10 +64,10 @@ namespace CvmFight
 
             rayTracer.Trace(world.CurrentPlayer, world.Map);
 
-            world.Physics.TryMakeRotate(world.CurrentPlayer, userInput.CurrentMouseRelativeX);
-            userInput.CurrentMouseRelativeX = 0;
+            world.Physics.TryMakeRotate(world.CurrentPlayer, userInput.MouseMotionX);
+            userInput.MouseMotionX = 0;           
 
-            gameViewer.Update(world);
+            gameViewer.Update(world, rayTracer);
         }
 
         public void OnKeyboardDown(object sender, KeyboardEventArgs args)
@@ -74,12 +92,15 @@ namespace CvmFight
                 userInput.IsPressLeft = false;
             else if (args.Key == Key.RightArrow || args.Key == Key.D)
                 userInput.IsPressRight = false;
+            else if (args.Key == Key.Escape)
+                Events.QuitApplication();
         }
 
         public void OnMouseMotion(object sender, MouseMotionEventArgs args)
         {
-            userInput.CurrentMouseRelativeX = args.RelativeX;
-            userInput.CurrentMouseRelativeY = args.RelativeY;
+            userInput.MouseMotionX = (short)((args.X - screenWidth / 2) / 10);
+            userInput.MouseMotionY = (short)((args.Y - screenHeight / 2) / 10);
+            Cursor.Position = centerMousePositon;
         }
         #endregion
 

@@ -13,10 +13,6 @@ namespace CvmFight
     {
         #region Constants
         private double precision = 0.025;
-
-        private int screenWidth = 1024;
-
-        private int screenHeight = 768;
         #endregion
 
         #region Fields and parts
@@ -33,11 +29,17 @@ namespace CvmFight
         private AbstractMap currentMap = null;
 
         private Surface mapSurface = null;
+
+        private int screenWidth = 1024;
+
+        private int screenHeight = 768;
         #endregion
 
         #region Constructor
-        public MiniMap()
+        public MiniMap(int screenWidth, int screenHeight)
         {
+            this.screenWidth = screenWidth;
+            this.screenHeight = screenHeight;
             mainSurface = new Surface(screenWidth, screenHeight);
             mainSurface = Video.SetVideoMode(screenWidth, screenHeight, true, false, false, true);
             pointGrid = new Point[screenWidth, screenHeight];
@@ -49,11 +51,14 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public override void Update(World world)
+        public override void Update(World world, RayTracer rayTracer)
         {
             mainSurface.Blit(GetOrCreateMapSurface(world.Map));
             foreach (AbstractSprite sprite in world.SpritePool)
                 DrawSprite(sprite);
+
+            //DrawRayTracer(rayTracer);
+
             mainSurface.Update();
         }
         #endregion

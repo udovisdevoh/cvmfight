@@ -49,13 +49,13 @@ namespace CvmFight
             set { isPressRight = value; }
         }
 
-        public short CurrentMouseRelativeX
+        public short MouseMotionX
         {
             get { return currentMouseRelativeX; }
             set { currentMouseRelativeX = value; }
         }
 
-        public short CurrentMouseRelativeY
+        public short MouseMotionY
         {
             get { return currentMouseRelativeY; }
             set { currentMouseRelativeY = value; }

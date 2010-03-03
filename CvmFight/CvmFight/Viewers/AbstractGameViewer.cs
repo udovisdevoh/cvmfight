@@ -10,6 +10,6 @@ namespace CvmFight
     /// </summary>
     abstract class AbstractGameViewer
     {
-        public abstract void Update(World world);
+        public abstract void Update(World world, RayTracer rayTracer);
     }
 }
