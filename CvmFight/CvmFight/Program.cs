@@ -33,8 +33,8 @@ namespace CvmFight
         #region Constructor
         public Program()
         {
-            gameViewer = new MiniMap(screenWidth, screenHeight);
-            //gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount);
+            //gameViewer = new MiniMap(screenWidth, screenHeight);
+            gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount);
             centerMousePositon = new Point(screenWidth / 2, screenHeight / 2);
         }
         #endregion

@@ -45,6 +45,11 @@ namespace CvmFight
         /// Sprite's default walking distance per tick
         /// </summary>
         private double defaultWalkingDistance = 0.1;
+
+        /// <summary>
+        /// Whether sprite is crouch
+        /// </summary>
+        private bool isCrouch = false;
         #endregion
 
         #region Properties
@@ -144,6 +149,12 @@ namespace CvmFight
         {
             get { return defaultWalkingDistance; }
             set { defaultWalkingDistance = value; }
+        }
+
+        public bool IsCrouch
+        {
+            get { return isCrouch; }
+            set { isCrouch = value; }
         }
         #endregion
     }

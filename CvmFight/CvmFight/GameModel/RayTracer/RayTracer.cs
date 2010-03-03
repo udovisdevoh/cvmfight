@@ -75,6 +75,11 @@ namespace CvmFight
         {
             get { return fov; }
         }
+
+        public RayTracerPoint this[int id]
+        {
+            get { return pointList[id]; }
+        }
         #endregion
     }
 }
