@@ -15,7 +15,7 @@ namespace CvmFight
         private double heightDistanceRatio = 2;
         #endregion
 
-        #region Fields
+        #region Fields and parts
         private int columnCount;
 
         private int columnWidthPixel;
@@ -23,6 +23,8 @@ namespace CvmFight
         private int screenWidth;
 
         private int screenHeight;
+
+        private Rectangle[] rectangleCache;
         #endregion
 
         #region Constructor
@@ -32,6 +34,13 @@ namespace CvmFight
             this.screenHeight = screenHeight;
             this.columnCount = columnCount;
             this.columnWidthPixel = screenWidth / columnCount;
+
+            this.rectangleCache = new Rectangle[columnCount];
+            for (int i = 0; i < columnCount; i++)
+            {
+                this.rectangleCache[i] = new Rectangle();
+                this.rectangleCache[i].Width = columnWidthPixel;
+            }
         }
         #endregion
 
@@ -44,11 +53,14 @@ namespace CvmFight
             for (int columnId = 0; columnId < columnCount; columnId++)
             {
                 double straightDistance = Optics.GetStraightDistance(currentPlayer, rayTracer[columnId]);
-
                 double columnHeight = Optics.GetColumnHeight(straightDistance, screenHeight, heightDistanceRatio);
                 double topMargin = Optics.GetColumnTopMargin(screenHeight, columnHeight, currentPlayer.PositionZ, currentPlayer.IsCrouch);
 
-                Rectangle rectangle = new Rectangle(columnXLeftMargin, (int)topMargin, columnWidthPixel, (int)columnHeight);
+                Rectangle rectangle = rectangleCache[columnId];
+                rectangle.X = columnXLeftMargin;
+                rectangle.Y = (int)topMargin;
+                rectangle.Height = (int)columnHeight;
+
                 columnXLeftMargin += columnWidthPixel;
 
                 int brightness = (int)Math.Round(columnHeight / screenHeight * 255);
