@@ -47,8 +47,6 @@ namespace CvmFight
         #region Public Methods
         public void Update(AbstractSprite currentPlayer, RayTracer rayTracer, Surface surface)
         {
-            surface.Fill(Color.Black);
-
             int columnXLeftMargin = 0;
             for (int columnId = 0; columnId < columnCount; columnId++)
             {

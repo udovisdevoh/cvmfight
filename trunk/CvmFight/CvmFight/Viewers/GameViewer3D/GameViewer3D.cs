@@ -11,7 +11,7 @@ namespace CvmFight
     class GameViewer3D : AbstractGameViewer
     {
         #region Fields and parts
-        private bool isFullScreen = false;
+        private bool isFullScreen = true;
 
         private int screenWidth = 1024;
 
@@ -20,6 +20,8 @@ namespace CvmFight
         private Surface mainSurface;
 
         private ColumnViewer columnViewer;
+
+        private Gradient gradient;
         #endregion
 
         #region Constructor
@@ -27,6 +29,8 @@ namespace CvmFight
         {
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
+
+            this.gradient = new Gradient(screenWidth, screenHeight);
             
             columnViewer = new ColumnViewer(this.screenWidth, this.screenHeight, columnCount);
             
@@ -38,6 +42,7 @@ namespace CvmFight
         #region Public Methods
         public override void Update(World world, RayTracer rayTracer)
         {
+            mainSurface.Blit(gradient.Surface);
             columnViewer.Update(world.CurrentPlayer, rayTracer, mainSurface);
             mainSurface.Update();
         }
