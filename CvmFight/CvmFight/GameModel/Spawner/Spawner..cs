@@ -13,16 +13,13 @@ namespace CvmFight
 
         private EmptyMapLocationCache emptyMapLocationCache;
 
-        private Physics physics;
-
         private Random random;
         #endregion
 
         #region Constructor
-        public Spawner(Random random, Physics physics)
+        public Spawner(Random random)
         {
             this.random = random;
-            this.physics = physics;
         }
         #endregion
 
@@ -57,7 +54,7 @@ namespace CvmFight
                 point = emptyMapLocationCache.GetRandomAvailableLocation(map, spritePool, random);
                 fighter.PositionX = (double)point.X + 0.5;
                 fighter.PositionY = (double)point.Y + 0.5;
-            } while (physics.IsDetectCollision(fighter, spritePool, map));
+            } while (Physics.IsDetectCollision(fighter, spritePool, map));
 
             fighter.Health = fighter.DefaultHealth;
             fighter.AngleDegree = random.Next(360);

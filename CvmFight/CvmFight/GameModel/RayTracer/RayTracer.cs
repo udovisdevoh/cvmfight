@@ -11,21 +11,19 @@ namespace CvmFight
         #region Fields
         private int fov;
 
-        private int howManyColumn;
+        private int columnCount;
 
         private double rayDistanceResolution = 0.01;
 
         private List<RayTracerPoint> pointList;
-
-        private Optics optics = new Optics();
         #endregion
 
         #region Constructor
         public RayTracer(int howManyColumn, int fov)
         {
             this.fov = fov;
-            this.howManyColumn = howManyColumn;
-            pointList = new List<RayTracerPoint>(this.howManyColumn);
+            this.columnCount = howManyColumn;
+            pointList = new List<RayTracerPoint>(this.columnCount);
             for (int i = 0; i < howManyColumn; i++)
                 pointList.Add(new RayTracerPoint());
         }
@@ -36,15 +34,15 @@ namespace CvmFight
         {
             double startAngle = viewerSprite.AngleDegree - fov / 2;
             double endAngle = viewerSprite.AngleDegree + fov / 2;
-            double angleResolution = (double)fov / (double)howManyColumn;
+            double angleResolution = (double)fov / (double)columnCount;
 
-            startAngle = optics.FixAngleDegree(startAngle);
-            endAngle = optics.FixAngleDegree(endAngle);
+            startAngle = Optics.FixAngleDegree(startAngle);
+            endAngle = Optics.FixAngleDegree(endAngle);
 
             int pointCounter = 0;
-            for (double angle = startAngle; pointCounter < howManyColumn; angle += angleResolution)
+            for (double angle = startAngle; pointCounter < columnCount; angle += angleResolution)
             {
-                angle = optics.FixAngleDegree(angle);
+                angle = Optics.FixAngleDegree(angle);
 
                 pointList[pointCounter].Trace(viewerSprite, angle, rayDistanceResolution, map);
 
@@ -64,6 +62,18 @@ namespace CvmFight
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return pointList.GetEnumerator();
+        }
+        #endregion
+
+        #region Properties
+        public int ColumnCount
+        {
+            get { return columnCount; }
+        }
+
+        public int Fov
+        {
+            get { return fov; }
         }
         #endregion
     }

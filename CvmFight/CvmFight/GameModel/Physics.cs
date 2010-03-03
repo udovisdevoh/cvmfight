@@ -8,10 +8,10 @@ namespace CvmFight
     /// <summary>
     /// Physics
     /// </summary>
-    class Physics
+    static class Physics
     {
         #region Constants
-        private double spriteToMapCollisionPrecision = 0.05;
+        private static double spriteToMapCollisionPrecision = 0.05;
         #endregion
 
         #region Public Methods
@@ -22,7 +22,7 @@ namespace CvmFight
         /// <param name="spritePool">sprite pool</param>
         /// <param name="map">map</param>
         /// <returns>Whether sprite is in collision with another sprite or the map</returns>
-        public bool IsDetectCollision(AbstractSprite sprite, SpritePool spritePool, AbstractMap map)
+        public static bool IsDetectCollision(AbstractSprite sprite, SpritePool spritePool, AbstractMap map)
         {
             return IsDetectSpriteCollision(sprite, spritePool) || IsDetectMapCollision(sprite, map);
         }
@@ -33,7 +33,7 @@ namespace CvmFight
         /// <param name="sprite">sprite</param>
         /// <param name="spritePool">sprite pool</param>
         /// <returns>Whether sprite is in collision with sprite pool</returns>
-        public bool IsDetectSpriteCollision(AbstractSprite sprite, SpritePool spritePool)
+        public static bool IsDetectSpriteCollision(AbstractSprite sprite, SpritePool spritePool)
         {
             foreach (AbstractSprite otherSprite in spritePool)
                 if (sprite != otherSprite)
@@ -48,7 +48,7 @@ namespace CvmFight
         /// <param name="sprite1">sprite 1</param>
         /// <param name="sprite2">sprite 2</param>
         /// <returns>Whether sprite 1 is in collision with sprite 2</returns>
-        public bool IsDetectSpriteCollision(AbstractSprite sprite1, AbstractSprite sprite2)
+        public static bool IsDetectSpriteCollision(AbstractSprite sprite1, AbstractSprite sprite2)
         {
             return GetSpriteDistance(sprite1, sprite2) < sprite1.Radius + sprite2.Radius;
         }
@@ -59,7 +59,7 @@ namespace CvmFight
         /// <param name="sprite">sprite</param>
         /// <param name="map">map</param>
         /// <returns>Whether sprite is in collision with map walls</returns>
-        public bool IsDetectMapCollision(AbstractSprite sprite, AbstractMap map)
+        public static bool IsDetectMapCollision(AbstractSprite sprite, AbstractMap map)
         {
             double currentRadius = sprite.Radius;
 
@@ -96,7 +96,7 @@ namespace CvmFight
         /// <param name="sprite1">sprite 1</param>
         /// <param name="sprite2">sprite 2</param>
         /// <returns>distance between 2 sprites</returns>
-        public double GetSpriteDistance(AbstractSprite sprite1, AbstractSprite sprite2)
+        public static double GetSpriteDistance(AbstractSprite sprite1, AbstractSprite sprite2)
         {
             return Math.Sqrt(Math.Pow(sprite2.PositionX - sprite1.PositionX, 2) + Math.Pow(sprite2.PositionY - sprite1.PositionY, 2));
         }
@@ -107,7 +107,7 @@ namespace CvmFight
         /// <param name="sprite">sprite</param>
         /// <param name="spritePool">other sprites</param>
         /// <param name="map">map</param>
-        public void TryMakeWalk(AbstractSprite sprite, SpritePool spritePool, AbstractMap map)
+        public static void TryMakeWalk(AbstractSprite sprite, SpritePool spritePool, AbstractMap map)
         {
             TryMakeWalk(sprite, 0, spritePool, map);
         }
@@ -119,7 +119,7 @@ namespace CvmFight
         /// <param name="angleOffsetRadian">angle offset (default 0) (in radian)</param>
         /// <param name="spritePool">other sprites</param>
         /// <param name="map">map</param>
-        public void TryMakeWalk(AbstractSprite sprite, double angleOffsetRadian, SpritePool spritePool, AbstractMap map)
+        public static void TryMakeWalk(AbstractSprite sprite, double angleOffsetRadian, SpritePool spritePool, AbstractMap map)
         {
             double xMove = Math.Cos(sprite.AngleRadian + angleOffsetRadian) * sprite.DefaultWalkingDistance;
             double yMove = Math.Sin(sprite.AngleRadian + angleOffsetRadian) * sprite.DefaultWalkingDistance;
@@ -133,7 +133,7 @@ namespace CvmFight
                 sprite.PositionY -= yMove;
         }
 
-        public void TryMakeRotate(AbstractSprite sprite, short angleRotationStrength)
+        public static void TryMakeRotate(AbstractSprite sprite, short angleRotationStrength)
         {
             sprite.AngleRadian += ((double)angleRotationStrength / -200);
         }

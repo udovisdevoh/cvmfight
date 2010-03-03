@@ -34,6 +34,7 @@ namespace CvmFight
         public Program()
         {
             gameViewer = new MiniMap(screenWidth, screenHeight);
+            //gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount);
             centerMousePositon = new Point(screenWidth / 2, screenHeight / 2);
         }
         #endregion
@@ -53,18 +54,18 @@ namespace CvmFight
         public void Update(object sender, TickEventArgs args)
         {
             if (userInput.IsPressUp)
-                world.Physics.TryMakeWalk(world.CurrentPlayer, world.SpritePool, world.Map);
+                Physics.TryMakeWalk(world.CurrentPlayer, world.SpritePool, world.Map);
             else if (userInput.IsPressDown)
-                world.Physics.TryMakeWalk(world.CurrentPlayer, Math.PI, world.SpritePool, world.Map);
+                Physics.TryMakeWalk(world.CurrentPlayer, Math.PI, world.SpritePool, world.Map);
             
             if (userInput.IsPressLeft)
-                world.Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 1.5, world.SpritePool, world.Map);
+                Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 1.5, world.SpritePool, world.Map);
             else if (userInput.IsPressRight)
-                world.Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 0.5, world.SpritePool, world.Map);
+                Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 0.5, world.SpritePool, world.Map);
 
             rayTracer.Trace(world.CurrentPlayer, world.Map);
 
-            world.Physics.TryMakeRotate(world.CurrentPlayer, userInput.MouseMotionX);
+            Physics.TryMakeRotate(world.CurrentPlayer, userInput.MouseMotionX);
             userInput.MouseMotionX = 0;           
 
             gameViewer.Update(world, rayTracer);
