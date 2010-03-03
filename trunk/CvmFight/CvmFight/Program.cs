@@ -98,8 +98,8 @@ namespace CvmFight
 
         public void OnMouseMotion(object sender, MouseMotionEventArgs args)
         {
-            userInput.MouseMotionX = (short)((args.X - screenWidth / 2) / 10);
-            userInput.MouseMotionY = (short)((args.Y - screenHeight / 2) / 10);
+            userInput.MouseMotionX = args.RelativeX;
+            userInput.MouseMotionY = args.RelativeY;
             Cursor.Position = centerMousePositon;
         }
         #endregion

@@ -135,7 +135,7 @@ namespace CvmFight
 
         public void TryMakeRotate(AbstractSprite sprite, short angleRotationStrength)
         {
-            sprite.AngleRadian += ((double)angleRotationStrength);
+            sprite.AngleRadian += ((double)angleRotationStrength / -200);
         }
         #endregion
     }

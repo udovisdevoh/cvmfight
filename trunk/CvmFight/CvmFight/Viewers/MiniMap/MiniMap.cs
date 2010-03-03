@@ -13,6 +13,8 @@ namespace CvmFight
     {
         #region Constants
         private double precision = 0.025;
+
+        private bool isFullScreen = false;
         #endregion
 
         #region Fields and parts
@@ -41,7 +43,7 @@ namespace CvmFight
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
             mainSurface = new Surface(screenWidth, screenHeight);
-            mainSurface = Video.SetVideoMode(screenWidth, screenHeight, true, false, false, true);
+            mainSurface = Video.SetVideoMode(screenWidth, screenHeight, true, false, isFullScreen, true);
             pointGrid = new Point[screenWidth, screenHeight];
 
             for (int x = 0; x < screenWidth; x++)
