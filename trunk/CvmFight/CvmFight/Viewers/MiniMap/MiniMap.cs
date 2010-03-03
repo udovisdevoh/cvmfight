@@ -59,7 +59,7 @@ namespace CvmFight
             foreach (AbstractSprite sprite in world.SpritePool)
                 DrawSprite(sprite);
 
-            //DrawRayTracer(rayTracer);
+            DrawRayTracer(world.Map, rayTracer);
 
             mainSurface.Update();
         }
@@ -168,6 +168,18 @@ namespace CvmFight
                 mainSurface.Draw(circle, Color.Red);
             else
                 mainSurface.Draw(circle, Color.Green);
+        }
+
+        private void DrawRayTracer(AbstractMap map, RayTracer rayTracer)
+        {
+            int positionX;
+            int positionY;
+            foreach (RayTracerPoint rayTracerPoint in rayTracer)
+            {
+                positionX = (int)(rayTracerPoint.X / precision);
+                positionY = (int)(rayTracerPoint.Y / precision);
+                mainSurface.Draw(pointGrid[positionX, positionY], Color.White);
+            }
         }
         #endregion
     }

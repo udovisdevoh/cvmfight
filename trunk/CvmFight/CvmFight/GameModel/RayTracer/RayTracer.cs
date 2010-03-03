@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace CvmFight
 {
-    class RayTracer
+    class RayTracer : IEnumerable<RayTracerPoint>
     {
         #region Fields
         private int fov;
@@ -36,7 +36,7 @@ namespace CvmFight
         {
             double startAngle = viewerSprite.AngleDegree - fov / 2;
             double endAngle = viewerSprite.AngleDegree + fov / 2;
-            double angleResolution = fov / howManyColumn;
+            double angleResolution = (double)fov / (double)howManyColumn;
 
             startAngle = optics.FixAngleDegree(startAngle);
             endAngle = optics.FixAngleDegree(endAngle);
@@ -52,6 +52,18 @@ namespace CvmFight
             }
 
             return pointList;
+        }
+        #endregion
+
+        #region IEnumerable<RayTracerPoint> Members
+        public IEnumerator<RayTracerPoint> GetEnumerator()
+        {
+            return pointList.GetEnumerator();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return pointList.GetEnumerator();
         }
         #endregion
     }
