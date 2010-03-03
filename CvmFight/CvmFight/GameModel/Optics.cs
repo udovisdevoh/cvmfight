@@ -28,13 +28,16 @@ namespace CvmFight
                 return true;
 
 
-            double angleRadian = FixAngleRadian(GetSpriteAngleDifferenceRadian(viewerSprite, viewedSprite));
-            double angleDegree = angleRadian / Math.PI * 180;
+            double angleRadian = FixAngleRadian(GetSpriteAngleToSpriteRadian(viewerSprite, viewedSprite));
+            double angleDegree = FixAngleDegree(angleRadian / Math.PI * 180);
 
-            /*if (angleDegree < viewedSprite.AngleDegree - fov / 2)
+            double minimumViewingAngle = viewerSprite.AngleDegree - (double)fov / 2.0;
+            double maximumViewingAngle = viewerSprite.AngleDegree + (double)fov / 2.0;
+
+            if (angleDegree < minimumViewingAngle)
                 return false;
-            else if (angleDegree > viewedSprite.AngleDegree + fov / 2)
-                return false;*/
+            if (angleDegree > maximumViewingAngle)
+                return false;
 
 
             double xMove = Math.Cos(angleRadian) * rayDistanceResolution;
@@ -87,7 +90,7 @@ namespace CvmFight
             return angle;
         }
 
-        public static double GetSpriteAngleDifferenceRadian(AbstractSprite viewerSprite, AbstractSprite viewedSprite)
+        public static double GetSpriteAngleToSpriteRadian(AbstractSprite viewerSprite, AbstractSprite viewedSprite)
         {
             double fullVectorX = viewedSprite.PositionX - viewerSprite.PositionX;
             double fullVectorY = viewedSprite.PositionY - viewerSprite.PositionY;
