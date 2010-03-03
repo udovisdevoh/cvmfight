@@ -13,9 +13,11 @@ namespace CvmFight
     class Program
     {
         #region Constants
-        private int screenWidth = 1024;
+        private const int screenWidth = 1024;
 
-        private int screenHeight = 768;
+        private const int screenHeight = 768;
+
+        private const int rayTracerResolution = 256;
         #endregion
 
         #region Fields and parts
@@ -25,7 +27,7 @@ namespace CvmFight
 
         private UserInput userInput = new UserInput();
 
-        private RayTracer rayTracer = new RayTracer(200,110);
+        private RayTracer rayTracer = new RayTracer(rayTracerResolution, 110);
         
         private Point centerMousePositon;
         #endregion
