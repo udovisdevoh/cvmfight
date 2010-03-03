@@ -39,11 +39,6 @@ namespace CvmFight
         private Spawner spawner;
 
         /// <summary>
-        /// Physics logic
-        /// </summary>
-        private Physics physics = new Physics();
-
-        /// <summary>
         /// Random number generator
         /// </summary>
         private Random random = new Random();
@@ -52,7 +47,7 @@ namespace CvmFight
         #region Constructor
         public World()
         {
-            spawner = new Spawner(random, physics);
+            spawner = new Spawner(random);
             map = new CachedWaveMap(random);
             spritePool = new SpritePool(currentPlayer);
 
@@ -77,11 +72,6 @@ namespace CvmFight
         public Player CurrentPlayer
         {
             get{return currentPlayer;}
-        }
-
-        public Physics Physics
-        {
-            get { return physics; }
         }
         #endregion
     }

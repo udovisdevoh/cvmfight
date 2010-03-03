@@ -20,8 +20,6 @@ namespace CvmFight
         #region Fields and parts
         private Surface mainSurface;
 
-        private Random random = new Random();
-
         private Point[,] pointGrid;
 
         private SpritePrimitiveCache circleCache = new SpritePrimitiveCache();
@@ -57,7 +55,7 @@ namespace CvmFight
         {
             mainSurface.Blit(GetOrCreateMapSurface(world.Map));
             foreach (AbstractSprite sprite in world.SpritePool)
-                DrawSprite(sprite);
+                    DrawSprite(sprite, Optics.IsSpriteViewable(world.CurrentPlayer, sprite, world.Map, rayTracer.Fov));
 
             DrawRayTracer(world.Map, rayTracer);
 
@@ -100,9 +98,9 @@ namespace CvmFight
             return mapSurface;
         }
 
-        private void DrawSprite(AbstractSprite sprite)
+        private void DrawSprite(AbstractSprite sprite, bool isViewable)
         {
-            DrawSpriteBounds(sprite);
+            DrawSpriteBounds(sprite, isViewable);
             DrawSpriteAngle(sprite);
         }
 
@@ -140,7 +138,7 @@ namespace CvmFight
             mainSurface.Draw(angleLine, Color.White);
         }
 
-        private void DrawSpriteBounds(AbstractSprite sprite)
+        private void DrawSpriteBounds(AbstractSprite sprite, bool isViewable)
         {
             int pixelLocationX = (int)(sprite.PositionX / precision);
             int pixelLocationY = (int)(sprite.PositionY / precision);
@@ -165,7 +163,16 @@ namespace CvmFight
             if (sprite is Player)
                 mainSurface.Draw(circle, Color.MediumBlue);
             else if (sprite is AbstractFighter)
-                mainSurface.Draw(circle, Color.Red);
+            {
+                if (isViewable)
+                {
+                    mainSurface.Draw(circle, Color.Magenta);
+                }
+                else
+                {
+                    mainSurface.Draw(circle, Color.Orange);
+                }
+            }
             else
                 mainSurface.Draw(circle, Color.Green);
         }
