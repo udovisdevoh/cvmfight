@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 namespace CvmFight
 {
@@ -37,6 +38,28 @@ namespace CvmFight
                 if (map.GetMatterTypeAt(x, y) != null)
                     break;
             }
+
+            if (x < 0)
+                x = 0;
+            else if (x > map.Width)
+                x = map.Width - xMove;
+
+            if (y < 0)
+                y = 0;
+            else if (y > map.Height)
+                y = map.Height - yMove;
+        }
+        #endregion
+
+        #region Properties
+        public double X
+        {
+            get { return x; }
+        }
+
+        public double Y
+        {
+            get { return y; }
         }
         #endregion
     }
