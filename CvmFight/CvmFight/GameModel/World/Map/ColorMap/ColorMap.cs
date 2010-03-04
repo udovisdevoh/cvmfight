@@ -9,7 +9,7 @@ namespace CvmFight
     class ColorMap
     {
         #region Constants
-        private double precision = 0.01;
+        private double precision = 0.1;
         #endregion
 
         #region Fields

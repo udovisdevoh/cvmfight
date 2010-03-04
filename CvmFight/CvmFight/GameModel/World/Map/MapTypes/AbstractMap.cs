@@ -20,30 +20,6 @@ namespace CvmFight
         public abstract AbstractMatterType GetMatterTypeAt(double x, double y);
 
         /// <summary>
-        /// From color map, returns red multiplicator
-        /// </summary>
-        /// <param name="x">x</param>
-        /// <param name="y">x</param>
-        /// <returns>red color multiplicator at x,y</returns>
-        public abstract double GetRedMultiplicatorAt(double x, double y);
-
-        /// <summary>
-        /// From color map, returns green color multiplicator
-        /// </summary>
-        /// <param name="x">x</param>
-        /// <param name="y">x</param>
-        /// <returns>green color multiplicator at x,y</returns>
-        public abstract double GetGreenMultiplicatorAt(double x, double y);
-
-        /// <summary>
-        /// From color map, returns blue color multiplicator
-        /// </summary>
-        /// <param name="x">x</param>
-        /// <param name="y">y</param>
-        /// <returns>blue color multiplicator at x,y</returns>
-        public abstract double GetBlueMultiplicatorAt(double x, double y);
-
-        /// <summary>
         /// Map's width
         /// </summary>
         public abstract int Width
@@ -58,5 +34,7 @@ namespace CvmFight
         {
             get;
         }
+
+        public abstract void GetColors(double x, double y, double originalBrightness, out double red, out double green, out double blue);
     }
 }

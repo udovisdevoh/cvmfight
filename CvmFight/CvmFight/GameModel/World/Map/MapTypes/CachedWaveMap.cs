@@ -42,37 +42,25 @@ namespace CvmFight
             get { return waveMap.Height; }
         }
 
-        /// <summary>
-        /// From color map, returns red multiplicator
-        /// </summary>
-        /// <param name="x">x</param>
-        /// <param name="y">x</param>
-        /// <returns>red color multiplicator at x,y</returns>
-        public override double GetRedMultiplicatorAt(double x, double y)
+        public override void GetColors(double x, double y, double originalBrightness, out double red, out double green, out double blue)
         {
-            return colorMap.GetRedMultiplicatorAt(x, y);
-        }
+            red = colorMap.GetRedMultiplicatorAt(x, y);
+            green = colorMap.GetGreenMultiplicatorAt(x, y);
+            blue = colorMap.GetBlueMultiplicatorAt(x, y);
 
-        /// <summary>
-        /// From color map, returns green color multiplicator
-        /// </summary>
-        /// <param name="x">x</param>
-        /// <param name="y">x</param>
-        /// <returns>green color multiplicator at x,y</returns>
-        public override double GetGreenMultiplicatorAt(double x, double y)
-        {
-            return colorMap.GetGreenMultiplicatorAt(x, y);
-        }
+            double totalMultiplicator = red + green + blue;
 
-        /// <summary>
-        /// From color map, returns blue color multiplicator
-        /// </summary>
-        /// <param name="x">x</param>
-        /// <param name="y">y</param>
-        /// <returns>blue color multiplicator at x,y</returns>
-        public override double GetBlueMultiplicatorAt(double x, double y)
-        {
-            return colorMap.GetBlueMultiplicatorAt(x, y);
+            red = red / totalMultiplicator * 3.0 * originalBrightness;
+            green = green / totalMultiplicator * 3.0 * originalBrightness;
+            blue = blue / totalMultiplicator * 3.0 * originalBrightness;
+
+            red = Math.Max(0, red);
+            green = Math.Max(0, green);
+            blue = Math.Max(0, blue);
+
+            red = Math.Min(255, red);
+            green = Math.Min(255, green);
+            blue = Math.Min(255, blue);
         }
         #endregion
     }

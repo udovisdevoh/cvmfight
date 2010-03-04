@@ -66,37 +66,11 @@ namespace CvmFight
             return hardCodedMap.GetMatterTypeAt(x, y);
         }
 
-        /// <summary>
-        /// From color map, returns red multiplicator
-        /// </summary>
-        /// <param name="x">x</param>
-        /// <param name="y">x</param>
-        /// <returns>red color multiplicator at x,y</returns>
-        public override double GetRedMultiplicatorAt(double x, double y)
+        public override void GetColors(double x, double y, double originalBrightness, out double red, out double green, out double blue)
         {
-            return 1.0;
-        }
-
-        /// <summary>
-        /// From color map, returns green color multiplicator
-        /// </summary>
-        /// <param name="x">x</param>
-        /// <param name="y">x</param>
-        /// <returns>green color multiplicator at x,y</returns>
-        public override double GetGreenMultiplicatorAt(double x, double y)
-        {
-            return 1.0;
-        }
-
-        /// <summary>
-        /// From color map, returns blue color multiplicator
-        /// </summary>
-        /// <param name="x">x</param>
-        /// <param name="y">y</param>
-        /// <returns>blue color multiplicator at x,y</returns>
-        public override double GetBlueMultiplicatorAt(double x, double y)
-        {
-            return 1.0;
+            red = originalBrightness;
+            green = originalBrightness;
+            blue = originalBrightness;
         }
         #endregion
 
