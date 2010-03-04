@@ -9,9 +9,14 @@ using SdlDotNet.Graphics.Primitives;
 
 namespace CvmFight
 {
-    class SpriteCache3D
+    class SpriteCollectionCache3D
     {
-        public Surface GetSurface(double angle, double distance, out Rectangle destinationRectangle)
+        public Surface GetSurface(out Rectangle destinationRectangle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public SpriteCache3D GetSpriteCache(AbstractSprite sprite)
         {
             throw new NotImplementedException();
         }

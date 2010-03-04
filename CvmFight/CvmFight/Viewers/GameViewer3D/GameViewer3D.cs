@@ -52,7 +52,7 @@ namespace CvmFight
             //We display the sprites
             foreach (AbstractSprite sprite in world.SpritePool)
                 if (sprite != world.CurrentPlayer && Optics.IsSpriteViewable(world.CurrentPlayer,sprite,world.Map,rayTracer.Fov))
-                    spriteViewer.ViewSprite(sprite, mainSurface);
+                    spriteViewer.View(world.CurrentPlayer, sprite, mainSurface);
 
             mainSurface.Update();
         }
