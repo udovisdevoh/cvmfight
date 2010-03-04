@@ -11,14 +11,35 @@ namespace CvmFight
 {
     class SpriteCollectionCache3D
     {
-        public Surface GetSurface(out Rectangle destinationRectangle)
-        {
-            throw new NotImplementedException();
-        }
+        #region Fields
+        private Dictionary<Type, SpriteCache3D> internalCache;
 
+        private SpriteCache3DBuilder spriteCache3DBuilder = new SpriteCache3DBuilder();
+        #endregion
+
+        #region Constructor
+        public SpriteCollectionCache3D(SpritePool spritePool)
+        {
+            internalCache = new Dictionary<Type, SpriteCache3D>();
+
+            HashSet<Type> addedTypeList = new HashSet<Type>();
+
+            foreach (AbstractSprite sprite in spritePool)
+            {
+                if (addedTypeList.Contains(sprite.GetType()))
+                {
+                    internalCache[sprite.GetType()] = spriteCache3DBuilder.Build(sprite);
+                    addedTypeList.Add(sprite.GetType());
+                }
+            }
+        }
+        #endregion
+
+        #region Public Methods
         public SpriteCache3D GetSpriteCache(AbstractSprite sprite)
         {
-            throw new NotImplementedException();
+            return internalCache[sprite.GetType()];
         }
+        #endregion
     }
 }

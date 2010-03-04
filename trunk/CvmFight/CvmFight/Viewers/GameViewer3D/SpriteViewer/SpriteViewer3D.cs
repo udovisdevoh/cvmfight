@@ -16,14 +16,15 @@ namespace CvmFight
 
         private int screenHeight;
 
-        private SpriteCollectionCache3D spriteCollectionCache3D = new SpriteCollectionCache3D();
+        private SpriteCollectionCache3D spriteCollectionCache3D;
         #endregion
 
         #region Constructor
-        public SpriteViewer3D(int screenWidth, int screenHeight)
+        public SpriteViewer3D(int screenWidth, int screenHeight, SpritePool spritePool)
         {
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
+            spriteCollectionCache3D = new SpriteCollectionCache3D(spritePool);
         }
         #endregion
 
