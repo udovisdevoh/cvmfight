@@ -29,17 +29,18 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public void View(AbstractSprite viewerSprite, AbstractSprite viewedSprite, Surface mainSurface)
+        public void View(AbstractSprite viewerSprite, AbstractSprite viewedSprite, Surface mainSurface, Point[,] pointGrid)
         {
-            Rectangle destinationRectangle;
-
             double angle = Optics.GetSpriteAngleToSpriteRadian(viewerSprite, viewedSprite);
             double distance = Optics.GetStraightDistance(viewerSprite, viewedSprite);
+            double spriteHeight = 768.0;
+            int destinationX = 0;
+            int destinationY = 0;
 
-            #warning Sprite status and viewed angle must be parsed here
+            #warning Sprite status, viewed angle and height must be parsed here (along with destinatonX and destinatonY)
 
-            Surface spriteSurface = spriteCollectionCache3D.GetSpriteCache(viewedSprite).GetSurface(SpriteFrame.Walk1, SpriteFrame.Front, distance, out destinationRectangle);
-            mainSurface.Blit(spriteSurface, destinationRectangle);
+            Surface spriteSurface = spriteCollectionCache3D.GetSpriteCache(viewedSprite).GetSurface(SpriteScallableFrame.Walk1, SpriteScallableFrame.Front, spriteHeight);
+            mainSurface.Blit(spriteSurface, pointGrid[destinationX, destinationY]);
         }
         #endregion
     }

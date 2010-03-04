@@ -12,9 +12,7 @@ namespace CvmFight
     class MiniMap : AbstractGameViewer
     {
         #region Constants
-        private double precision = 0.025;
-
-        private bool isFullScreen = false;
+        private const double precision = 0.025;
         #endregion
 
         #region Fields and parts
@@ -33,17 +31,20 @@ namespace CvmFight
         private int screenWidth = 1024;
 
         private int screenHeight = 768;
+
+        private bool isFullScreen;
         #endregion
 
         #region Constructor
-        public MiniMap(int screenWidth, int screenHeight)
+        public MiniMap(int screenWidth, int screenHeight, bool isFullScreen)
         {
+            this.isFullScreen = isFullScreen;
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
             mainSurface = new Surface(screenWidth, screenHeight);
             mainSurface = Video.SetVideoMode(screenWidth, screenHeight, true, false, isFullScreen, true);
+            
             pointGrid = new Point[screenWidth, screenHeight];
-
             for (int x = 0; x < screenWidth; x++)
                 for (int y = 0; y < screenHeight; y++)
                     pointGrid[x, y] = new Point(x, y);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 using SdlDotNet.Graphics;
 using SdlDotNet.Core;
 using SdlDotNet.Graphics.Primitives;
@@ -11,7 +12,7 @@ namespace CvmFight
     class GameViewer3D : AbstractGameViewer
     {
         #region Fields and parts
-        private bool isFullScreen = true;
+        private bool isFullScreen;
 
         private int screenWidth;
 
@@ -24,13 +25,22 @@ namespace CvmFight
         private SpriteViewer3D spriteViewer;
 
         private Gradient gradient;
+
+        private Point[,] pointGrid;
         #endregion
 
         #region Constructor
-        public GameViewer3D(int screenWidth, int screenHeight, int columnCount, SpritePool spritePool)
+        public GameViewer3D(int screenWidth, int screenHeight, int columnCount, SpritePool spritePool, bool isFullScreen)
         {
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
+            this.isFullScreen = isFullScreen;
+
+            //We create a point grid
+            pointGrid = new Point[screenWidth, screenHeight];
+            for (int x = 0; x < screenWidth; x++)
+                for (int y = 0; y < screenHeight; y++)
+                    pointGrid[x, y] = new Point(x, y);
 
             spriteViewer = new SpriteViewer3D(screenWidth, screenHeight, spritePool);
 
@@ -52,7 +62,7 @@ namespace CvmFight
             //We display the sprites
             foreach (AbstractSprite sprite in world.SpritePool)
                 if (sprite != world.CurrentPlayer && Optics.IsSpriteViewable(world.CurrentPlayer,sprite,world.Map,rayTracer.Fov))
-                    spriteViewer.View(world.CurrentPlayer, sprite, mainSurface);
+                    spriteViewer.View(world.CurrentPlayer, sprite, mainSurface, pointGrid);
 
             mainSurface.Update();
         }
