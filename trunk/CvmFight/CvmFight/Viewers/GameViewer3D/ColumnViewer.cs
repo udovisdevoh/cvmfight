@@ -63,11 +63,11 @@ namespace CvmFight
 
                 double brightness = Math.Round(columnHeight / screenHeight * 255);
 
-                double redMultiplicator = map.GetRedMultiplicatorAt(rayTracer[columnId].X, rayTracer[columnId].Y);
-                double greenMultiplicator = map.GetGreenMultiplicatorAt(rayTracer[columnId].X, rayTracer[columnId].Y);
-                double blueMultiplicator = map.GetBlueMultiplicatorAt(rayTracer[columnId].X, rayTracer[columnId].Y);
-                
-                surface.Fill(rectangle, Color.FromArgb(255, (byte)(brightness * redMultiplicator), (byte)(brightness * greenMultiplicator), (byte)(brightness * blueMultiplicator)));
+                double red, green, blue;
+
+                map.GetColors(rayTracer[columnId].X, rayTracer[columnId].Y, brightness, out red, out green, out blue);
+
+                surface.Fill(rectangle, Color.FromArgb(255, (byte)(red), (byte)(green), (byte)(blue)));
             }
         }
         #endregion
