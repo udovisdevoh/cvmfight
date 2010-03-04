@@ -89,6 +89,7 @@
     <Compile Include="CvmFight\Viewers\GameViewer3D\SpriteViewer\SpriteCache3D.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\SpriteViewer\SpriteCache3DBuilder.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\SpriteViewer\SpriteCollectionCache3D.cs" />
+    <Compile Include="CvmFight\Viewers\GameViewer3D\SpriteViewer\SpriteFrame.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\SpriteViewer\SpriteViewer3D.cs" />
     <Compile Include="CvmFight\Viewers\MiniMap\SpritePrimitiveCache.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\GameViewer3D.cs" />
