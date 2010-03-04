@@ -18,6 +18,10 @@ namespace CvmFight
         private const int screenHeight = 768;
 
         private const int rayTracerResolution = 256;
+
+        private bool isDestroyMouse = false;
+
+        private bool isFullScreen = false;
         #endregion
 
         #region Fields and parts
@@ -35,8 +39,8 @@ namespace CvmFight
         #region Constructor
         public Program()
         {
-            //gameViewer = new MiniMap(screenWidth, screenHeight);
-            gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool);
+            gameViewer = new MiniMap(screenWidth, screenHeight, isFullScreen);
+            gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, isFullScreen);
             centerMousePositon = new Point(screenWidth / 2, screenHeight / 2);
         }
         #endregion
@@ -44,7 +48,8 @@ namespace CvmFight
         #region Public Methods and event handlers
         public void Start()
         {
-            Cursor.Hide();
+            if (isDestroyMouse)
+                Cursor.Hide();
             Events.TargetFps = 60;
             Events.Tick += Update;
             Events.KeyboardDown += OnKeyboardDown;
@@ -68,6 +73,7 @@ namespace CvmFight
             rayTracer.Trace(world.CurrentPlayer, world.Map);
 
             Physics.TryMakeRotate(world.CurrentPlayer, userInput.MouseMotionX);
+
             userInput.MouseMotionX = 0;           
 
             gameViewer.Update(world, rayTracer);
@@ -103,7 +109,9 @@ namespace CvmFight
         {
             userInput.MouseMotionX = args.RelativeX;
             userInput.MouseMotionY = args.RelativeY;
-            Cursor.Position = centerMousePositon;
+
+            if (isDestroyMouse)
+                Cursor.Position = centerMousePositon;
         }
         #endregion
 

@@ -26,7 +26,7 @@ namespace CvmFight
 
             foreach (AbstractSprite sprite in spritePool)
             {
-                if (addedTypeList.Contains(sprite.GetType()))
+                if (!addedTypeList.Contains(sprite.GetType()))
                 {
                     internalCache[sprite.GetType()] = spriteCache3DBuilder.Build(sprite);
                     addedTypeList.Add(sprite.GetType());
