@@ -13,13 +13,15 @@ namespace CvmFight
         #region Fields and parts
         private bool isFullScreen = true;
 
-        private int screenWidth = 1024;
+        private int screenWidth;
 
-        private int screenHeight = 768;
+        private int screenHeight;
 
         private Surface mainSurface;
 
         private ColumnViewer columnViewer;
+
+        private SpriteViewer3D spriteViewer;
 
         private Gradient gradient;
         #endregion
@@ -29,6 +31,8 @@ namespace CvmFight
         {
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
+
+            spriteViewer = new SpriteViewer3D(screenWidth, screenHeight);
 
             this.gradient = new Gradient(screenWidth, screenHeight);
             
@@ -44,6 +48,12 @@ namespace CvmFight
         {
             mainSurface.Blit(gradient.Surface);
             columnViewer.Update(world.CurrentPlayer, rayTracer, mainSurface);
+
+            //We display the sprites
+            foreach (AbstractSprite sprite in world.SpritePool)
+                if (sprite != world.CurrentPlayer && Optics.IsSpriteViewable(world.CurrentPlayer,sprite,world.Map,rayTracer.Fov))
+                    spriteViewer.ViewSprite(sprite, mainSurface);
+
             mainSurface.Update();
         }
         #endregion
