@@ -47,7 +47,7 @@ namespace CvmFight
         public override void Update(World world, RayTracer rayTracer)
         {
             mainSurface.Blit(gradient.Surface);
-            columnViewer.Update(world.CurrentPlayer, rayTracer, mainSurface);
+            columnViewer.Update(world.CurrentPlayer, rayTracer, world.Map, mainSurface);
 
             //We display the sprites
             foreach (AbstractSprite sprite in world.SpritePool)
