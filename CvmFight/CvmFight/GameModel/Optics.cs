@@ -106,6 +106,15 @@ namespace CvmFight
             return viewAxisX * relativePointX + viewAxisY * relativePointY;
         }
 
+        public static double GetStraightDistance(AbstractSprite viewerSprite, AbstractSprite viewedSprite)
+        {
+            double viewAxisX = Math.Cos(viewerSprite.AngleRadian);
+            double viewAxisY = Math.Sin(viewerSprite.AngleRadian);
+            double relativePointX = viewedSprite.PositionX - viewerSprite.PositionX;
+            double relativePointY = viewedSprite.PositionY - viewerSprite.PositionY;
+            return viewAxisX * relativePointX + viewAxisY * relativePointY;
+        }
+
         public static double GetColumnHeight(double distance, double maxColumnHeight, double heightDistanceRatio)
         {
             double columnHeight;

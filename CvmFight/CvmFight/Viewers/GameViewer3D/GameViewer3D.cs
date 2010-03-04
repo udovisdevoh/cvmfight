@@ -27,12 +27,12 @@ namespace CvmFight
         #endregion
 
         #region Constructor
-        public GameViewer3D(int screenWidth, int screenHeight, int columnCount)
+        public GameViewer3D(int screenWidth, int screenHeight, int columnCount, SpritePool spritePool)
         {
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
 
-            spriteViewer = new SpriteViewer3D(screenWidth, screenHeight);
+            spriteViewer = new SpriteViewer3D(screenWidth, screenHeight, spritePool);
 
             this.gradient = new Gradient(screenWidth, screenHeight);
             
