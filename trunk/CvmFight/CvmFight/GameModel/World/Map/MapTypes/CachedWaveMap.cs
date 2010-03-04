@@ -15,6 +15,8 @@ namespace CvmFight
         private WaveMap waveMap;
 
         private WaveMapCache waveMapCache;
+
+        private ColorMap colorMap;
         #endregion
 
         #region Public Methods
@@ -22,6 +24,7 @@ namespace CvmFight
         {
             waveMap = new WaveMap(random);
             waveMapCache = new WaveMapCache(waveMap, precision);
+            colorMap = new ColorMap(random,waveMap.Width,waveMap.Height);
         }
 
         public override AbstractMatterType GetMatterTypeAt(double x, double y)
@@ -37,6 +40,39 @@ namespace CvmFight
         public override int Height
         {
             get { return waveMap.Height; }
+        }
+
+        /// <summary>
+        /// From color map, returns red multiplicator
+        /// </summary>
+        /// <param name="x">x</param>
+        /// <param name="y">x</param>
+        /// <returns>red color multiplicator at x,y</returns>
+        public override double GetRedMultiplicatorAt(double x, double y)
+        {
+            return colorMap.GetRedMultiplicatorAt(x, y);
+        }
+
+        /// <summary>
+        /// From color map, returns green color multiplicator
+        /// </summary>
+        /// <param name="x">x</param>
+        /// <param name="y">x</param>
+        /// <returns>green color multiplicator at x,y</returns>
+        public override double GetGreenMultiplicatorAt(double x, double y)
+        {
+            return colorMap.GetGreenMultiplicatorAt(x, y);
+        }
+
+        /// <summary>
+        /// From color map, returns blue color multiplicator
+        /// </summary>
+        /// <param name="x">x</param>
+        /// <param name="y">y</param>
+        /// <returns>blue color multiplicator at x,y</returns>
+        public override double GetBlueMultiplicatorAt(double x, double y)
+        {
+            return colorMap.GetBlueMultiplicatorAt(x, y);
         }
         #endregion
     }

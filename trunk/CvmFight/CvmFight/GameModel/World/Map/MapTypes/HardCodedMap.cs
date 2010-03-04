@@ -68,6 +68,39 @@ namespace CvmFight
                 throw new ArgumentException("x-y coordinates out of bound");
             return internalMap[(int)Math.Floor(y), (int)Math.Floor(x)];
         }
+
+        /// <summary>
+        /// From color map, returns red multiplicator
+        /// </summary>
+        /// <param name="x">x</param>
+        /// <param name="y">x</param>
+        /// <returns>red color multiplicator at x,y</returns>
+        public override double GetRedMultiplicatorAt(double x, double y)
+        {
+            return 1.0;
+        }
+
+        /// <summary>
+        /// From color map, returns green color multiplicator
+        /// </summary>
+        /// <param name="x">x</param>
+        /// <param name="y">x</param>
+        /// <returns>green color multiplicator at x,y</returns>
+        public override double GetGreenMultiplicatorAt(double x, double y)
+        {
+            return 1.0;
+        }
+
+        /// <summary>
+        /// From color map, returns blue color multiplicator
+        /// </summary>
+        /// <param name="x">x</param>
+        /// <param name="y">y</param>
+        /// <returns>blue color multiplicator at x,y</returns>
+        public override double GetBlueMultiplicatorAt(double x, double y)
+        {
+            return 1.0;
+        }
         #endregion
 
         #region Private Methods

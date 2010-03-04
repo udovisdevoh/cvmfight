@@ -45,7 +45,7 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public void Update(AbstractSprite currentPlayer, RayTracer rayTracer, Surface surface)
+        public void Update(AbstractSprite currentPlayer, RayTracer rayTracer, AbstractMap map, Surface surface)
         {
             int columnXLeftMargin = 0;
             for (int columnId = 0; columnId < columnCount; columnId++)
@@ -61,11 +61,13 @@ namespace CvmFight
 
                 columnXLeftMargin += columnWidthPixel;
 
-                int brightness = (int)Math.Round(columnHeight / screenHeight * 255);
-                brightness = Math.Max(0, brightness);
-                brightness = Math.Min(255, brightness);
+                double brightness = Math.Round(columnHeight / screenHeight * 255);
 
-                surface.Fill(rectangle, Color.FromArgb(255,brightness,brightness,brightness));
+                double redMultiplicator = map.GetRedMultiplicatorAt(rayTracer[columnId].X, rayTracer[columnId].Y);
+                double greenMultiplicator = map.GetGreenMultiplicatorAt(rayTracer[columnId].X, rayTracer[columnId].Y);
+                double blueMultiplicator = map.GetBlueMultiplicatorAt(rayTracer[columnId].X, rayTracer[columnId].Y);
+                
+                surface.Fill(rectangle, Color.FromArgb(255, (byte)(brightness * redMultiplicator), (byte)(brightness * greenMultiplicator), (byte)(brightness * blueMultiplicator)));
             }
         }
         #endregion
