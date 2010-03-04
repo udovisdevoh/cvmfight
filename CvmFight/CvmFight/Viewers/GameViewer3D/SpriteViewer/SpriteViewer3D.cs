@@ -36,7 +36,9 @@ namespace CvmFight
             double angle = Optics.GetSpriteAngleToSpriteRadian(viewerSprite, viewedSprite);
             double distance = Optics.GetStraightDistance(viewerSprite, viewedSprite);
 
-            Surface spriteSurface = spriteCollectionCache3D.GetSpriteCache(viewedSprite).GetSurface(angle, distance, out destinationRectangle);
+            #warning Sprite status and viewed angle must be parsed here
+
+            Surface spriteSurface = spriteCollectionCache3D.GetSpriteCache(viewedSprite).GetSurface(SpriteFrame.Walk1, SpriteFrame.Front, distance, out destinationRectangle);
             mainSurface.Blit(spriteSurface, destinationRectangle);
         }
         #endregion
