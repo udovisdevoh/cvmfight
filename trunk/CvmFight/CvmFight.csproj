@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C7BEC086-362D-4365-A257-04CA2B6BE562}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -87,6 +87,7 @@
     <Compile Include="CvmFight\Viewers\GameViewer3D\Gradient.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\ColumnViewer.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\SpriteViewer\SpriteCache3D.cs" />
+    <Compile Include="CvmFight\Viewers\GameViewer3D\SpriteViewer\SpriteCollectionCache3D.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\SpriteViewer\SpriteViewer3D.cs" />
     <Compile Include="CvmFight\Viewers\MiniMap\SpritePrimitiveCache.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\GameViewer3D.cs" />
