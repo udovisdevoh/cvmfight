@@ -50,7 +50,7 @@ namespace CvmFight
 
         private const double MaximumSpriteHeight = 1024;
 
-        private const double SpriteSizePrecision = 0.1;
+        private const double SpriteSizePrecision = 0.01;
         #endregion
 
         #region Fields and parts
