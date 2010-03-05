@@ -21,9 +21,9 @@ namespace CvmFight
 
         private const int fov = 110;
 
-        private bool isDestroyMouse = false;
+        private bool isDestroyMouse = true;
 
-        private bool isFullScreen = false;
+        private bool isFullScreen = true;
         #endregion
 
         #region Fields and parts
