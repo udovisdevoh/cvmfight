@@ -11,6 +11,10 @@ namespace CvmFight
 {
     class GameViewer3D : AbstractGameViewer
     {
+        #region Constants
+        private double heightDistanceRatio = 2;
+        #endregion
+
         #region Fields and parts
         private bool isFullScreen;
 
@@ -30,7 +34,7 @@ namespace CvmFight
         #endregion
 
         #region Constructor
-        public GameViewer3D(int screenWidth, int screenHeight, int columnCount, SpritePool spritePool, bool isFullScreen)
+        public GameViewer3D(int screenWidth, int screenHeight, int columnCount, SpritePool spritePool, bool isFullScreen, int fov)
         {
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
@@ -38,15 +42,15 @@ namespace CvmFight
 
             //We create a point grid
             pointGrid = new Point[screenWidth, screenHeight];
-            for (int x = 0; x < screenWidth; x++)
-                for (int y = 0; y < screenHeight; y++)
+            for (int x = screenWidth; x < screenWidth; x++)
+                for (int y = screenHeight; y < screenHeight; y++)
                     pointGrid[x, y] = new Point(x, y);
 
-            spriteViewer = new SpriteViewer3D(screenWidth, screenHeight, spritePool);
+            spriteViewer = new SpriteViewer3D(screenWidth, screenHeight, spritePool, fov, heightDistanceRatio);
 
             this.gradient = new Gradient(screenWidth, screenHeight);
-            
-            columnViewer = new ColumnViewer(this.screenWidth, this.screenHeight, columnCount);
+
+            columnViewer = new ColumnViewer(this.screenWidth, this.screenHeight, columnCount, heightDistanceRatio);
             
             mainSurface = new Surface(screenWidth, screenHeight);
             mainSurface = Video.SetVideoMode(screenWidth, screenHeight, true, false, isFullScreen, true);
