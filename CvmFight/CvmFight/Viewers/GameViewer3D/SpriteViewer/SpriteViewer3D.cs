@@ -42,14 +42,13 @@ namespace CvmFight
             double theoreticalColumnHeight = Optics.GetColumnHeight(straightDistance, screenHeight, heightDistanceRatio);
             double topMargin = Optics.GetColumnTopMargin(screenHeight, theoreticalColumnHeight, viewerSprite.PositionZ, viewerSprite.IsCrouch);
 
-            
 
 
             //byte brightness = (byte)(columnHeight / maxColumnHeight * 255);
 
-            double spriteHeight = 768.0;
+            double spriteHeight = (int)(theoreticalColumnHeight);
             int destinationX = 0;
-            int destinationY = 0;
+            int destinationY;
 
             #warning Sprite status, viewed angle and height must be parsed here (along with destinatonX and destinatonY)
 
@@ -57,13 +56,15 @@ namespace CvmFight
 
 
             destinationX = (int)(getXPosition(angleDegree, fov, screenWidth, spriteSurface.Width));
-            destinationY = (int)topMargin;
+            destinationY = (int)(topMargin + theoreticalColumnHeight - spriteHeight);
 
             #warning, remove this ugly hack
-            if (destinationX < 0 || destinationX >= screenWidth)
-                mainSurface.Blit(spriteSurface,new Point(destinationX, destinationY));
+            mainSurface.Blit(spriteSurface, new Point(destinationX, destinationY));
+            /*
+            if (destinationX < 0 || destinationX >= screenWidth || destinationY <0 || destinationY > screenHeight)
+                mainSurface.Blit(spriteSurface, new Point(destinationX, destinationY));
             else
-                mainSurface.Blit(spriteSurface, pointGrid[destinationX, destinationY]);
+                mainSurface.Blit(spriteSurface, pointGrid[destinationX, destinationY]);*/
         }
         #endregion
 
