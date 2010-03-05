@@ -18,6 +18,8 @@ namespace CvmFight
         #region Fields and parts
         private bool isFullScreen;
 
+        private bool isMiniMapOn;
+
         private int screenWidth;
 
         private int screenHeight;
@@ -31,11 +33,15 @@ namespace CvmFight
         private Gradient gradient;
 
         private Point[,] pointGrid;
+
+        private MiniMap minimap;
         #endregion
 
         #region Constructor
         public GameViewer3D(int screenWidth, int screenHeight, int columnCount, SpritePool spritePool, bool isFullScreen, int fov)
         {
+            minimap = new MiniMap(screenWidth, screenHeight);
+
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
             this.isFullScreen = isFullScreen;
@@ -52,7 +58,7 @@ namespace CvmFight
 
             columnViewer = new ColumnViewer(this.screenWidth, this.screenHeight, columnCount, heightDistanceRatio);
             
-            mainSurface = new Surface(screenWidth, screenHeight);
+            //mainSurface = new Surface(screenWidth, screenHeight);
             mainSurface = Video.SetVideoMode(screenWidth, screenHeight, true, false, isFullScreen, true);
         }
         #endregion
@@ -68,7 +74,18 @@ namespace CvmFight
                 if (sprite != world.CurrentPlayer && Optics.IsSpriteViewable(world.CurrentPlayer,sprite,world.Map,rayTracer.Fov))
                     spriteViewer.View(world.CurrentPlayer, sprite, mainSurface, pointGrid);
 
+            if (isMiniMapOn)
+                minimap.Update(world, rayTracer, mainSurface);
+
             mainSurface.Update();
+        }
+        #endregion
+
+        #region Properties
+        public override bool IsMiniMapOn
+        {
+            get { return isMiniMapOn; }
+            set { isMiniMapOn = value; }
         }
         #endregion
     }
