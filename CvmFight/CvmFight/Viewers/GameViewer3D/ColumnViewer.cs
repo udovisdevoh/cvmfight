@@ -11,10 +11,6 @@ namespace CvmFight
 {
     class ColumnViewer
     {
-        #region Constants
-        private double heightDistanceRatio = 2;
-        #endregion
-
         #region Fields and parts
         private int columnCount;
 
@@ -24,16 +20,19 @@ namespace CvmFight
 
         private int screenHeight;
 
+        private double heightDistanceRatio = 2;
+
         private Rectangle[] rectangleCache;
         #endregion
 
         #region Constructor
-        public ColumnViewer(int screenWidth, int screenHeight, int columnCount)
+        public ColumnViewer(int screenWidth, int screenHeight, int columnCount, double heightDistanceRatio)
         {
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
             this.columnCount = columnCount;
             this.columnWidthPixel = screenWidth / columnCount;
+            this.heightDistanceRatio = heightDistanceRatio;
 
             this.rectangleCache = new Rectangle[columnCount];
             for (int i = 0; i < columnCount; i++)

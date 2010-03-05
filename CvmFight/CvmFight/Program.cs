@@ -19,9 +19,11 @@ namespace CvmFight
 
         private const int rayTracerResolution = 256;
 
-        private bool isDestroyMouse = false;
+        private const int fov = 110;
 
-        private bool isFullScreen = false;
+        private bool isDestroyMouse = true;
+
+        private bool isFullScreen = true;
         #endregion
 
         #region Fields and parts
@@ -31,7 +33,7 @@ namespace CvmFight
 
         private UserInput userInput = new UserInput();
 
-        private RayTracer rayTracer = new RayTracer(rayTracerResolution, 110);
+        private RayTracer rayTracer = new RayTracer(rayTracerResolution, fov);
         
         private Point centerMousePositon;
         #endregion
@@ -39,8 +41,8 @@ namespace CvmFight
         #region Constructor
         public Program()
         {
-            gameViewer = new MiniMap(screenWidth, screenHeight, isFullScreen);
-            gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, isFullScreen);
+            //gameViewer = new MiniMap(screenWidth, screenHeight, isFullScreen);
+            gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, isFullScreen, rayTracer.Fov);
             centerMousePositon = new Point(screenWidth / 2, screenHeight / 2);
         }
         #endregion
@@ -74,7 +76,7 @@ namespace CvmFight
 
             Physics.TryMakeRotate(world.CurrentPlayer, userInput.MouseMotionX);
 
-            userInput.MouseMotionX = 0;           
+            userInput.MouseMotionX = 0;
 
             gameViewer.Update(world, rayTracer);
         }
