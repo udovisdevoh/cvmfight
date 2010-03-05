@@ -91,6 +91,8 @@ namespace CvmFight
                 userInput.IsPressLeft = true;
             else if (args.Key == Key.RightArrow || args.Key == Key.D)
                 userInput.IsPressRight = true;
+            else if (args.Key == Key.Tab)
+                gameViewer.IsMiniMapOn = !gameViewer.IsMiniMapOn;
         }
 
         public void OnKeyboardUp(object sender, KeyboardEventArgs args)

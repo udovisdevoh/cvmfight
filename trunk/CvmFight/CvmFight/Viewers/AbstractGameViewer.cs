@@ -11,5 +11,11 @@ namespace CvmFight
     abstract class AbstractGameViewer
     {
         public abstract void Update(World world, RayTracer rayTracer);
+
+        public abstract bool IsMiniMapOn
+        {
+            get;
+            set;
+        }
     }
 }

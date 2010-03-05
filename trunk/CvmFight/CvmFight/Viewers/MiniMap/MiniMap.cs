@@ -9,15 +9,13 @@ using SdlDotNet.Graphics.Primitives;
 
 namespace CvmFight
 {
-    class MiniMap : AbstractGameViewer
+    class MiniMap
     {
         #region Constants
         private const double precision = 0.025;
         #endregion
 
         #region Fields and parts
-        private Surface mainSurface;
-
         private Point[,] pointGrid;
 
         private SpritePrimitiveCache circleCache = new SpritePrimitiveCache();
@@ -27,23 +25,11 @@ namespace CvmFight
         private AbstractMap currentMap = null;
 
         private Surface mapSurface = null;
-
-        private int screenWidth = 1024;
-
-        private int screenHeight = 768;
-
-        private bool isFullScreen;
         #endregion
 
         #region Constructor
-        public MiniMap(int screenWidth, int screenHeight, bool isFullScreen)
-        {
-            this.isFullScreen = isFullScreen;
-            this.screenWidth = screenWidth;
-            this.screenHeight = screenHeight;
-            mainSurface = new Surface(screenWidth, screenHeight);
-            mainSurface = Video.SetVideoMode(screenWidth, screenHeight, true, false, isFullScreen, true);
-            
+        public MiniMap(int screenWidth, int screenHeight)
+        {          
             pointGrid = new Point[screenWidth, screenHeight];
             for (int x = 0; x < screenWidth; x++)
                 for (int y = 0; y < screenHeight; y++)
@@ -52,15 +38,13 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public override void Update(World world, RayTracer rayTracer)
+        public void Update(World world, RayTracer rayTracer, Surface surface)
         {
-            mainSurface.Blit(GetOrCreateMapSurface(world.Map));
+            surface.Blit(GetOrCreateMapSurface(world.Map));
             foreach (AbstractSprite sprite in world.SpritePool)
-                    DrawSprite(sprite, Optics.IsSpriteViewable(world.CurrentPlayer, sprite, world.Map, rayTracer.Fov));
+                DrawSprite(sprite, Optics.IsSpriteViewable(world.CurrentPlayer, sprite, world.Map, rayTracer.Fov), surface);
 
-            DrawRayTracer(world.Map, rayTracer);
-
-            mainSurface.Update();
+            DrawRayTracer(world.Map, rayTracer, surface);
         }
         #endregion
 
@@ -89,23 +73,23 @@ namespace CvmFight
                 {
                     if (map.GetMatterTypeAt(mapLocationX, mapLocationY) != null)
                         mapSurface.Draw(pointGrid[pixelLocationX, pixelLocationY], Color.Gray);
-                    else
-                        mapSurface.Draw(pointGrid[pixelLocationX, pixelLocationY], Color.Black);
                     pixelLocationY++;
                 }
                 pixelLocationX++;
             }
 
+            mapSurface.Transparent = true;
+
             return mapSurface;
         }
 
-        private void DrawSprite(AbstractSprite sprite, bool isViewable)
+        private void DrawSprite(AbstractSprite sprite, bool isViewable, Surface surface)
         {
-            DrawSpriteBounds(sprite, isViewable);
-            DrawSpriteAngle(sprite);
+            DrawSpriteBounds(sprite, isViewable, surface);
+            DrawSpriteAngle(sprite, surface);
         }
 
-        private void DrawSpriteAngle(AbstractSprite sprite)
+        private void DrawSpriteAngle(AbstractSprite sprite, Surface surface)
         {
             int pixelLocationX = (int)(sprite.PositionX / precision);
             int pixelLocationY = (int)(sprite.PositionY / precision);
@@ -136,10 +120,10 @@ namespace CvmFight
             angleLine.YPosition2 = pixelEndingLocationY;
 
 
-            mainSurface.Draw(angleLine, Color.White);
+            surface.Draw(angleLine, Color.White);
         }
 
-        private void DrawSpriteBounds(AbstractSprite sprite, bool isViewable)
+        private void DrawSpriteBounds(AbstractSprite sprite, bool isViewable, Surface surface)
         {
             int pixelLocationX = (int)(sprite.PositionX / precision);
             int pixelLocationY = (int)(sprite.PositionY / precision);
@@ -162,23 +146,23 @@ namespace CvmFight
             circle.PositionY = (short)pixelLocationY;
 
             if (sprite is Player)
-                mainSurface.Draw(circle, Color.MediumBlue);
+                surface.Draw(circle, Color.MediumBlue);
             else if (sprite is AbstractFighter)
             {
                 if (isViewable)
                 {
-                    mainSurface.Draw(circle, Color.Magenta);
+                    surface.Draw(circle, Color.Magenta);
                 }
                 else
                 {
-                    mainSurface.Draw(circle, Color.Orange);
+                    surface.Draw(circle, Color.Orange);
                 }
             }
             else
-                mainSurface.Draw(circle, Color.Green);
+                surface.Draw(circle, Color.Green);
         }
 
-        private void DrawRayTracer(AbstractMap map, RayTracer rayTracer)
+        private void DrawRayTracer(AbstractMap map, RayTracer rayTracer, Surface surface)
         {
             int positionX;
             int positionY;
@@ -186,7 +170,7 @@ namespace CvmFight
             {
                 positionX = (int)(rayTracerPoint.X / precision);
                 positionY = (int)(rayTracerPoint.Y / precision);
-                mainSurface.Draw(pointGrid[positionX, positionY], Color.White);
+                surface.Draw(pointGrid[positionX, positionY], Color.White);
             }
         }
         #endregion

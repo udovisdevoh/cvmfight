@@ -60,7 +60,7 @@ namespace CvmFight
             destinationY = (int)topMargin;
 
             #warning, remove this ugly hack
-            if (destinationX < 0 || destinationX > screenWidth)
+            if (destinationX < 0 || destinationX >= screenWidth)
                 mainSurface.Blit(spriteSurface,new Point(destinationX, destinationY));
             else
                 mainSurface.Blit(spriteSurface, pointGrid[destinationX, destinationY]);
