@@ -8,7 +8,7 @@ namespace CvmFight
     static class Optics
     {
         #region Constants
-        private const double rayDistanceResolution = 0.1;
+        private const double rayDistanceResolution = 0.01;
         #endregion
 
         #region Public Methods

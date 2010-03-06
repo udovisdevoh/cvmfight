@@ -83,10 +83,13 @@ namespace CvmFight
         public Surface GetScaledSurface(int height)
         {
             Surface scalledSurface;
-            if (!spriteHeightCache.TryGetValue(height, out scalledSurface))
+
+            int key = (int)Math.Sqrt(height * 10);
+
+            if (!spriteHeightCache.TryGetValue(key, out scalledSurface))
             {
                 scalledSurface = originalSurface.CreateScaledSurface(height / (double)originalSurface.Height);
-                spriteHeightCache.Add(height, scalledSurface);
+                spriteHeightCache.Add(key, scalledSurface);
             }
 
             return scalledSurface;
