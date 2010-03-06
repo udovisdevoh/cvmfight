@@ -75,7 +75,6 @@ namespace CvmFight
             originalSurface = new Surface(imageFileName);
             originalSurface.Alpha = 255;
             originalSurface.Transparent = true;
-            originalSurface = originalSurface.CreateScaledSurface(MaximumSpriteHeight / (double)originalSurface.Height);
         }
         #endregion
 
@@ -84,7 +83,7 @@ namespace CvmFight
         {
             Surface scalledSurface;
 
-            int key = (int)Math.Sqrt(height * 10);
+            int key = height;
 
             if (!spriteHeightCache.TryGetValue(key, out scalledSurface))
             {
