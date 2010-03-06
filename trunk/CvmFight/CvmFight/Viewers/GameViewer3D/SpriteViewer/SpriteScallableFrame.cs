@@ -76,7 +76,7 @@ namespace CvmFight
             for (double height = MinimumSpriteHeight; height <= MaximumSpriteHeight; height += (1 / SpriteSizePrecision))
             {
                 Size newImageSize = BuildSize(originalSurface, height);
-                Surface scalledSurface = originalSurface.CreateResizedSurface(newImageSize);
+                Surface scalledSurface = originalSurface.CreateScaledSurface(height / (double)originalSurface.Height); 
                 spriteHeightCache.Add((int)(height * SpriteSizePrecision), scalledSurface);
             }
         }

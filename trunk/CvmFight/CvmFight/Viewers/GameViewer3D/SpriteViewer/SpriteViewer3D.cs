@@ -37,7 +37,7 @@ namespace CvmFight
         #region Public Methods
         public void View(AbstractSprite viewerSprite, AbstractSprite viewedSprite, Surface mainSurface, Point[,] pointGrid)
         {
-            double angleDegree = Optics.GetSpriteAngleToSpriteRadian(viewerSprite, viewedSprite) / Math.PI * 180.0;
+            double angleDegree = Optics.FixAngleDegree((Optics.GetSpriteAngleToSpriteRadian(viewerSprite, viewedSprite) - viewerSprite.AngleRadian) / Math.PI * 180.0);
             double straightDistance = Optics.GetStraightDistance(viewerSprite, viewedSprite);
             double theoreticalColumnHeight = Optics.GetColumnHeight(straightDistance, screenHeight, heightDistanceRatio);
             double topMargin = Optics.GetColumnTopMargin(screenHeight, theoreticalColumnHeight, viewerSprite.PositionZ, viewerSprite.IsCrouch);
@@ -71,7 +71,7 @@ namespace CvmFight
         #region Private Methods
         private double getXPosition(double angleDegree, int fov, int screenWidth, int spriteWidth)
         {
-            return angleDegree / (double)(fov) * (double)(screenWidth) + ((double)(screenWidth) / 2.0) - ((double)(spriteWidth) / 2.0);
+            return angleDegree / (double)(fov) * (double)(screenWidth) + ((double)(screenWidth) / 2.0) -((double)(spriteWidth) / 2.0);
         }
         #endregion
     }
