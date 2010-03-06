@@ -16,7 +16,7 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public Surface GetSurface(byte spriteStatus, byte spriteAngle, double spriteHeight)
+        public Surface GetSurface(byte spriteStatus, byte spriteAngle, int spriteHeight)
         {
             return internalSpriteFrameMap[spriteAngle, spriteStatus].GetScaledSurface(spriteHeight);
         }
