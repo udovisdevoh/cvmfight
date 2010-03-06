@@ -36,6 +36,8 @@ namespace CvmFight
         private RayTracer rayTracer = new RayTracer(rayTracerResolution, fov);
         
         private Point centerMousePositon;
+
+        private DateTime previousDateTime = DateTime.Now;
         #endregion
 
         #region Constructor
@@ -62,15 +64,20 @@ namespace CvmFight
 
         public void Update(object sender, TickEventArgs args)
         {
+            //We process the time multiplicator
+            double timeDelta = ((TimeSpan)(DateTime.Now - previousDateTime)).TotalMilliseconds / 16.0;
+            previousDateTime = DateTime.Now;
+
+
             if (userInput.IsPressUp)
-                Physics.TryMakeWalk(world.CurrentPlayer, world.SpritePool, world.Map);
+                Physics.TryMakeWalk(world.CurrentPlayer, world.SpritePool, world.Map, timeDelta);
             else if (userInput.IsPressDown)
-                Physics.TryMakeWalk(world.CurrentPlayer, Math.PI, world.SpritePool, world.Map);
+                Physics.TryMakeWalk(world.CurrentPlayer, Math.PI, world.SpritePool, world.Map, timeDelta);
             
             if (userInput.IsPressLeft)
-                Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 1.5, world.SpritePool, world.Map);
+                Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 1.5, world.SpritePool, world.Map, timeDelta);
             else if (userInput.IsPressRight)
-                Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 0.5, world.SpritePool, world.Map);
+                Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 0.5, world.SpritePool, world.Map, timeDelta);
 
             rayTracer.Trace(world.CurrentPlayer, world.Map);
 
