@@ -12,13 +12,10 @@ namespace CvmFight
     class MiniMap
     {
         #region Constants
-        private const double precision = 0.025;
-        //private const double precision = 0.1;
+        private const double precision = 0.025; //private const double precision = 0.1;
         #endregion
 
         #region Fields and parts
-        private Point[,] pointGrid;
-
         private SpritePrimitiveCache circleCache = new SpritePrimitiveCache();
 
         private SpritePrimitiveCache angleLineCache = new SpritePrimitiveCache();
@@ -37,10 +34,6 @@ namespace CvmFight
         {
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
-            pointGrid = new Point[screenWidth, screenHeight];
-            for (int x = 0; x < screenWidth; x++)
-                for (int y = 0; y < screenHeight; y++)
-                    pointGrid[x, y] = new Point(x, y);
         }
         #endregion
 
@@ -79,7 +72,8 @@ namespace CvmFight
                 for (double mapLocationY = 0; mapLocationY < map.Height; mapLocationY += precision)
                 {
                     if (map.GetMatterTypeAt(mapLocationX, mapLocationY) != null)
-                        mapSurface.Draw(pointGrid[pixelLocationX, pixelLocationY], Color.Gray);
+                        if (PointLoader.IsPositionValid(pixelLocationX, pixelLocationY))
+                            mapSurface.Draw(PointLoader.GetPoint(pixelLocationX, pixelLocationY), Color.Gray);
                     pixelLocationY++;
                 }
                 pixelLocationX++;
@@ -178,10 +172,8 @@ namespace CvmFight
                 positionX = (int)(rayTracerPoint.X / precision);
                 positionY = (int)(rayTracerPoint.Y / precision);
 
-                if (positionX < screenWidth && positionY < screenHeight)
-                {
-                    surface.Draw(pointGrid[positionX, positionY], Color.White);
-                }
+                if (PointLoader.IsPositionValid(positionX, positionY))
+                    surface.Draw(PointLoader.GetPoint(positionX, positionY), Color.White);
             }
         }
         #endregion

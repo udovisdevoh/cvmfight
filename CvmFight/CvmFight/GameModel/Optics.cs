@@ -31,8 +31,8 @@ namespace CvmFight
             double angleRadian = FixAngleRadian(GetSpriteAngleToSpriteRadian(viewerSprite, viewedSprite));
             double angleDegree = FixAngleDegree(angleRadian / Math.PI * 180);
 
-            double minimumViewingAngle = viewerSprite.AngleDegree - (double)fov / 2.0;
-            double maximumViewingAngle = viewerSprite.AngleDegree + (double)fov / 2.0;
+            double minimumViewingAngle = viewerSprite.AngleDegree - (double)fov / 1.8;
+            double maximumViewingAngle = viewerSprite.AngleDegree + (double)fov / 1.8;
 
             if (angleDegree < minimumViewingAngle)
                 return false;
