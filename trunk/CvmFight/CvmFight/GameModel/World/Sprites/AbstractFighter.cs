@@ -30,6 +30,11 @@ namespace CvmFight
         /// Sprite's health
         /// </summary>
         private double health;
+
+        /// <summary>
+        /// Frag count
+        /// </summary>
+        private short fragCount;
         #endregion
 
         #region Properties
@@ -83,6 +88,15 @@ namespace CvmFight
                 else if (health > 0)
                     isAlive = true;
             }
+        }
+
+        /// <summary>
+        /// Frag count
+        /// </summary>
+        public short FragCount
+        {
+            get { return fragCount; }
+            set { fragCount = value; }
         }
         #endregion
     }
