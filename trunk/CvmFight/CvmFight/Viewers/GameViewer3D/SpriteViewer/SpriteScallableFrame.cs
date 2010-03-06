@@ -61,6 +61,8 @@ namespace CvmFight
         private string imageFileName;
 
         private Dictionary<int, Surface> spriteHeightCache = new Dictionary<int, Surface>();
+
+        private Surface originalSurface;
         #endregion
 
         #region Constructor
@@ -70,44 +72,24 @@ namespace CvmFight
             this.status = status;
             this.imageFileName = imageFileName;
 
-            Surface originalSurface = new Surface(imageFileName);
+            originalSurface = new Surface(imageFileName);
             originalSurface.Alpha = 255;
             originalSurface.Transparent = true;
-            for (double height = MinimumSpriteHeight; height <= MaximumSpriteHeight; height++)
-            {
-                int key = (int)(Math.Sqrt(height) * SpriteSizePrecision);
-                if (!spriteHeightCache.ContainsKey(key))
-                {
-                    Size newImageSize = BuildSize(originalSurface, height);
-                    Surface scalledSurface = originalSurface.CreateScaledSurface(height / (double)originalSurface.Height);
-
-                    spriteHeightCache.Add(key, scalledSurface);
-                }
-            }
+            originalSurface = originalSurface.CreateScaledSurface(MaximumSpriteHeight / (double)originalSurface.Height);
         }
         #endregion
 
         #region Public Methods
-        public Surface GetScaledSurface(double height)
+        public Surface GetScaledSurface(int height)
         {
-            height = Math.Min(MaximumSpriteHeight, height);
-            height = Math.Max(MinimumSpriteHeight, height);
+            Surface scalledSurface;
+            if (!spriteHeightCache.TryGetValue(height, out scalledSurface))
+            {
+                scalledSurface = originalSurface.CreateScaledSurface(height / (double)originalSurface.Height);
+                spriteHeightCache.Add(height, scalledSurface);
+            }
 
-            //height *= SpriteSizePrecision;
-
-
-            int key = (int)(Math.Sqrt(height) * SpriteSizePrecision);
-
-            return spriteHeightCache[key];
-        }
-        #endregion
-
-        #region Private Methods
-        private Size BuildSize(Surface originalSurface, double newHeight)
-        {
-            double newWidth = (double)originalSurface.Width / (double)originalSurface.Height * newHeight;
-            Size size = new Size((int)newWidth, (int)newHeight);
-            return size;
+            return scalledSurface;
         }
         #endregion
 
