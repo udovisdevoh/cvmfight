@@ -50,7 +50,7 @@ namespace CvmFight
 
         private const double MaximumSpriteHeight = 1024;
 
-        private const double SpriteSizePrecision = 0.01;
+        private const double SpriteSizePrecision = 1;
         #endregion
 
         #region Fields and parts
@@ -73,11 +73,16 @@ namespace CvmFight
             Surface originalSurface = new Surface(imageFileName);
             originalSurface.Alpha = 255;
             originalSurface.Transparent = true;
-            for (double height = MinimumSpriteHeight; height <= MaximumSpriteHeight; height += (1 / SpriteSizePrecision))
+            for (double height = MinimumSpriteHeight; height <= MaximumSpriteHeight; height++)
             {
-                Size newImageSize = BuildSize(originalSurface, height);
-                Surface scalledSurface = originalSurface.CreateScaledSurface(height / (double)originalSurface.Height); 
-                spriteHeightCache.Add((int)(height * SpriteSizePrecision), scalledSurface);
+                int key = (int)(Math.Sqrt(height) * SpriteSizePrecision);
+                if (!spriteHeightCache.ContainsKey(key))
+                {
+                    Size newImageSize = BuildSize(originalSurface, height);
+                    Surface scalledSurface = originalSurface.CreateScaledSurface(height / (double)originalSurface.Height);
+
+                    spriteHeightCache.Add(key, scalledSurface);
+                }
             }
         }
         #endregion
@@ -88,9 +93,12 @@ namespace CvmFight
             height = Math.Min(MaximumSpriteHeight, height);
             height = Math.Max(MinimumSpriteHeight, height);
 
-            height *= SpriteSizePrecision;
+            //height *= SpriteSizePrecision;
 
-            return spriteHeightCache[(int)height];
+
+            int key = (int)(Math.Sqrt(height) * SpriteSizePrecision);
+
+            return spriteHeightCache[key];
         }
         #endregion
 
