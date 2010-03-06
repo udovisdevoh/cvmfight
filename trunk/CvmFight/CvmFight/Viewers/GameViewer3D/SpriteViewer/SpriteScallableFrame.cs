@@ -44,7 +44,9 @@ namespace CvmFight
 
         public const byte CrouchBlock = 15;
 
-        public const byte Hit = 16;
+        public const byte CrouchHit = 16;
+
+        public const byte Hit = 17;
 
         private const double MinimumSpriteHeight = 1;
 
