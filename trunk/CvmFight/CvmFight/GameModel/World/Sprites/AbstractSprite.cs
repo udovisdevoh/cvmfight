@@ -50,6 +50,11 @@ namespace CvmFight
         /// Whether sprite is crouch
         /// </summary>
         private bool isCrouch = false;
+
+        /// <summary>
+        /// We multiply this to walking speed when sprite is crouch
+        /// </summary>
+        private double crouchSpeedMultiplier = 0.5;
         #endregion
 
         #region Properties
@@ -145,16 +150,31 @@ namespace CvmFight
             set { height = value; }
         }
 
+        /// <summary>
+        /// Sprite's default walking distance per tick
+        /// </summary>
         public double DefaultWalkingDistance
         {
             get { return defaultWalkingDistance; }
             set { defaultWalkingDistance = value; }
         }
 
+        /// <summary>
+        /// Whether sprite is crouch
+        /// </summary>
         public bool IsCrouch
         {
             get { return isCrouch; }
             set { isCrouch = value; }
+        }
+
+        /// <summary>
+        /// We multiply this to walking speed when sprite is crouch
+        /// </summary>
+        public double CrouchSpeedMultiplier
+        {
+            get { return crouchSpeedMultiplier; }
+            set { crouchSpeedMultiplier = value; }
         }
         #endregion
     }
