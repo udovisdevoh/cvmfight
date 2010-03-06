@@ -64,13 +64,8 @@ namespace CvmFight
             destinationX = (int)(getXPosition(angleDegree, fov, screenWidth, spriteSurface.Width));
             destinationY = (int)(topMargin + theoreticalColumnHeight - spriteSurface.Height);
 
-            #warning, remove this ugly hack
-            mainSurface.Blit(spriteSurface, new Point(destinationX, destinationY));
-            /*
-            if (destinationX < 0 || destinationX >= screenWidth || destinationY <0 || destinationY > screenHeight)
-                mainSurface.Blit(spriteSurface, new Point(destinationX, destinationY));
-            else
-                mainSurface.Blit(spriteSurface, pointGrid[destinationX, destinationY]);*/
+            if (PointLoader.IsPositionValid(destinationX, destinationY))
+                mainSurface.Blit(spriteSurface, PointLoader.GetPoint(destinationX, destinationY));
         }
         #endregion
 
