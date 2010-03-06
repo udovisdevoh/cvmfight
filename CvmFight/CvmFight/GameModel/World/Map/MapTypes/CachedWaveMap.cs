@@ -19,14 +19,16 @@ namespace CvmFight
         private ColorMap colorMap;
         #endregion
 
-        #region Public Methods
+        #region Constructor
         public CachedWaveMap(Random random)
         {
             waveMap = new WaveMap(random);
             waveMapCache = new WaveMapCache(waveMap, precision);
             colorMap = new ColorMap(random,waveMap.Width,waveMap.Height);
         }
+        #endregion
 
+        #region Public Methods
         public override AbstractMatterType GetMatterTypeAt(double x, double y)
         {
             return waveMapCache.GetValueAt(x, y);
