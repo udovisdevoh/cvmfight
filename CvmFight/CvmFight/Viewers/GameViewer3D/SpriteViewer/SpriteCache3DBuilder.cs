@@ -44,6 +44,21 @@ namespace CvmFight
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.CrouchBlock, "Assets/Textures/Sprites/StickMan/StickManRightCrouchBlock.png"));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Hit, "Assets/Textures/Sprites/StickMan/StickManRightHit.png"));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.CrouchHit, "Assets/Textures/Sprites/StickMan/StickManRightCrouchHit.png"));
+
+                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Walk1, "Assets/Textures/Sprites/StickMan/StickManBackWalk1.png"));
+                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Walk2, "Assets/Textures/Sprites/StickMan/StickManBackWalk2.png"));
+
+                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Walk1, "Assets/Textures/Sprites/StickMan/StickManFrontLeftWalk1.png"));
+                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Walk2, "Assets/Textures/Sprites/StickMan/StickManFrontLeftWalk2.png"));
+
+                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Walk1, "Assets/Textures/Sprites/StickMan/StickManFrontRightWalk1.png"));
+                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Walk2, "Assets/Textures/Sprites/StickMan/StickManFrontRightWalk2.png"));
+
+                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Walk1, "Assets/Textures/Sprites/StickMan/StickManBackLeftWalk1.png"));
+                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Walk2, "Assets/Textures/Sprites/StickMan/StickManBackLeftWalk2.png"));
+
+                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Walk1, "Assets/Textures/Sprites/StickMan/StickManBackRightWalk1.png"));
+                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Walk2, "Assets/Textures/Sprites/StickMan/StickManBackRightWalk2.png"));
             }
             return spriteCache;
         }

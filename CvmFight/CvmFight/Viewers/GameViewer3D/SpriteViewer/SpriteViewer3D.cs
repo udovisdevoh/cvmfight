@@ -79,15 +79,21 @@ namespace CvmFight
             byte angleType = SpriteScallableFrame.Front;
 
             /*if (relativeAngle >= 337 || relativeAngle <= 22 )
-                angleType = SpriteScallableFrame.Front;*/
-            /*else if (relativeAngle >= 157 && relativeAngle <= 202)
-                angleType = SpriteScallableFrame.Back;*/
-
+                angleType = SpriteScallableFrame.Front;
+            else */if (relativeAngle >= 157 && relativeAngle <= 202)
+                angleType = SpriteScallableFrame.Back;
             if (relativeAngle >= 67 && relativeAngle <= 112)
                 angleType = SpriteScallableFrame.Left;
             else if (relativeAngle >= 247 && relativeAngle <= 292)
                 angleType = SpriteScallableFrame.Right;
-
+            else if (relativeAngle >= 22 && relativeAngle <= 67)
+                angleType = SpriteScallableFrame.FrontLeft;
+            else if (relativeAngle >= 292 && relativeAngle <= 337)
+                angleType = SpriteScallableFrame.FrontRight;
+            else if (relativeAngle >= 112 && relativeAngle <= 157)
+                angleType = SpriteScallableFrame.BackLeft;
+            else if (relativeAngle >= 202 && relativeAngle <= 247)
+                angleType = SpriteScallableFrame.BackRight;
 
             return angleType;
         }
