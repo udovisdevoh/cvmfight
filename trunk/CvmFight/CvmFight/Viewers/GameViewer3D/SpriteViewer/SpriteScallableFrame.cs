@@ -24,7 +24,7 @@ namespace CvmFight
 
         public const byte FrontRight = 5;
 
-        public const byte BacktLeft = 6;
+        public const byte BackLeft = 6;
 
         public const byte BackRight = 7;
 
