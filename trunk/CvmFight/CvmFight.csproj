@@ -65,6 +65,7 @@
     <Compile Include="CvmFight\GameModel\World\Map\MapTypes\AbstractMap.cs" />
     <Compile Include="CvmFight\GameModel\World\Map\MapTypes\CachedWaveMap.cs" />
     <Compile Include="CvmFight\GameModel\World\Map\MapTypes\HardCodedMap.cs" />
+    <Compile Include="CvmFight\GameModel\World\Map\MapTypes\MapFromImage.cs" />
     <Compile Include="CvmFight\GameModel\World\Map\MapTypes\WaveMapCache.cs" />
     <Compile Include="CvmFight\GameModel\World\Map\MatterTypes\AbstractMatterType.cs" />
     <Compile Include="CvmFight\GameModel\World\Map\MatterTypes\MatterTypeWall.cs" />

@@ -13,6 +13,7 @@ namespace CvmFight
     {
         #region Constants
         private const double precision = 0.025;
+        //private const double precision = 0.1;
         #endregion
 
         #region Fields and parts
@@ -25,11 +26,17 @@ namespace CvmFight
         private AbstractMap currentMap = null;
 
         private Surface mapSurface = null;
+
+        private int screenWidth;
+
+        private int screenHeight;
         #endregion
 
         #region Constructor
         public MiniMap(int screenWidth, int screenHeight)
-        {          
+        {
+            this.screenWidth = screenWidth;
+            this.screenHeight = screenHeight;
             pointGrid = new Point[screenWidth, screenHeight];
             for (int x = 0; x < screenWidth; x++)
                 for (int y = 0; y < screenHeight; y++)
@@ -69,7 +76,7 @@ namespace CvmFight
             for (double mapLocationX = 0; mapLocationX < map.Width; mapLocationX += precision)
             {
                 int pixelLocationY = 0;
-                for (double mapLocationY = 0; mapLocationY < map.Width; mapLocationY += precision)
+                for (double mapLocationY = 0; mapLocationY < map.Height; mapLocationY += precision)
                 {
                     if (map.GetMatterTypeAt(mapLocationX, mapLocationY) != null)
                         mapSurface.Draw(pointGrid[pixelLocationX, pixelLocationY], Color.Gray);
@@ -170,7 +177,11 @@ namespace CvmFight
             {
                 positionX = (int)(rayTracerPoint.X / precision);
                 positionY = (int)(rayTracerPoint.Y / precision);
-                surface.Draw(pointGrid[positionX, positionY], Color.White);
+
+                if (positionX < screenWidth && positionY < screenHeight)
+                {
+                    surface.Draw(pointGrid[positionX, positionY], Color.White);
+                }
             }
         }
         #endregion
