@@ -126,6 +126,12 @@ namespace CvmFight
             double xMove = Math.Cos(sprite.AngleRadian + angleOffsetRadian) * sprite.DefaultWalkingDistance * timeDelta;
             double yMove = Math.Sin(sprite.AngleRadian + angleOffsetRadian) * sprite.DefaultWalkingDistance * timeDelta;
 
+            if (sprite.IsCrouch)
+            {
+                xMove *= sprite.CrouchSpeedMultiplier;
+                yMove *= sprite.CrouchSpeedMultiplier;
+            }
+
             sprite.PositionX += xMove;
             if (IsDetectCollision(sprite,spritePool,map))
                 sprite.PositionX -= xMove;
