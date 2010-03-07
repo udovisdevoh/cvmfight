@@ -55,6 +55,10 @@ namespace CvmFight
         private const double SpriteSizePrecision = 1;
         #endregion
 
+        #region Static Members
+        private static Dictionary<string, Surface> fileSurfaceCache;
+        #endregion
+
         #region Fields and parts
         private byte angle;
 
@@ -68,15 +72,29 @@ namespace CvmFight
         #endregion
 
         #region Constructor
-        public SpriteScallableFrame(byte angle, byte status, string imageFileName)
+        static SpriteScallableFrame()
+        {
+            fileSurfaceCache = new Dictionary<string, Surface>();
+        }
+
+        public SpriteScallableFrame(byte angle, byte status, string imageFileName) : this(angle, status, imageFileName, false) { }
+
+        public SpriteScallableFrame(byte angle, byte status, string imageFileName, bool isFlippedHorizontal)
         {
             this.angle = angle;
             this.status = status;
             this.imageFileName = imageFileName;
 
-            originalSurface = new Surface(imageFileName);
-            originalSurface.Alpha = 255;
-            originalSurface.Transparent = true;
+            if (!fileSurfaceCache.TryGetValue(imageFileName, out originalSurface))
+            {
+                originalSurface = new Surface(imageFileName);
+                originalSurface.Alpha = 255;
+                originalSurface.Transparent = true;
+                fileSurfaceCache.Add(imageFileName, originalSurface);
+            }
+
+            if (isFlippedHorizontal)
+                originalSurface = originalSurface.CreateFlippedHorizontalSurface();
         }
         #endregion
 

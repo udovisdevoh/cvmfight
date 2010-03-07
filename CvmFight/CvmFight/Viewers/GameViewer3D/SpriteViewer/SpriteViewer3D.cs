@@ -56,7 +56,7 @@ namespace CvmFight
             int destinationX = 0;
             int destinationY;
 
-            #warning Sprite status, viewed angle and height must be parsed here (along with destinatonX and destinatonY)
+            #warning Sprite status must be parsed here
 
             byte angleType = GetAngleType(viewerSprite.AngleDegree, viewedSprite.AngleDegree);
 
