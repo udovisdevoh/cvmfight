@@ -109,5 +109,13 @@ namespace CvmFight
             return internalList.GetEnumerator();
         }
         #endregion
+
+        public void SortByDistance(AbstractSprite referenceSprite)
+        {
+            foreach (AbstractSprite sprite in internalList)
+                sprite.DistanceToReferenceSprite = Optics.GetStraightDistance(referenceSprite, sprite);
+
+            internalList.Sort();
+        }
     }
 }

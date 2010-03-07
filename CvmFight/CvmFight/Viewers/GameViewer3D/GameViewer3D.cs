@@ -64,6 +64,7 @@ namespace CvmFight
             #warning, some sprites are invisible in 3D mode, but visible on minimap
 
             //We display the sprites
+            world.SpritePool.SortByDistance(world.CurrentPlayer);
             foreach (AbstractSprite sprite in world.SpritePool)
                 if (sprite != world.CurrentPlayer && world.SharedConsciousness.IsSpriteViewable(world.CurrentPlayer,sprite,world.Map,rayTracer.Fov))
                     spriteViewer.View(world.CurrentPlayer, sprite, mainSurface);

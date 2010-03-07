@@ -60,7 +60,7 @@ namespace CvmFight
 
                 columnXLeftMargin += columnWidthPixel;
 
-                double brightness = Math.Round(columnHeight / screenHeight * 255);
+                double brightness = Optics.GetBrightness(columnHeight, screenHeight);
 
                 double red, green, blue;
 
