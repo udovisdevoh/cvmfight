@@ -15,7 +15,7 @@ namespace CvmFight
 
         private int screenHeight;
 
-        private Font smallGray = new Font("Assets/Fonts/doom.ttf", 20);
+        private Font labelFont = new Font("Assets/Fonts/doom.ttf", 20);
 
         private Font bigRed = new Font("Assets/Fonts/doom.ttf", 50);
 
@@ -34,8 +34,8 @@ namespace CvmFight
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
 
-            healthLabel = smallGray.Render("health", System.Drawing.Color.Gray);
-            fragLabel = smallGray.Render("frags", System.Drawing.Color.Gray);
+            healthLabel = labelFont.Render("health", System.Drawing.Color.White);
+            fragLabel = labelFont.Render("frags", System.Drawing.Color.White);
         }
         #endregion
 
