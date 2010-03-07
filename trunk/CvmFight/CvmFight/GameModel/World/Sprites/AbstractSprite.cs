@@ -8,7 +8,7 @@ namespace CvmFight
     /// <summary>
     /// Abstract sprite
     /// </summary>
-    class AbstractSprite
+    class AbstractSprite : IComparable<AbstractSprite>
     {
         #region Fields
         /// <summary>
@@ -55,6 +55,11 @@ namespace CvmFight
         /// We multiply this to walking speed when sprite is crouch
         /// </summary>
         private double crouchSpeedMultiplier = 0.5;
+
+        /// <summary>
+        /// Distance to a reference sprite (which could be anything)
+        /// </summary>
+        private double distanceToReferenceSprite;
         #endregion
 
         #region Properties
@@ -175,6 +180,22 @@ namespace CvmFight
         {
             get { return crouchSpeedMultiplier; }
             set { crouchSpeedMultiplier = value; }
+        }
+
+        /// <summary>
+        /// Distance to a reference sprite (which could be anything)
+        /// </summary>
+        public double DistanceToReferenceSprite
+        {
+            get { return distanceToReferenceSprite; }
+            set { distanceToReferenceSprite = value; }
+        }
+        #endregion
+
+        #region IComparable<AbstractSprite> Members
+        public int CompareTo(AbstractSprite other)
+        {
+            return (int)(other.distanceToReferenceSprite * 100 - distanceToReferenceSprite * 100);
         }
         #endregion
     }

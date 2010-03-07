@@ -154,6 +154,11 @@ namespace CvmFight
             double jumpOffset = (zPosition * columnHeight / 2);
             return Math.Round((maxColumnHeight - columnHeight) / 2 + jumpOffset);
         }
+
+        public static double GetBrightness(double columnHeight, double maxColumnHeight)
+        {
+            return Math.Round(columnHeight / maxColumnHeight * 255);
+        }
         #endregion
     }
 }

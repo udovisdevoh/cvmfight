@@ -11,7 +11,7 @@ namespace CvmFight
 {
     class SpriteViewer3D
     {
-        #region Fields
+        #region Fields and parts
         private int screenWidth;
 
         private int screenHeight;
@@ -62,7 +62,6 @@ namespace CvmFight
 
 
             Surface spriteSurface = spriteCollectionCache3D.GetSpriteCache(viewedSprite).GetSurface(SpriteScallableFrame.Walk1, angleType, spriteHeight);
-
 
             destinationX = (int)(getXPosition(angleDegree, fov, screenWidth, spriteSurface.Width));
             destinationY = (int)(topMargin + theoreticalColumnHeight - spriteSurface.Height);
