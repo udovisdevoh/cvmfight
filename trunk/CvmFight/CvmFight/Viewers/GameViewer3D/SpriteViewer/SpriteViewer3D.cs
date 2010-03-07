@@ -43,10 +43,10 @@ namespace CvmFight
             double topMargin = Optics.GetColumnTopMargin(screenHeight, theoreticalColumnHeight, viewerSprite.PositionZ, viewerSprite.IsCrouch);
 
 
-            while (angleDegree < (viewedSprite.AngleDegree - fov / 2))
+            while (angleDegree < (0 - fov / 2))
                 angleDegree += 360.0;
 
-            while (angleDegree > (viewedSprite.AngleDegree + fov / 2))
+            while (angleDegree > (0 + fov / 2))
                 angleDegree -= 360.0;
 
 
