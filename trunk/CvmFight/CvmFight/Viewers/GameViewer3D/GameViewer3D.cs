@@ -65,8 +65,6 @@ namespace CvmFight
             mainSurface.Blit(gradient.Surface);
             columnViewer.Update(world.CurrentPlayer, rayTracer, world.Map, mainSurface);
 
-            #warning, some sprites are invisible in 3D mode, but visible on minimap
-
             //We display the sprites
             world.SpritePool.SortByDistance(world.CurrentPlayer);
             foreach (AbstractSprite sprite in world.SpritePool)

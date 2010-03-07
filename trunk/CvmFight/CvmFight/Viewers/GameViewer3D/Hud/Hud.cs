@@ -15,7 +15,13 @@ namespace CvmFight
 
         private int screenHeight;
 
-        private Font healthFont = new Font("Assets/Fonts/doom.ttf", 50);
+        private Font smallGray = new Font("Assets/Fonts/doom.ttf", 20);
+
+        private Font bigRed = new Font("Assets/Fonts/doom.ttf", 50);
+
+        private Surface health = null;
+
+        private Surface fragCount = null;
         #endregion
 
         #region Constructor
@@ -29,8 +35,21 @@ namespace CvmFight
         #region Public Methods
         public void Update(AbstractFighter player, Surface surface)
         {
-            Surface health = healthFont.Render(player.Health.ToString(), System.Drawing.Color.Red);
+            if (health == null)
+                health = bigRed.Render(player.Health.ToString(), System.Drawing.Color.Red);
+            
+            if (fragCount == null)
+                fragCount = bigRed.Render(player.FragCount.ToString(), System.Drawing.Color.Red);
+
             surface.Blit(health, PointLoader.GetPoint(screenWidth - 140, screenHeight - 65));
+            surface.Blit(fragCount, PointLoader.GetPoint(screenWidth - 240, screenHeight - 65));
+        }
+
+        public void Dirthen()
+        {
+            #warning Dirthen must be called when player's stats change
+            this.health = null;
+            this.fragCount = null;
         }
         #endregion
     }
