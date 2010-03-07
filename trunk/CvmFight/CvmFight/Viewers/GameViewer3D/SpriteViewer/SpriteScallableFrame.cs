@@ -85,7 +85,8 @@ namespace CvmFight
         {
             Surface scalledSurface;
 
-            int key = height;
+            //int key = height;
+            int key = (int)Math.Sqrt((double)height * 10.0);
 
             if (!spriteHeightCache.TryGetValue(key, out scalledSurface))
             {
