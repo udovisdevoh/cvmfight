@@ -88,6 +88,7 @@
     <Compile Include="CvmFight\Viewers\AbstractGameViewer.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\Gradient.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\ColumnViewer.cs" />
+    <Compile Include="CvmFight\Viewers\GameViewer3D\Hud\Hud.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\SpriteViewer\SpriteCache3D.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\SpriteViewer\SpriteCache3DBuilder.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\SpriteViewer\SpriteCollectionCache3D.cs" />

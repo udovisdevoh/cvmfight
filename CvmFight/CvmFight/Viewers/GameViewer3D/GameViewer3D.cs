@@ -33,12 +33,16 @@ namespace CvmFight
         private Gradient gradient;
 
         private MiniMap minimap;
+
+        private Hud hud;
         #endregion
 
         #region Constructor
         public GameViewer3D(int screenWidth, int screenHeight, int columnCount, SpritePool spritePool, bool isFullScreen, int fov)
         {
             minimap = new MiniMap(screenWidth, screenHeight);
+
+            hud = new Hud(screenWidth, screenHeight);
 
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
@@ -71,6 +75,8 @@ namespace CvmFight
 
             if (isMiniMapOn)
                 minimap.Update(world, rayTracer, mainSurface);
+
+            hud.Update(world.CurrentPlayer, mainSurface);
 
             mainSurface.Update();
         }

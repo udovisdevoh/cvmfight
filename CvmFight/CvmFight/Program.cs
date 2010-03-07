@@ -68,7 +68,7 @@ namespace CvmFight
             double timeDelta = ((TimeSpan)(DateTime.Now - previousDateTime)).TotalMilliseconds / 16.0;
             previousDateTime = DateTime.Now;
 
-            //We clear the sprite's shared consciousness
+            //We clear the sprite's shared consciousness because sprite positions changed
             world.SharedConsciousness.Clear();
 
             if (userInput.IsPressUp)
