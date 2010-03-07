@@ -42,7 +42,7 @@ namespace CvmFight
         {
             surface.Blit(GetOrCreateMapSurface(world.Map));
             foreach (AbstractSprite sprite in world.SpritePool)
-                DrawSprite(sprite, Optics.IsSpriteViewable(world.CurrentPlayer, sprite, world.Map, rayTracer.Fov), surface);
+                DrawSprite(sprite, world.SharedConsciousness.IsSpriteViewable(world.CurrentPlayer, sprite, world.Map, rayTracer.Fov), surface);
 
             DrawRayTracer(world.Map, rayTracer, surface);
         }

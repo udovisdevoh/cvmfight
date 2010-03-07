@@ -60,6 +60,7 @@
     <Compile Include="CvmFight\GameModel\RayTracer\RayTracerPoint.cs" />
     <Compile Include="CvmFight\GameModel\Spawner\EmptyMapLocationCache.cs" />
     <Compile Include="CvmFight\GameModel\Spawner\Spawner..cs" />
+    <Compile Include="CvmFight\GameModel\World\SharedConsciousness.cs" />
     <Compile Include="CvmFight\GameModel\World\Map\ColorMap\ColorMap.cs" />
     <Compile Include="CvmFight\GameModel\World\Map\ColorMap\ColorMapCache.cs" />
     <Compile Include="CvmFight\GameModel\World\Map\MapTypes\AbstractMap.cs" />

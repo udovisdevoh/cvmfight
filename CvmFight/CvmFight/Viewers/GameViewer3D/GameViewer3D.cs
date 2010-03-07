@@ -63,7 +63,7 @@ namespace CvmFight
 
             //We display the sprites
             foreach (AbstractSprite sprite in world.SpritePool)
-                if (sprite != world.CurrentPlayer && Optics.IsSpriteViewable(world.CurrentPlayer,sprite,world.Map,rayTracer.Fov))
+                if (sprite != world.CurrentPlayer && world.SharedConsciousness.IsSpriteViewable(world.CurrentPlayer,sprite,world.Map,rayTracer.Fov))
                     spriteViewer.View(world.CurrentPlayer, sprite, mainSurface);
 
             if (isMiniMapOn)
