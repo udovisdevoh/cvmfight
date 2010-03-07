@@ -32,8 +32,6 @@ namespace CvmFight
 
         private Gradient gradient;
 
-        private Point[,] pointGrid;
-
         private MiniMap minimap;
         #endregion
 
@@ -45,12 +43,6 @@ namespace CvmFight
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
             this.isFullScreen = isFullScreen;
-
-            //We create a point grid
-            pointGrid = new Point[screenWidth, screenHeight];
-            for (int x = screenWidth; x < screenWidth; x++)
-                for (int y = screenHeight; y < screenHeight; y++)
-                    pointGrid[x, y] = new Point(x, y);
 
             spriteViewer = new SpriteViewer3D(screenWidth, screenHeight, spritePool, fov, heightDistanceRatio);
 
@@ -72,7 +64,7 @@ namespace CvmFight
             //We display the sprites
             foreach (AbstractSprite sprite in world.SpritePool)
                 if (sprite != world.CurrentPlayer && Optics.IsSpriteViewable(world.CurrentPlayer,sprite,world.Map,rayTracer.Fov))
-                    spriteViewer.View(world.CurrentPlayer, sprite, mainSurface, pointGrid);
+                    spriteViewer.View(world.CurrentPlayer, sprite, mainSurface);
 
             if (isMiniMapOn)
                 minimap.Update(world, rayTracer, mainSurface);

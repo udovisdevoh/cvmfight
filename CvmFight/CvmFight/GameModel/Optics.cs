@@ -62,6 +62,11 @@ namespace CvmFight
                 xDistance += Math.Abs(xMove);
                 yDistance += Math.Abs(yMove);
 
+                if (xDistance >= xDistanceToPerform && yDistance >= yDistanceToPerform)
+                {
+                    return true;
+                }
+
                 if (map.GetMatterTypeAt(x, y) != null)
                 {
                     return false;
@@ -70,12 +75,6 @@ namespace CvmFight
                 if (x < 0 || y < 0 || x > map.Width || y > map.Height)
                 {
                     return false;
-                }
-
-
-                if (xDistance >= xDistanceToPerform && yDistance >= yDistanceToPerform)
-                {
-                    return true;
                 }
             }
         }
