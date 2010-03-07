@@ -21,9 +21,9 @@ namespace CvmFight
 
         private const int fov = 110;
 
-        private bool isDestroyMouse = true;
+        private bool isDestroyMouse = false;
 
-        private bool isFullScreen = true;
+        private bool isFullScreen = false;
         #endregion
 
         #region Fields and parts
@@ -68,6 +68,8 @@ namespace CvmFight
             double timeDelta = ((TimeSpan)(DateTime.Now - previousDateTime)).TotalMilliseconds / 16.0;
             previousDateTime = DateTime.Now;
 
+            //We clear the sprite's shared consciousness
+            world.SharedConsciousness.Clear();
 
             if (userInput.IsPressUp)
                 Physics.TryMakeWalk(world.CurrentPlayer, world.SpritePool, world.Map, timeDelta);

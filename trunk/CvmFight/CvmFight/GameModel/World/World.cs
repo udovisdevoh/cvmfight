@@ -39,6 +39,11 @@ namespace CvmFight
         private Spawner spawner;
 
         /// <summary>
+        /// Sprite shared consciousness
+        /// </summary>
+        private SharedConsciousness sharedConsciousness;
+
+        /// <summary>
         /// Random number generator
         /// </summary>
         private Random random = new Random();
@@ -51,6 +56,8 @@ namespace CvmFight
             map = new CachedWaveMap(random);
             //map = new MapFromImage("Assets/Maps/CvmMap.png", random);
             spritePool = new SpritePool(currentPlayer);
+
+            sharedConsciousness = new SharedConsciousness(spritePool.Count);
 
             for (int i = 0; i < monsterCount; i++)
                 spritePool.Add(new MonsterStickMan());
@@ -73,6 +80,11 @@ namespace CvmFight
         public Player CurrentPlayer
         {
             get{return currentPlayer;}
+        }
+
+        public SharedConsciousness SharedConsciousness
+        {
+            get { return sharedConsciousness; }
         }
         #endregion
     }
