@@ -22,6 +22,10 @@ namespace CvmFight
         private Surface health = null;
 
         private Surface fragCount = null;
+
+        private Surface healthLabel;
+
+        private Surface fragLabel;
         #endregion
 
         #region Constructor
@@ -29,6 +33,9 @@ namespace CvmFight
         {
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
+
+            healthLabel = smallGray.Render("health", System.Drawing.Color.Gray);
+            fragLabel = smallGray.Render("frags", System.Drawing.Color.Gray);
         }
         #endregion
 
@@ -41,7 +48,9 @@ namespace CvmFight
             if (fragCount == null)
                 fragCount = bigRed.Render(player.FragCount.ToString(), System.Drawing.Color.Red);
 
+            surface.Blit(healthLabel, PointLoader.GetPoint(screenWidth - 140, screenHeight - 80));
             surface.Blit(health, PointLoader.GetPoint(screenWidth - 140, screenHeight - 65));
+            surface.Blit(fragLabel, PointLoader.GetPoint(screenWidth - 240, screenHeight - 80));
             surface.Blit(fragCount, PointLoader.GetPoint(screenWidth - 240, screenHeight - 65));
         }
 
