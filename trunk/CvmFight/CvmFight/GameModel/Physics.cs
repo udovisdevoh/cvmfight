@@ -148,6 +148,7 @@ namespace CvmFight
 
         public static void MakeJump(AbstractSprite sprite)
         {
+            #warning, Time delta must be properly placed in jump and fall
             if (!sprite.IsNeedToJumpAgain)
             {
                 if (sprite.PositionZ <= 0)
@@ -164,6 +165,7 @@ namespace CvmFight
 
         public static void MakeFall(AbstractSprite sprite, double timeDelta)
         {
+            #warning, Time delta must be properly placed in jump and fall
             sprite.CurrentJumpAcceleration -= 0.1;
             sprite.PositionZ += sprite.CurrentJumpAcceleration / 10 * timeDelta;
 
