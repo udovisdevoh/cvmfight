@@ -20,6 +20,7 @@ namespace CvmFight
             MaxHealth = 200.0;
             DefaultWalkingDistance = 0.05;
             MaxJumpAcceleration = 0.83;
+            CrouchSpeedMultiplier = 0.3;
         }
     }
 }

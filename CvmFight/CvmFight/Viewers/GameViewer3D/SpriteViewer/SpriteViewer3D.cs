@@ -60,8 +60,12 @@ namespace CvmFight
 
             byte angleType = GetAngleType(viewerSprite.AngleDegree, viewedSprite.AngleDegree);
 
+            byte spriteStatus = SpriteScallableFrame.Walk1;
 
-            Surface spriteSurface = spriteCollectionCache3D.GetSpriteCache(viewedSprite).GetSurface(SpriteScallableFrame.Walk1, angleType, spriteHeight);
+            if (viewedSprite.ReceivedAttackCycle.GetCycleState() > 0)
+                spriteStatus = SpriteScallableFrame.Hit;
+
+            Surface spriteSurface = spriteCollectionCache3D.GetSpriteCache(viewedSprite).GetSurface(spriteStatus, angleType, spriteHeight);
 
             destinationX = (int)(getXPosition(angleDegree, fov, screenWidth, spriteSurface.Width));
             destinationY = (int)(topMargin + theoreticalColumnHeight - spriteSurface.Height);

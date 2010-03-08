@@ -120,6 +120,11 @@ namespace CvmFight
         /// Attack angle range
         /// </summary>
         private double attackAngleRange = 0.1;
+
+        /// <summary>
+        /// Received attack angle
+        /// </summary>
+        private double receivedAttackAngleRadian = 0.0;
         #endregion
 
         #region Parts
@@ -127,6 +132,27 @@ namespace CvmFight
         /// Represents the sprite's attack cycle
         /// </summary>
         private SpriteActionCycle attackCycle = new SpriteActionCycle(0.2);
+
+        /// <summary>
+        /// Represents the sprite's received attack cycle
+        /// </summary>
+        private SpriteActionCycle receivedAttackCycle = new SpriteActionCycle(0.5);
+        #endregion
+
+        #region
+        public void Update(double timeDelta, SpritePool spritePool, AbstractMap map)
+        {
+            attackCycle.Update(timeDelta);
+            receivedAttackCycle.Update(timeDelta);
+
+            //We manage received attack
+            if (receivedAttackCycle.GetCycleState() > 0)
+                Physics.TryMakeWalk(this, receivedAttackAngleRadian - angleRadian, spritePool, map, timeDelta);
+            else
+                receivedAttackCycle.UnFire();
+
+            Physics.MakeFall(this, timeDelta);
+        }
         #endregion
 
         #region Properties
@@ -306,12 +332,6 @@ namespace CvmFight
             get { return attackCycle; }
         }
 
-        public void Update(double timeDelta)
-        {
-            attackCycle.Update(timeDelta);
-            Physics.MakeFall(this, timeDelta);
-        }
-
         public bool IsBlock
         {
             get { return isBlock; }
@@ -381,10 +401,16 @@ namespace CvmFight
             set { attackAngleRange = value; }
         }
 
-        private double ReceivedAttackAngleRadian
+        public double ReceivedAttackAngleRadian
         {
             get { return receivedAttackAngleRadian; }
             set { receivedAttackAngleRadian = value; }
+        }
+
+        public SpriteActionCycle ReceivedAttackCycle
+        {
+            get { return receivedAttackCycle; }
+            set { receivedAttackCycle = value; }
         }
         #endregion
 
