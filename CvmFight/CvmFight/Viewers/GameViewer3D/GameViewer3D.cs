@@ -78,6 +78,11 @@ namespace CvmFight
 
             mainSurface.Update();
         }
+
+        public override void DirthenHud()
+        {
+            hud.Dirthen();
+        }
         #endregion
 
         #region Properties

@@ -148,19 +148,10 @@ namespace CvmFight
 
             if (sprite is Player)
                 surface.Draw(circle, Color.MediumBlue);
-            else if (sprite is AbstractFighter)
-            {
-                if (isViewable)
-                {
-                    surface.Draw(circle, Color.Magenta);
-                }
-                else
-                {
-                    surface.Draw(circle, Color.Orange);
-                }
-            }
+            else if (isViewable)
+                surface.Draw(circle, Color.Magenta);
             else
-                surface.Draw(circle, Color.Green);
+                surface.Draw(circle, Color.Orange);
         }
 
         private void DrawRayTracer(AbstractMap map, RayTracer rayTracer, Surface surface)

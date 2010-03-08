@@ -86,6 +86,11 @@ namespace CvmFight
         {
             get { return sharedConsciousness; }
         }
+
+        public Spawner Spawner
+        {
+            get { return spawner; }
+        }
         #endregion
     }
 }

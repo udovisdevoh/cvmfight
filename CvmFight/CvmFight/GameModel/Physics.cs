@@ -170,6 +170,25 @@ namespace CvmFight
             sprite.CurrentJumpAcceleration -= 0.1 * timeDelta;
             sprite.PositionZ = Math.Max(0, sprite.PositionZ);           
         }
+
+        public static bool IsWithinAttackRange(AbstractSprite predator, AbstractSprite prey)
+        {
+            return Physics.GetSpriteDistance(predator, prey) <= predator.AttackRange + prey.Radius;
+        }
+
+        public static bool IsInAttackOrBlockAngle(AbstractSprite sprite1, AbstractSprite sprite2)
+        {
+            double angleToSprite = Optics.GetSpriteAngleToSpriteRadian(sprite1, sprite2);
+
+            if (Math.Abs(angleToSprite - sprite1.AngleRadian) < sprite1.AttackAngleRange)
+                return true;
+            else if (Math.Abs(angleToSprite - sprite1.AngleRadian + Math.PI * 2.0) < sprite1.AttackAngleRange)
+                return true;
+            else if (Math.Abs(angleToSprite - sprite1.AngleRadian + Math.PI * 2.0) < sprite1.AttackAngleRange)
+                return true;
+
+            return false;
+        }
         #endregion
     }
 }

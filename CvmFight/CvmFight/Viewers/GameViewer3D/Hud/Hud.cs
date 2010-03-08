@@ -108,14 +108,13 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public void Update(AbstractFighter player, Surface surface)
+        public void Update(AbstractSprite player, Surface surface)
         {
             if (health == null)
                 health = bigRed.Render(player.Health.ToString(), System.Drawing.Color.Red);
 
             if (fragCount == null)
                 fragCount = bigRed.Render(player.FragCount.ToString(), System.Drawing.Color.Red);
-
 
             int attackCycleState = player.AttackCycle.GetCycleState();
             if (player.IsCrouch || player.PositionZ > 0)
@@ -161,7 +160,6 @@ namespace CvmFight
 
         public void Dirthen()
         {
-            #warning Dirthen must be called when player's stats change
             this.health = null;
             this.fragCount = null;
         }

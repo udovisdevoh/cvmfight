@@ -60,6 +60,7 @@
     <Compile Include="CvmFight\GameModel\RayTracer\RayTracerPoint.cs" />
     <Compile Include="CvmFight\GameModel\Spawner\EmptyMapLocationCache.cs" />
     <Compile Include="CvmFight\GameModel\Spawner\Spawner..cs" />
+    <Compile Include="CvmFight\GameModel\BattleManager.cs" />
     <Compile Include="CvmFight\GameModel\World\SharedConsciousness.cs" />
     <Compile Include="CvmFight\GameModel\World\Map\ColorMap\ColorMap.cs" />
     <Compile Include="CvmFight\GameModel\World\Map\ColorMap\ColorMapCache.cs" />
@@ -72,7 +73,6 @@
     <Compile Include="CvmFight\GameModel\World\Map\MatterTypes\MatterTypeWall.cs" />
     <Compile Include="CvmFight\GameModel\World\Map\MapTypes\WaveMap.cs" />
     <Compile Include="CvmFight\GameModel\World\SpritePool.cs" />
-    <Compile Include="CvmFight\GameModel\World\Sprites\AbstractFighter.cs" />
     <Compile Include="CvmFight\GameModel\World\Sprites\AbstractSprite.cs" />
     <Compile Include="CvmFight\GameModel\World\Sprites\Monsters\MonsterStickMan.cs" />
     <Compile Include="CvmFight\GameModel\World\Sprites\Player.cs" />
