@@ -146,14 +146,14 @@ namespace CvmFight
             sprite.AngleRadian += ((double)angleRotationStrength / -200);
         }
 
-        public static void MakeJump(AbstractSprite sprite, double timeDelta)
+        public static void MakeJump(AbstractSprite sprite)
         {
             if (!sprite.IsNeedToJumpAgain)
             {
                 if (sprite.PositionZ <= 0)
                     sprite.CurrentJumpAcceleration = sprite.MaxJumpAcceleration;
                 else
-                    sprite.CurrentJumpAcceleration += 0.18 * timeDelta;
+                    sprite.CurrentJumpAcceleration += 0.05;
 
                 if (sprite.CurrentJumpAcceleration < 0)
                 {
@@ -164,7 +164,7 @@ namespace CvmFight
 
         public static void MakeFall(AbstractSprite sprite, double timeDelta)
         {
-            sprite.CurrentJumpAcceleration -= 0.2 * timeDelta;
+            sprite.CurrentJumpAcceleration -= 0.1;
             sprite.PositionZ += sprite.CurrentJumpAcceleration / 10 * timeDelta;
 
             sprite.PositionZ = Math.Max(0, sprite.PositionZ);           
