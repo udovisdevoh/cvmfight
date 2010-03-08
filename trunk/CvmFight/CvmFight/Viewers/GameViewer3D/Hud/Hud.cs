@@ -36,6 +36,8 @@ namespace CvmFight
         private Surface midKick;
 
         private Surface attackKick;
+
+        private Surface blockSurface;
         #endregion
 
         #region Constructor
@@ -53,6 +55,15 @@ namespace CvmFight
             restKick = BuildRestKickSurface();
             midKick = BuildMidKickSurface();
             attackKick = BuildAttackKickSurface();
+            blockSurface = BuildBlockSurface();
+        }
+
+        private Surface BuildBlockSurface()
+        {
+            Surface surface = new Surface("Assets/Hud/block001.png");
+            surface.Transparent = true;
+            surface = surface.CreateScaledSurface((double)screenHeight / 1.7 / (double)surface.Height, true);
+            return surface;
         }
 
         private Surface BuildRestKickSurface()
@@ -106,10 +117,14 @@ namespace CvmFight
                 fragCount = bigRed.Render(player.FragCount.ToString(), System.Drawing.Color.Red);
 
 
-            int attackCycleState = player.AttackCycle.GetState();
+            int attackCycleState = player.AttackCycle.GetCycleState();
             if (player.IsCrouch || player.PositionZ > 0)
             {
-                if (attackCycleState == 0)
+                if (player.IsBlock)
+                {
+                    surface.Blit(blockSurface, PointLoader.GetPoint(0, screenHeight - blockSurface.Height));
+                }
+                else if (attackCycleState == 0)
                 {
                     surface.Blit(restKick, PointLoader.GetPoint(screenWidth / 3, screenHeight - restKick.Height));
                 }
@@ -124,7 +139,11 @@ namespace CvmFight
             }
             else
             {
-                if (attackCycleState == 0)
+                if (player.IsBlock)
+                {
+                    surface.Blit(blockSurface, PointLoader.GetPoint(0, screenHeight - blockSurface.Height));
+                }
+                else if (attackCycleState == 0)
                 {
                     surface.Blit(restFist, PointLoader.GetPoint(0, screenHeight - restFist.Height));
                 }
