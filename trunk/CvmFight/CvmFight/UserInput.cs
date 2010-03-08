@@ -21,6 +21,8 @@ namespace CvmFight
 
         private bool isPressCrouch = false;
 
+        private bool isPressJump = false;
+
         private short currentMouseRelativeX = 0;
         
         private short currentMouseRelativeY = 0;
@@ -55,6 +57,12 @@ namespace CvmFight
         {
             get { return isPressCrouch; }
             set{isPressCrouch = value;}
+        }
+
+        public bool IsPressJump
+        {
+            get { return isPressJump; }
+            set { isPressJump = value; }
         }
 
         public short MouseMotionX

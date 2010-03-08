@@ -60,6 +60,21 @@ namespace CvmFight
         /// Distance to a reference sprite (which could be anything)
         /// </summary>
         private double distanceToReferenceSprite;
+
+        /// <summary>
+        /// Sprite's maximum jump acceleration
+        /// </summary>
+        private double maxJumpAcceleration = 1.0;
+
+        /// <summary>
+        /// Sprite's current jump force
+        /// </summary>
+        private double currentJumpAcceleration = 0.0;
+
+        /// <summary>
+        /// Whether sprite must jump again because he has no cynetic energy left
+        /// </summary>
+        private bool isNeedToJumpAgain = false;
         #endregion
 
         #region Properties
@@ -189,6 +204,33 @@ namespace CvmFight
         {
             get { return distanceToReferenceSprite; }
             set { distanceToReferenceSprite = value; }
+        }
+
+        /// <summary>
+        /// Sprite's max jump acceleration
+        /// </summary>
+        public double MaxJumpAcceleration
+        {
+            get { return maxJumpAcceleration; }
+            set { maxJumpAcceleration = value; }
+        }
+
+        /// <summary>
+        /// Sprite's current jump force
+        /// </summary>
+        public double CurrentJumpAcceleration
+        {
+            get { return currentJumpAcceleration; }
+            set { currentJumpAcceleration = value; }
+        }
+
+        /// <summary>
+        /// Whether sprite must jump again because he has no cynetic energy left
+        /// </summary>
+        public bool IsNeedToJumpAgain
+        {
+            get { return isNeedToJumpAgain; }
+            set { isNeedToJumpAgain = value; }
         }
         #endregion
 

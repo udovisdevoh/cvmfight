@@ -82,8 +82,26 @@ namespace CvmFight
                 Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 0.5, world.SpritePool, world.Map, timeDelta);
 
 
-            world.CurrentPlayer.IsCrouch = userInput.IsPressCrouch;
+            //Crouch and jump
+            world.CurrentPlayer.IsCrouch = userInput.IsPressCrouch;   
 
+            if (userInput.IsPressJump)
+            {
+                world.CurrentPlayer.IsCrouch = false;
+
+                if (!world.CurrentPlayer.IsCrouch)
+                {
+                    Physics.MakeJump(world.CurrentPlayer, timeDelta);
+                }
+            }
+            else
+            {
+                world.CurrentPlayer.IsNeedToJumpAgain = false;
+            }
+
+
+            foreach (AbstractSprite sprite in world.SpritePool)
+                Physics.MakeFall(sprite, timeDelta);
 
             rayTracer.Trace(world.CurrentPlayer, world.Map);
 
@@ -106,6 +124,8 @@ namespace CvmFight
                 userInput.IsPressRight = true;
             else if (args.Key == Key.LeftShift || args.Key == Key.C)
                 userInput.IsPressCrouch = true;
+            else if (args.Key == Key.Space)
+                userInput.IsPressJump = true;
             else if (args.Key == Key.Tab)
                 gameViewer.IsMiniMapOn = !gameViewer.IsMiniMapOn;
         }
@@ -122,6 +142,8 @@ namespace CvmFight
                 userInput.IsPressRight = false;
             else if (args.Key == Key.LeftShift || args.Key == Key.C)
                 userInput.IsPressCrouch = false;
+            else if (args.Key == Key.Space)
+                userInput.IsPressJump = false;
             else if (args.Key == Key.Escape)
                 Events.QuitApplication();
         }
