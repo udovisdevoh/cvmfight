@@ -91,7 +91,7 @@ namespace CvmFight
 
                 if (!world.CurrentPlayer.IsCrouch)
                 {
-                    Physics.MakeJump(world.CurrentPlayer, timeDelta);
+                    Physics.MakeJump(world.CurrentPlayer);
                 }
             }
             else

@@ -9,10 +9,14 @@ namespace CvmFight
     {
         public MonsterStickMan()
         {
-            DefaultHealth = 100;
-            MaxHealth = 200;
+            IsAlive = false;
+            Height = 1.0;
             Radius = 0.1;
-            DefaultWalkingDistance = 0.1;
+            DefaultHealth = 100.0;
+            Health = 0;
+            MaxHealth = 200.0;
+            DefaultWalkingDistance = 0.05;
+            MaxJumpAcceleration = 0.83;
         }
     }
 }
