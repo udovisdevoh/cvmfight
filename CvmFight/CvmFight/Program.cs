@@ -21,6 +21,8 @@ namespace CvmFight
 
         private const int fov = 110;
 
+        private const int targetFps = 60;
+
         private bool isDestroyMouse = true;
 
         private bool isFullScreen = true;
@@ -54,7 +56,7 @@ namespace CvmFight
         {
             if (isDestroyMouse)
                 Cursor.Hide();
-            Events.TargetFps = 60;
+            Events.TargetFps = targetFps;
             Events.Tick += Update;
             Events.KeyboardDown += OnKeyboardDown;
             Events.KeyboardUp += OnKeyboardUp;
@@ -88,11 +90,7 @@ namespace CvmFight
             if (userInput.IsPressJump)
             {
                 world.CurrentPlayer.IsCrouch = false;
-
-                if (!world.CurrentPlayer.IsCrouch)
-                {
-                    Physics.MakeJump(world.CurrentPlayer);
-                }
+                Physics.MakeJump(world.CurrentPlayer, timeDelta);
             }
             else
             {
@@ -100,8 +98,10 @@ namespace CvmFight
             }
 
 
+            //The sprites must fall
             foreach (AbstractSprite sprite in world.SpritePool)
                 Physics.MakeFall(sprite, timeDelta);
+
 
             rayTracer.Trace(world.CurrentPlayer, world.Map);
 
