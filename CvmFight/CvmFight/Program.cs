@@ -86,6 +86,8 @@ namespace CvmFight
                 Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 0.5, world.SpritePool, world.Map, timeDelta);
 
 
+            //Blocking
+            world.CurrentPlayer.IsBlock = userInput.IsPressDown;
 
 
             //Crouch and jump
@@ -104,7 +106,10 @@ namespace CvmFight
 
             //We manage attack button
             if (userInput.IsPressMouseButtonLeft)
+            {
+                world.CurrentPlayer.IsBlock = false;
                 world.CurrentPlayer.AttackCycle.Fire();
+            }
             else
                 world.CurrentPlayer.AttackCycle.UnFire();
 

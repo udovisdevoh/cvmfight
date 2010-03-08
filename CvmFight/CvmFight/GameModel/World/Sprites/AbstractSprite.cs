@@ -75,6 +75,11 @@ namespace CvmFight
         /// Whether sprite must jump again because he has no cynetic energy left
         /// </summary>
         private bool isNeedToJumpAgain = false;
+
+        /// <summary>
+        /// Whether the sprite is blocking
+        /// </summary>
+        private bool isBlock = false;
         #endregion
 
         #region Parts
@@ -249,6 +254,12 @@ namespace CvmFight
         {
             attackCycle.Update(timeDelta);
             Physics.MakeFall(this, timeDelta);
+        }
+
+        public bool IsBlock
+        {
+            get { return isBlock; }
+            set { isBlock = value; }
         }
         #endregion
 

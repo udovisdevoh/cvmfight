@@ -64,7 +64,11 @@ namespace CvmFight
             }
         }
 
-        public int GetState()
+        /// <summary>
+        /// Don't use that to know when attack occurs in game logic
+        /// </summary>
+        /// <returns></returns>
+        public int GetCycleState()
         {
             int state = 0;
             if (currentCyclePosition > cycleLength / 2)
