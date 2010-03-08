@@ -5,13 +5,16 @@ using System.Text;
 
 namespace CvmFight
 {
-    class MonsterStickMan : AbstractFighter
+    class MonsterStickMan : AbstractSprite
     {
         public MonsterStickMan()
         {
             IsAlive = false;
             Height = 1.0;
             Radius = 0.1;
+            AttackRange = 0.3;
+            AttackAngleRange = 0.17;
+            AttackPower = 4;
             DefaultHealth = 100.0;
             Health = 0;
             MaxHealth = 200.0;

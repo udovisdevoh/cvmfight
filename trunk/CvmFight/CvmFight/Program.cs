@@ -36,6 +36,8 @@ namespace CvmFight
         private UserInput userInput = new UserInput();
 
         private RayTracer rayTracer = new RayTracer(rayTracerResolution, fov);
+
+        private BattleManager battleManager = new BattleManager();
         
         private Point centerMousePositon;
 
@@ -118,7 +120,15 @@ namespace CvmFight
             foreach (AbstractSprite sprite in world.SpritePool)
                 sprite.Update(timeDelta);
 
-           
+
+            //We perform fighting logic
+            battleManager.Update(world.SpritePool, world.SharedConsciousness);
+            
+            if (battleManager.IsNeedRefreshHud)
+            {
+                gameViewer.DirthenHud();
+                world.Spawner.TryRespawn(world.SpritePool, world.Map);
+            }
 
             rayTracer.Trace(world.CurrentPlayer, world.Map);
 

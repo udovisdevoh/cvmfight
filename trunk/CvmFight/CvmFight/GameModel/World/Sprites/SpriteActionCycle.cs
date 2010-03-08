@@ -88,5 +88,12 @@ namespace CvmFight
             isNeedToClickAgain = false;
         }
         #endregion
+
+        #region Properties
+        public bool IsAtParoxism
+        {
+            get { return currentCyclePosition > cycleLength; }
+        }
+        #endregion
     }
 }

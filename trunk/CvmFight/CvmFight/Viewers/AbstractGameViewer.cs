@@ -17,5 +17,7 @@ namespace CvmFight
             get;
             set;
         }
+
+        public abstract void DirthenHud();
     }
 }

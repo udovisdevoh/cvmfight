@@ -12,6 +12,31 @@ namespace CvmFight
     {
         #region Fields
         /// <summary>
+        /// Sprite's default health
+        /// </summary>
+        private double defaultHealth;
+
+        /// <summary>
+        /// Sprite's max health
+        /// </summary>
+        private double maxHealth;
+
+        /// <summary>
+        /// Sprite's health
+        /// </summary>
+        private double health;
+
+        /// <summary>
+        /// Frag count
+        /// </summary>
+        private short fragCount;
+
+        /// <summary>
+        /// Whether the sprite is alive
+        /// </summary>
+        private bool isAlive = false;
+
+        /// <summary>
         /// x coordinate position
         /// </summary>
         private double positionX = 0.0;
@@ -80,6 +105,21 @@ namespace CvmFight
         /// Whether the sprite is blocking
         /// </summary>
         private bool isBlock = false;
+
+        /// <summary>
+        /// Sprite's attack power
+        /// </summary>
+        private double attackPower = 0.5;
+
+        /// <summary>
+        /// Sprite's attack range
+        /// </summary>
+        private double attackRange = 0;
+
+        /// <summary>
+        /// Attack angle range
+        /// </summary>
+        private double attackAngleRange = 0.1;
         #endregion
 
         #region Parts
@@ -90,6 +130,22 @@ namespace CvmFight
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Whether the sprite is alive
+        /// </summary>
+        public bool IsAlive
+        {
+            get { return isAlive; }
+            set
+            {
+                isAlive = value;
+                if (health <= 0.0 && isAlive)
+                    health = 1;
+                else if (health > 0 && !isAlive)
+                    health = 0.0;
+            }
+        }
+
         /// <summary>
         /// x coordinate position
         /// </summary>
@@ -260,6 +316,75 @@ namespace CvmFight
         {
             get { return isBlock; }
             set { isBlock = value; }
+        }
+
+        /// <summary>
+        /// Sprite's max health
+        /// </summary>
+        public double MaxHealth
+        {
+            get { return maxHealth; }
+            set { maxHealth = value; }
+        }
+
+        /// <summary>
+        /// Sprite's default health
+        /// </summary>
+        public double DefaultHealth
+        {
+            get { return defaultHealth; }
+            set { defaultHealth = value; }
+        }
+
+        /// <summary>
+        /// Sprite's current health
+        /// </summary>
+        public double Health
+        {
+            get { return health; }
+            set
+            {
+                health = value;
+                if (health > maxHealth)
+                    health = maxHealth;
+                if (health <= 0)
+                    isAlive = false;
+                else if (health > 0)
+                    isAlive = true;
+            }
+        }
+
+        /// <summary>
+        /// Frag count
+        /// </summary>
+        public short FragCount
+        {
+            get { return fragCount; }
+            set { fragCount = value; }
+        }
+
+        public double AttackPower
+        {
+            get { return attackPower; }
+            set { attackPower = value; }
+        }
+
+        public double AttackRange
+        {
+            get { return attackRange; }
+            set { attackRange = value; }
+        }
+
+        public double AttackAngleRange
+        {
+            get { return attackAngleRange; }
+            set { attackAngleRange = value; }
+        }
+
+        private double ReceivedAttackAngleRadian
+        {
+            get { return receivedAttackAngleRadian; }
+            set { receivedAttackAngleRadian = value; }
         }
         #endregion
 
