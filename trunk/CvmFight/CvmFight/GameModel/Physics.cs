@@ -152,7 +152,7 @@ namespace CvmFight
             if (!sprite.IsNeedToJumpAgain)
             {
                 if (sprite.PositionZ <= 0)
-                    sprite.CurrentJumpAcceleration = sprite.MaxJumpAcceleration + 0.1 * timeDelta;
+                    sprite.CurrentJumpAcceleration = sprite.MaxJumpAcceleration;
                 else
                     sprite.CurrentJumpAcceleration += 0.065 * timeDelta;
 
@@ -166,8 +166,8 @@ namespace CvmFight
         public static void MakeFall(AbstractSprite sprite, double timeDelta)
         {
             #warning, Time delta must be properly placed in jump and fall
+            sprite.PositionZ += sprite.CurrentJumpAcceleration / 10 * timeDelta;
             sprite.CurrentJumpAcceleration -= 0.1 * timeDelta;
-            sprite.PositionZ += sprite.CurrentJumpAcceleration / 10;
             sprite.PositionZ = Math.Max(0, sprite.PositionZ);           
         }
         #endregion

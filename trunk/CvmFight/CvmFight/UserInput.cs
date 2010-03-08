@@ -23,6 +23,8 @@ namespace CvmFight
 
         private bool isPressJump = false;
 
+        private bool isPressMouseButtonLeft = false;
+
         private short currentMouseRelativeX = 0;
         
         private short currentMouseRelativeY = 0;
@@ -63,6 +65,12 @@ namespace CvmFight
         {
             get { return isPressJump; }
             set { isPressJump = value; }
+        }
+
+        public bool IsPressMouseButtonLeft
+        {
+            get { return isPressMouseButtonLeft; }
+            set { isPressMouseButtonLeft = value; }
         }
 
         public short MouseMotionX

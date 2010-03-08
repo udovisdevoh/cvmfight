@@ -77,6 +77,13 @@ namespace CvmFight
         private bool isNeedToJumpAgain = false;
         #endregion
 
+        #region Parts
+        /// <summary>
+        /// Represents the sprite's attack cycle
+        /// </summary>
+        private SpriteActionCycle attackCycle = new SpriteActionCycle(0.2);
+        #endregion
+
         #region Properties
         /// <summary>
         /// x coordinate position
@@ -231,6 +238,17 @@ namespace CvmFight
         {
             get { return isNeedToJumpAgain; }
             set { isNeedToJumpAgain = value; }
+        }
+
+        public SpriteActionCycle AttackCycle
+        {
+            get { return attackCycle; }
+        }
+
+        public void Update(double timeDelta)
+        {
+            attackCycle.Update(timeDelta);
+            Physics.MakeFall(this, timeDelta);
         }
         #endregion
 

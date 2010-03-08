@@ -61,6 +61,8 @@ namespace CvmFight
             Events.KeyboardDown += OnKeyboardDown;
             Events.KeyboardUp += OnKeyboardUp;
             Events.MouseMotion += OnMouseMotion;
+            Events.MouseButtonDown += OnMouseDown;
+            Events.MouseButtonUp += OnMouseUp;
             Events.Run();
         }
 
@@ -84,13 +86,15 @@ namespace CvmFight
                 Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 0.5, world.SpritePool, world.Map, timeDelta);
 
 
+
+
             //Crouch and jump
             world.CurrentPlayer.IsCrouch = userInput.IsPressCrouch;   
 
             if (userInput.IsPressJump)
             {
                 world.CurrentPlayer.IsCrouch = false;
-                Physics.MakeJump(world.CurrentPlayer, timeDelta);
+                Physics.MakeJump(world.CurrentPlayer,timeDelta);
             }
             else
             {
@@ -98,10 +102,18 @@ namespace CvmFight
             }
 
 
-            //The sprites must fall
-            foreach (AbstractSprite sprite in world.SpritePool)
-                Physics.MakeFall(sprite, timeDelta);
+            //We manage attack button
+            if (userInput.IsPressMouseButtonLeft)
+                world.CurrentPlayer.AttackCycle.Fire();
+            else
+                world.CurrentPlayer.AttackCycle.UnFire();
 
+
+            //We update the sprites
+            foreach (AbstractSprite sprite in world.SpritePool)
+                sprite.Update(timeDelta);
+
+           
 
             rayTracer.Trace(world.CurrentPlayer, world.Map);
 
@@ -155,6 +167,18 @@ namespace CvmFight
 
             if (isDestroyMouse)
                 Cursor.Position = centerMousePositon;
+        }
+
+        public void OnMouseDown(object sender, MouseButtonEventArgs args)
+        {
+            if (args.Button == MouseButton.PrimaryButton)
+                userInput.IsPressMouseButtonLeft = true;
+        }
+
+        public void OnMouseUp(object sender, MouseButtonEventArgs args)
+        {
+            if (args.Button == MouseButton.PrimaryButton)
+                userInput.IsPressMouseButtonLeft = false;
         }
         #endregion
 
