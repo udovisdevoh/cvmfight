@@ -118,7 +118,7 @@ namespace CvmFight
 
             //We update the sprites
             foreach (AbstractSprite sprite in world.SpritePool)
-                sprite.Update(timeDelta);
+                sprite.Update(timeDelta, world.SpritePool,world.Map);
 
 
             //We perform fighting logic
