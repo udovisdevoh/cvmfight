@@ -23,7 +23,7 @@ namespace CvmFight
         #region Private Methods
         private void Update(AbstractSprite predator, SpritePool spritePool, SharedConsciousness sharedConsciousness)
         {
-            if (predator.AttackCycle.IsAtParoxism)
+            if (predator.AttackCycle.IsAtParoxism && predator.ReceivedAttackCycle.GetCycleState() <= 0)
             {
                 foreach (AbstractSprite prey in spritePool)
                 {
