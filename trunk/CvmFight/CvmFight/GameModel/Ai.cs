@@ -70,7 +70,7 @@ namespace CvmFight
                 }
 
                 //We manage attacking and blocking
-                if (Physics.IsWithinAttackRange(predator, prey) && Physics.IsInAttackOrBlockAngle(predator, prey))
+                if (Physics.IsWithinAttackRange(predator, prey) || Physics.IsInAttackOrBlockAngle(predator, prey))
                 {
                     if (predator.StateAttackBlock.GetCurrentState() == SpriteStates.Attack)
                     {
@@ -79,9 +79,11 @@ namespace CvmFight
                     }
                     else if (predator.StateAttackBlock.GetCurrentState() == SpriteStates.Block)
                     {
+                        predator.AttackCycle.UnFire();
                         predator.IsBlock = true;
                     }
                 }
+                predator.StateAttackBlock.Update(timeDelta, random);
 
                 predator.StateMovement.Update(timeDelta, random);
             }
