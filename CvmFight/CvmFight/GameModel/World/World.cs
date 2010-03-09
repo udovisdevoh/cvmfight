@@ -55,6 +55,7 @@ namespace CvmFight
             this.random = random;
             spawner = new Spawner(random);
             map = new CachedWaveMap(random);
+            //map = new WaveMap(random);
             //map = new MapFromImage("Assets/Maps/CvmMap.png", random);
             spritePool = new SpritePool(currentPlayer);
 
