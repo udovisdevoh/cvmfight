@@ -19,83 +19,81 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public void Animate(AbstractSprite sprite, AbstractMap map, SpritePool spritePool, SharedConsciousness sharedConsciousness, double timeDelta, int fov, Random random, AbstractSprite currentPlayer)
+        public void Animate(AbstractSprite predator, AbstractMap map, SpritePool spritePool, SharedConsciousness sharedConsciousness, double timeDelta, int fov, Random random, AbstractSprite currentPlayer)
         {
-            AbstractSprite prey = TryChoosePrey(sprite, spritePool, sharedConsciousness, map, fov, currentPlayer);
+            AbstractSprite prey = TryChoosePrey(predator, spritePool, sharedConsciousness, map, fov, currentPlayer);
             
-            sprite.IsNeedToJumpAgain = false;
+            predator.IsNeedToJumpAgain = false;
+            predator.IsBlock = false;
 
             //We manage jumping state
-            if (sprite.StateJumpCrouch.GetCurrentState() == SpriteStates.Jump)
+            if (predator.StateJumpCrouch.GetCurrentState() == SpriteStates.Jump)
             {
-                sprite.IsCrouch = false;
-                Physics.MakeJump(sprite, timeDelta);
+                predator.IsCrouch = false;
+                Physics.MakeJump(predator, timeDelta);
             }
 
             //We manage crouch state
-            if (sprite.StateJumpCrouch.GetCurrentState() == SpriteStates.Crouch)
+            if (predator.StateJumpCrouch.GetCurrentState() == SpriteStates.Crouch)
             {
-                sprite.IsCrouch = true;
+                predator.IsCrouch = true;
             }
 
 
             //We manage standing state
-            if (sprite.StateJumpCrouch.GetCurrentState() == SpriteStates.Stand)
+            if (predator.StateJumpCrouch.GetCurrentState() == SpriteStates.Stand)
             {
-                sprite.IsCrouch = false;
-                sprite.IsNeedToJumpAgain = false;
+                predator.IsCrouch = false;
+                predator.IsNeedToJumpAgain = false;
             }
-
-
-            //We manage attacking and blocking
-            sprite.IsBlock = false;
-            if (Physics.IsWithinAttackRange(sprite, prey))
-            {
-                if (sprite.StateAttackBlock.GetCurrentState() == SpriteStates.Attack)
-                {
-                    sprite.AttackCycle.UnFire();
-                    sprite.AttackCycle.Fire();
-                }
-                else if (sprite.StateAttackBlock.GetCurrentState() == SpriteStates.Block)
-                {
-                    sprite.IsBlock = true;
-                }
-            }
-
 
             //We manage walking
             if (prey != null)
             {
-                sprite.AngleRadian = Optics.GetSpriteAngleToSpriteRadian(sprite, prey);
+                predator.AngleRadian = Optics.GetSpriteAngleToSpriteRadian(predator, prey);
 
-                if (sprite.StateMovement.GetCurrentState() == SpriteStates.Offensive)
+                if (predator.StateMovement.GetCurrentState() == SpriteStates.Offensive)
                 {
-                    Physics.TryMakeWalk(sprite, spritePool, map, timeDelta);
+                    Physics.TryMakeWalk(predator, spritePool, map, timeDelta);
                 }
-                else if (sprite.StateMovement.GetCurrentState() == SpriteStates.Defensive)
+                else if (predator.StateMovement.GetCurrentState() == SpriteStates.Defensive)
                 {
-                    Physics.TryMakeWalk(sprite, Math.PI, spritePool, map, timeDelta);
+                    Physics.TryMakeWalk(predator, Math.PI, spritePool, map, timeDelta);
                 }
-                else if (sprite.StateMovement.GetCurrentState() == SpriteStates.FurtiveLeft)
+                else if (predator.StateMovement.GetCurrentState() == SpriteStates.FurtiveLeft)
                 {
-                    Physics.TryMakeWalk(sprite, Math.PI * 1.5, spritePool, map, timeDelta);
+                    Physics.TryMakeWalk(predator, Math.PI * 1.5, spritePool, map, timeDelta);
                 }
-                else if (sprite.StateMovement.GetCurrentState() == SpriteStates.FurtiveRight)
+                else if (predator.StateMovement.GetCurrentState() == SpriteStates.FurtiveRight)
                 {
-                    Physics.TryMakeWalk(sprite, Math.PI * 0.5, spritePool, map, timeDelta);
+                    Physics.TryMakeWalk(predator, Math.PI * 0.5, spritePool, map, timeDelta);
                 }
 
-                sprite.StateMovement.Update(timeDelta, random);
+                //We manage attacking and blocking
+                if (Physics.IsWithinAttackRange(predator, prey) && Physics.IsInAttackOrBlockAngle(predator, prey))
+                {
+                    if (predator.StateAttackBlock.GetCurrentState() == SpriteStates.Attack)
+                    {
+                        predator.AttackCycle.UnFire();
+                        predator.AttackCycle.Fire();
+                    }
+                    else if (predator.StateAttackBlock.GetCurrentState() == SpriteStates.Block)
+                    {
+                        predator.IsBlock = true;
+                    }
+                }
+
+                predator.StateMovement.Update(timeDelta, random);
             }
             else
             {
-                if (!Physics.TryMakeWalk(sprite, spritePool, map, timeDelta))
+                if (!Physics.TryMakeWalk(predator, spritePool, map, timeDelta))
                 {
-                    sprite.AngleDegree = (double)random.Next(360);
+                    predator.AngleDegree = (double)random.Next(360);
                 }
             }
 
-            sprite.StateJumpCrouch.Update(timeDelta,random);
+            predator.StateJumpCrouch.Update(timeDelta,random);
         }
         #endregion
 

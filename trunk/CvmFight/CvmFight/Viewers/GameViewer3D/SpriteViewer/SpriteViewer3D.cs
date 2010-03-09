@@ -64,22 +64,59 @@ namespace CvmFight
 
             byte spriteStatus;
 
-            
-            if (viewedSprite.WalkCycle.IsForward)
-                spriteStatus = SpriteScallableFrame.Walk1;
-            else
-                spriteStatus = SpriteScallableFrame.Walk2;
 
+
+            int attackCycleState = viewedSprite.AttackCycle.GetCycleState();
+            int receivedAttackCycleState = viewedSprite.ReceivedAttackCycle.GetCycleState();
 
             if (viewedSprite.IsCrouch)
             {
-                spriteHeight /= 2;
-                spriteStatus = SpriteScallableFrame.Crouch;
+                if (attackCycleState == 2)
+                {
+                    spriteStatus = SpriteScallableFrame.Kick2;
+                }
+                else if (attackCycleState == 1)
+                {
+                    spriteStatus = SpriteScallableFrame.Kick1;
+                }
+                else if (receivedAttackCycleState != 0)
+                {
+                    spriteStatus = SpriteScallableFrame.CrouchHit;
+                }
+                else if (viewedSprite.IsBlock)
+                {
+                    spriteStatus = SpriteScallableFrame.CrouchBlock;
+                }
+                else
+                {
+                    spriteHeight /= 2;
+                    spriteStatus = SpriteScallableFrame.Crouch;
+                }
+            }
+            else
+            {
+                if (attackCycleState > 0)
+                {
+                    spriteStatus = SpriteScallableFrame.Punch;
+                }
+                else if (receivedAttackCycleState != 0)
+                {
+                    spriteStatus = SpriteScallableFrame.Hit;
+                }
+                else if (viewedSprite.IsBlock)
+                {
+                    spriteStatus = SpriteScallableFrame.Block;
+                }
+                else if (viewedSprite.WalkCycle.IsForward)
+                {
+                    spriteStatus = SpriteScallableFrame.Walk1;
+                }
+                else
+                {
+                    spriteStatus = SpriteScallableFrame.Walk2;
+                }
             }
 
-
-            if (viewedSprite.ReceivedAttackCycle.GetCycleState() > 0)
-                spriteStatus = SpriteScallableFrame.Hit;
 
             Surface spriteSurface = spriteCollectionCache3D.GetSpriteCache(viewedSprite).GetSurface(spriteStatus, angleType, spriteHeight);
 
