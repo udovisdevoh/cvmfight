@@ -18,13 +18,14 @@ namespace CvmFight
             Radius = 0.1;
             AttackRange = 0.3;
             AttackAngleRange = 0.17;
-            AttackPower = 4;
+            AttackPower = 2.5;
             DefaultHealth = 100.0;
             Health = 0;
             MaxHealth = 200.0;
             DefaultWalkingDistance = 0.05;
             MaxJumpAcceleration = 0.83;
-            CrouchSpeedMultiplier = 0.3;
+            CrouchSpeedMultiplier = 0.1;
+            JumpSpeedMultiplier = 1.6;
         }
         #endregion
     }

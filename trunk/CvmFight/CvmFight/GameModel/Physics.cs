@@ -132,6 +132,12 @@ namespace CvmFight
                 yMove *= sprite.CrouchSpeedMultiplier;
             }
 
+            if (sprite.PositionY > 0)
+            {
+                xMove *= sprite.JumpSpeedMultiplier;
+                yMove *= sprite.JumpSpeedMultiplier;
+            }
+
             sprite.PositionX += xMove;
             if (IsDetectCollision(sprite,spritePool,map))
                 sprite.PositionX -= xMove;
