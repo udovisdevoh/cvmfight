@@ -126,7 +126,7 @@ namespace CvmFight
             //We animate the sprites using the AI
             foreach (AbstractSprite sprite in world.SpritePool)
                 if (sprite != world.CurrentPlayer)
-                    ai.Animate(sprite, world.Map, world.SpritePool, timeDelta);
+                    ai.Animate(sprite, world.Map, world.SpritePool, world.SharedConsciousness, timeDelta);
 
 
             //We update the sprites

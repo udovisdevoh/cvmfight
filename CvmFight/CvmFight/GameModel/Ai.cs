@@ -19,7 +19,7 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public void Animate(AbstractSprite sprite, AbstractMap map, SpritePool spritePool, double timeDelta)
+        public void Animate(AbstractSprite sprite, AbstractMap map, SpritePool spritePool, SharedConsciousness sharedConsciousness, double timeDelta)
         {
             if (!Physics.TryMakeWalk(sprite, spritePool, map, timeDelta))
             {
