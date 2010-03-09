@@ -166,7 +166,7 @@ namespace CvmFight
         /// <summary>
         /// Represents the sprite's current attack or block behavior
         /// </summary>
-        private SpriteState stateAttackBlock = new SpriteState(SpriteStates.Attack, SpriteStates.Block, SpriteStates.OpenToAttack, 10);
+        private SpriteState stateAttackBlock = new SpriteState(SpriteStates.Attack, SpriteStates.Block, SpriteStates.OpenToAttack, 30);
         #endregion
 
         #region Public Methods

@@ -111,7 +111,7 @@ namespace CvmFight
         public void Update(AbstractSprite player, Surface surface)
         {
             if (health == null)
-                health = bigRed.Render(player.Health.ToString(), System.Drawing.Color.Red);
+                health = bigRed.Render(((int)(player.Health)).ToString(), System.Drawing.Color.Red);
 
             if (fragCount == null)
                 fragCount = bigRed.Render(player.FragCount.ToString(), System.Drawing.Color.Red);
