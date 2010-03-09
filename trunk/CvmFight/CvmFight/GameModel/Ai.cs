@@ -21,7 +21,7 @@ namespace CvmFight
         #region Public Methods
         public void Animate(AbstractSprite sprite, AbstractMap map, SpritePool spritePool, SharedConsciousness sharedConsciousness, double timeDelta, int fov, Random random, AbstractSprite currentPlayer)
         {
-            AbstractSprite prey = TryChosePrey(sprite, spritePool, sharedConsciousness, map, fov, currentPlayer);
+            AbstractSprite prey = TryChoosePrey(sprite, spritePool, sharedConsciousness, map, fov, currentPlayer);
             
             sprite.IsNeedToJumpAgain = false;
 
@@ -47,6 +47,23 @@ namespace CvmFight
             }
 
 
+            //We manage attacking and blocking
+            sprite.IsBlock = false;
+            if (Physics.IsWithinAttackRange(sprite, prey))
+            {
+                if (sprite.StateAttackBlock.GetCurrentState() == SpriteStates.Attack)
+                {
+                    sprite.AttackCycle.UnFire();
+                    sprite.AttackCycle.Fire();
+                }
+                else if (sprite.StateAttackBlock.GetCurrentState() == SpriteStates.Block)
+                {
+                    sprite.IsBlock = true;
+                }
+            }
+
+
+            //We manage walking
             if (prey != null)
             {
                 sprite.AngleRadian = Optics.GetSpriteAngleToSpriteRadian(sprite, prey);
@@ -83,7 +100,7 @@ namespace CvmFight
         #endregion
 
         #region Private Methods
-        private AbstractSprite TryChosePrey(AbstractSprite predator, SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractMap map, int fov, AbstractSprite currentPlayer)
+        private AbstractSprite TryChoosePrey(AbstractSprite predator, SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractMap map, int fov, AbstractSprite currentPlayer)
         {
             foreach (AbstractSprite prey in spritePool)
             {

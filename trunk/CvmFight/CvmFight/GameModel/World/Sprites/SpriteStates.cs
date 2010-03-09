@@ -20,5 +20,11 @@ namespace CvmFight
         public static byte Crouch = 5;
 
         public static byte Stand = 6;
+
+        public static byte Attack = 7;
+
+        public static byte Block = 8;
+
+        public static byte OpenToAttack = 9;
     }
 }
