@@ -167,11 +167,21 @@ namespace CvmFight
             return !(isDetectCollisionX || isDetectCollisionY);
         }
 
+        /// <summary>
+        /// Try make rotate sprite from mouse strength
+        /// </summary>
+        /// <param name="sprite">sprite</param>
+        /// <param name="angleRotationStrength">rotation strength</param>
         public static void TryMakeRotate(AbstractSprite sprite, short angleRotationStrength)
         {
             sprite.AngleRadian += ((double)angleRotationStrength / -200);
         }
 
+        /// <summary>
+        /// Make jump sprite
+        /// </summary>
+        /// <param name="sprite">sprite</param>
+        /// <param name="timeDelta">time delta</param>
         public static void MakeJump(AbstractSprite sprite, double timeDelta)
         {
             #warning, Time delta must be properly placed in jump and fall
@@ -189,6 +199,11 @@ namespace CvmFight
             }
         }
 
+        /// <summary>
+        /// Make fall sprite
+        /// </summary>
+        /// <param name="sprite">sprite</param>
+        /// <param name="timeDelta">time delta</param>
         public static void MakeFall(AbstractSprite sprite, double timeDelta)
         {
             #warning, Time delta must be properly placed in jump and fall
@@ -197,11 +212,23 @@ namespace CvmFight
             sprite.PositionZ = Math.Max(0, sprite.PositionZ);           
         }
 
+        /// <summary>
+        /// Whether prey is withing predator's attack range
+        /// </summary>
+        /// <param name="predator">predator sprite</param>
+        /// <param name="prey">prey sprite</param>
+        /// <returns>Whether prey is withing predator's attack range</returns>
         public static bool IsWithinAttackRange(AbstractSprite predator, AbstractSprite prey)
         {
             return Physics.GetSpriteDistance(predator, prey) <= predator.AttackRange + prey.Radius;
         }
 
+        /// <summary>
+        /// Whether sprite 1 can attack or block sprite 2 because angle allows it
+        /// </summary>
+        /// <param name="sprite1">sprite 1</param>
+        /// <param name="sprite2">sprite 2</param>
+        /// <returns>Whether sprite 1 can attack or block sprite 2 because angle allows it</returns>
         public static bool IsInAttackOrBlockAngle(AbstractSprite sprite1, AbstractSprite sprite2)
         {
             double angleToSprite = Optics.GetSpriteAngleToSpriteRadian(sprite1, sprite2);
