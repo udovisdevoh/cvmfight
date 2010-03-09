@@ -186,12 +186,12 @@ namespace CvmFight
             JumpSpeedMultiplier = GetJumpSpeedMultiplier();
             AttackWalkSpeedMultiplier = GetAttackWalkSpeedMultiplier();
 
-            attackCycle = new SpriteActionCycle(0.2);
-            receivedAttackCycle = new SpriteActionCycle(0.35);
-            walkCycle = new SpriteActionCycle(0.5);
-            stateMovement = new SpriteState(SpriteStates.Offensive, SpriteStates.Defensive, SpriteStates.FurtiveLeft, SpriteStates.FurtiveRight, 10);
-            stateJumpCrouch = new SpriteState(SpriteStates.Stand, SpriteStates.Jump, SpriteStates.Crouch, SpriteStates.Stand, SpriteStates.Stand, 20);
-            stateAttackBlock = new SpriteState(SpriteStates.Attack, SpriteStates.Block, SpriteStates.OpenToAttack, 30);
+            attackCycle = new SpriteActionCycle(GetAttackSpeed());
+            receivedAttackCycle = new SpriteActionCycle(GetReceivedAttackCycleLength());
+            walkCycle = new SpriteActionCycle(GetWalkCycleLength());
+            stateMovement = new SpriteState(SpriteStates.Offensive, SpriteStates.Defensive, SpriteStates.FurtiveLeft, SpriteStates.FurtiveRight, GetMovementCycleLength());
+            stateJumpCrouch = new SpriteState(SpriteStates.Stand, SpriteStates.Jump, SpriteStates.Crouch, SpriteStates.Stand, SpriteStates.Stand, GetJumpCrouchCycleLength());
+            stateAttackBlock = new SpriteState(SpriteStates.Attack, SpriteStates.Block, SpriteStates.OpenToAttack, GetStateAttackBlockCycleLength());
         }
         #endregion
 
@@ -219,6 +219,18 @@ namespace CvmFight
         protected abstract double GetJumpSpeedMultiplier();
 
         protected abstract double GetAttackWalkSpeedMultiplier();
+
+        protected abstract double GetAttackSpeed();
+
+        protected abstract double GetReceivedAttackCycleLength();
+
+        protected abstract double GetWalkCycleLength();
+
+        protected abstract double GetStateAttackBlockCycleLength();
+
+        protected abstract double GetJumpCrouchCycleLength();
+
+        protected abstract double GetMovementCycleLength();
         #endregion
 
         #region Public Methods
