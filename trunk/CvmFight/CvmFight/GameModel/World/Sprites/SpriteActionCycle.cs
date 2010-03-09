@@ -99,6 +99,11 @@ namespace CvmFight
         {
             get { return isFired; }
         }
+
+        public bool IsForward
+        {
+            get { return isForward; }
+        }
         #endregion
     }
 }

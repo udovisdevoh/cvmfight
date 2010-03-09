@@ -142,6 +142,11 @@ namespace CvmFight
         /// Represents the sprite's received attack cycle
         /// </summary>
         private SpriteActionCycle receivedAttackCycle = new SpriteActionCycle(0.35);
+
+        /// <summary>
+        /// Walking cycle
+        /// </summary>
+        private SpriteActionCycle walkCycle = new SpriteActionCycle(0.5);
         #endregion
 
         #region Public Methods
@@ -335,6 +340,11 @@ namespace CvmFight
         public SpriteActionCycle AttackCycle
         {
             get { return attackCycle; }
+        }
+
+        public SpriteActionCycle WalkCycle
+        {
+            get { return walkCycle; }
         }
 
         public bool IsBlock

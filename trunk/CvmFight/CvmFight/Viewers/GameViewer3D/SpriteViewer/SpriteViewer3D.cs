@@ -56,11 +56,20 @@ namespace CvmFight
             int destinationX = 0;
             int destinationY;
 
-            #warning Sprite status must be parsed here
+            
 
             byte angleType = GetAngleType(viewerSprite.AngleDegree, viewedSprite.AngleDegree);
 
-            byte spriteStatus = SpriteScallableFrame.Walk1;
+            #warning Sprite status must be parsed here
+
+            byte spriteStatus;
+
+            
+            if (viewedSprite.WalkCycle.IsForward)
+                spriteStatus = SpriteScallableFrame.Walk1;
+            else
+                spriteStatus = SpriteScallableFrame.Walk2;
+
 
             if (viewedSprite.ReceivedAttackCycle.GetCycleState() > 0)
                 spriteStatus = SpriteScallableFrame.Hit;
