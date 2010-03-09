@@ -162,6 +162,11 @@ namespace CvmFight
         /// Represents the sprite's current AI state for jump, crouch or normal
         /// </summary>
         private SpriteState stateJumpCrouch = new SpriteState(SpriteStates.Stand, SpriteStates.Jump, SpriteStates.Crouch, SpriteStates.Stand, SpriteStates.Stand, 20);
+
+        /// <summary>
+        /// Represents the sprite's current attack or block behavior
+        /// </summary>
+        private SpriteState stateAttackBlock = new SpriteState(SpriteStates.Attack, SpriteStates.Block, SpriteStates.OpenToAttack, 10);
         #endregion
 
         #region Public Methods
@@ -464,6 +469,11 @@ namespace CvmFight
         public SpriteState StateJumpCrouch
         {
             get { return stateJumpCrouch; }
+        }
+
+        public SpriteState StateAttackBlock
+        {
+            get { return stateAttackBlock; }
         }
         #endregion
 
