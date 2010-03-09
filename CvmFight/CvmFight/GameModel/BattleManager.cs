@@ -27,6 +27,7 @@ namespace CvmFight
             {
                 foreach (AbstractSprite prey in spritePool)
                 {
+                    prey.IsBlockSuccessful = false;
                     if (prey == predator)
                         continue;
 
@@ -34,7 +35,6 @@ namespace CvmFight
                     {
                         if (Physics.IsInAttackOrBlockAngle(predator, prey))
                         {
-                            prey.IsBlockSuccessful = false;
                             if (!prey.IsBlock || !Physics.IsInAttackOrBlockAngle(prey, predator))
                             {
                                 prey.Health -= predator.AttackPower / Physics.GetSpriteDistance(predator,prey);
