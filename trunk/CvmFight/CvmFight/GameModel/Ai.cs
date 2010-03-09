@@ -50,7 +50,9 @@ namespace CvmFight
             //We manage walking
             if (prey != null)
             {
-                predator.AngleRadian = Optics.GetSpriteAngleToSpriteRadian(predator, prey);
+                if (random.Next(5) == 0)
+                    predator.AngleRadian = Optics.GetSpriteAngleToSpriteRadian(predator, prey);
+
 
                 if (predator.StateMovement.GetCurrentState() == SpriteStates.Offensive)
                 {
@@ -117,7 +119,7 @@ namespace CvmFight
                 }
             }
             return null;
-        }
+        }    
         #endregion
     }
 }

@@ -205,7 +205,7 @@ namespace CvmFight
         }
         #endregion
 
-        #region Private Abstract Methods
+        #region Protected Abstract Methods
         protected abstract double GetHeight();
 
         protected abstract double GetRadius();
