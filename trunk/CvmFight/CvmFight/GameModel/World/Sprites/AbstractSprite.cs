@@ -152,6 +152,11 @@ namespace CvmFight
         /// Walking cycle
         /// </summary>
         private SpriteActionCycle walkCycle = new SpriteActionCycle(0.5);
+
+        /// <summary>
+        /// Represents the sprite's current AI state for what kind of movement he's doing
+        /// </summary>
+        private SpriteState stateMovement = new SpriteState(SpriteStates.Offensive, SpriteStates.Defensive, SpriteStates.FurtiveLeft, SpriteStates.FurtiveRight, 10);
         #endregion
 
         #region Public Methods
@@ -443,6 +448,12 @@ namespace CvmFight
         {
             get { return attackWalkSpeedMultiplier; }
             set { attackWalkSpeedMultiplier = value; }
+        }
+
+        public SpriteState StateMovement
+        {
+            get { return stateMovement; }
+            set { stateMovement = value; }
         }
         #endregion
 

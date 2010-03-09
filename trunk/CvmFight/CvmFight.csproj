@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C7BEC086-362D-4365-A257-04CA2B6BE562}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -84,6 +84,8 @@
     <Compile Include="CvmFight\GameModel\Waves\WavePack.cs" />
     <Compile Include="CvmFight\GameModel\Waves\WaveBuilder.cs" />
     <Compile Include="CvmFight\GameModel\World\Sprites\SpriteActionCycle.cs" />
+    <Compile Include="CvmFight\GameModel\World\Sprites\SpriteState.cs" />
+    <Compile Include="CvmFight\GameModel\World\Sprites\SpriteStates.cs" />
     <Compile Include="CvmFight\GameModel\World\World.cs" />
     <Compile Include="CvmFight\UserInput.cs" />
     <Compile Include="CvmFight\Program.cs" />
