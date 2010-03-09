@@ -130,6 +130,11 @@ namespace CvmFight
         /// Jump speed multiplier
         /// </summary>
         private double jumpSpeedMultiplier = 1.6;
+
+        /// <summary>
+        /// When attacking, multiply the speed to something
+        /// </summary>
+        private double attackWalkSpeedMultiplier = 0;
         #endregion
 
         #region Parts
@@ -432,6 +437,12 @@ namespace CvmFight
         {
             get { return jumpSpeedMultiplier; }
             set { jumpSpeedMultiplier = value; }
+        }
+
+        public double AttackWalkSpeedMultiplier
+        {
+            get { return attackWalkSpeedMultiplier; }
+            set { attackWalkSpeedMultiplier = value; }
         }
         #endregion
 

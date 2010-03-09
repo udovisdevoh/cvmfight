@@ -12,7 +12,7 @@ namespace CvmFight
             IsAlive = false;
             Height = 1.0;
             Radius = 0.1;
-            AttackRange = 0.3;
+            AttackRange = 0.4;
             AttackAngleRange = 0.17;
             AttackPower = 2.5;
             DefaultHealth = 100.0;
@@ -22,6 +22,7 @@ namespace CvmFight
             CrouchSpeedMultiplier = 0.2;
             DefaultWalkingDistance = 0.01;
             JumpSpeedMultiplier = 1.6;
+            AttackWalkSpeedMultiplier = 0;
         }
     }
 }
