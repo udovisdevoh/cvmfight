@@ -12,16 +12,16 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public void Update(SpritePool spritePool, SharedConsciousness sharedConsciousness)
+        public void Update(SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractSprite currentPlayer)
         {
             isNeedRefreshHud = false;
             foreach (AbstractSprite sprite in spritePool)
-                Update(sprite, spritePool, sharedConsciousness);
+                Update(sprite, spritePool, sharedConsciousness, currentPlayer);
         }
         #endregion
 
         #region Private Methods
-        private void Update(AbstractSprite predator, SpritePool spritePool, SharedConsciousness sharedConsciousness)
+        private void Update(AbstractSprite predator, SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractSprite currentPlayer)
         {
             if (predator.AttackCycle.IsAtParoxism && predator.ReceivedAttackCycle.GetCycleState() <= 0)
             {
@@ -46,9 +46,10 @@ namespace CvmFight
                                 {
                                     isNeedRefreshHud = true;
                                     predator.FragCount++;
+                                    currentPlayer.RefreshRanking(spritePool);
                                 }
-
-                                if (prey is Player)
+                                
+                                if (prey == currentPlayer)
                                 {
                                     isNeedRefreshHud = true;
                                 }

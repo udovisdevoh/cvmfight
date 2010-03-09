@@ -140,7 +140,7 @@ namespace CvmFight
 
 
             //We perform fighting logic
-            battleManager.Update(world.SpritePool, world.SharedConsciousness);
+            battleManager.Update(world.SpritePool, world.SharedConsciousness, world.CurrentPlayer);
             
             if (battleManager.IsNeedRefreshHud)
             {
