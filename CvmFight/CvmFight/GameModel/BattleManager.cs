@@ -41,6 +41,11 @@ namespace CvmFight
                                 prey.ReceivedAttackAngleRadian = predator.AngleRadian;
                                 prey.ReceivedAttackCycle.Fire();
 
+                                if (predator.PositionZ > 0 || predator.IsCrouch)
+                                    prey.ReceivedAttackAngleRadian -= 0.5;
+                                else
+                                    prey.ReceivedAttackAngleRadian += 0.5;
+
                                 if (!prey.IsAlive)
                                 {
                                     isNeedRefreshHud = true;
@@ -66,6 +71,5 @@ namespace CvmFight
             set { isNeedRefreshHud = value; }
         }
         #endregion
-
     }
 }
