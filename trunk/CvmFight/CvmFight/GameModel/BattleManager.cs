@@ -34,6 +34,7 @@ namespace CvmFight
                     {
                         if (Physics.IsInAttackOrBlockAngle(predator, prey))
                         {
+                            prey.IsBlockSuccessful = false;
                             if (!prey.IsBlock || !Physics.IsInAttackOrBlockAngle(prey, predator))
                             {
                                 prey.Health -= predator.AttackPower / Physics.GetSpriteDistance(predator,prey);
@@ -51,6 +52,10 @@ namespace CvmFight
                                 {
                                     isNeedRefreshHud = true;
                                 }
+                            }
+                            else if (prey.IsBlock)
+                            {
+                                prey.IsBlockSuccessful = true;
                             }
                         }
                     }

@@ -11,14 +11,25 @@ namespace CvmFight
 {
     class SpriteCache3D
     {
+        #region Fields
+        private bool isEnableSpriteCache;
+        #endregion
+
         #region Parts
         private SpriteScallableFrame[,] internalSpriteFrameMap = new SpriteScallableFrame[32, 32];
+        #endregion
+
+        #region Constructor
+        public SpriteCache3D(bool isEnableSpriteCache)
+        {
+            this.isEnableSpriteCache = isEnableSpriteCache;
+        }
         #endregion
 
         #region Public Methods
         public Surface GetSurface(byte spriteStatus, byte spriteAngle, int spriteHeight)
         {
-            return internalSpriteFrameMap[spriteAngle, spriteStatus].GetScaledSurface(spriteHeight);
+            return internalSpriteFrameMap[spriteAngle, spriteStatus].GetScaledSurface(spriteHeight, isEnableSpriteCache);
         }
 
         public void AddFrame(SpriteScallableFrame spriteFrame)
