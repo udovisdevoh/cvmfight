@@ -29,7 +29,9 @@ namespace CvmFight
         #endregion
 
         #region Fields and parts
-        private World world = new World();
+        private Random random = new Random();
+
+        private World world;
 
         private AbstractGameViewer gameViewer;
 
@@ -38,6 +40,8 @@ namespace CvmFight
         private RayTracer rayTracer = new RayTracer(rayTracerResolution, fov);
 
         private BattleManager battleManager = new BattleManager();
+
+        private Ai ai;
         
         private Point centerMousePositon;
 
@@ -47,6 +51,9 @@ namespace CvmFight
         #region Constructor
         public Program()
         {
+            world = new World(random);
+            ai = new Ai(random);
+
             //gameViewer = new MiniMap(screenWidth, screenHeight, isFullScreen);
             gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, isFullScreen, rayTracer.Fov);
             centerMousePositon = new Point(screenWidth / 2, screenHeight / 2);
@@ -114,6 +121,12 @@ namespace CvmFight
             }
             else
                 world.CurrentPlayer.AttackCycle.UnFire();
+
+
+            //We animate the sprites using the AI
+            foreach (AbstractSprite sprite in world.SpritePool)
+                if (sprite != world.CurrentPlayer)
+                    ai.Animate(sprite, world.Map, world.SpritePool, timeDelta);
 
 
             //We update the sprites
