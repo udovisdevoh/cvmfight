@@ -125,6 +125,11 @@ namespace CvmFight
         /// Received attack angle
         /// </summary>
         private double receivedAttackAngleRadian = 0.0;
+
+        /// <summary>
+        /// Jump speed multiplier
+        /// </summary>
+        private double jumpSpeedMultiplier = 1.6;
         #endregion
 
         #region Parts
@@ -136,10 +141,10 @@ namespace CvmFight
         /// <summary>
         /// Represents the sprite's received attack cycle
         /// </summary>
-        private SpriteActionCycle receivedAttackCycle = new SpriteActionCycle(0.5);
+        private SpriteActionCycle receivedAttackCycle = new SpriteActionCycle(0.35);
         #endregion
 
-        #region
+        #region Public Methods
         public void Update(double timeDelta, SpritePool spritePool, AbstractMap map)
         {
             attackCycle.Update(timeDelta);
@@ -147,7 +152,7 @@ namespace CvmFight
 
             //We manage received attack
             if (receivedAttackCycle.GetCycleState() > 0)
-                Physics.TryMakeWalk(this, receivedAttackAngleRadian - angleRadian, spritePool, map, timeDelta);
+                Physics.TryMakeWalk(this, receivedAttackAngleRadian - angleRadian, spritePool, map, 1);
             else
                 receivedAttackCycle.UnFire();
 
@@ -411,6 +416,12 @@ namespace CvmFight
         {
             get { return receivedAttackCycle; }
             set { receivedAttackCycle = value; }
+        }
+
+        public double JumpSpeedMultiplier
+        {
+            get { return jumpSpeedMultiplier; }
+            set { jumpSpeedMultiplier = value; }
         }
         #endregion
 

@@ -94,6 +94,11 @@ namespace CvmFight
         {
             get { return currentCyclePosition > cycleLength; }
         }
+
+        public bool IsFired
+        {
+            get { return isFired; }
+        }
         #endregion
     }
 }
