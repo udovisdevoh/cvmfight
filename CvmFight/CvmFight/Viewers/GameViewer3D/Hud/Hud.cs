@@ -23,9 +23,13 @@ namespace CvmFight
 
         private Surface fragCount = null;
 
+        private Surface ranking = null;
+
         private Surface healthLabel;
 
         private Surface fragLabel;
+
+        private Surface rankingLabel;
 
         private Surface restFist;
 
@@ -48,6 +52,7 @@ namespace CvmFight
 
             healthLabel = labelFont.Render("health", System.Drawing.Color.White);
             fragLabel = labelFont.Render("frags", System.Drawing.Color.White);
+            rankingLabel = labelFont.Render("rank", System.Drawing.Color.White);
 
             restFist = BuildRestFistSurface();
             attackFist = BuildAttackFistSurface();
@@ -116,6 +121,9 @@ namespace CvmFight
             if (fragCount == null)
                 fragCount = bigRed.Render(player.FragCount.ToString(), System.Drawing.Color.Red);
 
+            if (ranking == null)
+                ranking = bigRed.Render(player.Ranking.ToString(), System.Drawing.Color.Blue);
+
             int attackCycleState = player.AttackCycle.GetCycleState();
 
             if (player.ReceivedAttackCycle.GetCycleState() == 0)
@@ -174,12 +182,15 @@ namespace CvmFight
             surface.Blit(health, PointLoader.GetPoint(screenWidth - 140, screenHeight - 65));
             surface.Blit(fragLabel, PointLoader.GetPoint(screenWidth - 240, screenHeight - 80));
             surface.Blit(fragCount, PointLoader.GetPoint(screenWidth - 240, screenHeight - 65));
+            surface.Blit(rankingLabel, PointLoader.GetPoint(screenWidth - 340, screenHeight - 80));
+            surface.Blit(ranking, PointLoader.GetPoint(screenWidth - 340, screenHeight - 65));
         }
 
         public void Dirthen()
         {
             this.health = null;
             this.fragCount = null;
+            this.ranking = null;
         }
         #endregion
     }

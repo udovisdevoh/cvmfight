@@ -140,6 +140,11 @@ namespace CvmFight
         /// Whether last attack was blocked
         /// </summary>
         private bool isBlockSuccessful = false;
+
+        /// <summary>
+        /// Frag ranking
+        /// </summary>
+        private int ranking = 0;
         #endregion
 
         #region Parts
@@ -251,6 +256,18 @@ namespace CvmFight
                 receivedAttackCycle.UnFire();
 
             Physics.MakeFall(this, timeDelta);
+        }
+
+        public void RefreshRanking(SpritePool spritePool)
+        {
+            ranking = 1;
+            foreach (AbstractSprite sprite in spritePool)
+            {
+                if (fragCount < sprite.fragCount)
+                {
+                    ranking++;
+                }
+            }
         }
         #endregion
 
@@ -549,6 +566,14 @@ namespace CvmFight
         {
             get { return isBlockSuccessful; }
             set { isBlockSuccessful = value; }
+        }
+
+        /// <summary>
+        /// Frag count ranking
+        /// </summary>
+        public int Ranking
+        {
+            get { return ranking; }
         }
         #endregion
 
