@@ -189,7 +189,7 @@ namespace CvmFight
             attackCycle = new SpriteActionCycle(GetAttackSpeed());
             receivedAttackCycle = new SpriteActionCycle(GetReceivedAttackCycleLength());
             walkCycle = new SpriteActionCycle(GetWalkCycleLength());
-            stateMovement = new SpriteState(SpriteStates.Offensive, SpriteStates.Defensive, SpriteStates.FurtiveLeft, SpriteStates.FurtiveRight, GetMovementCycleLength());
+            stateMovement = new SpriteState(SpriteStates.Offensive, SpriteStates.Offensive, SpriteStates.Offensive, SpriteStates.Defensive, SpriteStates.FurtiveLeft, SpriteStates.FurtiveRight, GetMovementCycleLength());
             stateJumpCrouch = new SpriteState(SpriteStates.Stand, SpriteStates.Jump, SpriteStates.Crouch, SpriteStates.Stand, SpriteStates.Stand, GetJumpCrouchCycleLength());
             stateAttackBlock = new SpriteState(SpriteStates.Attack, SpriteStates.Block, SpriteStates.OpenToAttack, GetStateAttackBlockCycleLength());
         }
