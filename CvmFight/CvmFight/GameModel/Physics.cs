@@ -123,6 +123,10 @@ namespace CvmFight
         /// <param name="timeDelta">time delta</param>
         public static bool TryMakeWalk(AbstractSprite sprite, double angleOffsetRadian, SpritePool spritePool, AbstractMap map, double timeDelta)
         {
+            sprite.WalkCycle.UnFire();
+            sprite.WalkCycle.Fire();
+            sprite.WalkCycle.Update(1);
+
             double xMove = Math.Cos(sprite.AngleRadian + angleOffsetRadian) * sprite.DefaultWalkingDistance * timeDelta;
             double yMove = Math.Sin(sprite.AngleRadian + angleOffsetRadian) * sprite.DefaultWalkingDistance * timeDelta;
 
