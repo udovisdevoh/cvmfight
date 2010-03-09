@@ -19,9 +19,33 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public void Animate(AbstractSprite sprite, AbstractMap map, SpritePool spritePool, SharedConsciousness sharedConsciousness, double timeDelta, int fov, Random random)
+        public void Animate(AbstractSprite sprite, AbstractMap map, SpritePool spritePool, SharedConsciousness sharedConsciousness, double timeDelta, int fov, Random random, AbstractSprite currentPlayer)
         {
-            AbstractSprite prey = TryChosePrey(sprite, spritePool, sharedConsciousness, map, fov);
+            AbstractSprite prey = TryChosePrey(sprite, spritePool, sharedConsciousness, map, fov, currentPlayer);
+            
+            sprite.IsNeedToJumpAgain = false;
+
+            //We manage jumping state
+            if (sprite.StateJumpCrouch.GetCurrentState() == SpriteStates.Jump)
+            {
+                sprite.IsCrouch = false;
+                Physics.MakeJump(sprite, timeDelta);
+            }
+
+            //We manage crouch state
+            if (sprite.StateJumpCrouch.GetCurrentState() == SpriteStates.Crouch)
+            {
+                sprite.IsCrouch = true;
+            }
+
+
+            //We manage standing state
+            if (sprite.StateJumpCrouch.GetCurrentState() == SpriteStates.Stand)
+            {
+                sprite.IsCrouch = false;
+                sprite.IsNeedToJumpAgain = false;
+            }
+
 
             if (prey != null)
             {
@@ -53,21 +77,23 @@ namespace CvmFight
                     sprite.AngleDegree = (double)random.Next(360);
                 }
             }
+
+            sprite.StateJumpCrouch.Update(timeDelta,random);
         }
         #endregion
 
         #region Private Methods
-        private AbstractSprite TryChosePrey(AbstractSprite predator, SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractMap map, int fov)
+        private AbstractSprite TryChosePrey(AbstractSprite predator, SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractMap map, int fov, AbstractSprite currentPlayer)
         {
             foreach (AbstractSprite prey in spritePool)
             {
                 if (prey != predator)
                 {
-                    if (sharedConsciousness.IsSpriteViewable(predator, prey, map, fov))
+                    if (Physics.IsWithinAttackRange(predator,prey))
                     {
                         return prey;
                     }
-                    else if (Physics.IsWithinAttackRange(predator,prey))
+                    else if (sharedConsciousness.IsSpriteViewable(predator, prey, map, fov))
                     {
                         return prey;
                     }

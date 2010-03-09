@@ -13,6 +13,12 @@ namespace CvmFight
 
         public static byte FurtiveLeft = 2;
 
-        public static byte FurtiveRight = 2;
+        public static byte FurtiveRight = 3;
+
+        public static byte Jump = 4;
+
+        public static byte Crouch = 5;
+
+        public static byte Stand = 6;
     }
 }

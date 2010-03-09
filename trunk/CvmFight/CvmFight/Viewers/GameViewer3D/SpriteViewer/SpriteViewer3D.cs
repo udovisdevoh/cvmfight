@@ -71,6 +71,13 @@ namespace CvmFight
                 spriteStatus = SpriteScallableFrame.Walk2;
 
 
+            if (viewedSprite.IsCrouch)
+            {
+                spriteHeight /= 2;
+                spriteStatus = SpriteScallableFrame.Crouch;
+            }
+
+
             if (viewedSprite.ReceivedAttackCycle.GetCycleState() > 0)
                 spriteStatus = SpriteScallableFrame.Hit;
 
@@ -78,6 +85,8 @@ namespace CvmFight
 
             destinationX = (int)(getXPosition(angleDegree, fov, screenWidth, spriteSurface.Width));
             destinationY = (int)(topMargin + theoreticalColumnHeight - spriteSurface.Height);
+
+            destinationY -= (int)(viewedSprite.PositionZ * theoreticalColumnHeight / 2);
 
             if (PointLoader.IsPositionValid(destinationX, destinationY))
                 mainSurface.Blit(spriteSurface, PointLoader.GetPoint(destinationX, destinationY));
