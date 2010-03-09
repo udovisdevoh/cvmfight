@@ -251,9 +251,15 @@ namespace CvmFight
 
             //We manage received attack
             if (receivedAttackCycle.GetCycleState() > 0)
+            {
                 Physics.TryMakeWalk(this, receivedAttackAngleRadian - angleRadian, spritePool, map, 1);
+                this.isNeedToJumpAgain = false;
+                Physics.MakeJump(this, timeDelta);
+            }
             else
+            {
                 receivedAttackCycle.UnFire();
+            }
 
             Physics.MakeFall(this, timeDelta);
         }
