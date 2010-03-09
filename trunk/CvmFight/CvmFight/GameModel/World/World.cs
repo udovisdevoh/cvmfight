@@ -46,12 +46,13 @@ namespace CvmFight
         /// <summary>
         /// Random number generator
         /// </summary>
-        private Random random = new Random();
+        private Random random;
         #endregion
 
         #region Constructor
-        public World()
+        public World(Random random)
         {
+            this.random = random;
             spawner = new Spawner(random);
             map = new CachedWaveMap(random);
             //map = new MapFromImage("Assets/Maps/CvmMap.png", random);

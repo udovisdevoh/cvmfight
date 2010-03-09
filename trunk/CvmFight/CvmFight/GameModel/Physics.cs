@@ -108,9 +108,9 @@ namespace CvmFight
         /// <param name="spritePool">other sprites</param>
         /// <param name="map">map</param>
         /// <param name="timeDelta">time delta</param>
-        public static void TryMakeWalk(AbstractSprite sprite, SpritePool spritePool, AbstractMap map, double timeDelta)
+        public static bool TryMakeWalk(AbstractSprite sprite, SpritePool spritePool, AbstractMap map, double timeDelta)
         {
-            TryMakeWalk(sprite, 0, spritePool, map, timeDelta);
+            return TryMakeWalk(sprite, 0, spritePool, map, timeDelta);
         }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace CvmFight
         /// <param name="spritePool">other sprites</param>
         /// <param name="map">map</param>
         /// <param name="timeDelta">time delta</param>
-        public static void TryMakeWalk(AbstractSprite sprite, double angleOffsetRadian, SpritePool spritePool, AbstractMap map, double timeDelta)
+        public static bool TryMakeWalk(AbstractSprite sprite, double angleOffsetRadian, SpritePool spritePool, AbstractMap map, double timeDelta)
         {
             double xMove = Math.Cos(sprite.AngleRadian + angleOffsetRadian) * sprite.DefaultWalkingDistance * timeDelta;
             double yMove = Math.Sin(sprite.AngleRadian + angleOffsetRadian) * sprite.DefaultWalkingDistance * timeDelta;
@@ -139,12 +139,20 @@ namespace CvmFight
             }
 
             sprite.PositionX += xMove;
-            if (IsDetectCollision(sprite,spritePool,map))
+
+            bool isDetectCollisionX = IsDetectCollision(sprite, spritePool, map);
+
+            if (isDetectCollisionX)
                 sprite.PositionX -= xMove;
 
             sprite.PositionY += yMove;
-            if (IsDetectCollision(sprite,spritePool,map))
+
+            bool isDetectCollisionY = IsDetectCollision(sprite, spritePool, map);
+
+            if (isDetectCollisionY)
                 sprite.PositionY -= yMove;
+
+            return !(isDetectCollisionX || isDetectCollisionY);
         }
 
         public static void TryMakeRotate(AbstractSprite sprite, short angleRotationStrength)
