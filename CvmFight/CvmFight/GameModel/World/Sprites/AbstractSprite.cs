@@ -8,7 +8,7 @@ namespace CvmFight
     /// <summary>
     /// Abstract sprite
     /// </summary>
-    class AbstractSprite : IComparable<AbstractSprite>
+    abstract class AbstractSprite : IComparable<AbstractSprite>
     {
         #region Fields
         /// <summary>
@@ -167,6 +167,58 @@ namespace CvmFight
         /// Represents the sprite's current attack or block behavior
         /// </summary>
         private SpriteState stateAttackBlock = new SpriteState(SpriteStates.Attack, SpriteStates.Block, SpriteStates.OpenToAttack, 30);
+        #endregion
+
+        #region Constructor
+        public AbstractSprite()
+        {
+            Height = GetHeight();
+            Radius = GetRadius();
+            AttackRange = GetAttackRange();
+            AttackAngleRange = GetAttackAngleRange();
+            AttackPower = GetAttackPower();
+            DefaultHealth = GetDefaultHealth();
+            Health = 0;
+            MaxHealth = GetMaxHealth();
+            MaxJumpAcceleration = GetMaxJumpAcceleration();
+            CrouchSpeedMultiplier = GetCrouchSpeedMultiplier();
+            DefaultWalkingDistance = GetDefaultWalkingDistance();
+            JumpSpeedMultiplier = GetJumpSpeedMultiplier();
+            AttackWalkSpeedMultiplier = GetAttackWalkSpeedMultiplier();
+
+            attackCycle = new SpriteActionCycle(0.2);
+            receivedAttackCycle = new SpriteActionCycle(0.35);
+            walkCycle = new SpriteActionCycle(0.5);
+            stateMovement = new SpriteState(SpriteStates.Offensive, SpriteStates.Defensive, SpriteStates.FurtiveLeft, SpriteStates.FurtiveRight, 10);
+            stateJumpCrouch = new SpriteState(SpriteStates.Stand, SpriteStates.Jump, SpriteStates.Crouch, SpriteStates.Stand, SpriteStates.Stand, 20);
+            stateAttackBlock = new SpriteState(SpriteStates.Attack, SpriteStates.Block, SpriteStates.OpenToAttack, 30);
+        }
+        #endregion
+
+        #region Private Abstract Methods
+        protected abstract double GetHeight();
+
+        protected abstract double GetRadius();
+
+        protected abstract double GetAttackRange();
+
+        protected abstract double GetAttackAngleRange();
+
+        protected abstract double GetAttackPower();
+
+        protected abstract double GetDefaultHealth();
+
+        protected abstract double GetMaxHealth();
+
+        protected abstract double GetMaxJumpAcceleration();
+
+        protected abstract double GetCrouchSpeedMultiplier();
+
+        protected abstract double GetDefaultWalkingDistance();
+
+        protected abstract double GetJumpSpeedMultiplier();
+
+        protected abstract double GetAttackWalkSpeedMultiplier();
         #endregion
 
         #region Public Methods
