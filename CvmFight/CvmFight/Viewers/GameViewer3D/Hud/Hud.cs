@@ -117,38 +117,56 @@ namespace CvmFight
                 fragCount = bigRed.Render(player.FragCount.ToString(), System.Drawing.Color.Red);
 
             int attackCycleState = player.AttackCycle.GetCycleState();
-            if (player.IsCrouch || player.PositionZ > 0)
+
+            if (player.ReceivedAttackCycle.GetCycleState() == 0)
             {
-                if (player.IsBlock)
+                if (player.IsCrouch || player.PositionZ > 0)
                 {
-                    surface.Blit(blockSurface, PointLoader.GetPoint(0, screenHeight - blockSurface.Height));
-                }
-                else if (attackCycleState == 0)
-                {
-                    surface.Blit(restKick, PointLoader.GetPoint(screenWidth / 3, screenHeight - restKick.Height));
-                }
-                else if (attackCycleState == 1)
-                {
-                    surface.Blit(midKick, PointLoader.GetPoint(screenWidth / 3, screenHeight - midKick.Height));
-                }
-                else if (attackCycleState == 2)
-                {
-                    surface.Blit(attackKick, PointLoader.GetPoint(screenWidth / 3, screenHeight - attackKick.Height));
-                }
-            }
-            else
-            {
-                if (player.IsBlock)
-                {
-                    surface.Blit(blockSurface, PointLoader.GetPoint(0, screenHeight - blockSurface.Height));
-                }
-                else if (attackCycleState == 0)
-                {
-                    surface.Blit(restFist, PointLoader.GetPoint(0, screenHeight - restFist.Height));
+                    if (player.IsBlock)
+                    {
+                        if (player.IsBlockSuccessful)
+                        {
+                            surface.Blit(blockSurface, PointLoader.GetPoint(screenWidth / 2, screenHeight - blockSurface.Height));
+                        }
+                        else
+                        {
+                            surface.Blit(blockSurface, PointLoader.GetPoint(0, screenHeight - blockSurface.Height));
+                        }
+                    }
+                    else if (attackCycleState == 0)
+                    {
+                        surface.Blit(restKick, PointLoader.GetPoint(screenWidth / 3, screenHeight - restKick.Height));
+                    }
+                    else if (attackCycleState == 1)
+                    {
+                        surface.Blit(midKick, PointLoader.GetPoint(screenWidth / 3, screenHeight - midKick.Height));
+                    }
+                    else if (attackCycleState == 2)
+                    {
+                        surface.Blit(attackKick, PointLoader.GetPoint(screenWidth / 3, screenHeight - attackKick.Height));
+                    }
                 }
                 else
                 {
-                    surface.Blit(attackFist, PointLoader.GetPoint(0, screenHeight - attackFist.Height));
+                    if (player.IsBlock)
+                    {
+                        if (player.IsBlockSuccessful)
+                        {
+                            surface.Blit(blockSurface, PointLoader.GetPoint(screenWidth / 2, screenHeight - blockSurface.Height));
+                        }
+                        else
+                        {
+                            surface.Blit(blockSurface, PointLoader.GetPoint(0, screenHeight - blockSurface.Height));
+                        }
+                    }
+                    else if (attackCycleState == 0)
+                    {
+                        surface.Blit(restFist, PointLoader.GetPoint(0, screenHeight - restFist.Height));
+                    }
+                    else
+                    {
+                        surface.Blit(attackFist, PointLoader.GetPoint(0, screenHeight - attackFist.Height));
+                    }
                 }
             }
 

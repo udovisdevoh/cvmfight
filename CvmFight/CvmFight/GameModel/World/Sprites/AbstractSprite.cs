@@ -135,6 +135,11 @@ namespace CvmFight
         /// When attacking, multiply the speed to something
         /// </summary>
         private double attackWalkSpeedMultiplier = 0;
+
+        /// <summary>
+        /// Whether last attack was blocked
+        /// </summary>
+        private bool isBlockSuccessful = false;
         #endregion
 
         #region Parts
@@ -538,6 +543,12 @@ namespace CvmFight
         public SpriteState StateAttackBlock
         {
             get { return stateAttackBlock; }
+        }
+
+        public bool IsBlockSuccessful
+        {
+            get { return isBlockSuccessful; }
+            set { isBlockSuccessful = value; }
         }
         #endregion
 

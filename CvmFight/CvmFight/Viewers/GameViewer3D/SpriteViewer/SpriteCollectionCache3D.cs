@@ -18,7 +18,7 @@ namespace CvmFight
         #endregion
 
         #region Constructor
-        public SpriteCollectionCache3D(SpritePool spritePool)
+        public SpriteCollectionCache3D(SpritePool spritePool, bool isEnableSpriteCache)
         {
             internalCache = new Dictionary<Type, SpriteCache3D>();
 
@@ -28,7 +28,7 @@ namespace CvmFight
             {
                 if (!addedTypeList.Contains(sprite.GetType()))
                 {
-                    internalCache[sprite.GetType()] = spriteCache3DBuilder.Build(sprite);
+                    internalCache[sprite.GetType()] = spriteCache3DBuilder.Build(sprite, isEnableSpriteCache);
                     addedTypeList.Add(sprite.GetType());
                 }
             }

@@ -26,6 +26,8 @@ namespace CvmFight
         private bool isDestroyMouse = true;
 
         private bool isFullScreen = true;
+
+        private bool isEnableSpriteCache = false;
         #endregion
 
         #region Fields and parts
@@ -55,7 +57,7 @@ namespace CvmFight
             ai = new Ai(random);
 
             //gameViewer = new MiniMap(screenWidth, screenHeight, isFullScreen);
-            gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, isFullScreen, rayTracer.Fov);
+            gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, isFullScreen, rayTracer.Fov, isEnableSpriteCache);
             centerMousePositon = new Point(screenWidth / 2, screenHeight / 2);
         }
         #endregion
@@ -116,8 +118,11 @@ namespace CvmFight
             //We manage attack button
             if (userInput.IsPressMouseButtonLeft)
             {
-                world.CurrentPlayer.IsBlock = false;
-                world.CurrentPlayer.AttackCycle.Fire();
+                if (world.CurrentPlayer.ReceivedAttackCycle.GetCycleState() <= 0)
+                {
+                    world.CurrentPlayer.IsBlock = false;
+                    world.CurrentPlayer.AttackCycle.Fire();
+                }
             }
             else
                 world.CurrentPlayer.AttackCycle.UnFire();

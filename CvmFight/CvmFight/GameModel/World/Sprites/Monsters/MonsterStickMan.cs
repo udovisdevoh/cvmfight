@@ -77,7 +77,7 @@ namespace CvmFight
         protected override double GetReceivedAttackCycleLength()
         {
             //return 0.35;
-            return 1;
+            return 2;
         }
 
         protected override double GetWalkCycleLength()

@@ -8,9 +8,9 @@ namespace CvmFight
     class SpriteCache3DBuilder
     {
         #region Public Methods
-        public SpriteCache3D Build(AbstractSprite sprite)
+        public SpriteCache3D Build(AbstractSprite sprite, bool isEnableSpriteCache)
         {
-            SpriteCache3D spriteCache = new SpriteCache3D();
+            SpriteCache3D spriteCache = new SpriteCache3D(isEnableSpriteCache);
             if (sprite is MonsterStickMan)
             {
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Front, SpriteScallableFrame.Walk1, "Assets/Textures/Sprites/StickMan/StickManFrontWalk1.png"));

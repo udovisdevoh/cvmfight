@@ -99,12 +99,15 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public Surface GetScaledSurface(int height)
+        public Surface GetScaledSurface(int height, bool isEnableSpriteCache)
         {
             Surface scalledSurface;
 
             //int key = height;
             int key = (int)Math.Sqrt((double)height * 10.0);
+
+            if (!isEnableSpriteCache)
+                return originalSurface.CreateScaledSurface(height / (double)originalSurface.Height, false);
 
             if (!spriteHeightCache.TryGetValue(key, out scalledSurface))
             {
