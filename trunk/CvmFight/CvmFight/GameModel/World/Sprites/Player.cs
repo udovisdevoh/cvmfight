@@ -67,6 +67,36 @@ namespace CvmFight
         {
             return 0;
         }
+
+        protected override double GetAttackSpeed()
+        {
+            return 0.2;
+        }
+
+        protected override double GetReceivedAttackCycleLength()
+        {
+            return 0.35;
+        }
+
+        protected override double GetWalkCycleLength()
+        {
+            return 0.5;
+        }
+
+        protected override double GetStateAttackBlockCycleLength()
+        {
+            return 30;
+        }
+
+        protected override double GetJumpCrouchCycleLength()
+        {
+            return 20;
+        }
+
+        protected override double GetMovementCycleLength()
+        {
+            return 10;
+        }
         #endregion
     }
 }
