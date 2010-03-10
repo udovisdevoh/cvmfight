@@ -30,7 +30,7 @@ namespace CvmFight
 
         protected override double GetAttackPower()
         {
-            return 3.5;
+            return 0.7;
         }
 
         protected override double GetDefaultHealth()

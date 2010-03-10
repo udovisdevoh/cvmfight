@@ -87,6 +87,12 @@ namespace CvmFight
         {
             isNeedToClickAgain = false;
         }
+
+        public void Reset()
+        {
+            UnFire();
+            currentCyclePosition = 0;
+        }
         #endregion
 
         #region Properties

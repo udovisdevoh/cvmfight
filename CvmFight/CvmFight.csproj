@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CvmFight\GameModel\Ai.cs" />
+    <Compile Include="CvmFight\GameModel\DamageManager.cs" />
     <Compile Include="CvmFight\GameModel\Optics.cs" />
     <Compile Include="CvmFight\GameModel\Physics.cs" />
     <Compile Include="CvmFight\GameModel\RayTracer\RayTracer.cs" />

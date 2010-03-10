@@ -28,6 +28,8 @@ namespace CvmFight
         private bool isFullScreen = true;
 
         private bool isEnableSpriteCache = false;
+
+        private DamageManager damageManager = new DamageManager();
         #endregion
 
         #region Fields and parts
@@ -137,15 +139,19 @@ namespace CvmFight
                     ai.Animate(sprite, world.Map, world.SpritePool, world.SharedConsciousness, timeDelta, rayTracer.Fov, random, world.CurrentPlayer);
 
 
+
             //We update the sprites
             foreach (AbstractSprite sprite in world.SpritePool)
                 sprite.Update(timeDelta, world.SpritePool,world.Map);
 
-
             //We perform fighting logic
             battleManager.Update(world.SpritePool, world.SharedConsciousness, world.CurrentPlayer);
-            
-            if (battleManager.IsNeedRefreshHud)
+
+            //We perform damage logic
+            bool isNeedRefreshHud;
+            damageManager.Update(world.SpritePool, world.CurrentPlayer, world.Map, timeDelta, out isNeedRefreshHud);
+
+            if (isNeedRefreshHud)
             {
                 gameViewer.DirthenHud();
                 world.Spawner.TryRespawn(world.SpritePool, world.Map);
