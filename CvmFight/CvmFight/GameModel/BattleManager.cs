@@ -35,28 +35,31 @@ namespace CvmFight
                     {
                         if (Physics.IsInAttackOrBlockAngle(predator, prey))
                         {
-                            if (!prey.IsBlock || !Physics.IsInAttackOrBlockAngle(prey, predator))
+                            if (Physics.IsInAttackHeight(predator, prey))
                             {
-                                prey.Health -= predator.AttackPower / Physics.GetSpriteDistance(predator,prey);
-
-                                prey.ReceivedAttackAngleRadian = predator.AngleRadian;
-                                prey.ReceivedAttackCycle.Fire();
-
-                                if (!prey.IsAlive)
+                                if (!prey.IsBlock || !Physics.IsInAttackOrBlockAngle(prey, predator) || !Physics.IsInBlockingHeight(prey, predator))
                                 {
-                                    isNeedRefreshHud = true;
-                                    predator.FragCount++;
-                                    currentPlayer.RefreshRanking(spritePool);
+                                    prey.Health -= predator.AttackPower / Physics.GetSpriteDistance(predator, prey);
+
+                                    prey.ReceivedAttackAngleRadian = predator.AngleRadian;
+                                    prey.ReceivedAttackCycle.Fire();
+
+                                    if (!prey.IsAlive)
+                                    {
+                                        isNeedRefreshHud = true;
+                                        predator.FragCount++;
+                                        currentPlayer.RefreshRanking(spritePool);
+                                    }
+
+                                    if (prey == currentPlayer)
+                                    {
+                                        isNeedRefreshHud = true;
+                                    }
                                 }
-                                
-                                if (prey == currentPlayer)
+                                else if (prey.IsBlock)
                                 {
-                                    isNeedRefreshHud = true;
+                                    prey.IsBlockSuccessful = true;
                                 }
-                            }
-                            else if (prey.IsBlock)
-                            {
-                                prey.IsBlockSuccessful = true;
                             }
                         }
                     }
