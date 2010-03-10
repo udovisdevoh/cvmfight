@@ -50,7 +50,7 @@ namespace CvmFight
 
             spriteViewer = new SpriteViewer3D(screenWidth, screenHeight, spritePool, fov, heightDistanceRatio, isEnableSpriteCache);
 
-            this.gradient = new Gradient(screenWidth, screenHeight);
+            this.gradient = new Gradient(screenWidth, screenHeight * 2);
 
             columnViewer = new ColumnViewer(this.screenWidth, this.screenHeight, columnCount, heightDistanceRatio);
             
@@ -62,7 +62,7 @@ namespace CvmFight
         #region Public Methods
         public override void Update(World world, RayTracer rayTracer)
         {
-            int gradientOffset = (int)(world.CurrentPlayer.MouseLook * screenHeight);
+            int gradientOffset = (int)(world.CurrentPlayer.MouseLook * screenHeight) - screenHeight / 2;
             mainSurface.Blit(gradient.Surface, PointLoader.GetPoint(0, gradientOffset));
 
             columnViewer.Update(world.CurrentPlayer, rayTracer, world.Map, mainSurface);
