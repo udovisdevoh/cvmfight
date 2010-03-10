@@ -7,14 +7,9 @@ namespace CvmFight
 {
     class BattleManager
     {
-        #region Fields
-        private bool isNeedRefreshHud;
-        #endregion
-
         #region Public Methods
         public void Update(SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractSprite currentPlayer)
         {
-            isNeedRefreshHud = false;
             foreach (AbstractSprite sprite in spritePool)
                 Update(sprite, spritePool, sharedConsciousness, currentPlayer);
         }
@@ -42,6 +37,7 @@ namespace CvmFight
 
                                     prey.ReceivedAttackAngleRadian = predator.AngleRadian;
                                     prey.ReceivedAttackCycle.Fire();
+                                    prey.LatestPredator = predator;
 
                                     if (!(prey is Player))
                                     {
@@ -56,32 +52,12 @@ namespace CvmFight
                                         prey.StateMovement.Renew();
                                         prey.StateAttackBlock.Renew();
                                     }
-
-                                    if (!prey.IsAlive)
-                                    {
-                                        isNeedRefreshHud = true;
-                                        predator.FragCount++;
-                                        currentPlayer.RefreshRanking(spritePool);
-                                    }
-
-                                    if (prey == currentPlayer)
-                                    {
-                                        isNeedRefreshHud = true;
-                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-        }
-        #endregion
-
-        #region Properties
-        public bool IsNeedRefreshHud
-        {
-            get { return isNeedRefreshHud; }
-            set { isNeedRefreshHud = value; }
         }
         #endregion
     }

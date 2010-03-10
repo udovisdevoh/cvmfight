@@ -51,6 +51,7 @@ namespace CvmFight
 
             fighter.Health = fighter.DefaultHealth;
             fighter.AngleDegree = random.Next(360);
+            fighter.ReceivedAttackCycle.Reset();
         }
         #endregion
     }

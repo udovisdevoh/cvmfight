@@ -177,6 +177,11 @@ namespace CvmFight
         /// Represents the sprite's current attack or block behavior
         /// </summary>
         private SpriteState stateAttackBlock = new SpriteState(SpriteStates.Attack, SpriteStates.Block, SpriteStates.OpenToAttack, 30);
+
+        /// <summary>
+        /// Represents latest sprite which attacked this
+        /// </summary>
+        private AbstractSprite latestPredator;
         #endregion
 
         #region Constructor
@@ -246,21 +251,7 @@ namespace CvmFight
         #region Public Methods
         public void Update(double timeDelta, SpritePool spritePool, AbstractMap map)
         {
-            attackCycle.Update(timeDelta);
-            receivedAttackCycle.Update(timeDelta);
-
-            //We manage received attack
-            if (receivedAttackCycle.GetCycleState() > 0)
-            {
-                Physics.TryMakeWalk(this, receivedAttackAngleRadian - angleRadian, spritePool, map, 1);
-                this.isNeedToJumpAgain = false;
-                Physics.MakeJump(this, timeDelta);
-            }
-            else
-            {
-                receivedAttackCycle.UnFire();
-            }
-
+            AttackCycle.Update(timeDelta);
             Physics.MakeFall(this, timeDelta);
         }
 
@@ -586,6 +577,12 @@ namespace CvmFight
         public double MouseLook
         {
             get { return mouseLook; }
+        }
+
+        public AbstractSprite LatestPredator
+        {
+            get { return latestPredator; }
+            set { latestPredator = value; }
         }
         #endregion
 
