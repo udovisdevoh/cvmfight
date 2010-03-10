@@ -43,6 +43,20 @@ namespace CvmFight
                                     prey.ReceivedAttackAngleRadian = predator.AngleRadian;
                                     prey.ReceivedAttackCycle.Fire();
 
+                                    if (!(prey is Player))
+                                    {
+                                        prey.StateJumpCrouch.Reset();
+                                        prey.StateMovement.Reset();
+                                        prey.StateAttackBlock.Reset();
+                                    }
+
+                                    if (!(predator is Player))
+                                    {
+                                        prey.StateJumpCrouch.Renew();
+                                        prey.StateMovement.Renew();
+                                        prey.StateAttackBlock.Renew();
+                                    }
+
                                     if (!prey.IsAlive)
                                     {
                                         isNeedRefreshHud = true;

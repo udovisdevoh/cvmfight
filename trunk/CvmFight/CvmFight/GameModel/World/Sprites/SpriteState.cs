@@ -92,6 +92,22 @@ namespace CvmFight
                 maxTime = random.NextDouble() * averageMaxTime * 2.0;
             }
         }
+
+        /// <summary>
+        /// Reset cycle and get another behavior
+        /// </summary>
+        public void Reset()
+        {
+            currentTime = maxTime;
+        }
+
+        /// <summary>
+        /// Renew cycle and keep current behavior
+        /// </summary>
+        public void Renew()
+        {
+            currentTime = 0;
+        }
         #endregion
     }
 }
