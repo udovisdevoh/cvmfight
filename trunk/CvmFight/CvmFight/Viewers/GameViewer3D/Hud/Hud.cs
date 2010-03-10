@@ -177,7 +177,11 @@ namespace CvmFight
                     {
                         surface.Blit(restFist, PointLoader.GetPoint(0, screenHeight - restFist.Height));
                     }
-                    else
+                    else if (attackCycleState == 1)
+                    {
+                        surface.Blit(attackFist, PointLoader.GetPoint(0 - (screenWidth / 3), screenHeight - attackFist.Height * 2 / 3));
+                    }
+                    else if (attackCycleState == 2)
                     {
                         surface.Blit(attackFist, PointLoader.GetPoint(0, screenHeight - attackFist.Height));
                     }

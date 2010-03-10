@@ -107,21 +107,26 @@ namespace CvmFight
         #region Private Methods
         private AbstractSprite TryChoosePrey(AbstractSprite predator, SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractMap map, int fov, AbstractSprite currentPlayer)
         {
+            AbstractSprite closestPrey = null;
+            double closestDistance = -1;
             foreach (AbstractSprite prey in spritePool)
             {
-                if (prey != predator)
+                if (prey == predator)
+                    continue;
+
+                if (!Physics.IsWithinAttackRange(predator, prey) && !sharedConsciousness.IsSpriteViewable(predator, prey, map, fov))
+                    continue;
+
+                double currentDistance = Physics.GetSpriteDistance(predator, prey);
+
+                if (closestPrey == null || currentDistance < closestDistance)
                 {
-                    if (Physics.IsWithinAttackRange(predator,prey))
-                    {
-                        return prey;
-                    }
-                    else if (sharedConsciousness.IsSpriteViewable(predator, prey, map, fov))
-                    {
-                        return prey;
-                    }
-                }
+                    closestPrey = prey;
+                    closestDistance = currentDistance;
+                }   
             }
-            return null;
+
+            return closestPrey;
         }    
         #endregion
     }
