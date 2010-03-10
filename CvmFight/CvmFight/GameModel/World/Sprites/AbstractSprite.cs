@@ -196,7 +196,7 @@ namespace CvmFight
             JumpSpeedMultiplier = GetJumpSpeedMultiplier();
             AttackWalkSpeedMultiplier = GetAttackWalkSpeedMultiplier();
 
-            attackCycle = new SpriteActionCycle(GetAttackSpeed());
+            attackCycle = new SpriteActionCycle(GetAttackTime());
             receivedAttackCycle = new SpriteActionCycle(GetReceivedAttackCycleLength());
             walkCycle = new SpriteActionCycle(GetWalkCycleLength());
             stateMovement = new SpriteState(SpriteStates.Offensive, SpriteStates.Offensive, SpriteStates.Offensive, SpriteStates.Defensive, SpriteStates.FurtiveLeft, SpriteStates.FurtiveRight, GetMovementCycleLength());
@@ -230,7 +230,7 @@ namespace CvmFight
 
         protected abstract double GetAttackWalkSpeedMultiplier();
 
-        protected abstract double GetAttackSpeed();
+        protected abstract double GetAttackTime();
 
         protected abstract double GetReceivedAttackCycleLength();
 
