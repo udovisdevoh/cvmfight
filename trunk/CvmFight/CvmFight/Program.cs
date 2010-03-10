@@ -152,7 +152,10 @@ namespace CvmFight
 
             Physics.TryMakeRotate(world.CurrentPlayer, userInput.MouseMotionX);
 
+            world.CurrentPlayer.TryMouseLook(userInput.MouseMotionY);
+
             userInput.MouseMotionX = 0;
+            userInput.MouseMotionY = 0;
 
             gameViewer.Update(world, rayTracer);
         }

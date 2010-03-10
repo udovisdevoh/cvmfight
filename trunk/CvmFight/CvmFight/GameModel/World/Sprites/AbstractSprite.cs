@@ -145,6 +145,11 @@ namespace CvmFight
         /// Frag ranking
         /// </summary>
         private int ranking = 0;
+
+        /// <summary>
+        /// Mouse look on Y axis
+        /// </summary>
+        private double mouseLook = 0;
         #endregion
 
         #region Parts
@@ -274,6 +279,13 @@ namespace CvmFight
                     ranking++;
                 }
             }
+        }
+
+        public void TryMouseLook(short mouseLookDiff)
+        {
+            mouseLook += ((double)mouseLookDiff / 200);
+            mouseLook = Math.Min(0.35, mouseLook);
+            mouseLook = Math.Max(-0.35, mouseLook);
         }
         #endregion
 
@@ -580,6 +592,11 @@ namespace CvmFight
         public int Ranking
         {
             get { return ranking; }
+        }
+
+        public double MouseLook
+        {
+            get { return mouseLook; }
         }
         #endregion
 

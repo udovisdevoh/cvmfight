@@ -145,14 +145,14 @@ namespace CvmFight
             return columnHeight;
         }
 
-        public static double GetColumnTopMargin(double maxColumnHeight, double columnHeight, double zPosition, bool isCrouch)
+        public static double GetColumnTopMargin(double maxColumnHeight, double columnHeight, double zPosition, bool isCrouch, double mouseLook)
         {
             if (isCrouch)
                 zPosition = -0.75;
 
             //Jump height from 0 to 1
             double jumpOffset = (zPosition * columnHeight / 2);
-            return Math.Round((maxColumnHeight - columnHeight) / 2 + jumpOffset);
+            return Math.Round((maxColumnHeight - columnHeight) / 2 + jumpOffset) + mouseLook * maxColumnHeight;
         }
 
         public static double GetBrightness(double columnHeight, double maxColumnHeight)

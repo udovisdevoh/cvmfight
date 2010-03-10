@@ -52,7 +52,7 @@ namespace CvmFight
                 double straightDistance = Optics.GetStraightDistance(currentPlayer, rayTracer[columnId]);
                 double columnHeight = Optics.GetColumnHeight(straightDistance, screenHeight, heightDistanceRatio);
                 columnHeight = Math.Min(screenHeight, columnHeight);
-                double topMargin = Optics.GetColumnTopMargin(screenHeight, columnHeight, currentPlayer.PositionZ, currentPlayer.IsCrouch);
+                double topMargin = Optics.GetColumnTopMargin(screenHeight, columnHeight, currentPlayer.PositionZ, currentPlayer.IsCrouch, currentPlayer.MouseLook);
 
                 Rectangle rectangle = rectangleCache[columnId];
                 rectangle.X = columnXLeftMargin;
