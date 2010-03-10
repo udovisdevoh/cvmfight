@@ -52,6 +52,8 @@ namespace CvmFight
         private int hudRow1;
 
         private int hudRow2;
+
+        private bool isJumpCrouchAtAttackCycleStart;
         #endregion
 
         #region Constructor
@@ -146,9 +148,14 @@ namespace CvmFight
 
             int attackCycleState = player.AttackCycle.GetCycleState();
 
+
+            if (attackCycleState == 0)
+                isJumpCrouchAtAttackCycleStart = player.IsCrouch || player.PositionZ > 0;
+
+
             if (player.ReceivedAttackCycle.GetCycleState() == 0)
             {
-                if (player.IsCrouch || player.PositionZ > 0)
+                if (isJumpCrouchAtAttackCycleStart)
                 {
                     if (player.IsBlock)
                     {
