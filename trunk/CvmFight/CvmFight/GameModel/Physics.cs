@@ -242,6 +242,52 @@ namespace CvmFight
 
             return false;
         }
+
+        /// <summary>
+        /// Whether predator can attack prey
+        /// </summary>
+        /// <param name="predator">predator</param>
+        /// <param name="prey">prey</param>
+        /// <returns>whether predator can attack prey</returns>
+        public static bool IsInAttackHeight(AbstractSprite predator, AbstractSprite prey)
+        {
+            if (predator.IsCrouch)
+            {
+                if (prey.IsCrouch)
+                {
+                    return true;
+                }
+                else if (prey.PositionZ <= predator.Height / 2)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if (!prey.IsCrouch)
+                {
+                    if (predator.Height / 2 > prey.PositionZ)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Whether sprite 1 has a valid height to block sprite2's attack
+        /// </summary>
+        /// <param name="sprite1">sprite 1</param>
+        /// <param name="sprite2">sprite 2</param>
+        /// <returns>whether sprite 1 has a valid height to block sprite2's attack</returns>
+        public static bool IsInBlockingHeight(AbstractSprite sprite1, AbstractSprite sprite2)
+        {
+            if (sprite1.PositionZ > sprite2.Height / 4)
+                return false;
+            return true;
+        }
         #endregion
     }
 }
