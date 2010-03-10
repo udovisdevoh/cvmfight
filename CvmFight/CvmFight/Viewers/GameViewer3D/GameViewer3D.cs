@@ -62,7 +62,7 @@ namespace CvmFight
         #region Public Methods
         public override void Update(World world, RayTracer rayTracer)
         {
-            mainSurface.Blit(gradient.Surface);
+            mainSurface.Blit(gradient.Surface, PointLoader.GetPoint(0,(int)(world.CurrentPlayer.MouseLook * screenHeight)));
             columnViewer.Update(world.CurrentPlayer, rayTracer, world.Map, mainSurface);
 
             //We display the sprites
