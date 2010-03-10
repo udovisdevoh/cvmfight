@@ -15,9 +15,9 @@ namespace CvmFight
 
         private int screenHeight;
 
-        private Font labelFont = new Font("Assets/Fonts/doom.ttf", 20);
+        private Font labelFont;
 
-        private Font bigRed = new Font("Assets/Fonts/doom.ttf", 50);
+        private Font bigRed;
 
         private Surface health = null;
 
@@ -42,6 +42,16 @@ namespace CvmFight
         private Surface attackKick;
 
         private Surface blockSurface;
+
+        private int hudColumn1;
+
+        private int hudColumn2;
+
+        private int hudColumn3;
+
+        private int hudRow1;
+
+        private int hudRow2;
         #endregion
 
         #region Constructor
@@ -49,6 +59,16 @@ namespace CvmFight
         {
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
+
+            labelFont = new Font("Assets/Fonts/doom.ttf", 20 * screenWidth / 1024);
+            bigRed = new Font("Assets/Fonts/doom.ttf", 50 * screenWidth / 1024);
+
+            hudColumn1 = 140 * screenWidth / 1024;
+            hudColumn2 = 240 * screenWidth / 1024;
+            hudColumn3 = 340 * screenWidth / 1024;
+            hudRow1 = 65 * screenHeight / 768;
+            hudRow2 = 80 * screenHeight / 768;
+
 
             healthLabel = labelFont.Render("health", System.Drawing.Color.White);
             fragLabel = labelFont.Render("frags", System.Drawing.Color.White);
@@ -132,14 +152,7 @@ namespace CvmFight
                 {
                     if (player.IsBlock)
                     {
-                        if (player.IsBlockSuccessful)
-                        {
-                            surface.Blit(blockSurface, PointLoader.GetPoint(screenWidth / 2, screenHeight - blockSurface.Height));
-                        }
-                        else
-                        {
-                            surface.Blit(blockSurface, PointLoader.GetPoint(0, screenHeight - blockSurface.Height));
-                        }
+                        surface.Blit(blockSurface, PointLoader.GetPoint(0, screenHeight - blockSurface.Height));
                     }
                     else if (attackCycleState == 0)
                     {
@@ -158,14 +171,7 @@ namespace CvmFight
                 {
                     if (player.IsBlock)
                     {
-                        if (player.IsBlockSuccessful)
-                        {
-                            surface.Blit(blockSurface, PointLoader.GetPoint(screenWidth / 2, screenHeight - blockSurface.Height));
-                        }
-                        else
-                        {
-                            surface.Blit(blockSurface, PointLoader.GetPoint(0, screenHeight - blockSurface.Height));
-                        }
+                        surface.Blit(blockSurface, PointLoader.GetPoint(0, screenHeight - blockSurface.Height));
                     }
                     else if (attackCycleState == 0)
                     {
@@ -178,12 +184,12 @@ namespace CvmFight
                 }
             }
 
-            surface.Blit(healthLabel, PointLoader.GetPoint(screenWidth - 140, screenHeight - 80));
-            surface.Blit(health, PointLoader.GetPoint(screenWidth - 140, screenHeight - 65));
-            surface.Blit(fragLabel, PointLoader.GetPoint(screenWidth - 240, screenHeight - 80));
-            surface.Blit(fragCount, PointLoader.GetPoint(screenWidth - 240, screenHeight - 65));
-            surface.Blit(rankingLabel, PointLoader.GetPoint(screenWidth - 340, screenHeight - 80));
-            surface.Blit(ranking, PointLoader.GetPoint(screenWidth - 340, screenHeight - 65));
+            surface.Blit(healthLabel, PointLoader.GetPoint(screenWidth - hudColumn1, screenHeight - hudRow2));
+            surface.Blit(health, PointLoader.GetPoint(screenWidth - hudColumn1, screenHeight - hudRow1));
+            surface.Blit(fragLabel, PointLoader.GetPoint(screenWidth - hudColumn2, screenHeight - hudRow2));
+            surface.Blit(fragCount, PointLoader.GetPoint(screenWidth - hudColumn2, screenHeight - hudRow1));
+            surface.Blit(rankingLabel, PointLoader.GetPoint(screenWidth - hudColumn3, screenHeight - hudRow2));
+            surface.Blit(ranking, PointLoader.GetPoint(screenWidth - hudColumn3, screenHeight - hudRow1));
         }
 
         public void Dirthen()

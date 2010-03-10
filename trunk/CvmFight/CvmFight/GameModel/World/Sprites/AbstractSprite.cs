@@ -137,11 +137,6 @@ namespace CvmFight
         private double attackWalkSpeedMultiplier = 0;
 
         /// <summary>
-        /// Whether last attack was blocked
-        /// </summary>
-        private bool isBlockSuccessful = false;
-
-        /// <summary>
         /// Frag ranking
         /// </summary>
         private int ranking = 0;
@@ -578,12 +573,6 @@ namespace CvmFight
         public SpriteState StateAttackBlock
         {
             get { return stateAttackBlock; }
-        }
-
-        public bool IsBlockSuccessful
-        {
-            get { return isBlockSuccessful; }
-            set { isBlockSuccessful = value; }
         }
 
         /// <summary>
