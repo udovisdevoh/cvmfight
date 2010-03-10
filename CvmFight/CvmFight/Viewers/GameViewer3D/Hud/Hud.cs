@@ -186,7 +186,7 @@ namespace CvmFight
                     }
                     else if (attackCycleState == 1)
                     {
-                        surface.Blit(attackFist, PointLoader.GetPoint(0 - (screenWidth / 3), screenHeight - attackFist.Height * 2 / 3));
+                        surface.Blit(attackFist, PointLoader.GetPoint(0 - (screenWidth / 4), screenHeight - attackFist.Height * 3 / 4));
                     }
                     else if (attackCycleState == 2)
                     {
