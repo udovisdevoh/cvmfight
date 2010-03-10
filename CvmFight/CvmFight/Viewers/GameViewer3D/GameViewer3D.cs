@@ -73,10 +73,10 @@ namespace CvmFight
                 if (sprite != world.CurrentPlayer && world.SharedConsciousness.IsSpriteViewable(world.CurrentPlayer,sprite,world.Map,rayTracer.Fov))
                     spriteViewer.View(world.CurrentPlayer, sprite, mainSurface);
 
+            hud.Update(world.CurrentPlayer, mainSurface);
+
             if (isMiniMapOn)
                 minimap.Update(world, rayTracer, mainSurface);
-
-            hud.Update(world.CurrentPlayer, mainSurface);
 
             mainSurface.Update();
         }
