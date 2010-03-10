@@ -87,6 +87,7 @@ namespace CvmFight
         #region Static methods
         public static int GetValidResolution(int idealRayTracerResolution, int screenWidth)
         {
+            #warning Fix number here because it's bugged
             int divisor = screenWidth / idealRayTracerResolution;
             return screenWidth / divisor;
         }

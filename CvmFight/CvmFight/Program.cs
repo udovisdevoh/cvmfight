@@ -13,11 +13,11 @@ namespace CvmFight
     class Program
     {
         #region Constants
-        private const int screenWidth = 320;
+        private const int screenWidth = 1024;
 
-        private const int screenHeight = 240;
+        private const int screenHeight = 768;
 
-        private static int idealRayTracerResolution = 256;
+        private static int idealRayTracerResolution = 160;
 
         private const int fov = 110;
 
