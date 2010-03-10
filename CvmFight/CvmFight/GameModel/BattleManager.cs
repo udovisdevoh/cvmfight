@@ -27,7 +27,6 @@ namespace CvmFight
             {
                 foreach (AbstractSprite prey in spritePool)
                 {
-                    prey.IsBlockSuccessful = false;
                     if (prey == predator)
                         continue;
 
@@ -55,10 +54,6 @@ namespace CvmFight
                                     {
                                         isNeedRefreshHud = true;
                                     }
-                                }
-                                else if (prey.IsBlock)
-                                {
-                                    prey.IsBlockSuccessful = true;
                                 }
                             }
                         }
