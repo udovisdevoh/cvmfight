@@ -17,7 +17,7 @@ namespace CvmFight
 
         private const int screenHeight = 768;
 
-        private static int idealRayTracerResolution = 160;
+        private static int idealRayTracerResolution = 256;
 
         private const int fov = 110;
 
