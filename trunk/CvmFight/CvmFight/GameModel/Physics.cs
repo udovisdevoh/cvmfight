@@ -137,14 +137,14 @@ namespace CvmFight
             }
 
             //If is jump
-            if (sprite.PositionY > 0)
+            if (sprite.PositionZ > 0)
             {
                 xMove *= sprite.JumpSpeedMultiplier;
                 yMove *= sprite.JumpSpeedMultiplier;
             }
 
-            //If is attacking
-            if (sprite.AttackCycle.IsFired)
+            //If is attacking and not jumping
+            if (sprite.AttackCycle.IsFired && sprite.PositionZ <= 0)
             {
                 xMove *= sprite.AttackWalkSpeedMultiplier;
                 yMove *= sprite.AttackWalkSpeedMultiplier;
@@ -184,7 +184,6 @@ namespace CvmFight
         /// <param name="timeDelta">time delta</param>
         public static void MakeJump(AbstractSprite sprite, double timeDelta)
         {
-            #warning, Time delta must be properly placed in jump and fall
             if (!sprite.IsNeedToJumpAgain)
             {
                 if (sprite.PositionZ <= 0)
@@ -206,7 +205,6 @@ namespace CvmFight
         /// <param name="timeDelta">time delta</param>
         public static void MakeFall(AbstractSprite sprite, double timeDelta)
         {
-            #warning, Time delta must be properly placed in jump and fall
             sprite.PositionZ += sprite.CurrentJumpAcceleration / 10 * timeDelta;
             sprite.CurrentJumpAcceleration -= 0.1 * timeDelta;
             sprite.PositionZ = Math.Max(0, sprite.PositionZ);           

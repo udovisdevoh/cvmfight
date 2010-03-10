@@ -80,7 +80,7 @@ namespace CvmFight
             if (isMiniMapOn)
                 minimap.Update(world, rayTracer, mainSurface);
 
-            if (world.CurrentPlayer.ReceivedAttackCycle.GetCycleState() > 0 && random.Next(3) == 0)
+            if (world.CurrentPlayer.ReceivedAttackCycle.GetCycleState() > 0 && random.Next(6) == 0)
                 mainSurface.Fill(Color.FromArgb(10,255,0,0));
 
             mainSurface.Update();
