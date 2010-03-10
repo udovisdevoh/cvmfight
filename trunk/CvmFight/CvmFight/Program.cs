@@ -112,6 +112,7 @@ namespace CvmFight
             if (userInput.IsPressJump)
             {
                 world.CurrentPlayer.IsCrouch = false;
+                world.CurrentPlayer.IsBlock = false;
                 Physics.MakeJump(world.CurrentPlayer,timeDelta);
             }
             else

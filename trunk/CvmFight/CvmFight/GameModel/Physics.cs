@@ -264,10 +264,11 @@ namespace CvmFight
             {
                 if (!prey.IsCrouch)
                 {
-                    if (predator.Height / 2 > prey.PositionZ)
-                    {
-                        return true;
-                    }
+                    return true;
+                }
+                else if (predator.PositionZ > 0 && predator.PositionZ < prey.Height / 2)
+                {
+                    return true;
                 }
             }
 
@@ -284,6 +285,10 @@ namespace CvmFight
         {
             if (sprite1.PositionZ > sprite2.Height / 4)
                 return false;
+
+            if (sprite1.IsCrouch && sprite2.PositionZ > 0)
+                return false;
+
             return true;
         }
         #endregion

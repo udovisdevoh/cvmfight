@@ -71,12 +71,19 @@ namespace CvmFight
                     Physics.TryMakeWalk(predator, Math.PI * 0.5, spritePool, map, timeDelta);
                 }
 
+
+
                 //We manage attacking and blocking
                 bool isWithinAttackRange = Physics.IsWithinAttackRange(predator, prey);
                 bool isWithinAttackOrBlockAngle = Physics.IsInAttackOrBlockAngle(predator, prey);
+                byte currentAttackBlockState = predator.StateAttackBlock.GetCurrentState();
+
+                if (currentAttackBlockState == SpriteStates.Block && predator.PositionZ > 0)
+                    currentAttackBlockState = SpriteStates.Attack;
+
                 if (isWithinAttackRange || isWithinAttackOrBlockAngle)
                 {
-                    if (predator.StateAttackBlock.GetCurrentState() == SpriteStates.Attack)
+                    if (currentAttackBlockState == SpriteStates.Attack)
                     {
                         if (random.Next(2) == 1)
                         {
@@ -87,7 +94,7 @@ namespace CvmFight
                             }
                         }
                     }
-                    else if (predator.StateAttackBlock.GetCurrentState() == SpriteStates.Block)
+                    else if (currentAttackBlockState == SpriteStates.Block)
                     {
                         predator.AttackCycle.UnFire();
                         predator.IsBlock = true;

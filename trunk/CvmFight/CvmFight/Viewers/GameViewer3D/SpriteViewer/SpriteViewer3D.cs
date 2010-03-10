@@ -129,7 +129,7 @@ namespace CvmFight
                 {
                     spriteStatus = SpriteScallableFrame.Block;
                 }
-                else if (viewedSprite.WalkCycle.IsForward)
+                else if (viewedSprite.WalkCycle.IsForward || viewedSprite.PositionZ > 0)
                 {
                     spriteStatus = SpriteScallableFrame.Walk1;
                 }

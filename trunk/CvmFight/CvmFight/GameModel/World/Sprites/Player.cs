@@ -50,7 +50,8 @@ namespace CvmFight
 
         protected override double GetCrouchSpeedMultiplier()
         {
-            return 0.2;
+            //return 0.2;
+            return 0;
         }
 
         protected override double GetDefaultWalkingDistance()
@@ -60,7 +61,8 @@ namespace CvmFight
 
         protected override double GetJumpSpeedMultiplier()
         {
-            return 1.6;
+            //return 1.6;
+            return 1;
         }
 
         protected override double GetAttackWalkSpeedMultiplier()
