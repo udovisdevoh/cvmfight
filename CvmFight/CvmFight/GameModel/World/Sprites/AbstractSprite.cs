@@ -270,8 +270,8 @@ namespace CvmFight
         public void TryMouseLook(short mouseLookDiff)
         {
             mouseLook += ((double)mouseLookDiff / 200);
-            mouseLook = Math.Min(0.35, mouseLook);
-            mouseLook = Math.Max(-0.35, mouseLook);
+            mouseLook = Math.Min(0.5, mouseLook);
+            mouseLook = Math.Max(-0.5, mouseLook);
         }
         #endregion
 
