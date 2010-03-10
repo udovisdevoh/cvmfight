@@ -25,17 +25,17 @@ namespace CvmFight
             surface = new Surface(width, height);
             
             double red, green, blue;
-            red = green = blue = 128;
+            red = green = blue = 0;
 
             bottomColor = Color.FromArgb(255, (int)red, (int)green, (int)blue);
 
-            double incecrementer = (double)height / 2048.0;
+            double incrementer = (double)height / (double)(width * 4);
 
-            for (short y = 0; y < height / 2; y++)
+            for (short y = (short)(height / 2); y >= 0; y--)
             {
-                red -= incecrementer;
-                green -= incecrementer;
-                blue -= incecrementer;
+                red += incrementer;
+                green += incrementer;
+                blue += incrementer;
 
                 red = Math.Max(0, red);
                 green = Math.Max(0, green);
@@ -49,9 +49,9 @@ namespace CvmFight
             red = green = blue = 0;
             for (short y = (short)(height / 2); y < height; y++)
             {
-                red += incecrementer;
-                green += incecrementer;
-                blue += incecrementer / 1.5;
+                red += incrementer;
+                green += incrementer;
+                blue += incrementer / 1.5;
 
                 red = Math.Max(0, red);
                 green = Math.Max(0, green);

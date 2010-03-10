@@ -17,7 +17,7 @@ namespace CvmFight
 
         private const int screenHeight = 768;
 
-        private const int rayTracerResolution = 256;
+        private static int idealRayTracerResolution = 256;
 
         private const int fov = 110;
 
@@ -39,7 +39,7 @@ namespace CvmFight
 
         private UserInput userInput = new UserInput();
 
-        private RayTracer rayTracer = new RayTracer(rayTracerResolution, fov);
+        private RayTracer rayTracer;
 
         private BattleManager battleManager = new BattleManager();
 
@@ -53,6 +53,9 @@ namespace CvmFight
         #region Constructor
         public Program()
         {
+            idealRayTracerResolution = RayTracer.GetValidResolution(idealRayTracerResolution, screenWidth);
+            rayTracer = new RayTracer(idealRayTracerResolution, fov);
+
             world = new World(random);
             ai = new Ai(random);
 

@@ -83,5 +83,13 @@ namespace CvmFight
             get { return pointList[id]; }
         }
         #endregion
+
+        #region Static methods
+        public static int GetValidResolution(int idealRayTracerResolution, int screenWidth)
+        {
+            int divisor = screenWidth / idealRayTracerResolution;
+            return screenWidth / divisor;
+        }
+        #endregion
     }
 }
