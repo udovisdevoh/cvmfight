@@ -62,7 +62,7 @@ namespace CvmFight
             ai = new Ai(random);
 
             //gameViewer = new MiniMap(screenWidth, screenHeight, isFullScreen);
-            gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, isFullScreen, rayTracer.Fov, isEnableSpriteCache);
+            gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, isFullScreen, rayTracer.Fov, isEnableSpriteCache,random);
             centerMousePositon = new Point(screenWidth / 2, screenHeight / 2);
         }
         #endregion
