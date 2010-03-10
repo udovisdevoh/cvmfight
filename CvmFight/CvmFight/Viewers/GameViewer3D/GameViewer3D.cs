@@ -35,11 +35,14 @@ namespace CvmFight
         private MiniMap minimap;
 
         private Hud hud;
+
+        private Random random;
         #endregion
 
         #region Constructor
-        public GameViewer3D(int screenWidth, int screenHeight, int columnCount, SpritePool spritePool, bool isFullScreen, int fov, bool isEnableSpriteCache)
+        public GameViewer3D(int screenWidth, int screenHeight, int columnCount, SpritePool spritePool, bool isFullScreen, int fov, bool isEnableSpriteCache, Random random)
         {
+            this.random = random;
             minimap = new MiniMap(screenWidth, screenHeight);
 
             hud = new Hud(screenWidth, screenHeight);
@@ -54,7 +57,6 @@ namespace CvmFight
 
             columnViewer = new ColumnViewer(this.screenWidth, this.screenHeight, columnCount, heightDistanceRatio);
             
-            //mainSurface = new Surface(screenWidth, screenHeight);
             mainSurface = Video.SetVideoMode(screenWidth, screenHeight, true, false, isFullScreen, true);
         }
         #endregion
@@ -77,6 +79,9 @@ namespace CvmFight
 
             if (isMiniMapOn)
                 minimap.Update(world, rayTracer, mainSurface);
+
+            if (world.CurrentPlayer.ReceivedAttackCycle.GetCycleState() > 0 && random.Next(3) == 0)
+                mainSurface.Fill(Color.FromArgb(10,255,0,0));
 
             mainSurface.Update();
         }
