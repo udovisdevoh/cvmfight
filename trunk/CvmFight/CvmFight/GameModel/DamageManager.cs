@@ -35,7 +35,7 @@ namespace CvmFight
                 Physics.TryMakeWalk(sprite, sprite.ReceivedAttackAngleRadian - sprite.AngleRadian, spritePool, map, 1);
                 sprite.IsNeedToJumpAgain = false;
                 Physics.MakeJump(sprite, timeDelta);
-                sprite.Health -= sprite.LatestPredator.AttackPower;
+                sprite.Health -= sprite.LatestPredatorDamage;
 
                 if (!sprite.IsAlive)
                 {

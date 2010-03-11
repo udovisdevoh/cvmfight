@@ -107,9 +107,14 @@ namespace CvmFight
         private bool isBlock = false;
 
         /// <summary>
-        /// Sprite's attack power
+        /// Sprite's strong attack power
         /// </summary>
-        private double attackPower = 0.5;
+        private double attackPowerStrong = 0.5;
+
+        /// <summary>
+        /// Sprite's fast attack power
+        /// </summary>
+        private double attackPowerFast = 0.15;
 
         /// <summary>
         /// Sprite's attack range
@@ -145,13 +150,20 @@ namespace CvmFight
         /// Mouse look on Y axis
         /// </summary>
         private double mouseLook = 0;
+
+        private double latestPredatorDamage = 0;
         #endregion
 
         #region Parts
         /// <summary>
-        /// Represents the sprite's attack cycle
+        /// Represents the sprite's strong attack cycle
         /// </summary>
-        private SpriteActionCycle attackCycle = new SpriteActionCycle(0.2);
+        private SpriteActionCycle strongAttackCycle = new SpriteActionCycle(0.2);
+
+        /// <summary>
+        /// Represents the sprite's fast attack cycle
+        /// </summary>
+        private SpriteActionCycle fastAttackCycle = new SpriteActionCycle(0.2);
 
         /// <summary>
         /// Represents the sprite's received attack cycle
@@ -191,7 +203,8 @@ namespace CvmFight
             Radius = GetRadius();
             AttackRange = GetAttackRange();
             AttackAngleRange = GetAttackAngleRange();
-            AttackPower = GetAttackPower();
+            AttackPowerStrong = GetAttackPowerStrong();
+            AttackPowerFast = GetAttackPowerFast();
             DefaultHealth = GetDefaultHealth();
             Health = 0;
             MaxHealth = GetMaxHealth();
@@ -201,7 +214,8 @@ namespace CvmFight
             JumpSpeedMultiplier = GetJumpSpeedMultiplier();
             AttackWalkSpeedMultiplier = GetAttackWalkSpeedMultiplier();
 
-            attackCycle = new SpriteActionCycle(GetAttackTime());
+            strongAttackCycle = new SpriteActionCycle(GetStrongAttackTime());
+            fastAttackCycle = new SpriteActionCycle(GetFastAttackTime());
             receivedAttackCycle = new SpriteActionCycle(GetReceivedAttackCycleLength());
             walkCycle = new SpriteActionCycle(GetWalkCycleLength());
             stateMovement = new SpriteState(SpriteStates.Offensive, SpriteStates.Offensive, SpriteStates.Offensive, SpriteStates.Defensive, SpriteStates.FurtiveLeft, SpriteStates.FurtiveRight, GetMovementCycleLength());
@@ -219,7 +233,9 @@ namespace CvmFight
 
         protected abstract double GetAttackAngleRange();
 
-        protected abstract double GetAttackPower();
+        protected abstract double GetAttackPowerStrong();
+
+        protected abstract double GetAttackPowerFast();
 
         protected abstract double GetDefaultHealth();
 
@@ -235,7 +251,9 @@ namespace CvmFight
 
         protected abstract double GetAttackWalkSpeedMultiplier();
 
-        protected abstract double GetAttackTime();
+        protected abstract double GetStrongAttackTime();
+
+        protected abstract double GetFastAttackTime();
 
         protected abstract double GetReceivedAttackCycleLength();
 
@@ -251,7 +269,8 @@ namespace CvmFight
         #region Public Methods
         public void Update(double timeDelta, SpritePool spritePool, AbstractMap map)
         {
-            AttackCycle.Update(timeDelta);
+            strongAttackCycle.Update(timeDelta);
+            fastAttackCycle.Update(timeDelta);
             Physics.MakeFall(this, timeDelta);
         }
 
@@ -447,9 +466,14 @@ namespace CvmFight
             set { isNeedToJumpAgain = value; }
         }
 
-        public SpriteActionCycle AttackCycle
+        public SpriteActionCycle StrongAttackCycle
         {
-            get { return attackCycle; }
+            get { return strongAttackCycle; }
+        }
+
+        public SpriteActionCycle FastAttackCycle
+        {
+            get { return fastAttackCycle; }
         }
 
         public SpriteActionCycle WalkCycle
@@ -508,10 +532,16 @@ namespace CvmFight
             set { fragCount = value; }
         }
 
-        public double AttackPower
+        public double AttackPowerStrong
         {
-            get { return attackPower; }
-            set { attackPower = value; }
+            get { return attackPowerStrong; }
+            set { attackPowerStrong = value; }
+        }
+
+        public double AttackPowerFast
+        {
+            get { return attackPowerFast; }
+            set { attackPowerFast = value; }
         }
 
         public double AttackRange
@@ -583,6 +613,12 @@ namespace CvmFight
         {
             get { return latestPredator; }
             set { latestPredator = value; }
+        }
+
+        public double LatestPredatorDamage
+        {
+            get{return latestPredatorDamage;}
+            set{latestPredatorDamage=value;}
         }
         #endregion
 

@@ -144,7 +144,7 @@ namespace CvmFight
             }
 
             //If is attacking and not jumping
-            if (sprite.AttackCycle.IsFired && sprite.PositionZ <= 0)
+            if (sprite.StrongAttackCycle.IsFired && sprite.PositionZ <= 0)
             {
                 xMove *= sprite.AttackWalkSpeedMultiplier;
                 yMove *= sprite.AttackWalkSpeedMultiplier;

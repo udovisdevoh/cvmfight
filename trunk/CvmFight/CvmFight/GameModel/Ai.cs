@@ -89,14 +89,14 @@ namespace CvmFight
                         {
                             if (isWithinAttackRange && isWithinAttackOrBlockAngle)
                             {
-                                predator.AttackCycle.UnFire();
-                                predator.AttackCycle.Fire();
+                                predator.StrongAttackCycle.UnFire();
+                                predator.StrongAttackCycle.Fire();
                             }
                         }
                     }
                     else if (currentAttackBlockState == SpriteStates.Block)
                     {
-                        predator.AttackCycle.UnFire();
+                        predator.StrongAttackCycle.UnFire();
                         predator.IsBlock = true;
                     }
                 }

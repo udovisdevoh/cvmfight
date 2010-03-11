@@ -18,7 +18,27 @@ namespace CvmFight
         #region Private Methods
         private void Update(AbstractSprite predator, SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractSprite currentPlayer)
         {
-            if (predator.AttackCycle.IsAtParoxism && predator.ReceivedAttackCycle.GetCycleState() <= 0)
+            bool predatorAttackIsAtParoxism;
+            double damage;
+
+            if (predator.StrongAttackCycle.IsAtParoxism)
+            {
+                damage = predator.AttackPowerStrong;
+                predatorAttackIsAtParoxism = true;
+            }
+            else if (predator.FastAttackCycle.IsAtParoxism)
+            {
+                damage = predator.AttackPowerFast;
+                predatorAttackIsAtParoxism = true;
+            }
+            else
+            {
+                return;
+            }
+
+
+
+            if (predatorAttackIsAtParoxism && predator.ReceivedAttackCycle.GetCycleState() <= 0)
             {
                 foreach (AbstractSprite prey in spritePool)
                 {
@@ -33,11 +53,12 @@ namespace CvmFight
                             {
                                 if (!prey.IsBlock || !Physics.IsInAttackOrBlockAngle(prey, predator) || !Physics.IsInBlockingHeight(prey, predator))
                                 {
-                                    prey.Health -= predator.AttackPower / Physics.GetSpriteDistance(predator, prey);
+                                    prey.Health -= predator.AttackPowerStrong / Physics.GetSpriteDistance(predator, prey);
 
                                     prey.ReceivedAttackAngleRadian = predator.AngleRadian;
                                     prey.ReceivedAttackCycle.Fire();
                                     prey.LatestPredator = predator;
+                                    prey.LatestPredatorDamage = damage;
 
                                     if (!(prey is Player))
                                     {
