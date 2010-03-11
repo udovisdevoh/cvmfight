@@ -79,6 +79,8 @@ namespace CvmFight
         private double yOffset = 0;
 
         private double sizeMultiplicator = 1.0;
+
+        private bool isEnableLazySpriteImageLoad;
         #endregion
 
         #region Constructor
@@ -87,14 +89,19 @@ namespace CvmFight
             fileSurfaceCache = new Dictionary<string, Surface>();
         }
 
-        public SpriteScallableFrame(byte angle, byte status, string imageFileName) : this(angle, status, imageFileName, false) { }
+        public SpriteScallableFrame(byte angle, byte status, string imageFileName, bool isEnableLazySpriteImageLoad) : this(angle, status, imageFileName, false, isEnableLazySpriteImageLoad) { }
 
-        public SpriteScallableFrame(byte angle, byte status, string imageFileName, bool isFlippedHorizontal)
+        public SpriteScallableFrame(byte angle, byte status, string imageFileName, bool isFlippedHorizontal, bool isEnableLazySpriteImageLoad)
         {
+            this.isEnableLazySpriteImageLoad = isEnableLazySpriteImageLoad;
             this.angle = angle;
             this.status = status;
             this.isFlippedHorizontal = isFlippedHorizontal;
             this.imageFileName = imageFileName;
+
+            //We pre-cache image surface if lazy initalization is off
+            if (!isEnableLazySpriteImageLoad)
+                GetOriginalSurfaceLazy();
         }
         #endregion
 
@@ -111,7 +118,7 @@ namespace CvmFight
 
             if (!spriteHeightCache.TryGetValue(key, out scalledSurface))
             {
-                scalledSurface = originalSurface.CreateScaledSurface(height / (double)originalSurface.Height,false);
+                scalledSurface = GetOriginalSurfaceLazy().CreateScaledSurface(height / (double)originalSurface.Height, false);
                 spriteHeightCache.Add(key, scalledSurface);
             }
 

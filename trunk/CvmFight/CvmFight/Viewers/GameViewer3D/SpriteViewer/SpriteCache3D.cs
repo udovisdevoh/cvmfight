@@ -13,6 +13,8 @@ namespace CvmFight
     {
         #region Fields
         private bool isEnableSpriteCache;
+
+        private bool isEnableLazySpriteImageLoad;
         #endregion
 
         #region Parts
@@ -20,8 +22,9 @@ namespace CvmFight
         #endregion
 
         #region Constructor
-        public SpriteCache3D(bool isEnableSpriteCache)
+        public SpriteCache3D(bool isEnableSpriteCache, bool isEnableLazySpriteImageLoad)
         {
+            this.isEnableLazySpriteImageLoad = isEnableLazySpriteImageLoad;
             this.isEnableSpriteCache = isEnableSpriteCache;
         }
         #endregion

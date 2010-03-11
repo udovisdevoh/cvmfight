@@ -24,13 +24,13 @@ namespace CvmFight
         #endregion
 
         #region Constructor
-        public SpriteViewer3D(int screenWidth, int screenHeight, SpritePool spritePool, int fov, double heightDistanceRatio, bool isEnableSpriteCache)
+        public SpriteViewer3D(int screenWidth, int screenHeight, SpritePool spritePool, int fov, double heightDistanceRatio, bool isEnableSpriteCache, bool isEnableLazySpriteImageLoad)
         {
             this.heightDistanceRatio = heightDistanceRatio;
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
             this.fov = fov;
-            spriteCollectionCache3D = new SpriteCollectionCache3D(spritePool, isEnableSpriteCache);
+            spriteCollectionCache3D = new SpriteCollectionCache3D(spritePool, isEnableSpriteCache, isEnableLazySpriteImageLoad);
         }
         #endregion
 

@@ -28,6 +28,8 @@ namespace CvmFight
         private bool isFullScreen = true;
 
         private bool isEnableSpriteCache = false;
+
+        private bool isEnableLazySpriteImageLoad = true;
         #endregion
 
         #region Fields and parts
@@ -62,7 +64,7 @@ namespace CvmFight
             ai = new Ai(random);
 
             //gameViewer = new MiniMap(screenWidth, screenHeight, isFullScreen);
-            gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, isFullScreen, rayTracer.Fov, isEnableSpriteCache,random);
+            gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, isFullScreen, rayTracer.Fov, isEnableSpriteCache, random, isEnableLazySpriteImageLoad);
             centerMousePositon = new Point(screenWidth / 2, screenHeight / 2);
         }
         #endregion

@@ -41,6 +41,7 @@ namespace CvmFight
                 {
                     isNeedRefreshHud = true;
                     sprite.LatestPredator.FragCount++;
+                    sprite.LatestPredator = null;
                     currentPlayer.RefreshRanking(spritePool);
                 }
 
