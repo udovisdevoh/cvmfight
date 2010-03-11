@@ -125,7 +125,11 @@ namespace CvmFight
                 {
                     spriteStatus = SpriteScallableFrame.Block;
                 }
-                else if (viewedSprite.WalkCycle.IsForward || viewedSprite.PositionZ > 0)
+                else if (viewedSprite.PositionZ > 0) //jump looks like crouch
+                {
+                    spriteStatus = SpriteScallableFrame.Crouch ;
+                }
+                else if (viewedSprite.WalkCycle.IsForward)
                 {
                     spriteStatus = SpriteScallableFrame.Walk1;
                 }
