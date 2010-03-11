@@ -69,6 +69,10 @@ namespace CvmFight
         private Dictionary<int, Surface> spriteHeightCache = new Dictionary<int, Surface>();
 
         private Surface originalSurface;
+
+        private double xOffset = 0;
+
+        private double yOffset = 0;
         #endregion
 
         #region Constructor
@@ -133,6 +137,18 @@ namespace CvmFight
         public string ImageFileName
         {
             get { return imageFileName; }
+        }
+
+        public double XOffset
+        {
+            get { return xOffset; }
+            set { xOffset = value; }
+        }
+
+        public double YOffset
+        {
+            get { return yOffset; }
+            set { yOffset = value; }
         }
         #endregion
     }
