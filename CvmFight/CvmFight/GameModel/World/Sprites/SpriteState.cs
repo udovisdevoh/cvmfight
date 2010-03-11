@@ -73,6 +73,17 @@ namespace CvmFight
 
             currentState = stateList[0];
         }
+
+        public SpriteState(byte state0, byte state1, double averageMaxTime)
+        {
+            this.averageMaxTime = averageMaxTime;
+
+            stateList = new byte[2];
+            stateList[0] = state0;
+            stateList[1] = state1;
+
+            currentState = stateList[0];
+        }
         #endregion
 
         #region Public Methods

@@ -158,37 +158,42 @@ namespace CvmFight
         /// <summary>
         /// Represents the sprite's strong attack cycle
         /// </summary>
-        private SpriteActionCycle strongAttackCycle = new SpriteActionCycle(0.2);
+        private SpriteActionCycle strongAttackCycle;
 
         /// <summary>
         /// Represents the sprite's fast attack cycle
         /// </summary>
-        private SpriteActionCycle fastAttackCycle = new SpriteActionCycle(0.2);
+        private SpriteActionCycle fastAttackCycle;
 
         /// <summary>
         /// Represents the sprite's received attack cycle
         /// </summary>
-        private SpriteActionCycle receivedAttackCycle = new SpriteActionCycle(0.35);
+        private SpriteActionCycle receivedAttackCycle;
 
         /// <summary>
         /// Walking cycle
         /// </summary>
-        private SpriteActionCycle walkCycle = new SpriteActionCycle(0.5);
+        private SpriteActionCycle walkCycle;
 
         /// <summary>
         /// Represents the sprite's current AI state for what kind of movement he's doing
         /// </summary>
-        private SpriteState stateMovement = new SpriteState(SpriteStates.Offensive, SpriteStates.Defensive, SpriteStates.FurtiveLeft, SpriteStates.FurtiveRight, 10);
+        private SpriteState stateMovement;
 
         /// <summary>
         /// Represents the sprite's current AI state for jump, crouch or normal
         /// </summary>
-        private SpriteState stateJumpCrouch = new SpriteState(SpriteStates.Stand, SpriteStates.Jump, SpriteStates.Crouch, SpriteStates.Stand, SpriteStates.Stand, 20);
+        private SpriteState stateJumpCrouch;
 
         /// <summary>
         /// Represents the sprite's current attack or block behavior
         /// </summary>
-        private SpriteState stateAttackBlock = new SpriteState(SpriteStates.Attack, SpriteStates.Block, SpriteStates.OpenToAttack, 30);
+        private SpriteState stateAttackBlock;
+
+        /// <summary>
+        /// Represents the sprite's current attack or block behavior
+        /// </summary>
+        private SpriteState stateAttackType;
 
         /// <summary>
         /// Represents latest sprite which attacked this
@@ -213,6 +218,11 @@ namespace CvmFight
             DefaultWalkingDistance = GetDefaultWalkingDistance();
             JumpSpeedMultiplier = GetJumpSpeedMultiplier();
             AttackWalkSpeedMultiplier = GetAttackWalkSpeedMultiplier();
+
+            stateMovement = new SpriteState(SpriteStates.Offensive, SpriteStates.Defensive, SpriteStates.FurtiveLeft, SpriteStates.FurtiveRight, 10);
+            stateJumpCrouch = new SpriteState(SpriteStates.Stand, SpriteStates.Jump, SpriteStates.Crouch, SpriteStates.Stand, SpriteStates.Stand, 20);
+            stateAttackBlock = new SpriteState(SpriteStates.Attack, SpriteStates.Block, SpriteStates.OpenToAttack, 30);
+            stateAttackType = new SpriteState(SpriteStates.FastAttack, SpriteStates.StrongAttack, 40);
 
             strongAttackCycle = new SpriteActionCycle(GetStrongAttackTime());
             fastAttackCycle = new SpriteActionCycle(GetFastAttackTime());
@@ -594,6 +604,11 @@ namespace CvmFight
         public SpriteState StateAttackBlock
         {
             get { return stateAttackBlock; }
+        }
+
+        public SpriteState StateAttackType
+        {
+            get { return stateAttackType; }
         }
 
         /// <summary>

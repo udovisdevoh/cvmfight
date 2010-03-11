@@ -26,5 +26,9 @@ namespace CvmFight
         public static byte Block = 8;
 
         public static byte OpenToAttack = 9;
+
+        public static byte FastAttack = 10;
+
+        public static byte StrongAttack = 11;
     }
 }

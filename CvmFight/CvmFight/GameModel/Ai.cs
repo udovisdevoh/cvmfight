@@ -77,6 +77,9 @@ namespace CvmFight
                 bool isWithinAttackRange = Physics.IsWithinAttackRange(predator, prey);
                 bool isWithinAttackOrBlockAngle = Physics.IsInAttackOrBlockAngle(predator, prey);
                 byte currentAttackBlockState = predator.StateAttackBlock.GetCurrentState();
+                byte currentAttackTypeState = predator.StateAttackType.GetCurrentState();
+
+                currentAttackTypeState = SpriteStates.FastAttack;
 
                 if (currentAttackBlockState == SpriteStates.Block && predator.PositionZ > 0)
                     currentAttackBlockState = SpriteStates.Attack;
@@ -85,23 +88,38 @@ namespace CvmFight
                 {
                     if (currentAttackBlockState == SpriteStates.Attack)
                     {
-                        if (random.Next(2) == 1)
+                        if (currentAttackTypeState == SpriteStates.FastAttack)
                         {
-                            if (isWithinAttackRange && isWithinAttackOrBlockAngle)
+                            if (random.Next(2) == 1)
                             {
-                                predator.StrongAttackCycle.UnFire();
-                                predator.StrongAttackCycle.Fire();
+                                if (isWithinAttackRange && isWithinAttackOrBlockAngle)
+                                {
+                                    predator.FastAttackCycle.UnFire();
+                                    predator.FastAttackCycle.Fire();
+                                }
+                            }
+                        }
+                        else if (currentAttackTypeState == SpriteStates.StrongAttack)
+                        {
+                            if (random.Next(2) == 1)
+                            {
+                                if (isWithinAttackRange && isWithinAttackOrBlockAngle)
+                                {
+                                    predator.StrongAttackCycle.UnFire();
+                                    predator.StrongAttackCycle.Fire();
+                                }
                             }
                         }
                     }
                     else if (currentAttackBlockState == SpriteStates.Block)
                     {
                         predator.StrongAttackCycle.UnFire();
+                        predator.FastAttackCycle.UnFire();
                         predator.IsBlock = true;
                     }
                 }
                 predator.StateAttackBlock.Update(timeDelta, random);
-
+                predator.StateAttackType.Update(timeDelta, random);
                 predator.StateMovement.Update(timeDelta, random);
             }
             else
