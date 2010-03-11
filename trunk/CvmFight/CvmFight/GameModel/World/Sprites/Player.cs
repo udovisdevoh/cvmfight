@@ -35,7 +35,7 @@ namespace CvmFight
 
         protected override double GetAttackPowerFast()
         {
-            return 0.15;
+            return 0.15 * 4;//*4 to compensate for the shortness of damage
         }
 
         protected override double GetDefaultHealth()
