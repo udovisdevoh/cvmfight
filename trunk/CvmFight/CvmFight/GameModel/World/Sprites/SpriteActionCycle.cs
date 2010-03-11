@@ -71,13 +71,36 @@ namespace CvmFight
         public int GetCycleState()
         {
             int state = 0;
-            if (currentCyclePosition > cycleLength / 2)
+            /*if (currentCyclePosition > cycleLength / 2)
             {
                 state = 2;
             }
             else if (currentCyclePosition > 0)
             {
                 state = 1;
+            }*/
+
+            if (isForward)
+            {
+                if (currentCyclePosition > cycleLength * 0.75)
+                {
+                    state = 2;
+                }
+                else if (currentCyclePosition > 0)
+                {
+                    state = 1;
+                }
+            }
+            else
+            {
+                if (currentCyclePosition > cycleLength * 0.5)
+                {
+                    state = 2;
+                }
+                else if (currentCyclePosition > 0)
+                {
+                    state = 1;
+                }
             }
 
             return state;
