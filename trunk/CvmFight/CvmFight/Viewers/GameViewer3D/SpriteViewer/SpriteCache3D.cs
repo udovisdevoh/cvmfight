@@ -52,6 +52,16 @@ namespace CvmFight
         {
             return internalSpriteFrameMap[angleType, spriteStatus].YOffset;
         }
+
+        public double GetSizeMultiplicator(byte angleType, byte spriteStatus)
+        {
+            return internalSpriteFrameMap[angleType, spriteStatus].SizeMultiplicator;
+        }
+
+        public void SetSizeMultiplicator(byte angleType, byte spriteStatus, double sizeMultiplicator)
+        {
+            internalSpriteFrameMap[angleType, spriteStatus].SizeMultiplicator = sizeMultiplicator;
+        }
         #endregion
     }
 }

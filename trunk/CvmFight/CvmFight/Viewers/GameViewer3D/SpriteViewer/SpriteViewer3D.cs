@@ -74,26 +74,21 @@ namespace CvmFight
                 if (attackCycleState == 2)
                 {
                     spriteStatus = SpriteScallableFrame.Kick2;
-                    spriteHeight = spriteHeight * 3 / 4;
                 }
                 else if (attackCycleState == 1)
                 {
                     spriteStatus = SpriteScallableFrame.Kick1;
-                    spriteHeight = spriteHeight * 2 / 3;
                 }
                 else if (receivedAttackCycleState != 0)
                 {
-                    spriteHeight /= 2;
                     spriteStatus = SpriteScallableFrame.CrouchHit;
                 }
                 else if (viewedSprite.IsBlock)
                 {
-                    spriteHeight /= 2;
                     spriteStatus = SpriteScallableFrame.CrouchBlock;
                 }
                 else
                 {
-                    spriteHeight /= 2;
                     spriteStatus = SpriteScallableFrame.Crouch;
                 }
             }
@@ -104,7 +99,6 @@ namespace CvmFight
                     if (viewedSprite.PositionZ > 0)
                     {
                         spriteStatus = SpriteScallableFrame.Kick1;
-                        spriteHeight = spriteHeight * 2 / 3;
                     }
                     else
                     {
@@ -116,7 +110,6 @@ namespace CvmFight
                     if (viewedSprite.PositionZ > 0)
                     {
                         spriteStatus = SpriteScallableFrame.Kick2;
-                        spriteHeight = spriteHeight * 3 / 4;
                     }
                     else
                     {
@@ -142,6 +135,9 @@ namespace CvmFight
             }
 
             SpriteCache3D spriteCache3D = spriteCollectionCache3D.GetSpriteCache(viewedSprite);
+
+            spriteHeight = (int)(((double)spriteHeight) * spriteCache3D.GetSizeMultiplicator(angleType, spriteStatus));
+
             Surface spriteSurface = spriteCache3D.GetSurface(spriteStatus, angleType, spriteHeight);
 
             int offsetX = (int)spriteCache3D.GetOffsetX(angleType, spriteStatus) * spriteSurface.Width;
