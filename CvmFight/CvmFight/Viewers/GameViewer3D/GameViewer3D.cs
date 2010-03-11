@@ -40,7 +40,7 @@ namespace CvmFight
         #endregion
 
         #region Constructor
-        public GameViewer3D(int screenWidth, int screenHeight, int columnCount, SpritePool spritePool, bool isFullScreen, int fov, bool isEnableSpriteCache, Random random)
+        public GameViewer3D(int screenWidth, int screenHeight, int columnCount, SpritePool spritePool, bool isFullScreen, int fov, bool isEnableSpriteCache, Random random, bool isEnableLazySpriteImageLoad)
         {
             this.random = random;
             minimap = new MiniMap(screenWidth, screenHeight);
@@ -51,7 +51,7 @@ namespace CvmFight
             this.screenHeight = screenHeight;
             this.isFullScreen = isFullScreen;
 
-            spriteViewer = new SpriteViewer3D(screenWidth, screenHeight, spritePool, fov, heightDistanceRatio, isEnableSpriteCache);
+            spriteViewer = new SpriteViewer3D(screenWidth, screenHeight, spritePool, fov, heightDistanceRatio, isEnableSpriteCache, isEnableLazySpriteImageLoad);
 
             this.gradient = new Gradient(screenWidth, screenHeight * 2);
 
