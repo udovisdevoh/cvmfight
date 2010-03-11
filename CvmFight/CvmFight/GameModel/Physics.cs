@@ -218,12 +218,27 @@ namespace CvmFight
         /// <returns>Whether prey is withing predator's attack range</returns>
         public static bool IsWithinAttackRange(AbstractSprite predator, AbstractSprite prey)
         {
-            double predatorAttackRange = predator.AttackRange;
+            return Physics.GetSpriteDistance(predator, prey) <= GetAttackRange(predator, prey);// predatorAttackRange + prey.Radius;
+        }
 
+        /// <summary>
+        /// Whether prey is withing predator's attack range
+        /// </summary>
+        /// <param name="predator">predator sprite</param>
+        /// <param name="prey">prey sprite</param>
+        /// <returns>Whether prey is withing predator's attack range</returns>
+        public static bool IsWithinAttackRange(AbstractSprite predator, AbstractSprite prey, double multiplicator)
+        {
+            return Physics.GetSpriteDistance(predator, prey) <= GetAttackRange(predator, prey) * multiplicator;// predatorAttackRange + prey.Radius;
+        }
+
+        private static double GetAttackRange(AbstractSprite predator, AbstractSprite prey)
+        {
+            double predatorAttackRange = predator.AttackRange;
             if (predator.PositionZ > 0)
                 predatorAttackRange *= predator.AttackRangeJumpMultiplier;
 
-            return Physics.GetSpriteDistance(predator, prey) <= predatorAttackRange + prey.Radius;
+            return predatorAttackRange;
         }
 
         /// <summary>
