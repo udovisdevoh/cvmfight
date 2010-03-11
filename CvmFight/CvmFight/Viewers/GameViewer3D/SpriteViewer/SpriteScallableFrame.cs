@@ -68,9 +68,11 @@ namespace CvmFight
 
         private string imageFileName;
 
+        private bool isFlippedHorizontal;
+
         private Dictionary<int, Surface> spriteHeightCache = new Dictionary<int, Surface>();
 
-        private Surface originalSurface;
+        private Surface originalSurface = null;
 
         private double xOffset = 0;
 
@@ -91,18 +93,8 @@ namespace CvmFight
         {
             this.angle = angle;
             this.status = status;
+            this.isFlippedHorizontal = isFlippedHorizontal;
             this.imageFileName = imageFileName;
-
-            if (!fileSurfaceCache.TryGetValue(imageFileName, out originalSurface))
-            {
-                originalSurface = new Surface(imageFileName);
-                originalSurface.Alpha = 255;
-                originalSurface.Transparent = true;
-                fileSurfaceCache.Add(imageFileName, originalSurface);
-            }
-
-            if (isFlippedHorizontal)
-                originalSurface = originalSurface.CreateFlippedHorizontalSurface();
         }
         #endregion
 
@@ -115,7 +107,7 @@ namespace CvmFight
             int key = (int)Math.Sqrt((double)height * 10.0);
 
             if (!isEnableSpriteCache)
-                return originalSurface.CreateScaledSurface(height / (double)originalSurface.Height, false);
+                return GetOriginalSurfaceLazy().CreateScaledSurface(height / (double)originalSurface.Height, false);
 
             if (!spriteHeightCache.TryGetValue(key, out scalledSurface))
             {
@@ -124,6 +116,27 @@ namespace CvmFight
             }
 
             return scalledSurface;
+        }
+        #endregion
+
+        #region Private Methods
+        private Surface GetOriginalSurfaceLazy()
+        {
+            if (originalSurface == null)
+            {
+                if (!fileSurfaceCache.TryGetValue(imageFileName, out originalSurface))
+                {
+                    originalSurface = new Surface(imageFileName);
+                    originalSurface.Alpha = 255;
+                    originalSurface.Transparent = true;
+                    fileSurfaceCache.Add(imageFileName, originalSurface);
+                }
+
+                if (isFlippedHorizontal)
+                    originalSurface = originalSurface.CreateFlippedHorizontalSurface();
+            }
+
+            return originalSurface;
         }
         #endregion
 
