@@ -12,6 +12,8 @@ namespace CvmFight
     class SpriteScallableFrame
     {
         #region Constants
+        public const byte Undefined = 18;
+
         public const byte Front = 0;
         
         public const byte Back = 1;

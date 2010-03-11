@@ -51,7 +51,7 @@ namespace CvmFight
             this.screenHeight = screenHeight;
             this.isFullScreen = isFullScreen;
 
-            spriteViewer = new SpriteViewer3D(screenWidth, screenHeight, spritePool, fov, heightDistanceRatio, isEnableSpriteCache, isEnableLazySpriteImageLoad);
+            spriteViewer = new SpriteViewer3D(screenWidth, screenHeight, spritePool, fov, heightDistanceRatio, isEnableSpriteCache, isEnableLazySpriteImageLoad, random);
 
             this.gradient = new Gradient(screenWidth, screenHeight * 2);
 
