@@ -91,6 +91,8 @@ namespace CvmFight
         public void Reset()
         {
             UnFire();
+            isForward = true;
+            isFired = false;
             currentCyclePosition = 0;
         }
 

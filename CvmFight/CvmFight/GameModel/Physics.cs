@@ -289,6 +289,9 @@ namespace CvmFight
             if (sprite1.IsCrouch && sprite2.PositionZ > 0)
                 return false;
 
+            if (!sprite1.IsCrouch && sprite2.IsCrouch)
+                return false;
+
             return true;
         }
         #endregion

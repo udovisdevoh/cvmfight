@@ -55,6 +55,10 @@ namespace CvmFight
                             {
                                 if (!prey.IsBlock || !Physics.IsInAttackOrBlockAngle(prey, predator) || !Physics.IsInBlockingHeight(prey, predator))
                                 {
+                                    //We abort prey's attack
+                                    prey.FastAttackCycle.Reset();
+                                    prey.StrongAttackCycle.Reset();
+
                                     prey.ReceivedAttackAngleRadian = predator.AngleRadian;
                                     prey.ReceivedAttackCycle.Fire();
 
