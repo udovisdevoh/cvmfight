@@ -111,6 +111,11 @@ namespace CvmFight
         {
             return 10;
         }
+
+        protected override double GetAttackRangeJumpMultiplier()
+        {
+            return 1.1375;
+        }
         #endregion
     }
 }

@@ -152,6 +152,8 @@ namespace CvmFight
         private double mouseLook = 0;
 
         private double latestPredatorDamage = 0;
+
+        private double attackRangeJumpMultiplier;
         #endregion
 
         #region Parts
@@ -218,6 +220,7 @@ namespace CvmFight
             DefaultWalkingDistance = GetDefaultWalkingDistance();
             JumpSpeedMultiplier = GetJumpSpeedMultiplier();
             AttackWalkSpeedMultiplier = GetAttackWalkSpeedMultiplier();
+            AttackRangeJumpMultiplier = GetAttackRangeJumpMultiplier();
 
             stateMovement = new SpriteState(SpriteStates.Offensive, SpriteStates.Defensive, SpriteStates.FurtiveLeft, SpriteStates.FurtiveRight, 10);
             stateJumpCrouch = new SpriteState(SpriteStates.Stand, SpriteStates.Jump, SpriteStates.Crouch, SpriteStates.Stand, SpriteStates.Stand, 20);
@@ -274,6 +277,8 @@ namespace CvmFight
         protected abstract double GetJumpCrouchCycleLength();
 
         protected abstract double GetMovementCycleLength();
+
+        protected abstract double GetAttackRangeJumpMultiplier();
         #endregion
 
         #region Public Methods
@@ -634,6 +639,12 @@ namespace CvmFight
         {
             get{return latestPredatorDamage;}
             set{latestPredatorDamage=value;}
+        }
+
+        public double AttackRangeJumpMultiplier
+        {
+            get { return attackRangeJumpMultiplier; }
+            set { attackRangeJumpMultiplier = value; }
         }
         #endregion
 
