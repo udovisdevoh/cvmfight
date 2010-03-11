@@ -20,6 +20,7 @@ namespace CvmFight
         {
             bool predatorAttackIsAtParoxism;
             double damage;
+            bool isFastAttack = false;
 
             if (predator.StrongAttackCycle.IsAtParoxism)
             {
@@ -30,6 +31,7 @@ namespace CvmFight
             {
                 damage = predator.AttackPowerFast;
                 predatorAttackIsAtParoxism = true;
+                isFastAttack = true;
             }
             else
             {
@@ -53,10 +55,15 @@ namespace CvmFight
                             {
                                 if (!prey.IsBlock || !Physics.IsInAttackOrBlockAngle(prey, predator) || !Physics.IsInBlockingHeight(prey, predator))
                                 {
-                                    prey.Health -= predator.AttackPowerStrong / Physics.GetSpriteDistance(predator, prey);
-
                                     prey.ReceivedAttackAngleRadian = predator.AngleRadian;
                                     prey.ReceivedAttackCycle.Fire();
+
+                                    if (isFastAttack)
+                                    {
+                                        prey.ReceivedAttackCycle.SetPercentComplete(0.25);
+                                        prey.ReceivedAttackCycle.IsForward = false;
+                                    }
+
                                     prey.LatestPredator = predator;
                                     prey.LatestPredatorDamage = damage;
 

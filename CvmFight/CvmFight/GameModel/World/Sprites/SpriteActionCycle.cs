@@ -93,6 +93,11 @@ namespace CvmFight
             UnFire();
             currentCyclePosition = 0;
         }
+
+        public void SetPercentComplete(double percentComplete)
+        {
+            currentCyclePosition = this.cycleLength * percentComplete;
+        }
         #endregion
 
         #region Properties
@@ -109,7 +114,9 @@ namespace CvmFight
         public bool IsForward
         {
             get { return isForward; }
+            set { isForward = value; }
         }
         #endregion
+
     }
 }

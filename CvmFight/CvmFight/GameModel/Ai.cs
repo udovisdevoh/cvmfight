@@ -79,8 +79,7 @@ namespace CvmFight
                 byte currentAttackBlockState = predator.StateAttackBlock.GetCurrentState();
                 byte currentAttackTypeState = predator.StateAttackType.GetCurrentState();
 
-                currentAttackTypeState = SpriteStates.FastAttack;
-
+                
                 if (currentAttackBlockState == SpriteStates.Block && predator.PositionZ > 0)
                     currentAttackBlockState = SpriteStates.Attack;
 
