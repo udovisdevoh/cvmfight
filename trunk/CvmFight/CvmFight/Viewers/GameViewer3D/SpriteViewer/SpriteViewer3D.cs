@@ -108,7 +108,7 @@ namespace CvmFight
                     }
                     else
                     {
-                        spriteStatus = SpriteScallableFrame.Walk1;
+                        spriteStatus = SpriteScallableFrame.Punch1;
                     }
                 }
                 else if (attackCycleState == 2)
