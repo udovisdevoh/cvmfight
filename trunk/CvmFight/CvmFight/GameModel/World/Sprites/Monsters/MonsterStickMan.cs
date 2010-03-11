@@ -84,7 +84,7 @@ namespace CvmFight
 
         protected override double GetFastAttackTime()
         {
-            return 0.3;
+            return 0.5;
         }
 
         protected override double GetReceivedAttackCycleLength()

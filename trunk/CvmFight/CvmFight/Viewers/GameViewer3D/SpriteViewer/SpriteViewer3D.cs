@@ -66,7 +66,8 @@ namespace CvmFight
 
 
 
-            int attackCycleState = viewedSprite.StrongAttackCycle.GetCycleState();
+            int attackCycleState = Math.Max(viewedSprite.StrongAttackCycle.GetCycleState(), viewedSprite.FastAttackCycle.GetCycleState());
+
             int receivedAttackCycleState = viewedSprite.ReceivedAttackCycle.GetCycleState();
 
             if (viewedSprite.IsCrouch)
