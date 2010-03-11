@@ -32,6 +32,8 @@ namespace CvmFight
 
         public const byte Walk2 = 9;
 
+        public const byte Punch1 = 18;
+
         public const byte Punch2 = 10;
 
         public const byte Kick1 = 11;
