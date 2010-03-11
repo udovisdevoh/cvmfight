@@ -91,9 +91,6 @@ namespace CvmFight
             previousDateTime = DateTime.Now;
 
 
-            #warning Remove
-            //timeDelta /= 5.0;
-
             //We clear the sprite's shared consciousness because sprite positions changed
             world.SharedConsciousness.Clear();
 
