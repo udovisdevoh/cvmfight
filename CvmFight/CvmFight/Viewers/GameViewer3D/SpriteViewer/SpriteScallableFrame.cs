@@ -75,6 +75,8 @@ namespace CvmFight
         private double xOffset = 0;
 
         private double yOffset = 0;
+
+        private double sizeMultiplicator = 1.0;
         #endregion
 
         #region Constructor
@@ -151,6 +153,12 @@ namespace CvmFight
         {
             get { return yOffset; }
             set { yOffset = value; }
+        }
+
+        public double SizeMultiplicator
+        {
+            get { return sizeMultiplicator; }
+            set { sizeMultiplicator = value; }
         }
         #endregion
     }
