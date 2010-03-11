@@ -79,7 +79,7 @@ namespace CvmFight
                 else if (attackCycleState == 1)
                 {
                     spriteStatus = SpriteScallableFrame.Kick1;
-                    spriteHeight = spriteHeight * 3 / 4;
+                    spriteHeight = spriteHeight * 2 / 3;
                 }
                 else if (receivedAttackCycleState != 0)
                 {
@@ -104,6 +104,7 @@ namespace CvmFight
                     if (viewedSprite.PositionZ > 0)
                     {
                         spriteStatus = SpriteScallableFrame.Kick1;
+                        spriteHeight = spriteHeight * 2 / 3;
                     }
                     else
                     {
@@ -115,6 +116,7 @@ namespace CvmFight
                     if (viewedSprite.PositionZ > 0)
                     {
                         spriteStatus = SpriteScallableFrame.Kick2;
+                        spriteHeight = spriteHeight * 3 / 4;
                     }
                     else
                     {
@@ -139,11 +141,14 @@ namespace CvmFight
                 }
             }
 
+            SpriteCache3D spriteCache3D = spriteCollectionCache3D.GetSpriteCache(viewedSprite);
+            Surface spriteSurface = spriteCache3D.GetSurface(spriteStatus, angleType, spriteHeight);
 
-            Surface spriteSurface = spriteCollectionCache3D.GetSpriteCache(viewedSprite).GetSurface(spriteStatus, angleType, spriteHeight);
+            int offsetX = (int)spriteCache3D.GetOffsetX(angleType, spriteStatus) * spriteSurface.Width;
+            int offsetY = (int)spriteCache3D.GetOffsetY(angleType, spriteStatus) * spriteSurface.Width;
 
-            destinationX = (int)(getXPosition(angleDegree, fov, screenWidth, spriteSurface.Width));
-            destinationY = (int)(topMargin + theoreticalColumnHeight - spriteSurface.Height);
+            destinationX = (int)(getXPosition(angleDegree, fov, screenWidth, spriteSurface.Width)) + offsetX;
+            destinationY = (int)(topMargin + theoreticalColumnHeight - spriteSurface.Height) + offsetY;
 
             destinationY -= (int)(viewedSprite.PositionZ * theoreticalColumnHeight / 2);
 

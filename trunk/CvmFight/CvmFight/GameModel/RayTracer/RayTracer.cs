@@ -87,12 +87,15 @@ namespace CvmFight
         #region Static methods
         public static int GetValidResolution(int idealRayTracerResolution, int screenWidth)
         {
-            int validResolution;
+            int validResolution = screenWidth;
             int divider = 1;
 
             do
             {
-                validResolution = screenWidth / divider;
+                if (screenWidth % divider == 0)
+                {
+                    validResolution = screenWidth / divider;
+                }
                 divider++;
             } while (validResolution > idealRayTracerResolution);
 

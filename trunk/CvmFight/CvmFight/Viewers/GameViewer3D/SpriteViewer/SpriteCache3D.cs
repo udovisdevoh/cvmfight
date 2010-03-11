@@ -36,6 +36,22 @@ namespace CvmFight
         {
             internalSpriteFrameMap[spriteFrame.Angle, spriteFrame.Status] = spriteFrame;
         }
+
+        public void SetOffset(byte spriteAngle, byte spriteStatus, double xOffset, double yOffset)
+        {
+            internalSpriteFrameMap[spriteAngle, spriteStatus].XOffset = xOffset;
+            internalSpriteFrameMap[spriteAngle, spriteStatus].YOffset = yOffset;
+        }
+
+        public double GetOffsetX(byte angleType, byte spriteStatus)
+        {
+            return internalSpriteFrameMap[angleType, spriteStatus].XOffset;
+        }
+
+        public double GetOffsetY(byte angleType, byte spriteStatus)
+        {
+            return internalSpriteFrameMap[angleType, spriteStatus].YOffset;
+        }
         #endregion
     }
 }
