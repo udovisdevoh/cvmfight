@@ -21,16 +21,24 @@ namespace CvmFight
         private double heightDistanceRatio;
 
         private SpriteCollectionCache3D spriteCollectionCache3D;
+
+        private SpriteCache3D splatCache3D;
+
+        private Random random;
         #endregion
 
         #region Constructor
-        public SpriteViewer3D(int screenWidth, int screenHeight, SpritePool spritePool, int fov, double heightDistanceRatio, bool isEnableSpriteCache, bool isEnableLazySpriteImageLoad)
+        public SpriteViewer3D(int screenWidth, int screenHeight, SpritePool spritePool, int fov, double heightDistanceRatio, bool isEnableSpriteCache, bool isEnableLazySpriteImageLoad, Random random)
         {
+            this.random = random;
             this.heightDistanceRatio = heightDistanceRatio;
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
             this.fov = fov;
             spriteCollectionCache3D = new SpriteCollectionCache3D(spritePool, isEnableSpriteCache, isEnableLazySpriteImageLoad);
+
+            splatCache3D = new SpriteCache3D(isEnableSpriteCache, isEnableLazySpriteImageLoad);
+            splatCache3D.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Undefined, SpriteScallableFrame.Undefined, "Assets/Textures/Sprites/Splats/splat001.png", isEnableLazySpriteImageLoad));
         }
         #endregion
 
@@ -155,6 +163,15 @@ namespace CvmFight
 
             if (PointLoader.IsPositionValid(destinationX, destinationY))
                 mainSurface.Blit(spriteSurface, PointLoader.GetPoint(destinationX, destinationY));
+
+
+            //We show splat image on views sprite if the sprite is getting attacked by viewer sprite
+            if (viewedSprite.LatestPredator == viewerSprite)
+            {
+                int viewedSpriteReceivedAttack = viewedSprite.ReceivedAttackCycle.GetCycleState();
+                if (viewedSprite.ReceivedAttackCycle.IsFired && viewedSprite.ReceivedAttackCycle.IsForward && viewedSpriteReceivedAttack >= 0 && (viewedSpriteReceivedAttack == 0 || random.Next(6) == 0))
+                    mainSurface.Blit(splatCache3D.GetSurface(SpriteScallableFrame.Undefined, SpriteScallableFrame.Undefined, spriteHeight), PointLoader.GetPoint(destinationX, destinationY));
+            }
         }
 
         private byte GetAngleType(double viewerAngleDegree, double viewedAngleDegree)
