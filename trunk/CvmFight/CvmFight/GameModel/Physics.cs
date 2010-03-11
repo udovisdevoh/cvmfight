@@ -218,7 +218,12 @@ namespace CvmFight
         /// <returns>Whether prey is withing predator's attack range</returns>
         public static bool IsWithinAttackRange(AbstractSprite predator, AbstractSprite prey)
         {
-            return Physics.GetSpriteDistance(predator, prey) <= predator.AttackRange + prey.Radius;
+            double predatorAttackRange = predator.AttackRange;
+
+            if (predator.PositionZ > 0)
+                predatorAttackRange *= predator.AttackRangeJumpMultiplier;
+
+            return Physics.GetSpriteDistance(predator, prey) <= predatorAttackRange + prey.Radius;
         }
 
         /// <summary>

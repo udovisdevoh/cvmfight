@@ -29,7 +29,19 @@ namespace CvmFight
         #region Public Methods
         public static Point GetPoint(int x, int y)
         {
-            return pointGrid[x + radius, y + radius];
+            int newX = x + radius;
+            int newY = y + radius;
+
+            if (newX >= radius * 2)
+                newX = (radius * 2) - 1;
+            else if (newY >= radius * 2)
+                newY = (radius * 2) - 1;
+            else if (newX < 0)
+                newX = 0;
+            else if (newY < 0)
+                newY = 0;
+
+            return pointGrid[newX, newY];
         }
 
         public static bool IsPositionValid(int x, int y)
