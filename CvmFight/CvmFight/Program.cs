@@ -28,8 +28,6 @@ namespace CvmFight
         private bool isFullScreen = true;
 
         private bool isEnableSpriteCache = false;
-
-        private DamageManager damageManager = new DamageManager();
         #endregion
 
         #region Fields and parts
@@ -50,6 +48,8 @@ namespace CvmFight
         private Point centerMousePositon;
 
         private DateTime previousDateTime = DateTime.Now;
+
+        private DamageManager damageManager = new DamageManager();
         #endregion
 
         #region Constructor
@@ -121,17 +121,39 @@ namespace CvmFight
             }
 
 
-            //We manage attack button
+
+
+            //We manage attack buttons
             if (userInput.IsPressMouseButtonLeft)
             {
                 if (world.CurrentPlayer.ReceivedAttackCycle.GetCycleState() <= 0)
                 {
-                    world.CurrentPlayer.IsBlock = false;
-                    world.CurrentPlayer.AttackCycle.Fire();
+                    if (!world.CurrentPlayer.FastAttackCycle.IsFired)
+                    {
+                        world.CurrentPlayer.IsBlock = false;
+                        world.CurrentPlayer.StrongAttackCycle.Fire();
+                    }
+                }
+            }
+            else if (userInput.IsPressMouseButtonRight)
+            {
+                if (world.CurrentPlayer.ReceivedAttackCycle.GetCycleState() <= 0)
+                {
+                    if (!world.CurrentPlayer.StrongAttackCycle.IsFired)
+                    {
+                        world.CurrentPlayer.IsBlock = false;
+                        world.CurrentPlayer.FastAttackCycle.Fire();
+                    }
                 }
             }
             else
-                world.CurrentPlayer.AttackCycle.UnFire();
+            {
+                world.CurrentPlayer.StrongAttackCycle.UnFire();
+                world.CurrentPlayer.FastAttackCycle.UnFire();
+            }
+
+
+
 
 
             //We animate the sprites using the AI
@@ -219,12 +241,16 @@ namespace CvmFight
         {
             if (args.Button == MouseButton.PrimaryButton)
                 userInput.IsPressMouseButtonLeft = true;
+            else if (args.Button == MouseButton.SecondaryButton)
+                userInput.IsPressMouseButtonRight = true;
         }
 
         public void OnMouseUp(object sender, MouseButtonEventArgs args)
         {
             if (args.Button == MouseButton.PrimaryButton)
                 userInput.IsPressMouseButtonLeft = false;
+            else if (args.Button == MouseButton.SecondaryButton)
+                userInput.IsPressMouseButtonRight = false;
         }
         #endregion
 

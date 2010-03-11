@@ -146,7 +146,7 @@ namespace CvmFight
             if (ranking == null)
                 ranking = bigRed.Render(player.Ranking.ToString(), System.Drawing.Color.Blue);
 
-            int attackCycleState = player.AttackCycle.GetCycleState();
+            int attackCycleState = Math.Max(player.StrongAttackCycle.GetCycleState(), player.FastAttackCycle.GetCycleState());
 
 
             if (attackCycleState == 0)

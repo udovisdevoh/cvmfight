@@ -28,9 +28,14 @@ namespace CvmFight
             return 0.17;
         }
 
-        protected override double GetAttackPower()
+        protected override double GetAttackPowerStrong()
         {
             return 0.7;
+        }
+
+        protected override double GetAttackPowerFast()
+        {
+            return 0.15;
         }
 
         protected override double GetDefaultHealth()
@@ -70,10 +75,15 @@ namespace CvmFight
             return 0;
         }
 
-        protected override double GetAttackTime()
+        protected override double GetStrongAttackTime()
         {
             //return 0.2;
             return 1.5;
+        }
+
+        protected override double GetFastAttackTime()
+        {
+            return 0.2;
         }
 
         protected override double GetReceivedAttackCycleLength()
