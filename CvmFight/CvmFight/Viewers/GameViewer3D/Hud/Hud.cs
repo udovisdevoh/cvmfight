@@ -127,7 +127,7 @@ namespace CvmFight
 
         private Surface BuildRestFistSurface()
         {
-            Surface surface = new Surface("Assets/Hud/punch001.png");
+            Surface surface = new Surface("Assets/Hud/punch001.png");            
             surface.Transparent = true;
             surface = surface.CreateScaledSurface((double)screenHeight / 2.5 / (double)surface.Height,true);
             return surface;
