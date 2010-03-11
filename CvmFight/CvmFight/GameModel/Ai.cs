@@ -26,22 +26,25 @@ namespace CvmFight
             predator.IsNeedToJumpAgain = false;
             predator.IsBlock = false;
 
+            byte currentStateJumpCrouch = predator.StateJumpCrouch.GetCurrentState();
+
+
             //We manage jumping state
-            if (predator.StateJumpCrouch.GetCurrentState() == SpriteStates.Jump)
+            if (currentStateJumpCrouch == SpriteStates.Jump)
             {
                 predator.IsCrouch = false;
                 Physics.MakeJump(predator, timeDelta);
             }
 
             //We manage crouch state
-            if (predator.StateJumpCrouch.GetCurrentState() == SpriteStates.Crouch)
+            if (currentStateJumpCrouch == SpriteStates.Crouch)
             {
                 predator.IsCrouch = true;
             }
 
 
             //We manage standing state
-            if (predator.StateJumpCrouch.GetCurrentState() == SpriteStates.Stand)
+            if (currentStateJumpCrouch == SpriteStates.Stand)
             {
                 predator.IsCrouch = false;
                 predator.IsNeedToJumpAgain = false;
@@ -78,9 +81,6 @@ namespace CvmFight
                 bool isWithinAttackOrBlockAngle = Physics.IsInAttackOrBlockAngle(predator, prey);
                 byte currentAttackBlockState = predator.StateAttackBlock.GetCurrentState();
                 byte currentAttackTypeState = predator.StateAttackType.GetCurrentState();
-
-                #warning Remove
-                //currentAttackTypeState = SpriteStates.StrongAttack;
 
                 
                 if (currentAttackBlockState == SpriteStates.Block && predator.PositionZ > 0)
