@@ -166,10 +166,10 @@ namespace CvmFight
 
 
             //We show splat image on views sprite if the sprite is getting attacked by viewer sprite
-            if (viewedSprite.LatestPredator == viewerSprite)
+            if (viewedSprite.LatestPredator == viewerSprite && viewedSprite.ReceivedAttackCycle.IsFired)
             {
                 int viewedSpriteReceivedAttack = viewedSprite.ReceivedAttackCycle.GetCycleState();
-                if (viewedSprite.ReceivedAttackCycle.IsFired && viewedSprite.ReceivedAttackCycle.IsForward && viewedSpriteReceivedAttack >= 0 && (viewedSpriteReceivedAttack == 0 || random.Next(6) == 0))
+                if (viewedSpriteReceivedAttack >= 0 && (viewedSpriteReceivedAttack == 0 || random.Next(6) == 0))
                     mainSurface.Blit(splatCache3D.GetSurface(SpriteScallableFrame.Undefined, SpriteScallableFrame.Undefined, spriteHeight), PointLoader.GetPoint(destinationX, destinationY));
             }
         }
