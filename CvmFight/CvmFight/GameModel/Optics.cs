@@ -140,8 +140,6 @@ namespace CvmFight
             else
                 columnHeight = maxColumnHeight / (distance * heightDistanceRatio);
 
-            //columnHeight = Math.Min(maxColumnHeight, columnHeight);
-
             return columnHeight;
         }
 
