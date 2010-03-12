@@ -13,9 +13,9 @@ namespace CvmFight
     class Program
     {
         #region Constants
-        private const int screenWidth = 1024;
+        private const int screenWidth = 640;
 
-        private const int screenHeight = 768;
+        private const int screenHeight = 480;
 
         private static int idealRayTracerResolution = 320;
 
@@ -64,7 +64,7 @@ namespace CvmFight
             ai = new Ai(random);
 
             //gameViewer = new MiniMap(screenWidth, screenHeight, isFullScreen);
-            gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, isFullScreen, rayTracer.Fov, isEnableSpriteCache, random, isEnableLazySpriteImageLoad);
+            gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, isFullScreen, rayTracer.Fov, isEnableSpriteCache, random, isEnableLazySpriteImageLoad, world.Map);
             centerMousePositon = new Point(screenWidth / 2, screenHeight / 2);
         }
         #endregion

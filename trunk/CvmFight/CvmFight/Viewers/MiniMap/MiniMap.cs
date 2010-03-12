@@ -28,11 +28,16 @@ namespace CvmFight
         #endregion
 
         #region Constructor
-        public MiniMap(int screenWidth, int screenHeight)
+        public MiniMap(int screenWidth, int screenHeight, AbstractMap map)
         {
-            precision = 25.6 / (double)screenWidth;
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
+
+            int mapSize = Math.Max(map.Width, map.Height);
+            int screenSize = Math.Min(screenWidth, screenHeight);
+
+            precision = mapSize / ((double)screenSize * 0.9);
+
         }
         #endregion
 

@@ -40,10 +40,10 @@ namespace CvmFight
         #endregion
 
         #region Constructor
-        public GameViewer3D(int screenWidth, int screenHeight, int columnCount, SpritePool spritePool, bool isFullScreen, int fov, bool isEnableSpriteCache, Random random, bool isEnableLazySpriteImageLoad)
+        public GameViewer3D(int screenWidth, int screenHeight, int columnCount, SpritePool spritePool, bool isFullScreen, int fov, bool isEnableSpriteCache, Random random, bool isEnableLazySpriteImageLoad, AbstractMap map)
         {
             this.random = random;
-            minimap = new MiniMap(screenWidth, screenHeight);
+            minimap = new MiniMap(screenWidth, screenHeight, map);
 
             hud = new Hud(screenWidth, screenHeight);
 
