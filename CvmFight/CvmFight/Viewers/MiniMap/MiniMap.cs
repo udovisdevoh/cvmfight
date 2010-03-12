@@ -11,11 +11,9 @@ namespace CvmFight
 {
     class MiniMap
     {
-        #region Constants
-        private const double precision = 0.025; //private const double precision = 0.1;
-        #endregion
-
         #region Fields and parts
+        private double precision;
+
         private SpritePrimitiveCache circleCache = new SpritePrimitiveCache();
 
         private SpritePrimitiveCache angleLineCache = new SpritePrimitiveCache();
@@ -32,6 +30,7 @@ namespace CvmFight
         #region Constructor
         public MiniMap(int screenWidth, int screenHeight)
         {
+            precision = 25.6 / (double)screenWidth;
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
         }
