@@ -22,6 +22,8 @@ namespace CvmFight
         private int imageWidth;
 
         private int imageHeight;
+
+        private ColorMap colorMap;
         #endregion
 
         #region Constructor
@@ -53,6 +55,8 @@ namespace CvmFight
                         mapCache[x, y] = wall;
                 }
             }
+
+            colorMap = new ColorMap(random, width, height);
         }
         #endregion
 
@@ -86,7 +90,25 @@ namespace CvmFight
 
         public override void GetColors(double x, double y, double originalBrightness, out double red, out double green, out double blue)
         {
-            red = green = blue = originalBrightness;
+            /*red = green = blue = originalBrightness;*/
+
+            red = colorMap.GetRedMultiplicatorAt(x, y);
+            green = colorMap.GetGreenMultiplicatorAt(x, y);
+            blue = colorMap.GetBlueMultiplicatorAt(x, y);
+
+            double totalMultiplicator = red + green + blue;
+
+            red = red / totalMultiplicator * 3.0 * originalBrightness;
+            green = green / totalMultiplicator * 3.0 * originalBrightness;
+            blue = blue / totalMultiplicator * 3.0 * originalBrightness;
+
+            red = Math.Max(0, red);
+            green = Math.Max(0, green);
+            blue = Math.Max(0, blue);
+
+            red = Math.Min(255, red);
+            green = Math.Min(255, green);
+            blue = Math.Min(255, blue);
         }
         #endregion
     }
