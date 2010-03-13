@@ -24,6 +24,8 @@ namespace CvmFight
 
         private SpriteCache3D splatCache3D;
 
+        private EnergyBarViewer energyBarViewer;
+
         private Random random;
         #endregion
 
@@ -39,6 +41,7 @@ namespace CvmFight
 
             splatCache3D = new SpriteCache3D(isEnableSpriteCache, isEnableLazySpriteImageLoad);
             splatCache3D.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Undefined, SpriteScallableFrame.Undefined, "Assets/Textures/Sprites/Splats/splat001.png", isEnableLazySpriteImageLoad));
+            energyBarViewer = new EnergyBarViewer();
         }
         #endregion
 
@@ -163,6 +166,9 @@ namespace CvmFight
 
             if (PointLoader.IsPositionValid(destinationX, destinationY))
                 mainSurface.Blit(spriteSurface, PointLoader.GetPoint(destinationX, destinationY));
+
+            //We show the viewed sprite's energy bar
+            energyBarViewer.View(mainSurface, viewedSprite, PointLoader.GetPoint(destinationX, destinationY), theoreticalColumnHeight);
 
 
             //We show splat image on views sprite if the sprite is getting attacked by viewer sprite
