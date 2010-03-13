@@ -43,6 +43,8 @@ namespace CvmFight
 
         private Surface blockSurface;
 
+        private Surface blockSuccessSurface;
+
         private int hudColumn1;
 
         private int hudColumn2;
@@ -83,11 +85,20 @@ namespace CvmFight
             midKick = BuildMidKickSurface();
             attackKick = BuildAttackKickSurface();
             blockSurface = BuildBlockSurface();
+            blockSuccessSurface = BuildBlockSuccessSurface();
         }
 
         private Surface BuildBlockSurface()
         {
             Surface surface = new Surface("Assets/Hud/block001.png");
+            surface.Transparent = true;
+            surface = surface.CreateScaledSurface((double)screenHeight / 4 / (double)surface.Height, true);
+            return surface;
+        }
+
+        private Surface BuildBlockSuccessSurface()
+        {
+            Surface surface = new Surface("Assets/Hud/block002.png");
             surface.Transparent = true;
             surface = surface.CreateScaledSurface((double)screenHeight / 1.7 / (double)surface.Height, true);
             return surface;
@@ -161,11 +172,11 @@ namespace CvmFight
                     {
                         if (player.BlockSuccessCycle.IsFired)
                         {
-                            surface.Blit(blockSurface, PointLoader.GetPoint(screenWidth / 4, screenHeight - blockSurface.Height));
+                            surface.Blit(blockSuccessSurface, PointLoader.GetPoint(screenWidth / 5, screenHeight - blockSuccessSurface.Height));
                         }
                         else
                         {
-                            surface.Blit(blockSurface, PointLoader.GetPoint(0, screenHeight - blockSurface.Height));
+                            surface.Blit(blockSurface, PointLoader.GetPoint(screenWidth / 3, screenHeight - blockSurface.Height));
                         }
                     }
                     else if (attackCycleState == 0)
@@ -187,11 +198,11 @@ namespace CvmFight
                     {
                         if (player.BlockSuccessCycle.IsFired)
                         {
-                            surface.Blit(blockSurface, PointLoader.GetPoint(screenWidth / 4, screenHeight - blockSurface.Height));
+                            surface.Blit(blockSuccessSurface, PointLoader.GetPoint(screenWidth / 5, screenHeight - blockSuccessSurface.Height));
                         }
                         else
                         {
-                            surface.Blit(blockSurface, PointLoader.GetPoint(0, screenHeight - blockSurface.Height));
+                            surface.Blit(blockSurface, PointLoader.GetPoint(screenWidth / 3, screenHeight - blockSurface.Height));
                         }
                     }
                     else if (attackCycleState == 0)
