@@ -67,6 +67,14 @@ namespace CvmFight
                                     {
                                         prey.ReceivedAttackCycle.SetPercentComplete(0.25);
                                         prey.ReceivedAttackCycle.IsForward = false;
+                                        prey.IsJustReceivedFastAttack = true;
+                                    }
+                                    else
+                                    {
+                                        if (predator.IsCrouch || predator.PositionZ >= 0)
+                                            prey.IsJustReceivedStrongKick = true;
+                                        else
+                                            prey.IsJustReceivedStrongPunch = true;
                                     }
 
                                     prey.LatestPredator = predator;

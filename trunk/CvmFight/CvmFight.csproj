@@ -94,6 +94,7 @@
     <Compile Include="CvmFight\Viewers\GameViewer3D\Gradient.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\ColumnViewer.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\Hud\Hud.cs" />
+    <Compile Include="CvmFight\Viewers\GameViewer3D\SoundManager\CachedSound.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\SpriteViewer\EnergyBarViewer.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\SpriteViewer\SpriteCache3D.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\SpriteViewer\SpriteCache3DBuilder.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="CvmFight\Viewers\MiniMap\SpritePrimitiveCache.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\GameViewer3D.cs" />
     <Compile Include="CvmFight\Viewers\PointLoader.cs" />
+    <Compile Include="CvmFight\Viewers\GameViewer3D\SoundManager\SoundManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CvmFight\Viewers\MiniMap\MiniMap.cs" />
   </ItemGroup>

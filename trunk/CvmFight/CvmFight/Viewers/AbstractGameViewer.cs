@@ -19,5 +19,10 @@ namespace CvmFight
         }
 
         public abstract void DirthenHud();
+
+        public abstract SoundManager SoundManager
+        {
+            get;
+        }
     }
 }

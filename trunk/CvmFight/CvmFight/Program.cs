@@ -94,6 +94,11 @@ namespace CvmFight
             //We clear the sprite's shared consciousness because sprite positions changed
             world.SharedConsciousness.Clear();
 
+            //We update the sprites
+            foreach (AbstractSprite sprite in world.SpritePool)
+                sprite.Update(timeDelta, world.SpritePool, world.Map);
+
+
             if (userInput.IsPressUp != userInput.IsPressDown)
             {
                 if (userInput.IsPressUp)
@@ -184,11 +189,6 @@ namespace CvmFight
                     ai.Animate(sprite, world.Map, world.SpritePool, world.SharedConsciousness, timeDelta, rayTracer.Fov, random, world.CurrentPlayer);
 
 
-
-            //We update the sprites
-            foreach (AbstractSprite sprite in world.SpritePool)
-                sprite.Update(timeDelta, world.SpritePool,world.Map);
-
             //We perform fighting logic
             battleManager.Update(world.SpritePool, world.SharedConsciousness, world.CurrentPlayer);
 
@@ -196,11 +196,6 @@ namespace CvmFight
             bool isNeedRefreshHud;
             damageManager.Update(world.SpritePool, world.CurrentPlayer, world.Map, timeDelta, out isNeedRefreshHud);
 
-            if (isNeedRefreshHud)
-            {
-                gameViewer.DirthenHud();
-                world.Spawner.TryRespawn(world.SpritePool, world.Map);
-            }
 
             rayTracer.Trace(world.CurrentPlayer, world.Map);
 
@@ -212,6 +207,12 @@ namespace CvmFight
             userInput.MouseMotionY = 0;
 
             gameViewer.Update(world, rayTracer);
+
+            if (isNeedRefreshHud)
+            {
+                gameViewer.DirthenHud();
+                world.Spawner.TryRespawn(world.SpritePool, world.Map);
+            }
         }
 
         public void OnKeyboardDown(object sender, KeyboardEventArgs args)

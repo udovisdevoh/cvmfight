@@ -34,6 +34,8 @@ namespace CvmFight
 
         private MiniMap minimap;
 
+        private SoundManager soundManager;
+
         private Hud hud;
 
         private Random random;
@@ -44,6 +46,7 @@ namespace CvmFight
         {
             this.random = random;
             minimap = new MiniMap(screenWidth, screenHeight, map);
+            soundManager = new SoundManager();
 
             hud = new Hud(screenWidth, screenHeight);
 
@@ -72,8 +75,14 @@ namespace CvmFight
             //We display the sprites
             world.SpritePool.SortByDistance(world.CurrentPlayer);
             foreach (AbstractSprite sprite in world.SpritePool)
-                if (sprite != world.CurrentPlayer && world.SharedConsciousness.IsSpriteViewable(world.CurrentPlayer,sprite,world.Map,rayTracer.Fov))
+            {
+                if (sprite != world.CurrentPlayer && world.SharedConsciousness.IsSpriteViewable(world.CurrentPlayer, sprite, world.Map, rayTracer.Fov))
+                {
                     spriteViewer.View(world.CurrentPlayer, sprite, mainSurface);
+                    soundManager.Update(sprite,world.CurrentPlayer);
+                }
+            }
+            soundManager.Update(world.CurrentPlayer, world.CurrentPlayer);
 
             hud.Update(world.CurrentPlayer, mainSurface);
 
@@ -98,6 +107,11 @@ namespace CvmFight
         {
             get { return isMiniMapOn; }
             set { isMiniMapOn = value; }
+        }
+
+        public override SoundManager SoundManager
+        {
+            get { return soundManager; }
         }
         #endregion
     }
