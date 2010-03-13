@@ -74,7 +74,7 @@ namespace CvmFight
                 }
                 else if (sprite.LatestPredator == currentPlayer)
                 {
-                    if (sprite.Health >= sprite.DefaultHealth)
+                    if (currentPlayer.Health >= currentPlayer.DefaultHealth)
                     {
                         Play(Perfect);
                     }
