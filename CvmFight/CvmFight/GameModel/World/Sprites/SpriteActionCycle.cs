@@ -141,7 +141,11 @@ namespace CvmFight
             get { return isForward; }
             set { isForward = value; }
         }
-        #endregion
 
+        public bool IsAtBegining
+        {
+            get { return currentCyclePosition <= 0; }
+        }
+        #endregion
     }
 }

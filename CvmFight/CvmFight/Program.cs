@@ -113,7 +113,20 @@ namespace CvmFight
 
 
             //Blocking
-            world.CurrentPlayer.IsBlock = userInput.IsPressDown;
+            if (userInput.IsPressDown || userInput.IsPressMouseButtonRight)
+            {
+                if (world.CurrentPlayer.StrongAttackCycle.IsAtBegining)
+                {
+                    if (world.CurrentPlayer.FastAttackCycle.IsAtBegining)
+                    {
+                        world.CurrentPlayer.IsBlock = true;
+                    }
+                }
+            }
+            else
+            {
+                world.CurrentPlayer.IsBlock = false;
+            }
 
 
             //Crouch and jump
@@ -145,7 +158,7 @@ namespace CvmFight
                     }
                 }
             }
-            else if (userInput.IsPressMouseButtonRight)
+            else if (userInput.IsPressMouseButtonCenter)
             {
                 if (world.CurrentPlayer.ReceivedAttackCycle.GetCycleState() <= 0)
                 {
@@ -158,8 +171,10 @@ namespace CvmFight
             }
             else
             {
-                world.CurrentPlayer.StrongAttackCycle.UnFire();
-                world.CurrentPlayer.FastAttackCycle.UnFire();
+                if (world.CurrentPlayer.StrongAttackCycle.IsAtBegining)
+                    world.CurrentPlayer.StrongAttackCycle.UnFire();
+                if (world.CurrentPlayer.FastAttackCycle.IsAtBegining)
+                    world.CurrentPlayer.FastAttackCycle.UnFire();
             }
 
 
@@ -253,6 +268,8 @@ namespace CvmFight
                 userInput.IsPressMouseButtonLeft = true;
             else if (args.Button == MouseButton.SecondaryButton)
                 userInput.IsPressMouseButtonRight = true;
+            else if (args.Button == MouseButton.MiddleButton)
+                userInput.IsPressMouseButtonCenter = true;
         }
 
         public void OnMouseUp(object sender, MouseButtonEventArgs args)
@@ -261,6 +278,8 @@ namespace CvmFight
                 userInput.IsPressMouseButtonLeft = false;
             else if (args.Button == MouseButton.SecondaryButton)
                 userInput.IsPressMouseButtonRight = false;
+            else if (args.Button == MouseButton.MiddleButton)
+                userInput.IsPressMouseButtonCenter = false;
         }
         #endregion
 
