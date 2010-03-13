@@ -147,16 +147,20 @@ namespace CvmFight
                 if (prey == predator)
                     continue;
 
-                if (!Physics.IsWithinAttackRange(predator, prey) && !sharedConsciousness.IsSpriteViewable(predator, prey, map, fov))
-                    continue;
+                //if (!Physics.IsWithinAttackRange(predator, prey) && !sharedConsciousness.IsSpriteViewable(predator, prey, map, fov))
+                //    continue;
 
-                double currentDistance = Physics.GetSpriteDistance(predator, prey);
 
-                if (closestPrey == null || currentDistance < closestDistance)
+                if (sharedConsciousness.IsSpriteViewable(predator, prey, map, fov) || (sharedConsciousness.IsSpriteViewable(prey, predator, map, fov) && predator.LatestPredator == prey))
                 {
-                    closestPrey = prey;
-                    closestDistance = currentDistance;
-                }   
+                    double currentDistance = Physics.GetSpriteDistance(predator, prey);
+
+                    if (closestPrey == null || currentDistance < closestDistance)
+                    {
+                        closestPrey = prey;
+                        closestDistance = currentDistance;
+                    }   
+                }
             }
 
             return closestPrey;

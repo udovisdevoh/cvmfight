@@ -18,6 +18,7 @@ namespace CvmFight
         public CachedSound(string soundFileName)
         {
             this.soundFileName = soundFileName;
+            GetSound();
         }
         #endregion
 

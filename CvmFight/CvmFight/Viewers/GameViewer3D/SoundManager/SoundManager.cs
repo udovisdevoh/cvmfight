@@ -32,6 +32,7 @@ namespace CvmFight
         public const int YouLose = 10;
 
         public const int YouWin = 11;
+
         #endregion
 
         #region Fields
