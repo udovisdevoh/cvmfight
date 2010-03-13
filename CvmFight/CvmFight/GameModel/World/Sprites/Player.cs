@@ -116,6 +116,11 @@ namespace CvmFight
         {
             return 1.1375;
         }
+
+        protected override double GetBlockSuccessTime()
+        {
+            return 0.5;
+        }
         #endregion
     }
 }
