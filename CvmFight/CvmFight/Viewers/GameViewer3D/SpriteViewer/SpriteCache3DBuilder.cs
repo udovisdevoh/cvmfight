@@ -27,7 +27,7 @@ namespace CvmFight
 
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.Walk1, "Assets/Textures/Sprites/StickMan/StickManLeftWalk1.png", isEnableLazySpriteImageLoad));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.Walk2, "Assets/Textures/Sprites/StickMan/StickManLeftWalk2.png", isEnableLazySpriteImageLoad));
-                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.Punch1, "Assets/Textures/Sprites/StickMan/StickManLeftPunch1.png", isEnableLazySpriteImageLoad));
+                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.Punch1, "Assets/Textures/Sprites/StickMan/StickManFrontWalk1.png", isEnableLazySpriteImageLoad));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.Punch2, "Assets/Textures/Sprites/StickMan/StickManLeftPunch2.png", isEnableLazySpriteImageLoad));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.Kick1, "Assets/Textures/Sprites/StickMan/StickManLeftKick1.png", isEnableLazySpriteImageLoad));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.Kick2, "Assets/Textures/Sprites/StickMan/StickManLeftKick2.png", isEnableLazySpriteImageLoad));
@@ -39,7 +39,7 @@ namespace CvmFight
 
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Walk1, "Assets/Textures/Sprites/StickMan/StickManLeftWalk1.png",true,isEnableLazySpriteImageLoad));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Walk2, "Assets/Textures/Sprites/StickMan/StickManLeftWalk2.png", true, isEnableLazySpriteImageLoad));
-                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Punch1, "Assets/Textures/Sprites/StickMan/StickManLeftPunch1.png", true, isEnableLazySpriteImageLoad));
+                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Punch1, "Assets/Textures/Sprites/StickMan/StickManFrontWalk1.png", true, isEnableLazySpriteImageLoad));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Punch2, "Assets/Textures/Sprites/StickMan/StickManLeftPunch2.png", true, isEnableLazySpriteImageLoad));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Kick1, "Assets/Textures/Sprites/StickMan/StickManLeftKick1.png", true, isEnableLazySpriteImageLoad));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Kick2, "Assets/Textures/Sprites/StickMan/StickManLeftKick2.png", true, isEnableLazySpriteImageLoad));
@@ -63,7 +63,7 @@ namespace CvmFight
 
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Walk1, "Assets/Textures/Sprites/StickMan/StickManFrontLeftWalk1.png", isEnableLazySpriteImageLoad));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Walk2, "Assets/Textures/Sprites/StickMan/StickManFrontLeftWalk2.png", isEnableLazySpriteImageLoad));
-                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Punch1, "Assets/Textures/Sprites/StickMan/StickManFrontLeftPunch1.png", isEnableLazySpriteImageLoad));
+                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Punch1, "Assets/Textures/Sprites/StickMan/StickManFrontWalk1.png", isEnableLazySpriteImageLoad));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Punch2, "Assets/Textures/Sprites/StickMan/StickManFrontLeftPunch2.png", isEnableLazySpriteImageLoad));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Block, "Assets/Textures/Sprites/StickMan/StickManFrontLeftBlock.png", isEnableLazySpriteImageLoad));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Hit, "Assets/Textures/Sprites/StickMan/StickManFrontLeftHit.png", isEnableLazySpriteImageLoad));
@@ -75,7 +75,7 @@ namespace CvmFight
 
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Walk1, "Assets/Textures/Sprites/StickMan/StickManFrontLeftWalk1.png",true));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Walk2, "Assets/Textures/Sprites/StickMan/StickManFrontLeftWalk2.png",true));
-                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Punch1, "Assets/Textures/Sprites/StickMan/StickManFrontLeftPunch1.png", true));
+                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Punch1, "Assets/Textures/Sprites/StickMan/StickManFrontWalk1.png", true));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Punch2, "Assets/Textures/Sprites/StickMan/StickManFrontLeftPunch2.png", true));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Block, "Assets/Textures/Sprites/StickMan/StickManFrontLeftBlock.png",true));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Hit, "Assets/Textures/Sprites/StickMan/StickManFrontLeftHit.png", true));
@@ -88,7 +88,7 @@ namespace CvmFight
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Walk1, "Assets/Textures/Sprites/StickMan/StickManBackLeftWalk1.png", isEnableLazySpriteImageLoad));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Walk2, "Assets/Textures/Sprites/StickMan/StickManBackLeftWalk2.png", isEnableLazySpriteImageLoad));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Block, "Assets/Textures/Sprites/StickMan/StickManBackLeftBlock.png", isEnableLazySpriteImageLoad));
-                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Punch1, "Assets/Textures/Sprites/StickMan/StickManBackLeftPunch1.png", isEnableLazySpriteImageLoad));
+                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Punch1, "Assets/Textures/Sprites/StickMan/StickManFrontWalk1.png", isEnableLazySpriteImageLoad));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Punch2, "Assets/Textures/Sprites/StickMan/StickManBackLeftPunch2.png", isEnableLazySpriteImageLoad));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Hit, "Assets/Textures/Sprites/StickMan/StickManBackLeftHit.png", isEnableLazySpriteImageLoad));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Crouch, "Assets/Textures/Sprites/StickMan/StickManBackLeftCrouchBlock.png", isEnableLazySpriteImageLoad));
@@ -100,7 +100,7 @@ namespace CvmFight
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Walk1, "Assets/Textures/Sprites/StickMan/StickManBackLeftWalk1.png",true));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Walk2, "Assets/Textures/Sprites/StickMan/StickManBackLeftWalk2.png",true));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Block, "Assets/Textures/Sprites/StickMan/StickManBackLeftBlock.png",true));
-                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Punch1, "Assets/Textures/Sprites/StickMan/StickManBackLeftPunch1.png", true));
+                spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Punch1, "Assets/Textures/Sprites/StickMan/StickManFrontWalk1.png", true));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Punch2, "Assets/Textures/Sprites/StickMan/StickManBackLeftPunch2.png",true));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Hit, "Assets/Textures/Sprites/StickMan/StickManBackLeftHit.png",true));
                 spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Crouch, "Assets/Textures/Sprites/StickMan/StickManBackLeftCrouchBlock.png", true));
