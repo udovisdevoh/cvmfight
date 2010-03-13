@@ -173,6 +173,11 @@ namespace CvmFight
         private SpriteActionCycle receivedAttackCycle;
 
         /// <summary>
+        /// When block is successful
+        /// </summary>
+        private SpriteActionCycle blockSuccessCycle;
+
+        /// <summary>
         /// Walking cycle
         /// </summary>
         private SpriteActionCycle walkCycle;
@@ -234,6 +239,7 @@ namespace CvmFight
             stateMovement = new SpriteState(SpriteStates.Offensive, SpriteStates.Offensive, SpriteStates.Offensive, SpriteStates.Defensive, SpriteStates.FurtiveLeft, SpriteStates.FurtiveRight, GetMovementCycleLength());
             stateJumpCrouch = new SpriteState(SpriteStates.Stand, SpriteStates.Jump, SpriteStates.Crouch, SpriteStates.Stand, SpriteStates.Stand, GetJumpCrouchCycleLength());
             stateAttackBlock = new SpriteState(SpriteStates.Attack, SpriteStates.Block, SpriteStates.OpenToAttack, GetStateAttackBlockCycleLength());
+            blockSuccessCycle = new SpriteActionCycle(GetBlockSuccessTime());
         }
         #endregion
 
@@ -279,6 +285,8 @@ namespace CvmFight
         protected abstract double GetMovementCycleLength();
 
         protected abstract double GetAttackRangeJumpMultiplier();
+
+        protected abstract double GetBlockSuccessTime();
         #endregion
 
         #region Public Methods
@@ -286,6 +294,7 @@ namespace CvmFight
         {
             strongAttackCycle.Update(timeDelta);
             fastAttackCycle.Update(timeDelta);
+            blockSuccessCycle.Update(timeDelta);
             Physics.MakeFall(this, timeDelta);
         }
 
@@ -645,6 +654,11 @@ namespace CvmFight
         {
             get { return attackRangeJumpMultiplier; }
             set { attackRangeJumpMultiplier = value; }
+        }
+
+        public SpriteActionCycle BlockSuccessCycle
+        {
+            get { return blockSuccessCycle; }
         }
         #endregion
 

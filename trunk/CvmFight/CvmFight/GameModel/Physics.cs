@@ -303,6 +303,9 @@ namespace CvmFight
         /// <returns>whether sprite 1 has a valid height to block sprite2's attack</returns>
         public static bool IsInBlockingHeight(AbstractSprite sprite1, AbstractSprite sprite2)
         {
+            if (!sprite1.IsCrouch && !sprite2.IsCrouch && sprite1.PositionZ <= 0 && sprite2.PositionZ <= 0)
+                return true;
+
             if (sprite1.PositionZ > sprite2.Height / 4)
                 return false;
 

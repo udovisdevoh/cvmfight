@@ -58,6 +58,7 @@ namespace CvmFight
                                     //We abort prey's attack
                                     prey.FastAttackCycle.Reset();
                                     prey.StrongAttackCycle.Reset();
+                                    prey.BlockSuccessCycle.Reset();
 
                                     prey.ReceivedAttackAngleRadian = predator.AngleRadian;
                                     prey.ReceivedAttackCycle.Fire();
@@ -84,6 +85,11 @@ namespace CvmFight
                                         prey.StateMovement.Renew();
                                         prey.StateAttackBlock.Renew();
                                     }
+                                }
+                                else if (prey.IsBlock)
+                                {
+                                    prey.BlockSuccessCycle.Reset();
+                                    prey.BlockSuccessCycle.Fire();
                                 }
                             }
                         }

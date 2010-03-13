@@ -94,10 +94,17 @@ namespace CvmFight
             //We clear the sprite's shared consciousness because sprite positions changed
             world.SharedConsciousness.Clear();
 
-            if (userInput.IsPressUp)
-                Physics.TryMakeWalk(world.CurrentPlayer, world.SpritePool, world.Map, timeDelta);
-            else if (userInput.IsPressDown)
-                Physics.TryMakeWalk(world.CurrentPlayer, Math.PI, world.SpritePool, world.Map, timeDelta);
+            if (userInput.IsPressUp != userInput.IsPressDown)
+            {
+                if (userInput.IsPressUp)
+                {
+                    Physics.TryMakeWalk(world.CurrentPlayer, world.SpritePool, world.Map, timeDelta);
+                }
+                else if (userInput.IsPressDown)
+                {
+                    Physics.TryMakeWalk(world.CurrentPlayer, Math.PI, world.SpritePool, world.Map, timeDelta);
+                }
+            }
             
             if (userInput.IsPressLeft)
                 Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 1.5, world.SpritePool, world.Map, timeDelta);
