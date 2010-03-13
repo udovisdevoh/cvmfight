@@ -187,7 +187,9 @@ namespace CvmFight
             if (!sprite.IsNeedToJumpAgain)
             {
                 if (sprite.PositionZ <= 0)
+                {
                     sprite.CurrentJumpAcceleration = sprite.MaxJumpAcceleration;
+                }
                 else
                     sprite.CurrentJumpAcceleration += 0.065 * timeDelta;
 

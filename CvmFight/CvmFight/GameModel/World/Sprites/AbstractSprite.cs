@@ -154,6 +154,12 @@ namespace CvmFight
         private double latestPredatorDamage = 0;
 
         private double attackRangeJumpMultiplier;
+
+        private bool isJustReceivedStrongPunch = false;
+
+        private bool isJustReceivedStrongKick = false;
+
+        private bool isJustReceivedFastAttack = false;
         #endregion
 
         #region Parts
@@ -292,6 +298,10 @@ namespace CvmFight
         #region Public Methods
         public void Update(double timeDelta, SpritePool spritePool, AbstractMap map)
         {
+            isJustReceivedStrongPunch = false;
+            isJustReceivedStrongKick = false;
+            isJustReceivedFastAttack = false;
+
             strongAttackCycle.Update(timeDelta);
             fastAttackCycle.Update(timeDelta);
             blockSuccessCycle.Update(timeDelta);
@@ -659,6 +669,24 @@ namespace CvmFight
         public SpriteActionCycle BlockSuccessCycle
         {
             get { return blockSuccessCycle; }
+        }
+
+        public bool IsJustReceivedStrongPunch
+        {
+            get { return isJustReceivedStrongPunch; }
+            set { isJustReceivedStrongPunch = value; }
+        }
+
+        public bool IsJustReceivedStrongKick
+        {
+            get { return isJustReceivedStrongKick; }
+            set { isJustReceivedStrongKick = value; }
+        }
+
+        public bool IsJustReceivedFastAttack
+        {
+            get { return isJustReceivedFastAttack; }
+            set { isJustReceivedFastAttack = value; }
         }
         #endregion
 
