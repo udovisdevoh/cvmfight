@@ -113,6 +113,7 @@ namespace CvmFight
 
 
             //Blocking
+            world.CurrentPlayer.IsBlock = false;
             if (userInput.IsPressDown || userInput.IsPressMouseButtonRight)
             {
                 if (world.CurrentPlayer.StrongAttackCycle.IsAtBegining)
@@ -122,10 +123,6 @@ namespace CvmFight
                         world.CurrentPlayer.IsBlock = true;
                     }
                 }
-            }
-            else
-            {
-                world.CurrentPlayer.IsBlock = false;
             }
 
 
