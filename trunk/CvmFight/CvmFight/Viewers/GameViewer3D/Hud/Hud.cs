@@ -87,7 +87,9 @@ namespace CvmFight
             blockSurface = BuildBlockSurface();
             blockSuccessSurface = BuildBlockSuccessSurface();
         }
+        #endregion
 
+        #region Private Methods
         private Surface BuildBlockSurface()
         {
             Surface surface = new Surface("Assets/Hud/block001.png");
@@ -172,7 +174,7 @@ namespace CvmFight
                     {
                         if (player.BlockSuccessCycle.IsFired)
                         {
-                            surface.Blit(blockSuccessSurface, PointLoader.GetPoint(screenWidth / 5, screenHeight - blockSuccessSurface.Height));
+                            surface.Blit(blockSuccessSurface, PointLoader.GetPoint(screenWidth / 3, screenHeight - blockSuccessSurface.Height));
                         }
                         else
                         {
@@ -198,7 +200,7 @@ namespace CvmFight
                     {
                         if (player.BlockSuccessCycle.IsFired)
                         {
-                            surface.Blit(blockSuccessSurface, PointLoader.GetPoint(screenWidth / 5, screenHeight - blockSuccessSurface.Height));
+                            surface.Blit(blockSuccessSurface, PointLoader.GetPoint(screenWidth / 3, screenHeight - blockSuccessSurface.Height));
                         }
                         else
                         {
