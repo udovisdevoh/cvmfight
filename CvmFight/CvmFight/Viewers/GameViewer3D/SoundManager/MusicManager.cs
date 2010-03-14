@@ -27,6 +27,7 @@ namespace CvmFight
             musicFileNameList.Add("Assets/Musics/WaveBuilder - Made in indonesia.ogg");
             musicFileNameList.Add("Assets/Musics/WaveBuilder - Epic JediHads.ogg");
             musicFileNameList.Add("Assets/Musics/WaveBuilder - Gypsy Orion.ogg");
+            musicFileNameList.Add("Assets/Musics/WaveBuilder - MadeInJapan.ogg");
         }
         #endregion
 

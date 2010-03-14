@@ -120,11 +120,14 @@ namespace CvmFight
                     Physics.TryMakeWalk(world.CurrentPlayer, Math.PI, world.SpritePool, world.Map, timeDelta);
                 }
             }
-            
-            if (userInput.IsPressLeft)
-                Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 1.5, world.SpritePool, world.Map, timeDelta);
-            else if (userInput.IsPressRight)
-                Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 0.5, world.SpritePool, world.Map, timeDelta);
+
+            if (userInput.IsPressLeft != userInput.IsPressRight)
+            {
+                if (userInput.IsPressLeft)
+                    Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 1.5, world.SpritePool, world.Map, timeDelta);
+                else if (userInput.IsPressRight)
+                    Physics.TryMakeWalk(world.CurrentPlayer, Math.PI * 0.5, world.SpritePool, world.Map, timeDelta);
+            }
 
 
             //Blocking

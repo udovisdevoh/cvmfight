@@ -81,17 +81,17 @@ namespace CvmFight
 
             if (viewedSprite.IsCrouch)
             {
-                if (attackCycleState == 2)
+                if (receivedAttackCycleState != 0)
+                {
+                    spriteStatus = SpriteScallableFrame.CrouchHit;
+                }
+                else if (attackCycleState == 2)
                 {
                     spriteStatus = SpriteScallableFrame.Kick2;
                 }
                 else if (attackCycleState == 1)
                 {
                     spriteStatus = SpriteScallableFrame.Kick1;
-                }
-                else if (receivedAttackCycleState != 0)
-                {
-                    spriteStatus = SpriteScallableFrame.CrouchHit;
                 }
                 else if (viewedSprite.IsBlock)
                 {
@@ -104,7 +104,11 @@ namespace CvmFight
             }
             else
             {
-                if (attackCycleState == 1)
+                if (receivedAttackCycleState != 0)
+                {
+                    spriteStatus = SpriteScallableFrame.Hit;
+                }
+                else if (attackCycleState == 1)
                 {
                     if (viewedSprite.PositionZ > 0)
                     {
@@ -125,10 +129,6 @@ namespace CvmFight
                     {
                         spriteStatus = SpriteScallableFrame.Punch2;
                     }
-                }
-                else if (receivedAttackCycleState != 0)
-                {
-                    spriteStatus = SpriteScallableFrame.Hit;
                 }
                 else if (viewedSprite.IsBlock)
                 {
