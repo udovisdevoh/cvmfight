@@ -71,8 +71,6 @@ namespace CvmFight
 
             byte angleType = GetAngleType(viewerSprite.AngleDegree, viewedSprite.AngleDegree);
 
-            #warning Sprite status must be parsed here
-
             byte spriteStatus;
 
 
