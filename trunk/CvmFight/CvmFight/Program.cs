@@ -24,15 +24,17 @@ namespace CvmFight
 
         private const int targetFps = 60;
 
-        private bool isDestroyMouse = true;
+        private const int monsterCount = 100;
 
-        private bool isFullScreen = true;
+        private const bool isDestroyMouse = true;
 
-        private bool isEnableSpriteCache = false;
+        private const bool isFullScreen = true;
 
-        private bool isEnableLazySpriteImageLoad = false;
+        private const bool isEnableSpriteCache = false;
 
-        private bool isSoundOn = true;
+        private const bool isEnableLazySpriteImageLoad = false;
+
+        private const bool isSoundOn = true;
         #endregion
 
         #region Fields and parts
@@ -65,7 +67,7 @@ namespace CvmFight
             idealRayTracerResolution = RayTracer.GetValidResolution(idealRayTracerResolution, screenWidth);
             rayTracer = new RayTracer(idealRayTracerResolution, fov);
 
-            world = new World(random);
+            world = new World(random, monsterCount);
             ai = new Ai(random);
 
             gameViewer = new GameViewer3D(mainSurface, screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, rayTracer.Fov, isEnableSpriteCache, random, isEnableLazySpriteImageLoad, world.Map, isSoundOn);

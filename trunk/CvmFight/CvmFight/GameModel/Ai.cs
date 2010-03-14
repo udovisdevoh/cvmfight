@@ -7,6 +7,10 @@ namespace CvmFight
 {
     class Ai
     {
+        #region Constants
+        private const int howManyFrameBeforeChoosingPreyAgain = 100;
+        #endregion
+
         #region Fields
         private Random random;
         #endregion
@@ -21,7 +25,18 @@ namespace CvmFight
         #region Public Methods
         public void Animate(AbstractSprite predator, AbstractMap map, SpritePool spritePool, SharedConsciousness sharedConsciousness, double timeDelta, int fov, Random random, AbstractSprite currentPlayer)
         {
-            AbstractSprite prey = TryChoosePrey(predator, spritePool, sharedConsciousness, map, fov, currentPlayer);
+            AbstractSprite prey;
+
+            if (random.Next(howManyFrameBeforeChoosingPreyAgain) == 0)
+            {
+                prey = TryChoosePrey(predator, spritePool, sharedConsciousness, map, fov, currentPlayer);
+                predator.LatestSelectedPrey = prey;
+            }
+            else
+            {
+                prey = predator.LatestSelectedPrey;
+            }
+
             
             predator.IsNeedToJumpAgain = false;
             predator.IsBlock = false;
