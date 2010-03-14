@@ -28,7 +28,7 @@ namespace CvmFight
 
         private bool isFullScreen = true;
 
-        private bool isEnableSpriteCache = true;
+        private bool isEnableSpriteCache = false;
 
         private bool isEnableLazySpriteImageLoad = false;
         #endregion
