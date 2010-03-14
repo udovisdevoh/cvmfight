@@ -24,7 +24,7 @@ namespace CvmFight
 
         private const int targetFps = 60;
 
-        private const int monsterCount = 100;
+        private const int monsterCount = 10;
 
         private const bool isDestroyMouse = true;
 
