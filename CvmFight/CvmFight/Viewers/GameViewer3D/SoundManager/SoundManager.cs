@@ -42,6 +42,8 @@ namespace CvmFight
         #region Constructor
         public SoundManager()
         {
+            Mixer.ChannelsAllocated = 64;
+
             internalList = new CachedSound[12];
             internalList[Block] = new CachedSound("Assets/Sounds/Block.ogg");
             internalList[FastAttempt] = new CachedSound("Assets/Sounds/FastAttempt.ogg");
@@ -59,69 +61,81 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public void Play(int soundIndex)
+        public Channel Play(int soundIndex)
         {
-            internalList[soundIndex].GetSound().Play();
+            return internalList[soundIndex].GetSound().Play();
         }
 
         public void Update(AbstractSprite sprite, AbstractSprite currentPlayer)
         {
+            Channel channel = null;
+
             if (!sprite.IsAlive)
             {
                 if (sprite == currentPlayer)
                 {
-                    Play(YouLose);
+                    channel = Play(YouLose);
                 }
                 else if (sprite.LatestPredator == currentPlayer)
                 {
                     if (currentPlayer.Health >= currentPlayer.DefaultHealth)
                     {
-                        Play(Perfect);
+                        channel = Play(Perfect);
                     }
                     else
                     {
-                        Play(YouWin);
+                        channel = Play(YouWin);
                     }
                 }
                 else
                 {
-                    Play(Ko);
+                    channel = Play(Ko);
                 }
             }
             if (sprite.IsJustReceivedStrongPunch)
             {
-                Play(StrongPunchHit);
+                channel = Play(StrongPunchHit);
             }
             else if (sprite.IsJustReceivedStrongKick)
             {
-                Play(StrongKickHit);
+                channel = Play(StrongKickHit);
             }
             else if (sprite.IsJustReceivedFastAttack)
             {
-                Play(FastHit);
+                channel = Play(FastHit);
             }
             else if (sprite.CurrentJumpAcceleration == sprite.MaxJumpAcceleration)
             {
                 //warning, jump is forced when getting hit so we must evaluate getting hit before jump
-                Play(Jump);
+                channel = Play(Jump);
             }
             else if (sprite.IsBlock && sprite.BlockSuccessCycle.IsFired && sprite.BlockSuccessCycle.IsAtBegining && sprite.BlockSuccessCycle.IsForward)
             {
-                Play(Block);
+                channel = Play(Block);
             }
             else if (sprite.StrongAttackCycle.IsAtBegining && sprite.StrongAttackCycle.IsFired && sprite.StrongAttackCycle.IsForward)
             {
                 if (sprite.IsCrouch || sprite.PositionZ > 0)
-                    Play(StrongKickAttempt);
+                    channel = Play(StrongKickAttempt);
                 else
-                    Play(StrongPunchAttempt);
+                    channel = Play(StrongPunchAttempt);
             }
             else if (sprite.FastAttackCycle.IsAtBegining && sprite.FastAttackCycle.IsFired && sprite.FastAttackCycle.IsForward)
             {
                 if (sprite.IsCrouch || sprite.PositionZ > 0)
-                    Play(FastAttempt);
+                    channel = Play(FastAttempt);
                 else
-                    Play(FastAttempt);
+                    channel = Play(FastAttempt);
+            }
+
+            //We set the volume according to the distance
+            if (channel != null)
+            {
+                double straightDistance = Optics.GetStraightDistance(currentPlayer, sprite);
+                if (straightDistance <= 0)
+                    channel.Volume = 128;
+                else
+                    channel.Volume = (int)(1.0 / straightDistance * 128.0);
             }
         }
         #endregion
