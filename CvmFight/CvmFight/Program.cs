@@ -72,6 +72,8 @@ namespace CvmFight
         #region Public Methods and event handlers
         public void Start()
         {
+            gameViewer.SoundManager.PlayRandomMusic();
+
             if (isDestroyMouse)
                 Cursor.Hide();
             Events.TargetFps = targetFps;

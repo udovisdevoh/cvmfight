@@ -46,7 +46,7 @@ namespace CvmFight
         {
             this.random = random;
             minimap = new MiniMap(screenWidth, screenHeight, map);
-            soundManager = new SoundManager();
+            soundManager = new SoundManager(random);
 
             hud = new Hud(screenWidth, screenHeight);
 

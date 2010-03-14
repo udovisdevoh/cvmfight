@@ -95,6 +95,7 @@
     <Compile Include="CvmFight\Viewers\GameViewer3D\ColumnViewer.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\Hud\Hud.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\SoundManager\CachedSound.cs" />
+    <Compile Include="CvmFight\Viewers\GameViewer3D\SoundManager\MusicManager.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\SpriteViewer\EnergyBarViewer.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\SpriteViewer\SpriteCache3D.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\SpriteViewer\SpriteCache3DBuilder.cs" />
