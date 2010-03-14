@@ -16,8 +16,6 @@ namespace CvmFight
         #endregion
 
         #region Fields and parts
-        private bool isFullScreen;
-
         private bool isMiniMapOn;
 
         private bool isSoundOn;
@@ -44,8 +42,9 @@ namespace CvmFight
         #endregion
 
         #region Constructor
-        public GameViewer3D(int screenWidth, int screenHeight, int columnCount, SpritePool spritePool, bool isFullScreen, int fov, bool isEnableSpriteCache, Random random, bool isEnableLazySpriteImageLoad, AbstractMap map, bool isSoundOn)
+        public GameViewer3D(Surface mainSurface, int screenWidth, int screenHeight, int columnCount, SpritePool spritePool, int fov, bool isEnableSpriteCache, Random random, bool isEnableLazySpriteImageLoad, AbstractMap map, bool isSoundOn)
         {
+            this.mainSurface = mainSurface;
             this.isSoundOn = isSoundOn;
             this.random = random;
             minimap = new MiniMap(screenWidth, screenHeight, map);
@@ -57,15 +56,12 @@ namespace CvmFight
 
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
-            this.isFullScreen = isFullScreen;
 
             spriteViewer = new SpriteViewer3D(screenWidth, screenHeight, spritePool, fov, heightDistanceRatio, isEnableSpriteCache, isEnableLazySpriteImageLoad, random);
 
             this.gradient = new Gradient(screenWidth, screenHeight * 2);
 
             columnViewer = new ColumnViewer(this.screenWidth, this.screenHeight, columnCount, heightDistanceRatio);
-            
-            mainSurface = Video.SetVideoMode(screenWidth, screenHeight, true, false, isFullScreen, true);
         }
         #endregion
 

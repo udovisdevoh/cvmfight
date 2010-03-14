@@ -30,7 +30,7 @@ namespace CvmFight
 
         private bool isEnableSpriteCache = false;
 
-        private bool isEnableLazySpriteImageLoad = true;
+        private bool isEnableLazySpriteImageLoad = false;
 
         private bool isSoundOn = true;
         #endregion
@@ -60,14 +60,15 @@ namespace CvmFight
         #region Constructor
         public Program()
         {
+            Surface mainSurface = Video.SetVideoMode(screenWidth, screenHeight, true, false, isFullScreen, true);
+
             idealRayTracerResolution = RayTracer.GetValidResolution(idealRayTracerResolution, screenWidth);
             rayTracer = new RayTracer(idealRayTracerResolution, fov);
 
             world = new World(random);
             ai = new Ai(random);
 
-            //gameViewer = new MiniMap(screenWidth, screenHeight, isFullScreen);
-            gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, isFullScreen, rayTracer.Fov, isEnableSpriteCache, random, isEnableLazySpriteImageLoad, world.Map, isSoundOn);
+            gameViewer = new GameViewer3D(mainSurface, screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, rayTracer.Fov, isEnableSpriteCache, random, isEnableLazySpriteImageLoad, world.Map, isSoundOn);
             centerMousePositon = new Point(screenWidth / 2, screenHeight / 2);
         }
         #endregion

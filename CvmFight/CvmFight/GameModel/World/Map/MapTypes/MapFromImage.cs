@@ -49,7 +49,7 @@ namespace CvmFight
                 {
                     currentPixelColor = bitmap.GetPixel(x, y);
 
-                    if (currentPixelColor.R > 128 && currentPixelColor.G > 128 && currentPixelColor.B > 128)
+                    if (currentPixelColor.R > 128)
                         mapCache[x, y] = null;
                     else
                         mapCache[x, y] = wall;
