@@ -37,11 +37,14 @@ namespace CvmFight
 
         #region Fields
         private CachedSound[] internalList;
+
+        private MusicManager musicManager;
         #endregion
 
         #region Constructor
-        public SoundManager()
+        public SoundManager(Random random)
         {
+            musicManager = new MusicManager(random);
             Mixer.ChannelsAllocated = 64;
 
             internalList = new CachedSound[12];
@@ -137,6 +140,11 @@ namespace CvmFight
                 else
                     channel.Volume = (int)(1.0 / straightDistance * 128.0);
             }
+        }
+
+        public void PlayRandomMusic()
+        {
+            musicManager.PlayRandomMusic();
         }
         #endregion
     }
