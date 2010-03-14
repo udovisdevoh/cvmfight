@@ -49,7 +49,9 @@ namespace CvmFight
             this.isSoundOn = isSoundOn;
             this.random = random;
             minimap = new MiniMap(screenWidth, screenHeight, map);
-            soundManager = new SoundManager(random);
+
+            if (isSoundOn)
+                soundManager = new SoundManager(random);
 
             hud = new Hud(screenWidth, screenHeight);
 
