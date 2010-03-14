@@ -32,7 +32,7 @@ namespace CvmFight
 
         private bool isEnableLazySpriteImageLoad = false;
 
-        private bool isSoundOn = false;
+        private bool isSoundOn = true;
         #endregion
 
         #region Fields and parts
