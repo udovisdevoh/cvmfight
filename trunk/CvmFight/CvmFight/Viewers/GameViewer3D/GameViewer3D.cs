@@ -20,6 +20,8 @@ namespace CvmFight
 
         private bool isMiniMapOn;
 
+        private bool isSoundOn;
+
         private int screenWidth;
 
         private int screenHeight;
@@ -42,8 +44,9 @@ namespace CvmFight
         #endregion
 
         #region Constructor
-        public GameViewer3D(int screenWidth, int screenHeight, int columnCount, SpritePool spritePool, bool isFullScreen, int fov, bool isEnableSpriteCache, Random random, bool isEnableLazySpriteImageLoad, AbstractMap map)
+        public GameViewer3D(int screenWidth, int screenHeight, int columnCount, SpritePool spritePool, bool isFullScreen, int fov, bool isEnableSpriteCache, Random random, bool isEnableLazySpriteImageLoad, AbstractMap map, bool isSoundOn)
         {
+            this.isSoundOn = isSoundOn;
             this.random = random;
             minimap = new MiniMap(screenWidth, screenHeight, map);
             soundManager = new SoundManager(random);
@@ -79,10 +82,14 @@ namespace CvmFight
                 if (sprite != world.CurrentPlayer && world.SharedConsciousness.IsSpriteViewable(world.CurrentPlayer, sprite, world.Map, rayTracer.Fov))
                 {
                     spriteViewer.View(world.CurrentPlayer, sprite, mainSurface);
-                    soundManager.Update(sprite,world.CurrentPlayer);
+                    if (isSoundOn)
+                    {
+                        soundManager.Update(sprite, world.CurrentPlayer);
+                    }
                 }
             }
-            soundManager.Update(world.CurrentPlayer, world.CurrentPlayer);
+            if (isSoundOn)
+                soundManager.Update(world.CurrentPlayer, world.CurrentPlayer);
 
             hud.Update(world.CurrentPlayer, mainSurface);
 
