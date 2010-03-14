@@ -63,7 +63,7 @@ namespace CvmFight
 
             //byte brightness = (byte)(columnHeight / maxColumnHeight * 255);
 
-            int spriteHeight = (int)(theoreticalColumnHeight * 0.6);
+            int spriteHeight = (int)(theoreticalColumnHeight * 0.6 * viewedSprite.Height);
             int destinationX = 0;
             int destinationY;
 

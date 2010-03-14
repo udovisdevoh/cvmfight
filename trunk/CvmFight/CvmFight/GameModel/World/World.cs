@@ -61,7 +61,12 @@ namespace CvmFight
             sharedConsciousness = new SharedConsciousness(spritePool.Count);
 
             for (int i = 0; i < monsterCount; i++)
-                spritePool.Add(new MonsterStickMan());
+            {
+                if (random.Next(2) == 0)
+                    spritePool.Add(new MonsterStickMan());
+                else
+                    spritePool.Add(new MonsterNutKunDo());
+            }
 
             spawner.TryRespawn(spritePool,map);
         }
