@@ -17,22 +17,21 @@ namespace CvmFight
         #region Constructor
         public MusicManager(Random random)
         {
+            MusicPlayer.EnableMusicFinishedCallback();
             this.random = random;
+            musicList = new List<Music>();
+            musicList.Add(new Music("Assets/Musics/iCanFeelItHey.ogg"));
+            musicList.Add(new Music("Assets/Musics/WaveBuilder - Made in indonesia.ogg"));
+            musicList.Add(new Music("Assets/Musics/WaveBuilder - Epic JediHads.ogg"));
+            musicList.Add(new Music("Assets/Musics/WaveBuilder - Gypsy Orion.ogg"));
         }
         #endregion
 
         #region Public Methods
         public void PlayRandomMusic()
         {
-            musicList = new List<Music>();
-            musicList.Add(new Music("Assets/Musics/iCanFeelItHey.ogg"));
-            musicList.Add(new Music("Assets/Musics/WaveBuilder - Made in indonesia.ogg"));
-            musicList.Add(new Music("Assets/Musics/WaveBuilder - Epic JediHads.ogg"));
-            musicList.Add(new Music("Assets/Musics/WaveBuilder - Gypsy Orion.ogg"));
-
             Music music = musicList[random.Next(musicList.Count)];
-
-            music.Play(true);
+            music.Play();
         }
         #endregion
     }

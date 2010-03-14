@@ -6,6 +6,7 @@ using System.Drawing;
 using SdlDotNet.Graphics;
 using SdlDotNet.Core;
 using SdlDotNet.Input;
+using SdlDotNet.Audio;
 using System.Windows.Forms;
 
 namespace CvmFight
@@ -27,9 +28,9 @@ namespace CvmFight
 
         private bool isFullScreen = true;
 
-        private bool isEnableSpriteCache = false;
+        private bool isEnableSpriteCache = true;
 
-        private bool isEnableLazySpriteImageLoad = true;
+        private bool isEnableLazySpriteImageLoad = false;
         #endregion
 
         #region Fields and parts
@@ -83,6 +84,7 @@ namespace CvmFight
             Events.MouseMotion += OnMouseMotion;
             Events.MouseButtonDown += OnMouseDown;
             Events.MouseButtonUp += OnMouseUp;
+            Events.MusicFinished += OnMusicFinished;
             Events.Run();
         }
 
@@ -280,6 +282,11 @@ namespace CvmFight
                 userInput.IsPressMouseButtonRight = false;
             else if (args.Button == MouseButton.MiddleButton)
                 userInput.IsPressMouseButtonCenter = false;
+        }
+
+        public void OnMusicFinished(object sender, MusicFinishedEventArgs args)
+        {
+            gameViewer.SoundManager.PlayRandomMusic();
         }
         #endregion
 
