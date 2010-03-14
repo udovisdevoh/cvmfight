@@ -212,6 +212,11 @@ namespace CvmFight
         /// Represents latest sprite which attacked this
         /// </summary>
         private AbstractSprite latestPredator;
+
+        /// <summary>
+        /// Represents latest sprite which got selected as a prey
+        /// </summary>
+        private AbstractSprite latestSelectedPrey;
         #endregion
 
         #region Constructor
@@ -687,6 +692,12 @@ namespace CvmFight
         {
             get { return isJustReceivedFastAttack; }
             set { isJustReceivedFastAttack = value; }
+        }
+
+        public AbstractSprite LatestSelectedPrey
+        {
+            get { return latestSelectedPrey; }
+            set { latestSelectedPrey = value; }
         }
         #endregion
 

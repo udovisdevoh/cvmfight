@@ -10,14 +10,12 @@ namespace CvmFight
     /// </summary>
     class World
     {
-        #region Constants
+        #region Fields and parts
         /// <summary>
         /// How many desired monsters
         /// </summary>
-        private int monsterCount = 10;
-        #endregion
+        private int monsterCount;
 
-        #region Fields and parts
         /// <summary>
         /// Current player
         /// </summary>
@@ -50,8 +48,9 @@ namespace CvmFight
         #endregion
 
         #region Constructor
-        public World(Random random)
+        public World(Random random, int monsterCount)
         {
+            this.monsterCount = monsterCount;
             this.random = random;
             spawner = new Spawner(random);
             //map = new HardCodedMap();
