@@ -11,26 +11,36 @@ namespace CvmFight
         #region Fields
         private Random random;
 
-        private List<Music> musicList;
+        private List<string> musicFileNameList;
+
+        private Dictionary<string, Music> musicCache;
         #endregion
 
         #region Constructor
         public MusicManager(Random random)
         {
+            musicCache = new Dictionary<string, Music>();
             MusicPlayer.EnableMusicFinishedCallback();
             this.random = random;
-            musicList = new List<Music>();
-            musicList.Add(new Music("Assets/Musics/iCanFeelItHey.ogg"));
-            musicList.Add(new Music("Assets/Musics/WaveBuilder - Made in indonesia.ogg"));
-            musicList.Add(new Music("Assets/Musics/WaveBuilder - Epic JediHads.ogg"));
-            musicList.Add(new Music("Assets/Musics/WaveBuilder - Gypsy Orion.ogg"));
+            musicFileNameList = new List<string>();
+            musicFileNameList.Add("Assets/Musics/iCanFeelItHey.ogg");
+            musicFileNameList.Add("Assets/Musics/WaveBuilder - Made in indonesia.ogg");
+            musicFileNameList.Add("Assets/Musics/WaveBuilder - Epic JediHads.ogg");
+            musicFileNameList.Add("Assets/Musics/WaveBuilder - Gypsy Orion.ogg");
         }
         #endregion
 
         #region Public Methods
         public void PlayRandomMusic()
         {
-            Music music = musicList[random.Next(musicList.Count)];
+            string musicFileName = musicFileNameList[random.Next(musicFileNameList.Count)];
+            Music music;
+            if (!musicCache.TryGetValue(musicFileName, out music))
+            {
+                music = new Music(musicFileName);
+                musicCache.Add(musicFileName, music);
+            }
+
             music.Play();
         }
         #endregion

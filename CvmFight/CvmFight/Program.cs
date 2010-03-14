@@ -30,7 +30,7 @@ namespace CvmFight
 
         private bool isEnableSpriteCache = false;
 
-        private bool isEnableLazySpriteImageLoad = false;
+        private bool isEnableLazySpriteImageLoad = true;
 
         private bool isSoundOn = true;
         #endregion

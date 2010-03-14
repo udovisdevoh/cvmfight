@@ -38,7 +38,5 @@ C:\Documents and Settings\Udovis Devoh\My Documents\Programming\CvmFight\CvmFigh
 C:\Documents and Settings\Udovis Devoh\My Documents\Programming\CvmFight\CvmFight\bin\Debug\zlib1.dll
 C:\Documents and Settings\Udovis Devoh\My Documents\Programming\CvmFight\CvmFight\bin\Debug\CvmFight.exe
 C:\Documents and Settings\Udovis Devoh\My Documents\Programming\CvmFight\CvmFight\bin\Debug\CvmFight.pdb
-C:\Documents and Settings\Udovis Devoh\My Documents\Programming\CvmFight\CvmFight\bin\Debug\SdlDotNet.dll
-C:\Documents and Settings\Udovis Devoh\My Documents\Programming\CvmFight\CvmFight\bin\Debug\Tao.Sdl.xml
 C:\Documents and Settings\Udovis Devoh\My Documents\Programming\CvmFight\CvmFight\obj\Debug\CvmFight.exe
 C:\Documents and Settings\Udovis Devoh\My Documents\Programming\CvmFight\CvmFight\obj\Debug\CvmFight.pdb
