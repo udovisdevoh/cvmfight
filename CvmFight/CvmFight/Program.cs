@@ -31,6 +31,8 @@ namespace CvmFight
         private bool isEnableSpriteCache = false;
 
         private bool isEnableLazySpriteImageLoad = false;
+
+        private bool isSoundOn = false;
         #endregion
 
         #region Fields and parts
@@ -65,7 +67,7 @@ namespace CvmFight
             ai = new Ai(random);
 
             //gameViewer = new MiniMap(screenWidth, screenHeight, isFullScreen);
-            gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, isFullScreen, rayTracer.Fov, isEnableSpriteCache, random, isEnableLazySpriteImageLoad, world.Map);
+            gameViewer = new GameViewer3D(screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, isFullScreen, rayTracer.Fov, isEnableSpriteCache, random, isEnableLazySpriteImageLoad, world.Map, isSoundOn);
             centerMousePositon = new Point(screenWidth / 2, screenHeight / 2);
         }
         #endregion
@@ -73,7 +75,8 @@ namespace CvmFight
         #region Public Methods and event handlers
         public void Start()
         {
-            gameViewer.SoundManager.PlayRandomMusic();
+            if (isSoundOn)
+                gameViewer.SoundManager.PlayRandomMusic();
 
             if (isDestroyMouse)
                 Cursor.Hide();
