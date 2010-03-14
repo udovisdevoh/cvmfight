@@ -10,12 +10,12 @@ namespace CvmFight
         #region Abstract Sprite Members
         protected override double GetHeight()
         {
-            return 1.4;
+            return 1.15;
         }
 
         protected override double GetRadius()
         {
-            return 0.2;
+            return 0.1;
         }
 
         protected override double GetAttackRange()
@@ -40,17 +40,17 @@ namespace CvmFight
 
         protected override double GetDefaultHealth()
         {
-            return 100;
+            return 200;
         }
 
         protected override double GetMaxHealth()
         {
-            return 200;
+            return 400;
         }
 
         protected override double GetMaxJumpAcceleration()
         {
-            return 0.43;
+            return 0.58;
         }
 
         protected override double GetCrouchSpeedMultiplier()
@@ -79,12 +79,12 @@ namespace CvmFight
         {
             //return 0.2;
             //return 1;
-            return 2;
+            return 4;
         }
 
         protected override double GetFastAttackTime()
         {
-            return 0.5;
+            return 1;
         }
 
         protected override double GetReceivedAttackCycleLength()
