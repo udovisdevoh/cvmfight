@@ -193,14 +193,10 @@ namespace CvmFight
             }
 
 
-
-
-
             //We animate the sprites using the AI
             foreach (AbstractSprite sprite in world.SpritePool)
                 if (sprite != world.CurrentPlayer)
                     ai.Animate(sprite, world.Map, world.SpritePool, world.SharedConsciousness, timeDelta, rayTracer.Fov, random, world.CurrentPlayer);
-
 
             //We perform fighting logic
             battleManager.Update(world.SpritePool, world.SharedConsciousness, world.CurrentPlayer);

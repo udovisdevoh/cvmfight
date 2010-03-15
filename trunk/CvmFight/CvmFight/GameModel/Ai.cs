@@ -43,7 +43,6 @@ namespace CvmFight
 
             byte currentStateJumpCrouch = predator.StateJumpCrouch.GetCurrentState();
 
-
             //We manage jumping state
             if (currentStateJumpCrouch == SpriteStates.Jump)
             {
