@@ -13,7 +13,7 @@ namespace CvmFight
         #region Fields
         private int spriteCount;
 
-        private Dictionary<AbstractSprite, Dictionary<AbstractSprite,bool>> internalList = new Dictionary<AbstractSprite, Dictionary<AbstractSprite,bool>>();
+        private Dictionary<AbstractHumanoid, Dictionary<AbstractHumanoid,bool>> internalList = new Dictionary<AbstractHumanoid, Dictionary<AbstractHumanoid,bool>>();
         #endregion
 
         #region Constructor
@@ -26,16 +26,16 @@ namespace CvmFight
         #region Public Methods
         public void Clear()
         {
-            foreach (Dictionary<AbstractSprite,bool> spriteList in internalList.Values)
+            foreach (Dictionary<AbstractHumanoid,bool> spriteList in internalList.Values)
                 spriteList.Clear();
         }
 
-        public bool IsSpriteViewable(AbstractSprite viewerSprite, AbstractSprite viewedSprite, AbstractMap map, int fov)
+        public bool IsSpriteViewable(AbstractHumanoid viewerSprite, AbstractHumanoid viewedSprite, AbstractMap map, int fov)
         {
-            Dictionary<AbstractSprite, bool> viewedList;
+            Dictionary<AbstractHumanoid, bool> viewedList;
             if (!internalList.TryGetValue(viewerSprite, out viewedList))
             {
-                viewedList = new Dictionary<AbstractSprite, bool>();
+                viewedList = new Dictionary<AbstractHumanoid, bool>();
                 internalList.Add(viewerSprite, viewedList);
             }
 

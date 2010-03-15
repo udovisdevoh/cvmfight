@@ -75,7 +75,7 @@ namespace CvmFight
 
             //We display the sprites
             world.SpritePool.SortByDistance(world.CurrentPlayer);
-            foreach (AbstractSprite sprite in world.SpritePool)
+            foreach (AbstractHumanoid sprite in world.SpritePool)
             {
                 if (sprite != world.CurrentPlayer && world.SharedConsciousness.IsSpriteViewable(world.CurrentPlayer, sprite, world.Map, rayTracer.Fov))
                 {

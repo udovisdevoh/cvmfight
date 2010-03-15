@@ -16,7 +16,7 @@ namespace CvmFight
         #endregion
 
         #region Public Method
-        public void View(Surface surface, AbstractSprite sprite, Point spritePosition, double theoreticalColumnHeight)
+        public void View(Surface surface, AbstractHumanoid sprite, Point spritePosition, double theoreticalColumnHeight)
         {
             int barHeight = (int)(theoreticalColumnHeight / 100.0);
 

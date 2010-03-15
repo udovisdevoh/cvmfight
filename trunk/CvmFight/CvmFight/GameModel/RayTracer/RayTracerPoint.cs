@@ -15,7 +15,7 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public void Trace(AbstractSprite viewerSprite, double angleDegree, double rayDistanceResolution, AbstractMap map)
+        public void Trace(AbstractHumanoid viewerSprite, double angleDegree, double rayDistanceResolution, AbstractMap map)
         {
             double xMove = Math.Cos(angleDegree / 180 * Math.PI) * rayDistanceResolution;
             double yMove = Math.Sin(angleDegree / 180 * Math.PI) * rayDistanceResolution;

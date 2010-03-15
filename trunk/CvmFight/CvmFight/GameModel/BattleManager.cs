@@ -8,15 +8,15 @@ namespace CvmFight
     class BattleManager
     {
         #region Public Methods
-        public void Update(SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractSprite currentPlayer)
+        public void Update(SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractHumanoid currentPlayer)
         {
-            foreach (AbstractSprite sprite in spritePool)
+            foreach (AbstractHumanoid sprite in spritePool)
                 Update(sprite, spritePool, sharedConsciousness, currentPlayer);
         }
         #endregion
 
         #region Private Methods
-        private void Update(AbstractSprite predator, SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractSprite currentPlayer)
+        private void Update(AbstractHumanoid predator, SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractHumanoid currentPlayer)
         {
             bool predatorAttackIsAtParoxism;
             double damage;
@@ -42,7 +42,7 @@ namespace CvmFight
 
             if (predatorAttackIsAtParoxism && predator.ReceivedAttackCycle.GetCycleState() <= 0)
             {
-                foreach (AbstractSprite prey in spritePool)
+                foreach (AbstractHumanoid prey in spritePool)
                 {
                     if (prey == predator)
                         continue;

@@ -8,7 +8,7 @@ namespace CvmFight
     class SpriteCache3DBuilder
     {
         #region Public Methods
-        public SpriteCache3D Build(AbstractSprite sprite, bool isEnableSpriteCache, bool isEnableLazySpriteImageLoad)
+        public SpriteCache3D Build(AbstractHumanoid sprite, bool isEnableSpriteCache, bool isEnableLazySpriteImageLoad)
         {
             SpriteCache3D spriteCache = new SpriteCache3D(isEnableSpriteCache, isEnableLazySpriteImageLoad);
             if (sprite is MonsterStickMan)

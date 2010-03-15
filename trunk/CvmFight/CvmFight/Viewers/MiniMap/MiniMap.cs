@@ -45,7 +45,7 @@ namespace CvmFight
         public void Update(World world, RayTracer rayTracer, Surface surface)
         {
             surface.Blit(GetOrCreateMapSurface(world.Map));
-            foreach (AbstractSprite sprite in world.SpritePool)
+            foreach (AbstractHumanoid sprite in world.SpritePool)
                 DrawSprite(sprite, world.SharedConsciousness.IsSpriteViewable(world.CurrentPlayer, sprite, world.Map, rayTracer.Fov), surface);
 
             DrawRayTracer(world.Map, rayTracer, surface);
@@ -88,13 +88,13 @@ namespace CvmFight
             return mapSurface;
         }
 
-        private void DrawSprite(AbstractSprite sprite, bool isViewable, Surface surface)
+        private void DrawSprite(AbstractHumanoid sprite, bool isViewable, Surface surface)
         {
             DrawSpriteBounds(sprite, isViewable, surface);
             DrawSpriteAngle(sprite, surface);
         }
 
-        private void DrawSpriteAngle(AbstractSprite sprite, Surface surface)
+        private void DrawSpriteAngle(AbstractHumanoid sprite, Surface surface)
         {
             int pixelLocationX = (int)(sprite.PositionX / precision);
             int pixelLocationY = (int)(sprite.PositionY / precision);
@@ -128,7 +128,7 @@ namespace CvmFight
             surface.Draw(angleLine, Color.White);
         }
 
-        private void DrawSpriteBounds(AbstractSprite sprite, bool isViewable, Surface surface)
+        private void DrawSpriteBounds(AbstractHumanoid sprite, bool isViewable, Surface surface)
         {
             int pixelLocationX = (int)(sprite.PositionX / precision);
             int pixelLocationY = (int)(sprite.PositionY / precision);

@@ -105,7 +105,7 @@ namespace CvmFight
             world.SharedConsciousness.Clear();
 
             //We update the sprites
-            foreach (AbstractSprite sprite in world.SpritePool)
+            foreach (AbstractHumanoid sprite in world.SpritePool)
                 sprite.Update(timeDelta, world.SpritePool, world.Map);
 
 
@@ -194,7 +194,7 @@ namespace CvmFight
 
 
             //We animate the sprites using the AI
-            foreach (AbstractSprite sprite in world.SpritePool)
+            foreach (AbstractHumanoid sprite in world.SpritePool)
                 if (sprite != world.CurrentPlayer)
                     ai.Animate(sprite, world.Map, world.SpritePool, world.SharedConsciousness, timeDelta, rayTracer.Fov, random, world.CurrentPlayer);
 

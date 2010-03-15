@@ -44,7 +44,7 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public void Update(AbstractSprite currentPlayer, RayTracer rayTracer, AbstractMap map, Surface surface)
+        public void Update(AbstractHumanoid currentPlayer, RayTracer rayTracer, AbstractMap map, Surface surface)
         {
             int columnXLeftMargin = 0;
             for (int columnId = 0; columnId < columnCount; columnId++)

@@ -46,7 +46,7 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public void View(AbstractSprite viewerSprite, AbstractSprite viewedSprite, Surface mainSurface)
+        public void View(AbstractHumanoid viewerSprite, AbstractHumanoid viewedSprite, Surface mainSurface)
         {
             double angleDegree = (Optics.GetSpriteAngleToSpriteRadian(viewerSprite, viewedSprite) - viewerSprite.AngleRadian) / Math.PI * 180.0;
             double straightDistance = Optics.GetStraightDistance(viewerSprite, viewedSprite);

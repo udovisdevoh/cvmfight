@@ -148,7 +148,7 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public void Update(AbstractSprite player, Surface surface)
+        public void Update(AbstractHumanoid player, Surface surface)
         {
             if (health == null)
                 health = bigRed.Render(((int)(player.Health)).ToString(), System.Drawing.Color.Red);

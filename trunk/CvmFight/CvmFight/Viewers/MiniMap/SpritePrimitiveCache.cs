@@ -10,16 +10,16 @@ namespace CvmFight
     class SpritePrimitiveCache
     {
         #region Fields
-        private Dictionary<AbstractSprite, IPrimitive> internalCache = new Dictionary<AbstractSprite, IPrimitive>();
+        private Dictionary<AbstractHumanoid, IPrimitive> internalCache = new Dictionary<AbstractHumanoid, IPrimitive>();
         #endregion
 
         #region Public Methods
-        public bool TryGetValue(AbstractSprite sprite, out IPrimitive circle)
+        public bool TryGetValue(AbstractHumanoid sprite, out IPrimitive circle)
         {
             return internalCache.TryGetValue(sprite, out circle);
         }
 
-        public void Add(AbstractSprite sprite, IPrimitive circle)
+        public void Add(AbstractHumanoid sprite, IPrimitive circle)
         {
             internalCache.Add(sprite, circle);
         }

@@ -23,9 +23,9 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public void Animate(AbstractSprite predator, AbstractMap map, SpritePool spritePool, SharedConsciousness sharedConsciousness, double timeDelta, int fov, Random random, AbstractSprite currentPlayer)
+        public void Animate(AbstractHumanoid predator, AbstractMap map, SpritePool spritePool, SharedConsciousness sharedConsciousness, double timeDelta, int fov, Random random, AbstractHumanoid currentPlayer)
         {
-            AbstractSprite prey;
+            AbstractHumanoid prey;
 
             if (random.Next(howManyFrameBeforeChoosingPreyAgain) == 0)
             {
@@ -152,11 +152,11 @@ namespace CvmFight
         #endregion
 
         #region Private Methods
-        private AbstractSprite TryChoosePrey(AbstractSprite predator, SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractMap map, int fov, AbstractSprite currentPlayer)
+        private AbstractHumanoid TryChoosePrey(AbstractHumanoid predator, SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractMap map, int fov, AbstractHumanoid currentPlayer)
         {
-            AbstractSprite closestPrey = null;
+            AbstractHumanoid closestPrey = null;
             double closestDistance = -1;
-            foreach (AbstractSprite prey in spritePool)
+            foreach (AbstractHumanoid prey in spritePool)
             {
                 if (prey == predator)
                     continue;

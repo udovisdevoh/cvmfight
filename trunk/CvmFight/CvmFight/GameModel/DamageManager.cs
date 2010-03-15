@@ -8,11 +8,11 @@ namespace CvmFight
     class DamageManager
     {
         #region Public Methods
-        public void Update(SpritePool spritePool, AbstractSprite currentPlayer, AbstractMap map, double timeDelta, out bool isNeedRefreshHud)
+        public void Update(SpritePool spritePool, AbstractHumanoid currentPlayer, AbstractMap map, double timeDelta, out bool isNeedRefreshHud)
         {
             isNeedRefreshHud = false;
             
-            foreach (AbstractSprite sprite in spritePool)
+            foreach (AbstractHumanoid sprite in spritePool)
             {
                 bool currentSpriteNeedRefreshHud;
                 Update(sprite, spritePool, currentPlayer, map, timeDelta, out currentSpriteNeedRefreshHud);
@@ -22,7 +22,7 @@ namespace CvmFight
         #endregion
 
         #region Private Methods
-        private void Update(AbstractSprite sprite, SpritePool spritePool, AbstractSprite currentPlayer, AbstractMap map, double timeDelta, out bool isNeedRefreshHud)
+        private void Update(AbstractHumanoid sprite, SpritePool spritePool, AbstractHumanoid currentPlayer, AbstractMap map, double timeDelta, out bool isNeedRefreshHud)
         {
             isNeedRefreshHud = false;
 
