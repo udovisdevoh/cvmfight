@@ -24,7 +24,7 @@ namespace CvmFight
 
             HashSet<Type> addedTypeList = new HashSet<Type>();
 
-            foreach (AbstractSprite sprite in spritePool)
+            foreach (AbstractHumanoid sprite in spritePool)
             {
                 if (!addedTypeList.Contains(sprite.GetType()))
                 {
@@ -36,7 +36,7 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public SpriteCache3D GetSpriteCache(AbstractSprite sprite)
+        public SpriteCache3D GetSpriteCache(AbstractHumanoid sprite)
         {
             return internalCache[sprite.GetType()];
         }

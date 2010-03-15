@@ -22,7 +22,7 @@ namespace CvmFight
 	        return angle;
         }
 
-        public static bool IsSpriteViewable(AbstractSprite viewerSprite, AbstractSprite viewedSprite, AbstractMap map, int fov)
+        public static bool IsSpriteViewable(AbstractHumanoid viewerSprite, AbstractHumanoid viewedSprite, AbstractMap map, int fov)
         {
             if (viewerSprite == viewedSprite)
                 return true;
@@ -107,14 +107,14 @@ namespace CvmFight
             return angle;
         }
 
-        public static double GetSpriteAngleToSpriteRadian(AbstractSprite viewerSprite, AbstractSprite viewedSprite)
+        public static double GetSpriteAngleToSpriteRadian(AbstractHumanoid viewerSprite, AbstractHumanoid viewedSprite)
         {
             double fullVectorX = viewedSprite.PositionX - viewerSprite.PositionX;
             double fullVectorY = viewedSprite.PositionY - viewerSprite.PositionY;
             return Math.Atan2(fullVectorY, fullVectorX);
         }
 
-        public static double GetStraightDistance(AbstractSprite sprite, RayTracerPoint rayTracerPoint)
+        public static double GetStraightDistance(AbstractHumanoid sprite, RayTracerPoint rayTracerPoint)
         {
             double viewAxisX = Math.Cos(sprite.AngleRadian);
             double viewAxisY = Math.Sin(sprite.AngleRadian);
@@ -123,7 +123,7 @@ namespace CvmFight
             return viewAxisX * relativePointX + viewAxisY * relativePointY;
         }
 
-        public static double GetStraightDistance(AbstractSprite viewerSprite, AbstractSprite viewedSprite)
+        public static double GetStraightDistance(AbstractHumanoid viewerSprite, AbstractHumanoid viewedSprite)
         {
             double viewAxisX = Math.Cos(viewerSprite.AngleRadian);
             double viewAxisY = Math.Sin(viewerSprite.AngleRadian);

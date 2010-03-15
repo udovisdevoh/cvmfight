@@ -22,7 +22,7 @@ namespace CvmFight
         /// <param name="spritePool">sprite pool</param>
         /// <param name="map">map</param>
         /// <returns>Whether sprite is in collision with another sprite or the map</returns>
-        public static bool IsDetectCollision(AbstractSprite sprite, SpritePool spritePool, AbstractMap map)
+        public static bool IsDetectCollision(AbstractHumanoid sprite, SpritePool spritePool, AbstractMap map)
         {
             return IsDetectSpriteCollision(sprite, spritePool) || IsDetectMapCollision(sprite, map);
         }
@@ -33,9 +33,9 @@ namespace CvmFight
         /// <param name="sprite">sprite</param>
         /// <param name="spritePool">sprite pool</param>
         /// <returns>Whether sprite is in collision with sprite pool</returns>
-        public static bool IsDetectSpriteCollision(AbstractSprite sprite, SpritePool spritePool)
+        public static bool IsDetectSpriteCollision(AbstractHumanoid sprite, SpritePool spritePool)
         {
-            foreach (AbstractSprite otherSprite in spritePool)
+            foreach (AbstractHumanoid otherSprite in spritePool)
                 if (sprite != otherSprite)
                     if (IsDetectSpriteCollision(sprite, otherSprite))
                         return true;
@@ -48,7 +48,7 @@ namespace CvmFight
         /// <param name="sprite1">sprite 1</param>
         /// <param name="sprite2">sprite 2</param>
         /// <returns>Whether sprite 1 is in collision with sprite 2</returns>
-        public static bool IsDetectSpriteCollision(AbstractSprite sprite1, AbstractSprite sprite2)
+        public static bool IsDetectSpriteCollision(AbstractHumanoid sprite1, AbstractHumanoid sprite2)
         {
             return GetSpriteDistance(sprite1, sprite2) < sprite1.Radius + sprite2.Radius;
         }
@@ -59,7 +59,7 @@ namespace CvmFight
         /// <param name="sprite">sprite</param>
         /// <param name="map">map</param>
         /// <returns>Whether sprite is in collision with map walls</returns>
-        public static bool IsDetectMapCollision(AbstractSprite sprite, AbstractMap map)
+        public static bool IsDetectMapCollision(AbstractHumanoid sprite, AbstractMap map)
         {
             double currentRadius = sprite.Radius;
 
@@ -96,7 +96,7 @@ namespace CvmFight
         /// <param name="sprite1">sprite 1</param>
         /// <param name="sprite2">sprite 2</param>
         /// <returns>distance between 2 sprites</returns>
-        public static double GetSpriteDistance(AbstractSprite sprite1, AbstractSprite sprite2)
+        public static double GetSpriteDistance(AbstractHumanoid sprite1, AbstractHumanoid sprite2)
         {
             return Math.Sqrt(Math.Pow(sprite2.PositionX - sprite1.PositionX, 2) + Math.Pow(sprite2.PositionY - sprite1.PositionY, 2));
         }
@@ -108,7 +108,7 @@ namespace CvmFight
         /// <param name="spritePool">other sprites</param>
         /// <param name="map">map</param>
         /// <param name="timeDelta">time delta</param>
-        public static bool TryMakeWalk(AbstractSprite sprite, SpritePool spritePool, AbstractMap map, double timeDelta)
+        public static bool TryMakeWalk(AbstractHumanoid sprite, SpritePool spritePool, AbstractMap map, double timeDelta)
         {
             return TryMakeWalk(sprite, 0, spritePool, map, timeDelta);
         }
@@ -121,7 +121,7 @@ namespace CvmFight
         /// <param name="spritePool">other sprites</param>
         /// <param name="map">map</param>
         /// <param name="timeDelta">time delta</param>
-        public static bool TryMakeWalk(AbstractSprite sprite, double angleOffsetRadian, SpritePool spritePool, AbstractMap map, double timeDelta)
+        public static bool TryMakeWalk(AbstractHumanoid sprite, double angleOffsetRadian, SpritePool spritePool, AbstractMap map, double timeDelta)
         {
             sprite.WalkCycle.UnFire();
             sprite.WalkCycle.Fire();
@@ -172,7 +172,7 @@ namespace CvmFight
         /// </summary>
         /// <param name="sprite">sprite</param>
         /// <param name="angleRotationStrength">rotation strength</param>
-        public static void TryMakeRotate(AbstractSprite sprite, short angleRotationStrength)
+        public static void TryMakeRotate(AbstractHumanoid sprite, short angleRotationStrength)
         {
             sprite.AngleRadian += ((double)angleRotationStrength / -200);
         }
@@ -182,7 +182,7 @@ namespace CvmFight
         /// </summary>
         /// <param name="sprite">sprite</param>
         /// <param name="timeDelta">time delta</param>
-        public static void MakeJump(AbstractSprite sprite, double timeDelta)
+        public static void MakeJump(AbstractHumanoid sprite, double timeDelta)
         {
             if (!sprite.IsNeedToJumpAgain)
             {
@@ -205,7 +205,7 @@ namespace CvmFight
         /// </summary>
         /// <param name="sprite">sprite</param>
         /// <param name="timeDelta">time delta</param>
-        public static void MakeFall(AbstractSprite sprite, double timeDelta)
+        public static void MakeFall(AbstractHumanoid sprite, double timeDelta)
         {
             sprite.PositionZ += sprite.CurrentJumpAcceleration / 10 * timeDelta;
             sprite.CurrentJumpAcceleration -= 0.1 * timeDelta;
@@ -218,7 +218,7 @@ namespace CvmFight
         /// <param name="predator">predator sprite</param>
         /// <param name="prey">prey sprite</param>
         /// <returns>Whether prey is withing predator's attack range</returns>
-        public static bool IsWithinAttackRange(AbstractSprite predator, AbstractSprite prey)
+        public static bool IsWithinAttackRange(AbstractHumanoid predator, AbstractHumanoid prey)
         {
             return Physics.GetSpriteDistance(predator, prey) <= GetAttackRange(predator, prey);// predatorAttackRange + prey.Radius;
         }
@@ -229,12 +229,12 @@ namespace CvmFight
         /// <param name="predator">predator sprite</param>
         /// <param name="prey">prey sprite</param>
         /// <returns>Whether prey is withing predator's attack range</returns>
-        public static bool IsWithinAttackRange(AbstractSprite predator, AbstractSprite prey, double multiplicator)
+        public static bool IsWithinAttackRange(AbstractHumanoid predator, AbstractHumanoid prey, double multiplicator)
         {
             return Physics.GetSpriteDistance(predator, prey) <= GetAttackRange(predator, prey) * multiplicator;// predatorAttackRange + prey.Radius;
         }
 
-        private static double GetAttackRange(AbstractSprite predator, AbstractSprite prey)
+        private static double GetAttackRange(AbstractHumanoid predator, AbstractHumanoid prey)
         {
             double predatorAttackRange = predator.AttackRange;
             if (predator.PositionZ > 0)
@@ -249,7 +249,7 @@ namespace CvmFight
         /// <param name="sprite1">sprite 1</param>
         /// <param name="sprite2">sprite 2</param>
         /// <returns>Whether sprite 1 can attack or block sprite 2 because angle allows it</returns>
-        public static bool IsInAttackOrBlockAngle(AbstractSprite sprite1, AbstractSprite sprite2)
+        public static bool IsInAttackOrBlockAngle(AbstractHumanoid sprite1, AbstractHumanoid sprite2)
         {
             double angleToSprite = Optics.GetSpriteAngleToSpriteRadian(sprite1, sprite2);
 
@@ -269,7 +269,7 @@ namespace CvmFight
         /// <param name="predator">predator</param>
         /// <param name="prey">prey</param>
         /// <returns>whether predator can attack prey</returns>
-        public static bool IsInAttackHeight(AbstractSprite predator, AbstractSprite prey)
+        public static bool IsInAttackHeight(AbstractHumanoid predator, AbstractHumanoid prey)
         {
             if (predator.IsCrouch)
             {
@@ -303,7 +303,7 @@ namespace CvmFight
         /// <param name="sprite1">sprite 1</param>
         /// <param name="sprite2">sprite 2</param>
         /// <returns>whether sprite 1 has a valid height to block sprite2's attack</returns>
-        public static bool IsInBlockingHeight(AbstractSprite sprite1, AbstractSprite sprite2)
+        public static bool IsInBlockingHeight(AbstractHumanoid sprite1, AbstractHumanoid sprite2)
         {
             if (!sprite1.IsCrouch && !sprite2.IsCrouch && sprite1.PositionZ <= 0 && sprite2.PositionZ <= 0)
                 return true;

@@ -69,7 +69,7 @@ namespace CvmFight
             return internalList[soundIndex].GetSound().Play();
         }
 
-        public void Update(AbstractSprite sprite, AbstractSprite currentPlayer)
+        public void Update(AbstractHumanoid sprite, AbstractHumanoid currentPlayer)
         {
             Channel channel = null;
 

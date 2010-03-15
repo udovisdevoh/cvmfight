@@ -32,7 +32,7 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public List<RayTracerPoint> Trace(AbstractSprite viewerSprite, AbstractMap map)
+        public List<RayTracerPoint> Trace(AbstractHumanoid viewerSprite, AbstractMap map)
         {
             double startAngle = viewerSprite.AngleDegree - fov / 2;
             double endAngle = viewerSprite.AngleDegree + fov / 2;

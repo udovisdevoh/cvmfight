@@ -26,14 +26,14 @@ namespace CvmFight
         #region Public Methods
         public void TryRespawn(SpritePool spritePool, AbstractMap map)
         {
-            foreach (AbstractSprite sprite in spritePool)
+            foreach (AbstractHumanoid sprite in spritePool)
                 if (!sprite.IsAlive)
                     Respawn(sprite, map, spritePool);
         }
         #endregion
 
         #region Private Methods
-        private void Respawn(AbstractSprite fighter, AbstractMap map, SpritePool spritePool)
+        private void Respawn(AbstractHumanoid fighter, AbstractMap map, SpritePool spritePool)
         {
             if (this.map != map)
             {
