@@ -248,29 +248,29 @@ namespace CvmFight
             spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Hit, "Assets/Sprites/NutKunDo/NutKunDoLeftHit.png", true, isEnableLazySpriteImageLoad));
             spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.CrouchHit, "Assets/Sprites/NutKunDo/NutKunDoLeftCrouchHit.png", true, isEnableLazySpriteImageLoad));
 
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Walk1, "Assets/Sprites/NutKunDo/NutKunDoFrontWalk1.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Walk2, "Assets/Sprites/NutKunDo/NutKunDoFrontWalk2.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Punch1, "Assets/Sprites/NutKunDo/NutKunDoFrontPunch1.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Punch2, "Assets/Sprites/NutKunDo/NutKunDoFrontPunch2.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Kick1, "Assets/Sprites/NutKunDo/NutKunDoFrontCrouchPunch1.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Kick2, "Assets/Sprites/NutKunDo/NutKunDoFrontCrouchPunch2.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Block, "Assets/Sprites/NutKunDo/NutKunDoFrontBlock.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Crouch, "Assets/Sprites/NutKunDo/NutKunDoFrontCrouch.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.CrouchBlock, "Assets/Sprites/NutKunDo/NutKunDoFrontCrouchBlock.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Hit, "Assets/Sprites/NutKunDo/NutKunDoFrontHit.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.CrouchHit, "Assets/Sprites/NutKunDo/NutKunDoFrontCrouchHit.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Walk1, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftWalk1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Walk2, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftWalk2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Punch1, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftPunch1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Punch2, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftPunch2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Kick1, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftCrouchPunch1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Kick2, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftCrouchPunch2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Block, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftBlock.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Crouch, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftCrouch.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.CrouchBlock, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftCrouchBlock.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Hit, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftHit.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.CrouchHit, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftCrouchHit.png", isEnableLazySpriteImageLoad));
 
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Walk1, "Assets/Sprites/NutKunDo/NutKunDoFrontWalk1.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Walk2, "Assets/Sprites/NutKunDo/NutKunDoFrontWalk2.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Punch1, "Assets/Sprites/NutKunDo/NutKunDoFrontPunch1.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Punch2, "Assets/Sprites/NutKunDo/NutKunDoFrontPunch2.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Kick1, "Assets/Sprites/NutKunDo/NutKunDoFrontCrouchPunch1.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Kick2, "Assets/Sprites/NutKunDo/NutKunDoFrontCrouchPunch2.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Block, "Assets/Sprites/NutKunDo/NutKunDoFrontBlock.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Crouch, "Assets/Sprites/NutKunDo/NutKunDoFrontCrouch.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.CrouchBlock, "Assets/Sprites/NutKunDo/NutKunDoFrontCrouchBlock.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Hit, "Assets/Sprites/NutKunDo/NutKunDoFrontHit.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.CrouchHit, "Assets/Sprites/NutKunDo/NutKunDoFrontCrouchHit.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Walk1, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftWalk1.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Walk2, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftWalk2.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Punch1, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftPunch1.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Punch2, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftPunch2.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Kick1, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftCrouchPunch1.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Kick2, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftCrouchPunch2.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Block, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftBlock.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Crouch, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftCrouch.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.CrouchBlock, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftCrouchBlock.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Hit, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftHit.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.CrouchHit, "Assets/Sprites/NutKunDo/NutKunDoFrontLeftCrouchHit.png",true , isEnableLazySpriteImageLoad));
 
             spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Walk1, "Assets/Sprites/NutKunDo/NutKunDoFrontWalk1.png", isEnableLazySpriteImageLoad));
             spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Walk2, "Assets/Sprites/NutKunDo/NutKunDoFrontWalk2.png", isEnableLazySpriteImageLoad));
@@ -349,6 +349,13 @@ namespace CvmFight
             //Offsets
             spriteCache.SetOffset(SpriteScallableFrame.Left, SpriteScallableFrame.Punch2, -0.5, 0);
             spriteCache.SetOffset(SpriteScallableFrame.Right, SpriteScallableFrame.Punch2, 0.5, 0);
+            spriteCache.SetOffset(SpriteScallableFrame.Left, SpriteScallableFrame.Kick2, -0.5, 0);
+            spriteCache.SetOffset(SpriteScallableFrame.Right, SpriteScallableFrame.Kick2, 0.5, 0);
+
+            spriteCache.SetOffset(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Punch2, -0.5, 0);
+            spriteCache.SetOffset(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Punch2, 0.5, 0);
+            spriteCache.SetOffset(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Kick2, -0.5, 0);
+            spriteCache.SetOffset(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Kick2, 0.5, 0);
         }
         #endregion
     }
