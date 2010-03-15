@@ -214,10 +214,10 @@ namespace CvmFight
 
             spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Walk1, "Assets/Sprites/NutKunDo/NutKunDoBackWalk1.png", isEnableLazySpriteImageLoad));
             spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Walk2, "Assets/Sprites/NutKunDo/NutKunDoBackWalk2.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Punch1, "Assets/Sprites/NutKunDo/NutKunDoFrontPunch1.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Punch2, "Assets/Sprites/NutKunDo/NutKunDoFrontPunch2.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Kick1, "Assets/Sprites/NutKunDo/NutKunDoFrontCrouchPunch1.png", isEnableLazySpriteImageLoad));
-            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Kick2, "Assets/Sprites/NutKunDo/NutKunDoFrontCrouchPunch2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Punch1, "Assets/Sprites/NutKunDo/NutKunDoBackPunch1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Punch2, "Assets/Sprites/NutKunDo/NutKunDoBackPunch2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Kick1, "Assets/Sprites/NutKunDo/NutKunDoBackCrouch.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Kick2, "Assets/Sprites/NutKunDo/NutKunDoBackCrouch.png", isEnableLazySpriteImageLoad));
             spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Block, "Assets/Sprites/NutKunDo/NutKunDoBackWalk1.png", isEnableLazySpriteImageLoad));
             spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Crouch, "Assets/Sprites/NutKunDo/NutKunDoBackCrouch.png", isEnableLazySpriteImageLoad));
             spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.CrouchBlock, "Assets/Sprites/NutKunDo/NutKunDoBackCrouch.png", isEnableLazySpriteImageLoad));
