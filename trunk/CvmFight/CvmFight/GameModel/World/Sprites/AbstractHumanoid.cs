@@ -281,7 +281,7 @@ namespace CvmFight
         #endregion
 
         #region Public Methods
-        public void Update(double timeDelta, SpritePool spritePool, AbstractMap map)
+        public override void Update(double timeDelta, SpritePool spritePool, AbstractMap map)
         {
             isJustReceivedStrongPunch = false;
             isJustReceivedStrongKick = false;

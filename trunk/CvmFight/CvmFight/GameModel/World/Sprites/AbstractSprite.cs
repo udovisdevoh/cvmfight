@@ -36,6 +36,10 @@ namespace CvmFight
         }
         #endregion
 
+        #region Public Abstract Methods
+        public abstract void Update(double timeDelta, SpritePool spritePool, AbstractMap abstractMap);
+        #endregion
+
         #region Properties
         /// <summary>
         /// Distance to a reference sprite (which could be anything)

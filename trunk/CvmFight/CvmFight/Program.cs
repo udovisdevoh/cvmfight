@@ -105,7 +105,7 @@ namespace CvmFight
             world.SharedConsciousness.Clear();
 
             //We update the sprites
-            foreach (AbstractHumanoid sprite in world.SpritePool)
+            foreach (AbstractSprite sprite in world.SpritePool)
                 sprite.Update(timeDelta, world.SpritePool, world.Map);
 
 
