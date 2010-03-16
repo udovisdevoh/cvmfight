@@ -73,6 +73,20 @@ namespace CvmFight
                 byte currentAttackBlockState = predator.StateAttackBlock.GetCurrentState();
                 byte currentAttackTypeState = predator.StateAttackType.GetCurrentState();
                 byte currentMovementState = predator.StateMovement.GetCurrentState();
+
+                if (predator.SpinChargeAttackCycle.IsFired)
+                {
+                    currentAttackBlockState = SpriteStates.SpinCharge;
+
+                    if (IsReadyToSpin(predator))
+                    {
+                        currentMovementState = SpriteStates.Offensive;
+                    }
+                    else
+                    {
+                        currentMovementState = SpriteStates.Defensive;
+                    }
+                }
                     
 
                 if (currentMovementState == SpriteStates.Offensive)
@@ -132,7 +146,7 @@ namespace CvmFight
                     }
                     else if (currentAttackBlockState == SpriteStates.SpinCharge)
                     {
-                        if (predator.SpinChargeAttackCycle.IsAtParoxism && !predator.SpinAttackCycle.IsFired)
+                        if (IsReadyToSpin(predator))
                         {
                             predator.SpinAttackCycle.Reset();
                             predator.SpinAttackCycle.Fire();
@@ -174,6 +188,11 @@ namespace CvmFight
             }
 
             predator.StateJumpCrouch.Update(timeDelta,random);
+        }
+
+        private bool IsReadyToSpin(AbstractHumanoid predator)
+        {
+            return predator.SpinChargeAttackCycle.IsAtParoxism && !predator.SpinAttackCycle.IsFired;
         }
         #endregion
 
