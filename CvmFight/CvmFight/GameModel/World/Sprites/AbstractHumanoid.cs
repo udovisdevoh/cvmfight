@@ -101,6 +101,8 @@ namespace CvmFight
 
         private double attackRangeJumpMultiplier;
 
+        private double attackRangeCrouchMultiplier;
+
         private double attackAngleSpinMultiplier;
 
         private double angleAtBeginingOfSpinAttackRadian;
@@ -198,6 +200,7 @@ namespace CvmFight
             AttackWalkSpeedMultiplier = GetAttackWalkSpeedMultiplier();
             AttackRangeJumpMultiplier = GetAttackRangeJumpMultiplier();
             AttackAngleSpinMultiplier = GetAttackAngleSpinMultiplier();
+            AttackRangeCrouchMultiplier = GetAttackRangeCrouchMultiplier();
 
             stateMovement = new SpriteState(SpriteStates.Offensive, SpriteStates.Defensive, SpriteStates.FurtiveLeft, SpriteStates.FurtiveRight, 10);
             stateJumpCrouch = new SpriteState(SpriteStates.Stand, SpriteStates.Jump, SpriteStates.Crouch, SpriteStates.Stand, SpriteStates.Stand, 20);
@@ -263,6 +266,8 @@ namespace CvmFight
         protected abstract double GetMovementCycleLength();
 
         protected abstract double GetAttackRangeJumpMultiplier();
+
+        protected abstract double GetAttackRangeCrouchMultiplier();
 
         protected abstract double GetAttackAngleSpinMultiplier();
 
@@ -526,6 +531,12 @@ namespace CvmFight
         {
             get { return attackRangeJumpMultiplier; }
             set { attackRangeJumpMultiplier = value; }
+        }
+
+        public double AttackRangeCrouchMultiplier
+        {
+            get { return attackRangeCrouchMultiplier; }
+            set { attackRangeCrouchMultiplier = value; }
         }
 
         public double AttackAngleSpinMultiplier

@@ -122,6 +122,11 @@ namespace CvmFight
             return 1;
         }
 
+        protected override double GetAttackRangeCrouchMultiplier()
+        {
+            return 1.1375;
+        }
+
         protected override double GetAttackAngleSpinMultiplier()
         {
             return 3;
