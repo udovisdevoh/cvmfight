@@ -67,7 +67,7 @@ namespace CvmFight
             //We manage walking
             if (prey != null)
             {
-                if (random.Next(5) == 0)
+                if (random.Next(5) == 0 && !predator.SpinAttackCycle.IsFired)
                     predator.AngleRadian = Optics.GetSpriteAngleToSpriteRadian(predator, prey);
 
 
@@ -90,11 +90,12 @@ namespace CvmFight
 
 
 
-                //We manage attacking and blocking
+                //We manage attacking, charging and blocking
                 bool isWithinAttackRange = BattlePhysics.IsWithinAttackRange(predator, prey);
                 bool isWithinAttackOrBlockAngle = BattlePhysics.IsInAttackOrBlockAngle(predator, prey);
 
                 byte currentAttackBlockState = predator.StateAttackBlock.GetCurrentState();
+
                 byte currentAttackTypeState = predator.StateAttackType.GetCurrentState();
 
                 
@@ -127,21 +128,46 @@ namespace CvmFight
                                 }
                             }
                         }
+                        predator.SpinChargeAttackCycle.Reset();
                     }
-                    else if (currentAttackBlockState == SpriteStates.Block)
+                    else if (currentAttackBlockState == SpriteStates.SpinCharge)
+                    {
+                        if (predator.SpinChargeAttackCycle.IsAtParoxism && !predator.SpinAttackCycle.IsFired)
+                        {
+                            predator.SpinAttackCycle.Reset();
+                            predator.SpinAttackCycle.Fire();
+                            predator.SpinChargeAttackCycle.Reset();
+                        }
+                        else if (!predator.SpinAttackCycle.IsFired)
+                        {
+                            if (predator.SpinChargeAttackCycle.IsFired)
+                                predator.SpinChargeAttackCycle.Update(timeDelta);
+                            else
+                                predator.SpinChargeAttackCycle.Fire();
+                        }
+                    }
+                    else if (currentAttackBlockState == SpriteStates.Block && !predator.SpinAttackCycle.IsFired)
                     {
                         predator.StrongAttackCycle.UnFire();
+                        predator.SpinAttackCycle.UnFire();
+                        predator.SpinChargeAttackCycle.Reset();
                         predator.FastAttackCycle.UnFire();
                         predator.IsBlock = true;
                     }
+                    else
+                    {
+                        predator.SpinChargeAttackCycle.Reset();
+                    }
                 }
+
+
                 predator.StateAttackBlock.Update(timeDelta, random);
                 predator.StateAttackType.Update(timeDelta, random);
                 predator.StateMovement.Update(timeDelta, random);
             }
             else
             {
-                if (!Physics.TryMakeWalk(predator, spritePool, map, timeDelta))
+                if (!predator.SpinAttackCycle.IsFired && !Physics.TryMakeWalk(predator, spritePool, map, timeDelta))
                 {
                     predator.AngleDegree = (double)random.Next(360);
                 }
