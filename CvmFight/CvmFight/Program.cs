@@ -68,7 +68,7 @@ namespace CvmFight
             rayTracer = new RayTracer(idealRayTracerResolution, fov);
 
             world = new World(random, monsterCount);
-            ai = new Ai(random);
+            ai = new Ai(random,world.SpritePool.Count);
 
             gameViewer = new GameViewer3D(mainSurface, screenWidth, screenHeight, rayTracer.ColumnCount, world.SpritePool, rayTracer.Fov, isEnableSpriteCache, random, isEnableLazySpriteImageLoad, world.Map, isSoundOn);
             centerMousePositon = new Point(screenWidth / 2, screenHeight / 2);

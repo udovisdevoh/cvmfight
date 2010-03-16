@@ -7,17 +7,17 @@ namespace CvmFight
 {
     class Ai
     {
-        #region Constants
-        private const int howManyFrameBeforeChoosingPreyAgain = 100;
-        #endregion
-
         #region Fields
+        private int howManyFrameBeforeChoosingPreyAgain;
+
         private Random random;
         #endregion
 
         #region Constructor
-        public Ai(Random random)
+        public Ai(Random random, int howManyMonster)
         {
+            howManyFrameBeforeChoosingPreyAgain = howManyMonster;
+
             this.random = random;
         }
         #endregion
