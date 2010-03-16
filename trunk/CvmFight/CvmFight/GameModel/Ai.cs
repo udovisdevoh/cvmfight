@@ -70,20 +70,24 @@ namespace CvmFight
                 if (random.Next(5) == 0 && !predator.SpinAttackCycle.IsFired)
                     predator.AngleRadian = Optics.GetSpriteAngleToSpriteRadian(predator, prey);
 
+                byte currentAttackBlockState = predator.StateAttackBlock.GetCurrentState();
+                byte currentAttackTypeState = predator.StateAttackType.GetCurrentState();
+                byte currentMovementState = predator.StateMovement.GetCurrentState();
+                    
 
-                if (predator.StateMovement.GetCurrentState() == SpriteStates.Offensive)
+                if (currentMovementState == SpriteStates.Offensive)
                 {
                     Physics.TryMakeWalk(predator, spritePool, map, timeDelta);
                 }
-                else if (predator.StateMovement.GetCurrentState() == SpriteStates.Defensive)
+                else if (currentMovementState == SpriteStates.Defensive)
                 {
                     Physics.TryMakeWalk(predator, Math.PI, spritePool, map, timeDelta);
                 }
-                else if (predator.StateMovement.GetCurrentState() == SpriteStates.FurtiveLeft)
+                else if (currentMovementState == SpriteStates.FurtiveLeft)
                 {
                     Physics.TryMakeWalk(predator, Math.PI * 1.5, spritePool, map, timeDelta);
                 }
-                else if (predator.StateMovement.GetCurrentState() == SpriteStates.FurtiveRight)
+                else if (currentMovementState == SpriteStates.FurtiveRight)
                 {
                     Physics.TryMakeWalk(predator, Math.PI * 0.5, spritePool, map, timeDelta);
                 }
@@ -93,10 +97,6 @@ namespace CvmFight
                 //We manage attacking,  and blocking
                 bool isWithinAttackRange = BattlePhysics.IsWithinAttackRange(predator, prey);
                 bool isWithinAttackOrBlockAngle = BattlePhysics.IsInAttackOrBlockAngle(predator, prey);
-
-                byte currentAttackBlockState = predator.StateAttackBlock.GetCurrentState();
-
-                byte currentAttackTypeState = predator.StateAttackType.GetCurrentState();
 
                 
                 if (currentAttackBlockState == SpriteStates.Block && predator.PositionZ > 0)
