@@ -31,9 +31,13 @@ namespace CvmFight
 
         private Surface rankingLabel;
 
-        private Surface restFist;
+        private Surface restFistLeft;
 
-        private Surface attackFist;
+        private Surface attackFistLeft;
+
+        private Surface restFistRight;
+
+        private Surface attackFistRight;
 
         private Surface restKick;
 
@@ -80,8 +84,11 @@ namespace CvmFight
             fragLabel = labelFont.Render("frags", System.Drawing.Color.White);
             rankingLabel = labelFont.Render("rank", System.Drawing.Color.White);
 
-            restFist = BuildRestFistSurface();
-            attackFist = BuildAttackFistSurface();
+            restFistLeft = BuildRestFistSurface();
+            attackFistLeft = BuildAttackFistSurface();
+
+            restFistRight = restFistLeft.CreateFlippedHorizontalSurface();
+            attackFistRight = attackFistLeft.CreateFlippedHorizontalSurface();
 
             restKick = BuildRestKickSurface();
             midKick = BuildMidKickSurface();
@@ -163,7 +170,10 @@ namespace CvmFight
             if (ranking == null)
                 ranking = bigRed.Render(player.Ranking.ToString(), System.Drawing.Color.Blue);
 
-            int attackCycleState = Math.Max(player.StrongAttackCycle.GetCycleState(), player.FastAttackCycle.GetCycleState());
+            int strongAttackCycleState = player.StrongAttackCycle.GetCycleState();
+            int fastAttackCycleState = player.FastAttackCycle.GetCycleState();
+
+            int attackCycleState = Math.Max(strongAttackCycleState, fastAttackCycleState);
 
 
             if (attackCycleState == 0)
@@ -223,15 +233,26 @@ namespace CvmFight
                     else if (attackCycleState == 0)
                     {
                         if (!player.SpinChargeAttackCycle.IsFired || isEvenOddFrame || player.SpinChargeAttackCycle.IsAtParoxism)
-                            surface.Blit(restFist, PointLoader.GetPoint(0, screenHeight - restFist.Height));
+                        {
+                            if (attackCycleState == strongAttackCycleState)
+                                surface.Blit(restFistLeft, PointLoader.GetPoint(0, screenHeight - restFistLeft.Height));
+                            else
+                                surface.Blit(restFistRight, PointLoader.GetPoint(screenWidth - restFistRight.Width, screenHeight - restFistRight.Height));
+                        }
                     }
                     else if (attackCycleState == 1)
                     {
-                        surface.Blit(attackFist, PointLoader.GetPoint(0 - (screenWidth / 4), screenHeight - attackFist.Height * 3 / 4));
+                        if (attackCycleState == strongAttackCycleState)
+                            surface.Blit(attackFistLeft, PointLoader.GetPoint(0 - (screenWidth / 4), screenHeight - attackFistLeft.Height * 3 / 4));
+                        else
+                            surface.Blit(attackFistRight, PointLoader.GetPoint(screenWidth + (screenWidth / 4) - attackFistRight.Width, screenHeight - attackFistRight.Height * 3 / 4));
                     }
                     else if (attackCycleState == 2)
                     {
-                        surface.Blit(attackFist, PointLoader.GetPoint(0, screenHeight - attackFist.Height));
+                        if (attackCycleState == strongAttackCycleState)
+                            surface.Blit(attackFistLeft, PointLoader.GetPoint(0, screenHeight - attackFistLeft.Height));
+                        else
+                            surface.Blit(attackFistRight, PointLoader.GetPoint(screenWidth - attackFistRight.Width, screenHeight - attackFistRight.Height));
                     }
                 }
             }

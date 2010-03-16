@@ -165,7 +165,6 @@ namespace CvmFight
             if (userInput.IsPressMouseButtonLeft)
             {
                 world.CurrentPlayer.IsBlock = false;
-
                 if (world.CurrentPlayer.ReceivedAttackCycle.GetCycleState() <= 0)
                 {
                     if (!world.CurrentPlayer.FastAttackCycle.IsFired)
@@ -190,7 +189,6 @@ namespace CvmFight
                 {
                     if (!world.CurrentPlayer.StrongAttackCycle.IsFired)
                     {
-                        world.CurrentPlayer.IsBlock = false;
                         world.CurrentPlayer.FastAttackCycle.Fire();
                     }
                 }
