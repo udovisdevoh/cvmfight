@@ -78,6 +78,7 @@
     <Compile Include="CvmFight\GameModel\World\SpritePool.cs" />
     <Compile Include="CvmFight\GameModel\World\Sprites\AbstractHumanoid.cs" />
     <Compile Include="CvmFight\GameModel\World\Sprites\AbstractSprite.cs" />
+    <Compile Include="CvmFight\GameModel\World\Sprites\Monsters\MonsterAladdin.cs" />
     <Compile Include="CvmFight\GameModel\World\Sprites\Monsters\MonsterNutKunDo.cs" />
     <Compile Include="CvmFight\GameModel\World\Sprites\Monsters\MonsterStickMan.cs" />
     <Compile Include="CvmFight\GameModel\World\Sprites\Player.cs" />

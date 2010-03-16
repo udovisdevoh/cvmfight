@@ -34,10 +34,11 @@ namespace CvmFight
 
             if (newX >= radius * 2)
                 newX = (radius * 2) - 1;
-            else if (newY >= radius * 2)
-                newY = (radius * 2) - 1;
             else if (newX < 0)
                 newX = 0;
+            
+            if (newY >= radius * 2)
+                newY = (radius * 2) - 1;
             else if (newY < 0)
                 newY = 0;
 
