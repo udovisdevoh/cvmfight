@@ -238,15 +238,6 @@ namespace CvmFight
             return Physics.GetSpriteDistance(predator, prey) <= GetAttackRange(predator, prey) * multiplicator;// predatorAttackRange + prey.Radius;
         }
 
-        private static double GetAttackRange(AbstractHumanoid predator, AbstractSprite prey)
-        {
-            double predatorAttackRange = predator.AttackRange;
-            if (predator.PositionZ > 0)
-                predatorAttackRange *= predator.AttackRangeJumpMultiplier;
-
-            return predatorAttackRange;
-        }
-
         /// <summary>
         /// Whether sprite 1 can attack or block sprite 2 because angle allows it
         /// </summary>
@@ -322,6 +313,23 @@ namespace CvmFight
                 return false;
 
             return true;
+        }
+        #endregion
+
+        #region Private Methods
+        /// <summary>
+        /// Distance for which predator sprite can attack prey
+        /// </summary>
+        /// <param name="predator">predator</param>
+        /// <param name="prey">prey</param>
+        /// <returns>Distance for which predator sprite can attack prey</returns>
+        private static double GetAttackRange(AbstractHumanoid predator, AbstractSprite prey)
+        {
+            double predatorAttackRange = predator.AttackRange;
+            if (predator.PositionZ > 0)
+                predatorAttackRange *= predator.AttackRangeJumpMultiplier;
+
+            return predatorAttackRange;
         }
         #endregion
     }
