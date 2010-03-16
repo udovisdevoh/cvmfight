@@ -19,6 +19,10 @@ namespace CvmFight
             {
                 BuildNutKunDo(spriteCache,isEnableLazySpriteImageLoad);
             }
+            else if (sprite is MonsterAladdin)
+            {
+                BuildAladdin(spriteCache, isEnableLazySpriteImageLoad);
+            }
             return spriteCache;
         }
         #endregion
@@ -295,6 +299,171 @@ namespace CvmFight
             spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.CrouchBlock, "Assets/Sprites/NutKunDo/NutKunDoBackLeftCrouchBlock.png", true, isEnableLazySpriteImageLoad));
             spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Hit, "Assets/Sprites/NutKunDo/NutKunDoBackLeftHit.png", true, isEnableLazySpriteImageLoad));
             spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.CrouchHit, "Assets/Sprites/NutKunDo/NutKunDoBackLeftCrouchHit.png", true, isEnableLazySpriteImageLoad));
+
+
+            //For different scalling
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Front, SpriteScallableFrame.Crouch, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Front, SpriteScallableFrame.CrouchBlock, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Front, SpriteScallableFrame.CrouchHit, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Front, SpriteScallableFrame.Kick1, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Front, SpriteScallableFrame.Kick2, 0.6);
+
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Back, SpriteScallableFrame.Crouch, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Back, SpriteScallableFrame.CrouchBlock, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Back, SpriteScallableFrame.CrouchHit, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Back, SpriteScallableFrame.Kick1, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Back, SpriteScallableFrame.Kick2, 0.6);
+
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Left, SpriteScallableFrame.Crouch, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Left, SpriteScallableFrame.CrouchBlock, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Left, SpriteScallableFrame.CrouchHit, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Left, SpriteScallableFrame.Kick1, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Left, SpriteScallableFrame.Kick2, 0.6);
+
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Right, SpriteScallableFrame.Crouch, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Right, SpriteScallableFrame.CrouchBlock, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Right, SpriteScallableFrame.CrouchHit, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Right, SpriteScallableFrame.Kick1, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.Right, SpriteScallableFrame.Kick2, 0.6);
+
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Crouch, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.CrouchBlock, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.CrouchHit, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Kick1, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Kick2, 0.6);
+
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Crouch, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.FrontRight, SpriteScallableFrame.CrouchBlock, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.FrontRight, SpriteScallableFrame.CrouchHit, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Kick1, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Kick2, 0.6);
+
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Crouch, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.BackLeft, SpriteScallableFrame.CrouchBlock, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.BackLeft, SpriteScallableFrame.CrouchHit, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Kick1, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Kick2, 0.6);
+
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.BackRight, SpriteScallableFrame.Crouch, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.BackRight, SpriteScallableFrame.CrouchBlock, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.BackRight, SpriteScallableFrame.CrouchHit, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.BackRight, SpriteScallableFrame.Kick1, 0.6);
+            spriteCache.SetSizeMultiplicator(SpriteScallableFrame.BackRight, SpriteScallableFrame.Kick2, 0.6);
+
+            //Offsets
+            spriteCache.SetOffset(SpriteScallableFrame.Left, SpriteScallableFrame.Punch2, -0.5, 0);
+            spriteCache.SetOffset(SpriteScallableFrame.Right, SpriteScallableFrame.Punch2, 0.5, 0);
+            spriteCache.SetOffset(SpriteScallableFrame.Left, SpriteScallableFrame.Kick2, -0.5, 0);
+            spriteCache.SetOffset(SpriteScallableFrame.Right, SpriteScallableFrame.Kick2, 0.5, 0);
+
+            spriteCache.SetOffset(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Punch2, -0.5, 0);
+            spriteCache.SetOffset(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Punch2, 0.5, 0);
+            spriteCache.SetOffset(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Kick2, -0.5, 0);
+            spriteCache.SetOffset(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Kick2, 0.5, 0);
+
+            spriteCache.SetOffset(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Punch2, -0.333, 0);
+            spriteCache.SetOffset(SpriteScallableFrame.BackRight, SpriteScallableFrame.Punch2, 0.333, 0);
+            spriteCache.SetOffset(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Kick2, -0.333, 0);
+            spriteCache.SetOffset(SpriteScallableFrame.BackRight, SpriteScallableFrame.Kick2, 0.333, 0);
+        }
+
+        private void BuildAladdin(SpriteCache3D spriteCache, bool isEnableLazySpriteImageLoad)
+        {
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Front, SpriteScallableFrame.Walk1, "Assets/Sprites/Aladdin/AladdinFrontWalk1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Front, SpriteScallableFrame.Walk2, "Assets/Sprites/Aladdin/AladdinFrontWalk2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Front, SpriteScallableFrame.Punch1, "Assets/Sprites/Aladdin/AladdinFrontPunch1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Front, SpriteScallableFrame.Punch2, "Assets/Sprites/Aladdin/AladdinFrontPunch2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Front, SpriteScallableFrame.Kick1, "Assets/Sprites/Aladdin/AladdinFrontCrouchPunch1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Front, SpriteScallableFrame.Kick2, "Assets/Sprites/Aladdin/AladdinFrontCrouchPunch2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Front, SpriteScallableFrame.Block, "Assets/Sprites/Aladdin/AladdinFrontBlock.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Front, SpriteScallableFrame.Crouch, "Assets/Sprites/Aladdin/AladdinFrontCrouch.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Front, SpriteScallableFrame.CrouchBlock, "Assets/Sprites/Aladdin/AladdinFrontCrouchBlock.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Front, SpriteScallableFrame.Hit, "Assets/Sprites/Aladdin/AladdinFrontHit.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Front, SpriteScallableFrame.CrouchHit, "Assets/Sprites/Aladdin/AladdinFrontCrouchHit.png", isEnableLazySpriteImageLoad));
+
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Walk1, "Assets/Sprites/Aladdin/AladdinFrontWalk1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Walk2, "Assets/Sprites/Aladdin/AladdinFrontWalk2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Punch1, "Assets/Sprites/Aladdin/AladdinFrontPunch1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Punch2, "Assets/Sprites/Aladdin/AladdinFrontPunch2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Kick1, "Assets/Sprites/Aladdin/AladdinFrontCrouch.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Kick2, "Assets/Sprites/Aladdin/AladdinFrontCrouch.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Block, "Assets/Sprites/Aladdin/AladdinFrontWalk1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Crouch, "Assets/Sprites/Aladdin/AladdinFrontCrouch.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.CrouchBlock, "Assets/Sprites/Aladdin/AladdinFrontCrouch.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.Hit, "Assets/Sprites/Aladdin/AladdinFrontHit.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Back, SpriteScallableFrame.CrouchHit, "Assets/Sprites/Aladdin/AladdinFrontCrouch.png", isEnableLazySpriteImageLoad));
+
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.Walk1, "Assets/Sprites/Aladdin/AladdinFrontWalk1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.Walk2, "Assets/Sprites/Aladdin/AladdinFrontWalk2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.Punch1, "Assets/Sprites/Aladdin/AladdinFrontPunch1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.Punch2, "Assets/Sprites/Aladdin/AladdinFrontPunch2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.Kick1, "Assets/Sprites/Aladdin/AladdinFrontCrouchPunch1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.Kick2, "Assets/Sprites/Aladdin/AladdinFrontCrouchPunch2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.Block, "Assets/Sprites/Aladdin/AladdinFrontBlock.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.Crouch, "Assets/Sprites/Aladdin/AladdinFrontCrouch.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.CrouchBlock, "Assets/Sprites/Aladdin/AladdinFrontCrouchBlock.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.Hit, "Assets/Sprites/Aladdin/AladdinFrontHit.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Left, SpriteScallableFrame.CrouchHit, "Assets/Sprites/Aladdin/AladdinFrontCrouchHit.png", isEnableLazySpriteImageLoad));
+
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Walk1, "Assets/Sprites/Aladdin/AladdinFrontWalk1.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Walk2, "Assets/Sprites/Aladdin/AladdinFrontWalk2.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Punch1, "Assets/Sprites/Aladdin/AladdinFrontPunch1.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Punch2, "Assets/Sprites/Aladdin/AladdinFrontPunch2.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Kick1, "Assets/Sprites/Aladdin/AladdinFrontCrouchPunch1.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Kick2, "Assets/Sprites/Aladdin/AladdinFrontCrouchPunch2.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Block, "Assets/Sprites/Aladdin/AladdinFrontBlock.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Crouch, "Assets/Sprites/Aladdin/AladdinFrontCrouch.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.CrouchBlock, "Assets/Sprites/Aladdin/AladdinFrontCrouchBlock.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.Hit, "Assets/Sprites/Aladdin/AladdinFrontHit.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Right, SpriteScallableFrame.CrouchHit, "Assets/Sprites/Aladdin/AladdinFrontCrouchHit.png", true, isEnableLazySpriteImageLoad));
+
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Walk1, "Assets/Sprites/Aladdin/AladdinFrontWalk1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Walk2, "Assets/Sprites/Aladdin/AladdinFrontWalk2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Punch1, "Assets/Sprites/Aladdin/AladdinFrontPunch1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Punch2, "Assets/Sprites/Aladdin/AladdinFrontPunch2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Kick1, "Assets/Sprites/Aladdin/AladdinFrontCrouchPunch1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Kick2, "Assets/Sprites/Aladdin/AladdinFrontCrouchPunch2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Block, "Assets/Sprites/Aladdin/AladdinFrontBlock.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Crouch, "Assets/Sprites/Aladdin/AladdinFrontCrouch.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.CrouchBlock, "Assets/Sprites/Aladdin/AladdinFrontCrouchBlock.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.Hit, "Assets/Sprites/Aladdin/AladdinFrontHit.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontLeft, SpriteScallableFrame.CrouchHit, "Assets/Sprites/Aladdin/AladdinFrontCrouchHit.png", isEnableLazySpriteImageLoad));
+
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Walk1, "Assets/Sprites/Aladdin/AladdinFrontWalk1.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Walk2, "Assets/Sprites/Aladdin/AladdinFrontWalk2.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Punch1, "Assets/Sprites/Aladdin/AladdinFrontPunch1.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Punch2, "Assets/Sprites/Aladdin/AladdinFrontPunch2.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Kick1, "Assets/Sprites/Aladdin/AladdinFrontCrouchPunch1.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Kick2, "Assets/Sprites/Aladdin/AladdinFrontCrouchPunch2.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Block, "Assets/Sprites/Aladdin/AladdinFrontBlock.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Crouch, "Assets/Sprites/Aladdin/AladdinFrontCrouch.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.CrouchBlock, "Assets/Sprites/Aladdin/AladdinFrontCrouchBlock.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.Hit, "Assets/Sprites/Aladdin/AladdinFrontHit.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.FrontRight, SpriteScallableFrame.CrouchHit, "Assets/Sprites/Aladdin/AladdinFrontCrouchHit.png", true, isEnableLazySpriteImageLoad));
+
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Walk1, "Assets/Sprites/Aladdin/AladdinFrontWalk1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Walk2, "Assets/Sprites/Aladdin/AladdinFrontWalk2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Punch1, "Assets/Sprites/Aladdin/AladdinFrontPunch1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Punch2, "Assets/Sprites/Aladdin/AladdinFrontPunch2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Kick1, "Assets/Sprites/Aladdin/AladdinFrontCrouchPunch1.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Kick2, "Assets/Sprites/Aladdin/AladdinFrontCrouchPunch2.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Block, "Assets/Sprites/Aladdin/AladdinFrontBlock.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Crouch, "Assets/Sprites/Aladdin/AladdinFrontCrouch.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.CrouchBlock, "Assets/Sprites/Aladdin/AladdinFrontCrouchBlock.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.Hit, "Assets/Sprites/Aladdin/AladdinFrontHit.png", isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackLeft, SpriteScallableFrame.CrouchHit, "Assets/Sprites/Aladdin/AladdinFrontCrouchHit.png", isEnableLazySpriteImageLoad));
+
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Walk1, "Assets/Sprites/Aladdin/AladdinFrontWalk1.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Walk2, "Assets/Sprites/Aladdin/AladdinFrontWalk2.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Punch1, "Assets/Sprites/Aladdin/AladdinFrontPunch1.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Punch2, "Assets/Sprites/Aladdin/AladdinFrontPunch2.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Kick1, "Assets/Sprites/Aladdin/AladdinFrontCrouchPunch1.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Kick2, "Assets/Sprites/Aladdin/AladdinFrontCrouchPunch2.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Block, "Assets/Sprites/Aladdin/AladdinFrontBlock.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Crouch, "Assets/Sprites/Aladdin/AladdinFrontCrouch.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.CrouchBlock, "Assets/Sprites/Aladdin/AladdinFrontCrouchBlock.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.Hit, "Assets/Sprites/Aladdin/AladdinFrontHit.png", true, isEnableLazySpriteImageLoad));
+            spriteCache.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.BackRight, SpriteScallableFrame.CrouchHit, "Assets/Sprites/Aladdin/AladdinFrontCrouchHit.png", true, isEnableLazySpriteImageLoad));
 
 
             //For different scalling

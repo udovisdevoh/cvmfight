@@ -62,10 +62,13 @@ namespace CvmFight
 
             for (int i = 0; i < monsterCount; i++)
             {
-                if (random.Next(2) == 0)
+                int randomNumber = random.Next(3);
+                if (randomNumber == 0)
                     spritePool.Add(new MonsterStickMan());
-                else
+                else if (randomNumber == 1)
                     spritePool.Add(new MonsterNutKunDo());
+                else
+                    spritePool.Add(new MonsterAladdin());
             }
 
             spawner.TryRespawn(spritePool,map);
