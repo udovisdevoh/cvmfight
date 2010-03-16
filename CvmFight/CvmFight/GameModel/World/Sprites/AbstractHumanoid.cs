@@ -37,24 +37,9 @@ namespace CvmFight
         private bool isAlive = false;
 
         /// <summary>
-        /// height from the ground
-        /// </summary>
-        private double positionZ = 0.0;
-
-        /// <summary>
-        /// sprite's radius
-        /// </summary>
-        private double radius = 0.0;
-
-        /// <summary>
         /// sprite's height
         /// </summary>
         private double height = 0.0;
-
-        /// <summary>
-        /// Sprite's default walking distance per tick
-        /// </summary>
-        private double defaultWalkingDistance = 0.1;
 
         /// <summary>
         /// Whether sprite is crouch
@@ -70,16 +55,6 @@ namespace CvmFight
         /// Sprite's maximum jump acceleration
         /// </summary>
         private double maxJumpAcceleration = 1.0;
-
-        /// <summary>
-        /// Sprite's current jump force
-        /// </summary>
-        private double currentJumpAcceleration = 0.0;
-
-        /// <summary>
-        /// Whether sprite must jump again because he has no cynetic energy left
-        /// </summary>
-        private bool isNeedToJumpAgain = false;
 
         /// <summary>
         /// Whether the sprite is blocking
@@ -110,11 +85,6 @@ namespace CvmFight
         /// Received attack angle
         /// </summary>
         private double receivedAttackAngleRadian = 0.0;
-
-        /// <summary>
-        /// Jump speed multiplier
-        /// </summary>
-        private double jumpSpeedMultiplier = 1.6;
 
         /// <summary>
         /// When attacking, multiply the speed to something
@@ -331,48 +301,12 @@ namespace CvmFight
         }
 
         /// <summary>
-        /// z coordinate position
-        /// </summary>
-        public double PositionZ
-        {
-            get { return positionZ; }
-            set { positionZ = value; }
-        }
-
-        /// <summary>
-        /// Sprite's radius
-        /// </summary>
-        public double Radius
-        {
-            get { return radius; }
-            set { radius = value; }
-        }
-
-        /// <summary>
-        /// Sprite's diameter
-        /// </summary>
-        public double Diameter
-        {
-            get { return radius * 2; }
-            set { radius = value / 2; }
-        }
-
-        /// <summary>
         /// Sprite's height
         /// </summary>
         public double Height
         {
             get { return height; }
             set { height = value; }
-        }
-
-        /// <summary>
-        /// Sprite's default walking distance per tick
-        /// </summary>
-        public double DefaultWalkingDistance
-        {
-            get { return defaultWalkingDistance; }
-            set { defaultWalkingDistance = value; }
         }
 
         /// <summary>
@@ -391,33 +325,6 @@ namespace CvmFight
         {
             get { return crouchSpeedMultiplier; }
             set { crouchSpeedMultiplier = value; }
-        }
-
-        /// <summary>
-        /// Sprite's max jump acceleration
-        /// </summary>
-        public double MaxJumpAcceleration
-        {
-            get { return maxJumpAcceleration; }
-            set { maxJumpAcceleration = value; }
-        }
-
-        /// <summary>
-        /// Sprite's current jump force
-        /// </summary>
-        public double CurrentJumpAcceleration
-        {
-            get { return currentJumpAcceleration; }
-            set { currentJumpAcceleration = value; }
-        }
-
-        /// <summary>
-        /// Whether sprite must jump again because he has no cynetic energy left
-        /// </summary>
-        public bool IsNeedToJumpAgain
-        {
-            get { return isNeedToJumpAgain; }
-            set { isNeedToJumpAgain = value; }
         }
 
         public SpriteActionCycle StrongAttackCycle
@@ -520,12 +427,6 @@ namespace CvmFight
         {
             get { return receivedAttackCycle; }
             set { receivedAttackCycle = value; }
-        }
-
-        public double JumpSpeedMultiplier
-        {
-            get { return jumpSpeedMultiplier; }
-            set { jumpSpeedMultiplier = value; }
         }
 
         public double AttackWalkSpeedMultiplier

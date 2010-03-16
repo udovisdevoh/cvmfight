@@ -9,6 +9,21 @@ namespace CvmFight
     {
         #region Fields
         /// <summary>
+        /// Sprite's maximum jump acceleration
+        /// </summary>
+        private double maxJumpAcceleration = 1.0;
+
+        /// <summary>
+        /// Sprite's current jump force
+        /// </summary>
+        private double currentJumpAcceleration = 0.0;
+
+        /// <summary>
+        /// Whether sprite must jump again because he has no cynetic energy left
+        /// </summary>
+        private bool isNeedToJumpAgain = false;
+
+        /// <summary>
         /// Distance to a reference sprite (which could be anything)
         /// </summary>
         private double distanceToReferenceSprite;
@@ -27,6 +42,26 @@ namespace CvmFight
         /// y coordinate position
         /// </summary>
         private double positionY = 0.0;
+
+        /// <summary>
+        /// sprite's radius
+        /// </summary>
+        private double radius = 0.0;
+
+        /// <summary>
+        /// Jump speed multiplier
+        /// </summary>
+        private double jumpSpeedMultiplier = 1.6;
+
+        /// <summary>
+        /// Sprite's default walking distance per tick
+        /// </summary>
+        private double defaultWalkingDistance = 0.1;
+
+        /// <summary>
+        /// height from the ground
+        /// </summary>
+        private double positionZ = 0.0;
         #endregion
 
         #region IComparable<AbstractSprite> Members
@@ -36,11 +71,38 @@ namespace CvmFight
         }
         #endregion
 
-        #region Public Abstract Methods
+        #region Public Methods
         public abstract void Update(double timeDelta, SpritePool spritePool, AbstractMap abstractMap);
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Sprite's max jump acceleration
+        /// </summary>
+        public double MaxJumpAcceleration
+        {
+            get { return maxJumpAcceleration; }
+            set { maxJumpAcceleration = value; }
+        }
+
+        /// <summary>
+        /// Sprite's diameter
+        /// </summary>
+        public double Diameter
+        {
+            get { return radius * 2; }
+            set { radius = value / 2; }
+        }
+
+        /// <summary>
+        /// Sprite's current jump force
+        /// </summary>
+        public double CurrentJumpAcceleration
+        {
+            get { return currentJumpAcceleration; }
+            set { currentJumpAcceleration = value; }
+        }
+
         /// <summary>
         /// Distance to a reference sprite (which could be anything)
         /// </summary>
@@ -104,6 +166,48 @@ namespace CvmFight
         {
             get { return positionY; }
             set { positionY = value; }
+        }
+
+        /// <summary>
+        /// Sprite's radius
+        /// </summary>
+        public double Radius
+        {
+            get { return radius; }
+            set { radius = value; }
+        }
+
+        public double JumpSpeedMultiplier
+        {
+            get { return jumpSpeedMultiplier; }
+            set { jumpSpeedMultiplier = value; }
+        }
+
+        /// <summary>
+        /// Sprite's default walking distance per tick
+        /// </summary>
+        public double DefaultWalkingDistance
+        {
+            get { return defaultWalkingDistance; }
+            set { defaultWalkingDistance = value; }
+        }
+
+        /// <summary>
+        /// z coordinate position
+        /// </summary>
+        public double PositionZ
+        {
+            get { return positionZ; }
+            set { positionZ = value; }
+        }
+
+        /// <summary>
+        /// Whether sprite must jump again because he has no cynetic energy left
+        /// </summary>
+        public bool IsNeedToJumpAgain
+        {
+            get { return isNeedToJumpAgain; }
+            set { isNeedToJumpAgain = value; }
         }
         #endregion
     }
