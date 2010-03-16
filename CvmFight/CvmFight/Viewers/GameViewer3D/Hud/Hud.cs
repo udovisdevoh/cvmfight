@@ -55,6 +55,8 @@ namespace CvmFight
 
         private int hudRow2;
 
+        private bool isEvenOddFrame = false;
+
         private bool isJumpCrouchAtAttackCycleStart;
         #endregion
 
@@ -150,6 +152,8 @@ namespace CvmFight
         #region Public Methods
         public void Update(AbstractHumanoid player, Surface surface)
         {
+            isEvenOddFrame = !isEvenOddFrame;
+
             if (health == null)
                 health = bigRed.Render(((int)(player.Health)).ToString(), System.Drawing.Color.Red);
 
@@ -170,7 +174,11 @@ namespace CvmFight
             {
                 if (isJumpCrouchAtAttackCycleStart)
                 {
-                    if (player.IsBlock)
+                    if (player.SpinAttackCycle.IsFired)
+                    {
+                        surface.Blit(attackKick, PointLoader.GetPoint(screenWidth / 3, screenHeight - attackKick.Height));
+                    }
+                    else if (player.IsBlock)
                     {
                         if (player.BlockSuccessCycle.IsFired)
                         {
@@ -183,7 +191,8 @@ namespace CvmFight
                     }
                     else if (attackCycleState == 0)
                     {
-                        surface.Blit(restKick, PointLoader.GetPoint(screenWidth / 3, screenHeight - restKick.Height));
+                        if (!player.SpinChargeAttackCycle.IsFired || isEvenOddFrame || player.SpinChargeAttackCycle.IsAtParoxism)
+                            surface.Blit(restKick, PointLoader.GetPoint(screenWidth / 3, screenHeight - restKick.Height));
                     }
                     else if (attackCycleState == 1)
                     {
@@ -196,7 +205,11 @@ namespace CvmFight
                 }
                 else
                 {
-                    if (player.IsBlock)
+                    if (player.SpinAttackCycle.IsFired)
+                    {
+                        surface.Blit(attackKick, PointLoader.GetPoint(screenWidth / 3, screenHeight - attackKick.Height));
+                    }
+                    else if (player.IsBlock)
                     {
                         if (player.BlockSuccessCycle.IsFired)
                         {
@@ -209,7 +222,8 @@ namespace CvmFight
                     }
                     else if (attackCycleState == 0)
                     {
-                        surface.Blit(restFist, PointLoader.GetPoint(0, screenHeight - restFist.Height));
+                        if (!player.SpinChargeAttackCycle.IsFired || isEvenOddFrame || player.SpinChargeAttackCycle.IsAtParoxism)
+                            surface.Blit(restFist, PointLoader.GetPoint(0, screenHeight - restFist.Height));
                     }
                     else if (attackCycleState == 1)
                     {

@@ -33,6 +33,11 @@ namespace CvmFight
                 predatorAttackIsAtParoxism = true;
                 isFastAttack = true;
             }
+            else if (predator.SpinAttackCycle.IsFired)
+            {
+                damage = predator.AttackPowerStrong;
+                predatorAttackIsAtParoxism = true;
+            }
             else
             {
                 return;
@@ -47,25 +52,30 @@ namespace CvmFight
                     if (prey == predator)
                         continue;
 
-                    if (Physics.IsWithinAttackRange(predator, prey))
+                    if (BattlePhysics.IsWithinAttackRange(predator, prey))
                     {
-                        if (Physics.IsInAttackOrBlockAngle(predator, prey))
+                        if (BattlePhysics.IsInAttackOrBlockAngle(predator, prey))
                         {
-                            if (Physics.IsInAttackHeight(predator, prey))
+                            if (BattlePhysics.IsInAttackHeight(predator, prey))
                             {
-                                if (!prey.IsBlock || !Physics.IsInAttackOrBlockAngle(prey, predator) || !Physics.IsInBlockingHeight(prey, predator))
+                                if (!prey.IsBlock || !BattlePhysics.IsInAttackOrBlockAngle(prey, predator) || !BattlePhysics.IsInBlockingHeight(prey, predator))
                                 {
                                     //We abort prey's attack
                                     prey.FastAttackCycle.Reset();
                                     prey.StrongAttackCycle.Reset();
                                     prey.BlockSuccessCycle.Reset();
+                                    prey.SpinChargeAttackCycle.Reset();
+                                    prey.SpinAttackCycle.Reset();
+
+                                    prey.FastAttackCycle.IsNeedToClickAgain = true;
+                                    prey.StrongAttackCycle.IsNeedToClickAgain = true;
 
                                     prey.ReceivedAttackAngleRadian = predator.AngleRadian;
                                     prey.ReceivedAttackCycle.Fire();
 
                                     if (isFastAttack)
                                     {
-                                        prey.ReceivedAttackCycle.SetPercentComplete(0.25);
+                                        prey.ReceivedAttackCycle.PercentComplete = 0.25;
                                         prey.ReceivedAttackCycle.IsForward = false;
                                         prey.IsJustReceivedFastAttack = true;
                                     }

@@ -164,13 +164,24 @@ namespace CvmFight
             //We manage attack buttons
             if (userInput.IsPressMouseButtonLeft)
             {
+                world.CurrentPlayer.IsBlock = false;
+
                 if (world.CurrentPlayer.ReceivedAttackCycle.GetCycleState() <= 0)
                 {
                     if (!world.CurrentPlayer.FastAttackCycle.IsFired)
                     {
-                        world.CurrentPlayer.IsBlock = false;
                         world.CurrentPlayer.StrongAttackCycle.Fire();
                     }
+                }
+
+                if (world.CurrentPlayer.SpinChargeAttackCycle.IsAtParoxism)
+                {
+                    world.CurrentPlayer.SpinChargeAttackCycle.IsNeedToClickAgain = true;
+                }
+                else
+                {
+                    world.CurrentPlayer.SpinChargeAttackCycle.Fire();
+                    world.CurrentPlayer.SpinChargeAttackCycle.Update(timeDelta);
                 }
             }
             else if (userInput.IsPressMouseButtonCenter)
@@ -190,7 +201,20 @@ namespace CvmFight
                     world.CurrentPlayer.StrongAttackCycle.UnFire();
                 if (world.CurrentPlayer.FastAttackCycle.IsAtBegining)
                     world.CurrentPlayer.FastAttackCycle.UnFire();
+
+                if (world.CurrentPlayer.SpinChargeAttackCycle.IsAtParoxism && !world.CurrentPlayer.FastAttackCycle.IsFired && !world.CurrentPlayer.StrongAttackCycle.IsFired)
+                {
+                    world.CurrentPlayer.SpinAttackCycle.Reset();
+                    world.CurrentPlayer.SpinAttackCycle.Fire();
+                }    
+                world.CurrentPlayer.SpinChargeAttackCycle.Reset();
             }
+
+
+            //If sprite is doing spin attack, we disable block
+            if (world.CurrentPlayer.SpinAttackCycle.IsFired)
+                world.CurrentPlayer.IsBlock = false;
+
 
 
             //We animate the sprites using the AI

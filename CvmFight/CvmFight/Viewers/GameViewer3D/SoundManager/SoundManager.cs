@@ -33,6 +33,9 @@ namespace CvmFight
 
         public const int YouWin = 11;
 
+        public const int SpinAttack = 12;
+
+        public const int SpinCharge = 13;
         #endregion
 
         #region Fields
@@ -47,7 +50,7 @@ namespace CvmFight
             musicManager = new MusicManager(random);
             Mixer.ChannelsAllocated = 64;
 
-            internalList = new CachedSound[12];
+            internalList = new CachedSound[14];
             internalList[Block] = new CachedSound("Assets/Sounds/Block.ogg");
             internalList[FastAttempt] = new CachedSound("Assets/Sounds/FastAttempt.ogg");
             internalList[FastHit] = new CachedSound("Assets/Sounds/FastHit.ogg");
@@ -60,6 +63,8 @@ namespace CvmFight
             internalList[StrongPunchHit] = new CachedSound("Assets/Sounds/StrongPunchHit.ogg");
             internalList[YouLose] = new CachedSound("Assets/Sounds/YouLose.ogg");
             internalList[YouWin] = new CachedSound("Assets/Sounds/YouWin.ogg");
+            internalList[SpinAttack] = new CachedSound("Assets/Sounds/SpinAttack.ogg");
+            internalList[SpinCharge] = new CachedSound("Assets/Sounds/SpinCharge.ogg");
         }
         #endregion
 
@@ -95,7 +100,7 @@ namespace CvmFight
                     channel = Play(Ko);
                 }
             }
-            if (sprite.IsJustReceivedStrongPunch)
+            else if (sprite.IsJustReceivedStrongPunch)
             {
                 channel = Play(StrongPunchHit);
             }
@@ -125,10 +130,15 @@ namespace CvmFight
             }
             else if (sprite.FastAttackCycle.IsAtBegining && sprite.FastAttackCycle.IsFired && sprite.FastAttackCycle.IsForward)
             {
-                if (sprite.IsCrouch || sprite.PositionZ > 0)
-                    channel = Play(FastAttempt);
-                else
-                    channel = Play(FastAttempt);
+                channel = Play(FastAttempt);
+            }
+            else if (sprite.SpinAttackCycle.IsAtBegining && sprite.SpinAttackCycle.IsFired)
+            {
+                channel = Play(SpinAttack);
+            }
+            else if (sprite.SpinChargeAttackCycle.IsAtParoxism && !sprite.SpinChargeAttackCycle.IsNeedToClickAgain)
+            {
+                channel = Play(SpinCharge);
             }
 
             //We set the volume according to the distance
