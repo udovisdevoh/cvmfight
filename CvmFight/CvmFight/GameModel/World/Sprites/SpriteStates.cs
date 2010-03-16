@@ -30,5 +30,7 @@ namespace CvmFight
         public static byte FastAttack = 10;
 
         public static byte StrongAttack = 11;
+
+        public static byte SpinCharge = 12;
     }
 }

@@ -48,6 +48,9 @@ namespace CvmFight
         #region Public Methods
         public void View(AbstractHumanoid viewerSprite, AbstractHumanoid viewedSprite, Surface mainSurface)
         {
+            if (viewedSprite.SpinChargeAttackCycle.IsFired && random.Next(4) == 0)
+                return;
+
             double angleDegree = (Optics.GetSpriteAngleToSpriteRadian(viewerSprite, viewedSprite) - viewerSprite.AngleRadian) / Math.PI * 180.0;
             double straightDistance = Optics.GetStraightDistance(viewerSprite, viewedSprite);
             double theoreticalColumnHeight = Optics.GetColumnHeight(straightDistance, screenHeight, heightDistanceRatio);
@@ -78,6 +81,9 @@ namespace CvmFight
             int attackCycleState = Math.Max(viewedSprite.StrongAttackCycle.GetCycleState(), viewedSprite.FastAttackCycle.GetCycleState());
 
             int receivedAttackCycleState = viewedSprite.ReceivedAttackCycle.GetCycleState();
+
+            if (viewedSprite.SpinAttackCycle.IsFired)
+                attackCycleState = 2;
 
             if (viewedSprite.IsCrouch)
             {

@@ -36,6 +36,8 @@ namespace CvmFight
         public const int SpinAttack = 12;
 
         public const int SpinCharge = 13;
+
+        public const int SpinChargeEnemy = 14;
         #endregion
 
         #region Fields
@@ -50,7 +52,7 @@ namespace CvmFight
             musicManager = new MusicManager(random);
             Mixer.ChannelsAllocated = 64;
 
-            internalList = new CachedSound[14];
+            internalList = new CachedSound[15];
             internalList[Block] = new CachedSound("Assets/Sounds/Block.ogg");
             internalList[FastAttempt] = new CachedSound("Assets/Sounds/FastAttempt.ogg");
             internalList[FastHit] = new CachedSound("Assets/Sounds/FastHit.ogg");
@@ -65,6 +67,7 @@ namespace CvmFight
             internalList[YouWin] = new CachedSound("Assets/Sounds/YouWin.ogg");
             internalList[SpinAttack] = new CachedSound("Assets/Sounds/SpinAttack.ogg");
             internalList[SpinCharge] = new CachedSound("Assets/Sounds/SpinCharge.ogg");
+            internalList[SpinChargeEnemy] = new CachedSound("Assets/Sounds/SpinChargeEnemy.ogg");
         }
         #endregion
 
@@ -136,9 +139,13 @@ namespace CvmFight
             {
                 channel = Play(SpinAttack);
             }
-            else if (sprite.SpinChargeAttackCycle.IsAtParoxism && !sprite.SpinChargeAttackCycle.IsNeedToClickAgain)
+            else if (sprite == currentPlayer && sprite.SpinChargeAttackCycle.IsAtParoxism && !sprite.SpinChargeAttackCycle.IsNeedToClickAgain)
             {
-                channel = Play(SpinCharge);
+                 channel = Play(SpinCharge);
+            }
+            else if (sprite != currentPlayer && sprite.SpinChargeAttackCycle.IsFired && sprite.SpinChargeAttackCycle.IsAtBegining)
+            {
+                 channel = Play(SpinChargeEnemy);
             }
 
             //We set the volume according to the distance
