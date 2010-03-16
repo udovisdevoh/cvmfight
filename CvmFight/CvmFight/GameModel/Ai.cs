@@ -90,7 +90,7 @@ namespace CvmFight
 
 
 
-                //We manage attacking, charging and blocking
+                //We manage attacking,  and blocking
                 bool isWithinAttackRange = BattlePhysics.IsWithinAttackRange(predator, prey);
                 bool isWithinAttackOrBlockAngle = BattlePhysics.IsInAttackOrBlockAngle(predator, prey);
 
