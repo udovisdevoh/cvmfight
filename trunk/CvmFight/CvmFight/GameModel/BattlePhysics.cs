@@ -145,6 +145,9 @@ namespace CvmFight
             double predatorAttackRange = predator.AttackRange;
             if (predator.PositionZ > 0)
                 predatorAttackRange *= predator.AttackRangeJumpMultiplier;
+            else if (predator.IsCrouch)
+                predatorAttackRange *= predator.AttackRangeCrouchMultiplier;
+
             return predatorAttackRange;
         }
         #endregion

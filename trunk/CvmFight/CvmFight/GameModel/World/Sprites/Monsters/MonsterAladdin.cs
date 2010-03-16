@@ -5,12 +5,12 @@ using System.Text;
 
 namespace CvmFight
 {
-    class Player : AbstractHumanoid
+    class MonsterAladdin : AbstractHumanoid
     {
         #region Abstract Sprite Members
         protected override double GetHeight()
         {
-            return 1.0;
+            return 1.14;
         }
 
         protected override double GetRadius()
@@ -36,17 +36,17 @@ namespace CvmFight
 
         protected override double GetAttackPowerFast()
         {
-            return 0.15 * 8;//*8 to compensate for the shortness of damage
+            return 0.15 * 8; //*8 to compensate for the shortness of damage
         }
 
         protected override double GetDefaultHealth()
         {
-            return 100;
+            return 150;
         }
 
         protected override double GetMaxHealth()
         {
-            return 200;
+            return 300;
         }
 
         protected override double GetMaxJumpAcceleration()
@@ -62,8 +62,8 @@ namespace CvmFight
 
         protected override double GetDefaultWalkingDistance()
         {
-            //return 0.02;
-            return 0.04;
+            //return 0.01;
+            return 0.02;
         }
 
         protected override double GetJumpSpeedMultiplier()
@@ -81,12 +81,13 @@ namespace CvmFight
         protected override double GetStrongAttackTime()
         {
             //return 0.2;
-            return 1.5;
+            //return 1;
+            return 3;
         }
 
         protected override double GetFastAttackTime()
         {
-            return 0.2;
+            return 1;
         }
 
         protected override double GetReceivedAttackCycleLength()
@@ -102,7 +103,7 @@ namespace CvmFight
 
         protected override double GetStateAttackBlockCycleLength()
         {
-            return 30;
+            return 50;
         }
 
         protected override double GetJumpCrouchCycleLength()
@@ -143,7 +144,7 @@ namespace CvmFight
 
         protected override double GetSpinAttackTime()
         {
-            return 1.5;
+            return 3;
         }
         #endregion
     }
