@@ -130,13 +130,13 @@ namespace CvmFight
             }
 
 
-            //Blocking
             world.CurrentPlayer.IsBlock = false;
-            if (userInput.IsPressDown || userInput.IsPressMouseButtonRight)
+            //Automatic Blocking
+            if (world.CurrentPlayer.StrongAttackCycle.IsAtBegining)
             {
-                if (world.CurrentPlayer.StrongAttackCycle.IsAtBegining)
+                if (world.CurrentPlayer.FastAttackCycle.IsAtBegining)
                 {
-                    if (world.CurrentPlayer.FastAttackCycle.IsAtBegining)
+                    if (!world.CurrentPlayer.SpinAttackCycle.IsFired)
                     {
                         world.CurrentPlayer.IsBlock = true;
                     }
@@ -184,7 +184,7 @@ namespace CvmFight
                     world.CurrentPlayer.SpinChargeAttackCycle.Update(timeDelta);
                 }
             }
-            else if (userInput.IsPressMouseButtonCenter)
+            else if (userInput.IsPressMouseButtonRight)
             {
                 if (world.CurrentPlayer.ReceivedAttackCycle.GetCycleState() <= 0)
                 {
@@ -209,11 +209,6 @@ namespace CvmFight
                 }    
                 world.CurrentPlayer.SpinChargeAttackCycle.Reset();
             }
-
-
-            //If sprite is doing spin attack, we disable block
-            if (world.CurrentPlayer.SpinAttackCycle.IsFired)
-                world.CurrentPlayer.IsBlock = false;
 
 
 
