@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CvmFight\GameModel\Ai.cs" />
+    <Compile Include="CvmFight\GameModel\BattlePhysics.cs" />
     <Compile Include="CvmFight\GameModel\DamageManager.cs" />
     <Compile Include="CvmFight\GameModel\Optics.cs" />
     <Compile Include="CvmFight\GameModel\Physics.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="CvmFight\GameModel\Waves\WaveFunctions.cs" />
     <Compile Include="CvmFight\GameModel\Waves\WavePack.cs" />
     <Compile Include="CvmFight\GameModel\Waves\WaveBuilder.cs" />
+    <Compile Include="CvmFight\GameModel\World\Sprites\Projectiles\AbstractProjectile.cs" />
     <Compile Include="CvmFight\GameModel\World\Sprites\SpriteActionCycle.cs" />
     <Compile Include="CvmFight\GameModel\World\Sprites\SpriteState.cs" />
     <Compile Include="CvmFight\GameModel\World\Sprites\SpriteStates.cs" />

@@ -97,7 +97,7 @@ namespace CvmFight
             }
         }
 
-        private static double FixAngleRadian(double angle)
+        public static double FixAngleRadian(double angle)
         {
             while (angle > Math.PI * 2)
                 angle -= Math.PI * 2;

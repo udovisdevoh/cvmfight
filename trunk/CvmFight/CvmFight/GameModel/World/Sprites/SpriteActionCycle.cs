@@ -17,11 +17,31 @@ namespace CvmFight
         private bool isFired;
 
         private bool isNeedToClickAgain = false;
+
+        private bool isBouncingBack = true;
+
+        private bool isAutoReset = false;
         #endregion
 
         #region Constructor
-        public SpriteActionCycle(double cycleLength)
+        /// <summary>
+        /// Create a sprite cycle
+        /// </summary>
+        /// <param name="cycleLength">cycle length</param>
+        public SpriteActionCycle(double cycleLength): this(cycleLength,true){}
+
+        public SpriteActionCycle(double cycleLength, bool isBouncingBack) : this(cycleLength,isBouncingBack,false) {}
+
+        /// <summary>
+        /// Create a sprite cycle
+        /// </summary>
+        /// <param name="cycleLength">cycle length</param>
+        /// <param name="isBouncingBack">whether the cycle is bouncing back at the end (default: true)</param>
+        /// <param name="isAutoReset">whether the cycle is reseting after it reaches its paroxysm (default: false)</param>
+        public SpriteActionCycle(double cycleLength, bool isBouncingBack, bool isAutoReset)
         {
+            this.isBouncingBack = isBouncingBack;
+            this.isAutoReset = isAutoReset;
             this.cycleLength = cycleLength;
         }
         #endregion
@@ -37,7 +57,20 @@ namespace CvmFight
         {
             if (currentCyclePosition > cycleLength)
             {
-                isForward = false;
+                if (isAutoReset)
+                {
+                    Reset();
+                    return;
+                }
+                else if (isBouncingBack)
+                {
+                    isForward = false;
+                }
+                else
+                {
+                    currentCyclePosition = cycleLength;
+                    return;
+                }
             }
             else if (currentCyclePosition < 0)
             {
@@ -118,11 +151,6 @@ namespace CvmFight
             isFired = false;
             currentCyclePosition = 0;
         }
-
-        public void SetPercentComplete(double percentComplete)
-        {
-            currentCyclePosition = this.cycleLength * percentComplete;
-        }
         #endregion
 
         #region Properties
@@ -145,6 +173,25 @@ namespace CvmFight
         public bool IsAtBegining
         {
             get { return currentCyclePosition <= 0; }
+        }
+
+        public double PercentComplete
+        {
+            get
+            {
+                return currentCyclePosition / cycleLength;
+            }
+
+            set
+            {
+                currentCyclePosition = this.cycleLength * value;
+            }
+        }
+
+        public bool IsNeedToClickAgain
+        {
+            get { return isNeedToClickAgain; }
+            set { isNeedToClickAgain = value; }
         }
         #endregion
     }

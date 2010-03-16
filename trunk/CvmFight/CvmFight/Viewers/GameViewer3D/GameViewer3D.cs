@@ -68,35 +68,40 @@ namespace CvmFight
         #region Public Methods
         public override void Update(World world, RayTracer rayTracer)
         {
-            int gradientOffset = (int)(world.CurrentPlayer.MouseLook * screenHeight) - screenHeight / 2;
-            mainSurface.Blit(gradient.Surface, PointLoader.GetPoint(0, gradientOffset));
-
-            columnViewer.Update(world.CurrentPlayer, rayTracer, world.Map, mainSurface);
-
-            //We display the sprites
-            world.SpritePool.SortByDistance(world.CurrentPlayer);
-            foreach (AbstractHumanoid sprite in world.SpritePool)
-            {
-                if (sprite != world.CurrentPlayer && world.SharedConsciousness.IsSpriteViewable(world.CurrentPlayer, sprite, world.Map, rayTracer.Fov))
-                {
-                    spriteViewer.View(world.CurrentPlayer, sprite, mainSurface);
-                    if (isSoundOn)
-                    {
-                        soundManager.Update(sprite, world.CurrentPlayer);
-                    }
-                }
-            }
             if (isSoundOn)
                 soundManager.Update(world.CurrentPlayer, world.CurrentPlayer);
 
-            hud.Update(world.CurrentPlayer, mainSurface);
-
-            if (isMiniMapOn)
-                minimap.Update(world, rayTracer, mainSurface);
-
             int receivedAttackCycle = world.CurrentPlayer.ReceivedAttackCycle.GetCycleState();
             if (receivedAttackCycle > 0 && (receivedAttackCycle == 0 || (random.Next(6) == 0)))
+            {
                 mainSurface.Fill(Color.Red);
+            }
+            else
+            {
+                int gradientOffset = (int)(world.CurrentPlayer.MouseLook * screenHeight) - screenHeight / 2;
+                mainSurface.Blit(gradient.Surface, PointLoader.GetPoint(0, gradientOffset));
+
+                columnViewer.Update(world.CurrentPlayer, rayTracer, world.Map, mainSurface);
+
+                //We display the sprites
+                world.SpritePool.SortByDistance(world.CurrentPlayer);
+                foreach (AbstractHumanoid sprite in world.SpritePool)
+                {
+                    if (sprite != world.CurrentPlayer && world.SharedConsciousness.IsSpriteViewable(world.CurrentPlayer, sprite, world.Map, rayTracer.Fov))
+                    {
+                        spriteViewer.View(world.CurrentPlayer, sprite, mainSurface);
+                        if (isSoundOn)
+                        {
+                            soundManager.Update(sprite, world.CurrentPlayer);
+                        }
+                    }
+                }
+
+                hud.Update(world.CurrentPlayer, mainSurface);
+
+                if (isMiniMapOn)
+                    minimap.Update(world, rayTracer, mainSurface);
+            }
 
             mainSurface.Update();
         }

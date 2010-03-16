@@ -52,11 +52,6 @@ namespace CvmFight
         private double crouchSpeedMultiplier = 0.5;
 
         /// <summary>
-        /// Sprite's maximum jump acceleration
-        /// </summary>
-        private double maxJumpAcceleration = 1.0;
-
-        /// <summary>
         /// Whether the sprite is blocking
         /// </summary>
         private bool isBlock = false;
@@ -105,6 +100,10 @@ namespace CvmFight
 
         private double attackRangeJumpMultiplier;
 
+        private double attackAngleSpinMultiplier;
+
+        private double angleAtBeginingOfSpinAttackRadian;
+
         private bool isJustReceivedStrongPunch = false;
 
         private bool isJustReceivedStrongKick = false;
@@ -122,6 +121,16 @@ namespace CvmFight
         /// Represents the sprite's fast attack cycle
         /// </summary>
         private SpriteActionCycle fastAttackCycle;
+
+        /// <summary>
+        /// Represents the sprite's spin attack cycle's charge
+        /// </summary>
+        private SpriteActionCycle spinChargeAttackCycle;
+
+        /// <summary>
+        /// Represents the sprite's spin attack cycle
+        /// </summary>
+        private SpriteActionCycle spinAttackCycle;
 
         /// <summary>
         /// Represents the sprite's received attack cycle
@@ -187,6 +196,7 @@ namespace CvmFight
             JumpSpeedMultiplier = GetJumpSpeedMultiplier();
             AttackWalkSpeedMultiplier = GetAttackWalkSpeedMultiplier();
             AttackRangeJumpMultiplier = GetAttackRangeJumpMultiplier();
+            AttackAngleSpinMultiplier = GetAttackAngleSpinMultiplier();
 
             stateMovement = new SpriteState(SpriteStates.Offensive, SpriteStates.Defensive, SpriteStates.FurtiveLeft, SpriteStates.FurtiveRight, 10);
             stateJumpCrouch = new SpriteState(SpriteStates.Stand, SpriteStates.Jump, SpriteStates.Crouch, SpriteStates.Stand, SpriteStates.Stand, 20);
@@ -201,10 +211,16 @@ namespace CvmFight
             stateJumpCrouch = new SpriteState(SpriteStates.Stand, SpriteStates.Jump, SpriteStates.Crouch, SpriteStates.Stand, SpriteStates.Stand, GetJumpCrouchCycleLength());
             stateAttackBlock = new SpriteState(SpriteStates.Attack, SpriteStates.Block, SpriteStates.OpenToAttack, GetStateAttackBlockCycleLength());
             blockSuccessCycle = new SpriteActionCycle(GetBlockSuccessTime());
+            spinChargeAttackCycle = new SpriteActionCycle(GetSpinAttackChargeTime(), false);
+            spinAttackCycle = new SpriteActionCycle(GetSpinAttackTime(), false, true);
         }
         #endregion
 
         #region Protected Abstract Methods
+        protected abstract double GetSpinAttackTime();
+
+        protected abstract double GetSpinAttackChargeTime();
+
         protected abstract double GetHeight();
 
         protected abstract double GetRadius();
@@ -247,6 +263,8 @@ namespace CvmFight
 
         protected abstract double GetAttackRangeJumpMultiplier();
 
+        protected abstract double GetAttackAngleSpinMultiplier();
+
         protected abstract double GetBlockSuccessTime();
         #endregion
 
@@ -257,9 +275,21 @@ namespace CvmFight
             isJustReceivedStrongKick = false;
             isJustReceivedFastAttack = false;
 
+            if (spinAttackCycle.IsFired)
+            {
+                if (spinAttackCycle.IsAtBegining)
+                    AngleAtBeginingOfSpinAttackRadian = AngleRadian;
+                else if (spinAttackCycle.IsAtParoxism)
+                    AngleRadian = AngleAtBeginingOfSpinAttackRadian;
+                else
+                    AngleRadian = BattlePhysics.BuildSpinAttackRotation(AngleAtBeginingOfSpinAttackRadian, spinAttackCycle.PercentComplete);
+            }
+
             strongAttackCycle.Update(timeDelta);
             fastAttackCycle.Update(timeDelta);
             blockSuccessCycle.Update(timeDelta);
+            spinAttackCycle.Update(timeDelta);
+
             Physics.MakeFall(this, timeDelta);
         }
 
@@ -340,6 +370,16 @@ namespace CvmFight
         public SpriteActionCycle WalkCycle
         {
             get { return walkCycle; }
+        }
+
+        public SpriteActionCycle SpinChargeAttackCycle
+        {
+            get { return spinChargeAttackCycle; }
+        }
+
+        public SpriteActionCycle SpinAttackCycle
+        {
+            get { return spinAttackCycle; }
         }
 
         public bool IsBlock
@@ -487,6 +527,12 @@ namespace CvmFight
             set { attackRangeJumpMultiplier = value; }
         }
 
+        public double AttackAngleSpinMultiplier
+        {
+            get { return attackAngleSpinMultiplier; }
+            set { attackAngleSpinMultiplier = value; }
+        }
+
         public SpriteActionCycle BlockSuccessCycle
         {
             get { return blockSuccessCycle; }
@@ -514,6 +560,12 @@ namespace CvmFight
         {
             get { return latestSelectedPrey; }
             set { latestSelectedPrey = value; }
+        }
+
+        public double AngleAtBeginingOfSpinAttackRadian
+        {
+            get { return angleAtBeginingOfSpinAttackRadian; }
+            set { angleAtBeginingOfSpinAttackRadian = value; }
         }
         #endregion
     }

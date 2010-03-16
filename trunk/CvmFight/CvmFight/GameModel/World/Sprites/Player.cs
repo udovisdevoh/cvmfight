@@ -117,9 +117,24 @@ namespace CvmFight
             return 1.1375;
         }
 
+        protected override double GetAttackAngleSpinMultiplier()
+        {
+            return 3;
+        }
+
         protected override double GetBlockSuccessTime()
         {
             return 0.5;
+        }
+
+        protected override double GetSpinAttackChargeTime()
+        {
+            return 10;
+        }
+
+        protected override double GetSpinAttackTime()
+        {
+            return 1.5;
         }
         #endregion
     }
