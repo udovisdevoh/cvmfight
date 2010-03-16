@@ -20,7 +20,8 @@ namespace CvmFight
 
         protected override double GetAttackRange()
         {
-            return 0.4;
+            //return 0.4;
+            return 0.455;
         }
 
         protected override double GetAttackAngleRange()
@@ -114,7 +115,8 @@ namespace CvmFight
 
         protected override double GetAttackRangeJumpMultiplier()
         {
-            return 1.1375;
+            //return 1.1375;
+            return 1;
         }
 
         protected override double GetAttackAngleSpinMultiplier()
