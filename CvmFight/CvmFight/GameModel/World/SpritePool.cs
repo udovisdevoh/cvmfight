@@ -5,12 +5,12 @@ using System.Text;
 
 namespace CvmFight
 {
-    class SpritePool : IList<AbstractHumanoid>
+    class SpritePool : IList<AbstractSprite>
     {
         #region Fields
-        private HashSet<AbstractHumanoid> internalHash = new HashSet<AbstractHumanoid>();
+        private HashSet<AbstractSprite> internalHash = new HashSet<AbstractSprite>();
 
-        private List<AbstractHumanoid> internalList = new List<AbstractHumanoid>();
+        private List<AbstractSprite> internalList = new List<AbstractSprite>();
         #endregion
 
         #region Constructors
@@ -32,12 +32,12 @@ namespace CvmFight
         #endregion
 
         #region IList<AbstractSprite> Membres
-        public int IndexOf(AbstractHumanoid item)
+        public int IndexOf(AbstractSprite item)
         {
             return internalList.IndexOf(item);
         }
 
-        public void Insert(int index, AbstractHumanoid item)
+        public void Insert(int index, AbstractSprite item)
         {
             internalList.Insert(index, item);
             internalHash.Add(item);
@@ -49,7 +49,7 @@ namespace CvmFight
             internalList.RemoveAt(index);
         }
 
-        public AbstractHumanoid this[int index]
+        public AbstractSprite this[int index]
         {
             get
             {
@@ -62,7 +62,7 @@ namespace CvmFight
             }
         }
 
-        public void Add(AbstractHumanoid item)
+        public void Add(AbstractSprite item)
         {
             internalHash.Add(item);
             internalList.Add(item);
@@ -74,12 +74,12 @@ namespace CvmFight
             internalHash.Clear();
         }
 
-        public bool Contains(AbstractHumanoid item)
+        public bool Contains(AbstractSprite item)
         {
             return internalHash.Contains(item);
         }
 
-        public void CopyTo(AbstractHumanoid[] array, int arrayIndex)
+        public void CopyTo(AbstractSprite[] array, int arrayIndex)
         {
             internalList.CopyTo(array, arrayIndex);
         }
@@ -94,12 +94,12 @@ namespace CvmFight
             get { return false; }
         }
 
-        public bool Remove(AbstractHumanoid item)
+        public bool Remove(AbstractSprite item)
         {
             return internalHash.Remove(item) && internalList.Remove(item);
         }
 
-        public IEnumerator<AbstractHumanoid> GetEnumerator()
+        public IEnumerator<AbstractSprite> GetEnumerator()
         {
             return internalList.GetEnumerator();
         }
@@ -110,9 +110,9 @@ namespace CvmFight
         }
         #endregion
 
-        public void SortByDistance(AbstractHumanoid referenceSprite)
+        public void SortByDistance(AbstractSprite referenceSprite)
         {
-            foreach (AbstractHumanoid sprite in internalList)
+            foreach (AbstractSprite sprite in internalList)
                 sprite.DistanceToReferenceSprite = Optics.GetStraightDistance(referenceSprite, sprite);
 
             internalList.Sort();
