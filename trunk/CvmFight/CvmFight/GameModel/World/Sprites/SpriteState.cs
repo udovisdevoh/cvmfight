@@ -20,6 +20,22 @@ namespace CvmFight
         #endregion
 
         #region Constructor
+        public SpriteState(byte state0, byte state1, byte state2, byte state3, byte state4, byte state5, byte state6, double averageMaxTime)
+        {
+            this.averageMaxTime = averageMaxTime;
+
+            stateList = new byte[7];
+            stateList[0] = state0;
+            stateList[1] = state1;
+            stateList[2] = state2;
+            stateList[3] = state3;
+            stateList[4] = state4;
+            stateList[5] = state5;
+            stateList[6] = state6;
+
+            currentState = stateList[0];
+        }
+
         public SpriteState(byte state0, byte state1, byte state2, byte state3, byte state4, byte state5, double averageMaxTime)
         {
             this.averageMaxTime = averageMaxTime;

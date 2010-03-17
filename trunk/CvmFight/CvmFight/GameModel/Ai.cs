@@ -146,11 +146,14 @@ namespace CvmFight
                     }
                     else if (currentAttackBlockState == SpriteStates.SpinCharge)
                     {
-                        if (IsReadyToSpin(predator))
+                        if (IsReadyToSpin(predator) && BattlePhysics.IsWithinAttackRange(predator, prey, 1.5))
                         {
-                            predator.SpinAttackCycle.Reset();
-                            predator.SpinAttackCycle.Fire();
-                            predator.SpinChargeAttackCycle.Reset();
+                            if (random.Next(3) == 1)
+                            {
+                                predator.SpinAttackCycle.Reset();
+                                predator.SpinAttackCycle.Fire();
+                                predator.SpinChargeAttackCycle.Reset();
+                            }
                         }
                         else if (!predator.SpinAttackCycle.IsFired)
                         {
