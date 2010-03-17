@@ -141,11 +141,11 @@ namespace CvmFight
             }
             else if (sprite == currentPlayer && sprite.SpinChargeAttackCycle.IsAtParoxism && !sprite.SpinChargeAttackCycle.IsNeedToClickAgain)
             {
-                 channel = Play(SpinCharge);
+                channel = Play(SpinCharge);
             }
             else if (sprite != currentPlayer && sprite.SpinChargeAttackCycle.IsFired && sprite.SpinChargeAttackCycle.IsAtBegining)
             {
-                 channel = Play(SpinChargeEnemy);
+                channel = Play(SpinChargeEnemy);
             }
 
             //We set the volume according to the distance
