@@ -26,7 +26,7 @@ namespace CvmFight
 
         protected override double GetAttackAngleRange()
         {
-            return 0.17;
+            return 0.333;
         }
 
         protected override double GetAttackPowerStrong()

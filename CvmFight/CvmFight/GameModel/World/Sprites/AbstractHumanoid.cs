@@ -163,7 +163,7 @@ namespace CvmFight
         /// <summary>
         /// Represents the sprite's current attack or block behavior
         /// </summary>
-        private SpriteState stateAttackBlock;
+        private SpriteState stateAttackBlockCharge;
 
         /// <summary>
         /// Represents the sprite's current attack or block behavior
@@ -201,20 +201,18 @@ namespace CvmFight
             AttackRangeJumpMultiplier = GetAttackRangeJumpMultiplier();
             AttackAngleSpinMultiplier = GetAttackAngleSpinMultiplier();
             AttackRangeCrouchMultiplier = GetAttackRangeCrouchMultiplier();
-
-            stateMovement = new SpriteState(SpriteStates.Offensive, SpriteStates.Defensive, SpriteStates.FurtiveLeft, SpriteStates.FurtiveRight, 10);
-            stateJumpCrouch = new SpriteState(SpriteStates.Stand, SpriteStates.Jump, SpriteStates.Crouch, SpriteStates.Stand, SpriteStates.Stand, 20);
-            stateAttackBlock = new SpriteState(SpriteStates.Attack, SpriteStates.Block, SpriteStates.OpenToAttack, 30);
+            
             stateAttackType = new SpriteState(SpriteStates.FastAttack, SpriteStates.StrongAttack, 40);
+            stateJumpCrouch = new SpriteState(SpriteStates.Stand, SpriteStates.Jump, SpriteStates.Crouch, SpriteStates.Stand, SpriteStates.Stand, GetJumpCrouchCycleLength());
+            stateAttackBlockCharge = new SpriteState(SpriteStates.Attack, SpriteStates.Block, SpriteStates.OpenToAttack, SpriteStates.SpinCharge, SpriteStates.Attack, SpriteStates.Block, SpriteStates.OpenToAttack, GetStateAttackBlockCycleLength());
+            stateMovement = new SpriteState(SpriteStates.Offensive, SpriteStates.Offensive, SpriteStates.Offensive, SpriteStates.Defensive, SpriteStates.FurtiveLeft, SpriteStates.FurtiveRight, GetMovementCycleLength());
 
             strongAttackCycle = new SpriteActionCycle(GetStrongAttackTime());
             fastAttackCycle = new SpriteActionCycle(GetFastAttackTime());
-            receivedAttackCycle = new SpriteActionCycle(GetReceivedAttackCycleLength());
             walkCycle = new SpriteActionCycle(GetWalkCycleLength());
-            stateMovement = new SpriteState(SpriteStates.Offensive, SpriteStates.Offensive, SpriteStates.Offensive, SpriteStates.Defensive, SpriteStates.FurtiveLeft, SpriteStates.FurtiveRight, GetMovementCycleLength());
-            stateJumpCrouch = new SpriteState(SpriteStates.Stand, SpriteStates.Jump, SpriteStates.Crouch, SpriteStates.Stand, SpriteStates.Stand, GetJumpCrouchCycleLength());
-            stateAttackBlock = new SpriteState(SpriteStates.Attack, SpriteStates.Block, SpriteStates.OpenToAttack, SpriteStates.SpinCharge, GetStateAttackBlockCycleLength());
+            receivedAttackCycle = new SpriteActionCycle(GetReceivedAttackCycleLength());
             blockSuccessCycle = new SpriteActionCycle(GetBlockSuccessTime());
+
             spinChargeAttackCycle = new SpriteActionCycle(GetSpinAttackChargeTime(), false);
             spinAttackCycle = new SpriteActionCycle(GetSpinAttackTime(), false, true);
         }
@@ -494,7 +492,7 @@ namespace CvmFight
 
         public SpriteState StateAttackBlock
         {
-            get { return stateAttackBlock; }
+            get { return stateAttackBlockCharge; }
         }
 
         public SpriteState StateAttackType
