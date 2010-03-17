@@ -75,18 +75,7 @@ namespace CvmFight
                 byte currentMovementState = predator.StateMovement.GetCurrentState();
 
                 if (predator.SpinChargeAttackCycle.IsFired)
-                {
                     currentAttackBlockState = SpriteStates.SpinCharge;
-
-                    if (IsReadyToSpin(predator))
-                    {
-                        currentMovementState = SpriteStates.Offensive;
-                    }
-                    else
-                    {
-                        currentMovementState = SpriteStates.Defensive;
-                    }
-                }
                     
 
                 if (currentMovementState == SpriteStates.Offensive)
@@ -118,62 +107,66 @@ namespace CvmFight
 
                 if (isWithinAttackRange || isWithinAttackOrBlockAngle)
                 {
-                    if (currentAttackBlockState == SpriteStates.Attack)
+                    if (predator.ReceivedAttackCycle.IsAtBegining)
                     {
-                        if (currentAttackTypeState == SpriteStates.FastAttack)
+                        if (currentAttackBlockState == SpriteStates.Attack)
                         {
-                            if (random.Next(2) == 1)
+                            if (currentAttackTypeState == SpriteStates.FastAttack)
                             {
-                                if (BattlePhysics.IsWithinAttackRange(predator, prey, 1.5) && isWithinAttackOrBlockAngle)
+                                if (random.Next(2) == 1)
                                 {
-                                    predator.FastAttackCycle.UnFire();
-                                    predator.FastAttackCycle.Fire();
+                                    if (BattlePhysics.IsWithinAttackRange(predator, prey, 1.5) && isWithinAttackOrBlockAngle)
+                                    {
+                                        predator.FastAttackCycle.UnFire();
+                                        predator.FastAttackCycle.Fire();
+                                    }
                                 }
                             }
-                        }
-                        else if (currentAttackTypeState == SpriteStates.StrongAttack)
-                        {
-                            if (random.Next(2) == 1)
+                            else if (currentAttackTypeState == SpriteStates.StrongAttack)
                             {
-                                if (BattlePhysics.IsWithinAttackRange(predator, prey, 1.5) && isWithinAttackOrBlockAngle)
+                                if (random.Next(2) == 1)
                                 {
-                                    predator.StrongAttackCycle.UnFire();
-                                    predator.StrongAttackCycle.Fire();
+                                    if (BattlePhysics.IsWithinAttackRange(predator, prey, 1.5) && isWithinAttackOrBlockAngle)
+                                    {
+                                        predator.StrongAttackCycle.UnFire();
+                                        predator.StrongAttackCycle.Fire();
+                                    }
                                 }
                             }
+                            predator.SpinChargeAttackCycle.Reset();
                         }
-                        predator.SpinChargeAttackCycle.Reset();
-                    }
-                    else if (currentAttackBlockState == SpriteStates.SpinCharge)
-                    {
-                        if (IsReadyToSpin(predator) && BattlePhysics.IsWithinAttackRange(predator, prey, 1.5))
+                        else if (currentAttackBlockState == SpriteStates.SpinCharge)
                         {
-                            if (random.Next(3) == 1)
+                            if (IsReadyToSpin(predator) && BattlePhysics.IsWithinAttackRange(predator, prey, 1.5))
                             {
-                                predator.SpinAttackCycle.Reset();
-                                predator.SpinAttackCycle.Fire();
-                                predator.SpinChargeAttackCycle.Reset();
+                                if (random.Next(3) == 1)
+                                {
+                                    predator.SpinAttackCycle.Reset();
+                                    predator.SpinAttackCycle.Fire();
+                                    predator.SpinChargeAttackCycle.Reset();
+                                    predator.StateAttackBlock.Reset();
+                                }
+                            }
+                            else if (!predator.SpinAttackCycle.IsFired)
+                            {
+                                if (predator.SpinChargeAttackCycle.IsFired)
+                                    predator.SpinChargeAttackCycle.Update(timeDelta);
+                                else
+                                    predator.SpinChargeAttackCycle.Fire();
                             }
                         }
-                        else if (!predator.SpinAttackCycle.IsFired)
+                        else if (currentAttackBlockState == SpriteStates.Block && !predator.SpinAttackCycle.IsFired)
                         {
-                            if (predator.SpinChargeAttackCycle.IsFired)
-                                predator.SpinChargeAttackCycle.Update(timeDelta);
-                            else
-                                predator.SpinChargeAttackCycle.Fire();
+                            predator.StrongAttackCycle.UnFire();
+                            predator.SpinAttackCycle.UnFire();
+                            predator.SpinChargeAttackCycle.Reset();
+                            predator.FastAttackCycle.UnFire();
+                            predator.IsBlock = true;
                         }
-                    }
-                    else if (currentAttackBlockState == SpriteStates.Block && !predator.SpinAttackCycle.IsFired)
-                    {
-                        predator.StrongAttackCycle.UnFire();
-                        predator.SpinAttackCycle.UnFire();
-                        predator.SpinChargeAttackCycle.Reset();
-                        predator.FastAttackCycle.UnFire();
-                        predator.IsBlock = true;
-                    }
-                    else
-                    {
-                        predator.SpinChargeAttackCycle.Reset();
+                        else
+                        {
+                            predator.SpinChargeAttackCycle.Reset();
+                        }
                     }
                 }
 

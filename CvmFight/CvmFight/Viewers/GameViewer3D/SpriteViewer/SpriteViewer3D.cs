@@ -24,6 +24,8 @@ namespace CvmFight
 
         private SpriteCache3D splatCache3D;
 
+        private SpriteCache3D chargeCache3D;
+
         private EnergyBarViewer energyBarViewer;
 
         private Random random;
@@ -40,7 +42,11 @@ namespace CvmFight
             spriteCollectionCache3D = new SpriteCollectionCache3D(spritePool, isEnableSpriteCache, isEnableLazySpriteImageLoad);
 
             splatCache3D = new SpriteCache3D(isEnableSpriteCache, isEnableLazySpriteImageLoad);
-            splatCache3D.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Undefined, SpriteScallableFrame.Undefined, "Assets/Sprites/Splats/splat001.png", isEnableLazySpriteImageLoad));
+            splatCache3D.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Undefined, SpriteScallableFrame.Undefined, "Assets/Sprites/Effects/splat001.png", isEnableLazySpriteImageLoad));
+
+            chargeCache3D = new SpriteCache3D(isEnableSpriteCache, isEnableLazySpriteImageLoad);
+            chargeCache3D.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Undefined, SpriteScallableFrame.Undefined, "Assets/Sprites/Effects/charge001.png", isEnableLazySpriteImageLoad));
+
             energyBarViewer = new EnergyBarViewer();
         }
         #endregion
@@ -48,9 +54,6 @@ namespace CvmFight
         #region Public Methods
         public void View(AbstractHumanoid viewerSprite, AbstractHumanoid viewedSprite, Surface mainSurface)
         {
-            if (viewedSprite.SpinChargeAttackCycle.IsFired && random.Next(4) == 0)
-                return;
-
             double angleDegree = (Optics.GetSpriteAngleToSpriteRadian(viewerSprite, viewedSprite) - viewerSprite.AngleRadian) / Math.PI * 180.0;
             double straightDistance = Optics.GetStraightDistance(viewerSprite, viewedSprite);
             double theoreticalColumnHeight = Optics.GetColumnHeight(straightDistance, screenHeight, heightDistanceRatio);
@@ -181,6 +184,13 @@ namespace CvmFight
                 int viewedSpriteReceivedAttack = viewedSprite.ReceivedAttackCycle.GetCycleState();
                 if (viewedSpriteReceivedAttack >= 0 && (viewedSpriteReceivedAttack == 0 || random.Next(6) == 0))
                     mainSurface.Blit(splatCache3D.GetSurface(SpriteScallableFrame.Undefined, SpriteScallableFrame.Undefined, spriteHeight), PointLoader.GetPoint(destinationX, destinationY));
+            }
+
+            //We show charging for charging sprites
+            if (viewedSprite.SpinChargeAttackCycle.IsFired && random.Next(2) == 0)
+            {
+                int chargeSpriteHeight = destinationY + (int)((double)(spriteHeight) * (1.0 - viewedSprite.SpinChargeAttackCycle.PercentComplete));
+                mainSurface.Blit(chargeCache3D.GetSurface(SpriteScallableFrame.Undefined, SpriteScallableFrame.Undefined, spriteHeight / 10), PointLoader.GetPoint(destinationX, chargeSpriteHeight));
             }
         }
 

@@ -102,7 +102,7 @@ namespace CvmFight
 
         protected override double GetStateAttackBlockCycleLength()
         {
-            return 50;
+            return 30;
         }
 
         protected override double GetJumpCrouchCycleLength()
@@ -138,7 +138,7 @@ namespace CvmFight
 
         protected override double GetSpinAttackChargeTime()
         {
-            return 10;
+            return 20;
         }
 
         protected override double GetSpinAttackTime()

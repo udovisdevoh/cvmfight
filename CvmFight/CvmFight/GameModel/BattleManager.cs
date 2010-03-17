@@ -95,13 +95,17 @@ namespace CvmFight
                                         prey.StateJumpCrouch.Reset();
                                         prey.StateMovement.Reset();
                                         prey.StateAttackBlock.Reset();
+                                        if (prey.StateAttackBlock.GetCurrentState() == SpriteStates.SpinCharge)
+                                        {
+                                            prey.StateAttackBlock.Reset();
+                                        }
                                     }
 
                                     if (!(predator is Player))
                                     {
-                                        prey.StateJumpCrouch.Renew();
-                                        prey.StateMovement.Renew();
-                                        prey.StateAttackBlock.Renew();
+                                        predator.StateJumpCrouch.Renew();
+                                        predator.StateMovement.Renew();
+                                        predator.StateAttackBlock.Renew();
                                     }
                                 }
                                 else if (prey.IsBlock)
