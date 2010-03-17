@@ -8,6 +8,7 @@ using SdlDotNet.Core;
 using SdlDotNet.Input;
 using SdlDotNet.Audio;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace CvmFight
 {
@@ -96,6 +97,8 @@ namespace CvmFight
 
         public void Update(object sender, TickEventArgs args)
         {
+            //Thread.CurrentThread.Priority = ThreadPriority.Highest;
+
             //We process the time multiplicator
             double timeDelta = ((TimeSpan)(DateTime.Now - previousDateTime)).TotalMilliseconds / 16.0;
             previousDateTime = DateTime.Now;

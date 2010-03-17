@@ -74,6 +74,9 @@ namespace CvmFight
                 byte currentAttackTypeState = predator.StateAttackType.GetCurrentState();
                 byte currentMovementState = predator.StateMovement.GetCurrentState();
 
+                if (currentAttackBlockState == SpriteStates.SpinCharge)
+                    predator.StateAttackType.Reset();
+
                 if (predator.SpinChargeAttackCycle.IsFired)
                     currentAttackBlockState = SpriteStates.SpinCharge;
                     
