@@ -64,6 +64,7 @@
     <Compile Include="CvmFight\GameModel\Spawner\EmptyMapLocationCache.cs" />
     <Compile Include="CvmFight\GameModel\Spawner\Spawner.cs" />
     <Compile Include="CvmFight\GameModel\BattleManager.cs" />
+    <Compile Include="CvmFight\GameModel\World\Map\MapTypes\ImageCache.cs" />
     <Compile Include="CvmFight\GameModel\World\SharedConsciousness.cs" />
     <Compile Include="CvmFight\GameModel\World\Map\ColorMap\ColorMap.cs" />
     <Compile Include="CvmFight\GameModel\World\Map\ColorMap\ColorMapCache.cs" />
@@ -649,6 +650,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CvmFight\Assets\Fonts\doom.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CvmFight\Assets\Maps\CvmMap.png.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

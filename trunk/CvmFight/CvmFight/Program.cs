@@ -27,9 +27,9 @@ namespace CvmFight
 
         private const int monsterCount = 10;
 
-        private const bool isDestroyMouse = false;
+        private const bool isDestroyMouse = true;
 
-        private const bool isFullScreen = false;
+        private const bool isFullScreen = true;
 
         private const bool isEnableSpriteCache = false;
 

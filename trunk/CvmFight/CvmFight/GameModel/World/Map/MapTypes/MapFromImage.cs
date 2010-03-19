@@ -24,6 +24,8 @@ namespace CvmFight
         private int imageHeight;
 
         private ColorMap colorMap;
+
+        private ImageCache imageCache;
         #endregion
 
         #region Constructor
@@ -37,23 +39,29 @@ namespace CvmFight
             width = (int)Math.Ceiling((double)imageWidth * precision);
             height = (int)Math.Ceiling((double)imageHeight * precision);
 
-            mapCache = new AbstractMatterType[imageWidth, imageHeight];
+            imageCache = new ImageCache(imageFileName);
 
-
-            AbstractMatterType wall = new MatterTypeWall();
-
-            Color currentPixelColor;
-            for (int x = 0; x < bitmap.Width; x++)
+            if (!imageCache.TryLoadMapCache(out mapCache, bitmap.Width, bitmap.Height))
             {
-                for (int y = 0; y < bitmap.Height; y++)
-                {
-                    currentPixelColor = bitmap.GetPixel(x, y);
+                mapCache = new AbstractMatterType[imageWidth, imageHeight];
 
-                    if (currentPixelColor.R > 128)
-                        mapCache[x, y] = null;
-                    else
-                        mapCache[x, y] = wall;
+                AbstractMatterType wall = new MatterTypeWall();
+
+                Color currentPixelColor;
+                for (int x = 0; x < bitmap.Width; x++)
+                {
+                    for (int y = 0; y < bitmap.Height; y++)
+                    {
+                        currentPixelColor = bitmap.GetPixel(x, y);
+
+                        if (currentPixelColor.R > 128)
+                            mapCache[x, y] = null;
+                        else
+                            mapCache[x, y] = wall;
+                    }
                 }
+
+                imageCache.SaveCache(mapCache, bitmap.Width, bitmap.Height);
             }
 
             colorMap = new ColorMap(random, width, height);
