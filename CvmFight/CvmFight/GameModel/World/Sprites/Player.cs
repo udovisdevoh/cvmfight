@@ -39,6 +39,11 @@ namespace CvmFight
             return 0.15 * 8;//*8 to compensate for the shortness of damage
         }
 
+        protected override double GetAttackPowerStraw()
+        {
+            return 0.05 * 32;//*8 to compensate for the shortness of damage
+        }
+
         protected override double GetDefaultHealth()
         {
             return 100;
@@ -123,11 +128,6 @@ namespace CvmFight
         protected override double GetAttackRangeCrouchMultiplier()
         {
             return 1.1375;
-        }
-
-        protected override double GetAttackAngleSpinMultiplier()
-        {
-            return 3;
         }
 
         protected override double GetBlockSuccessTime()

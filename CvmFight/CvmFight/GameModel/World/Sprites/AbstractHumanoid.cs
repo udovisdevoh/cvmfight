@@ -68,6 +68,11 @@ namespace CvmFight
         private double attackPowerFast = 0.15;
 
         /// <summary>
+        /// Sprite's straw attack power
+        /// </summary>
+        private double attackPowerStraw = 0.05;
+
+        /// <summary>
         /// Sprite's attack range
         /// </summary>
         private double attackRange = 0;
@@ -103,7 +108,7 @@ namespace CvmFight
 
         private double attackRangeCrouchMultiplier;
 
-        private double attackAngleSpinMultiplier;
+        private double attackAngleStrawMultiplier = 0.5;
 
         private double angleAtBeginingOfSpinAttackRadian;
 
@@ -112,6 +117,8 @@ namespace CvmFight
         private bool isJustReceivedStrongKick = false;
 
         private bool isJustReceivedFastAttack = false;
+
+        private bool isAttackStraw = false;
         #endregion
 
         #region Parts
@@ -190,6 +197,7 @@ namespace CvmFight
             AttackAngleRange = GetAttackAngleRange();
             AttackPowerStrong = GetAttackPowerStrong();
             AttackPowerFast = GetAttackPowerFast();
+            AttackPowerStraw = GetAttackPowerStraw();
             DefaultHealth = GetDefaultHealth();
             Health = 0;
             MaxHealth = GetMaxHealth();
@@ -199,8 +207,8 @@ namespace CvmFight
             JumpSpeedMultiplier = GetJumpSpeedMultiplier();
             AttackWalkSpeedMultiplier = GetAttackWalkSpeedMultiplier();
             AttackRangeJumpMultiplier = GetAttackRangeJumpMultiplier();
-            AttackAngleSpinMultiplier = GetAttackAngleSpinMultiplier();
             AttackRangeCrouchMultiplier = GetAttackRangeCrouchMultiplier();
+            
             
             stateAttackType = new SpriteState(SpriteStates.FastAttack, SpriteStates.StrongAttack, 40);
             stateJumpCrouch = new SpriteState(SpriteStates.Stand, SpriteStates.Jump, SpriteStates.Crouch, SpriteStates.Stand, SpriteStates.Stand, GetJumpCrouchCycleLength());
@@ -235,6 +243,8 @@ namespace CvmFight
 
         protected abstract double GetAttackPowerFast();
 
+        protected abstract double GetAttackPowerStraw();
+
         protected abstract double GetDefaultHealth();
 
         protected abstract double GetMaxHealth();
@@ -266,8 +276,6 @@ namespace CvmFight
         protected abstract double GetAttackRangeJumpMultiplier();
 
         protected abstract double GetAttackRangeCrouchMultiplier();
-
-        protected abstract double GetAttackAngleSpinMultiplier();
 
         protected abstract double GetBlockSuccessTime();
         #endregion
@@ -449,6 +457,12 @@ namespace CvmFight
             set { attackPowerFast = value; }
         }
 
+        public double AttackPowerStraw
+        {
+            get { return attackPowerStraw; }
+            set { attackPowerStraw = value; }
+        }
+
         public double AttackRange
         {
             get { return attackRange; }
@@ -537,10 +551,10 @@ namespace CvmFight
             set { attackRangeCrouchMultiplier = value; }
         }
 
-        public double AttackAngleSpinMultiplier
+        public double AttackAngleStrawMultiplier
         {
-            get { return attackAngleSpinMultiplier; }
-            set { attackAngleSpinMultiplier = value; }
+            get { return attackAngleStrawMultiplier; }
+            set { attackAngleStrawMultiplier = value; }
         }
 
         public SpriteActionCycle BlockSuccessCycle
@@ -576,6 +590,12 @@ namespace CvmFight
         {
             get { return angleAtBeginingOfSpinAttackRadian; }
             set { angleAtBeginingOfSpinAttackRadian = value; }
+        }
+
+        public bool IsAttackStraw
+        {
+            get { return isAttackStraw; }
+            set { isAttackStraw = value; }
         }
         #endregion
     }
