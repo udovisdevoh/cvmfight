@@ -27,9 +27,9 @@ namespace CvmFight
 
         private const int monsterCount = 10;
 
-        private const bool isDestroyMouse = false;
+        private const bool isDestroyMouse = true;
 
-        private const bool isFullScreen = false;
+        private const bool isFullScreen = true;
 
         private const bool isEnableSpriteCache = false;
 
@@ -58,12 +58,14 @@ namespace CvmFight
         private DateTime previousDateTime = DateTime.Now;
 
         private DamageManager damageManager = new DamageManager();
+
+        private Surface mainSurface;
         #endregion
 
         #region Constructor
         public Program()
         {
-            Surface mainSurface = Video.SetVideoMode(screenWidth, screenHeight, true, false, isFullScreen, true);
+            mainSurface = Video.SetVideoMode(screenWidth, screenHeight, false, false, isFullScreen, true);
 
             idealRayTracerResolution = RayTracer.GetValidResolution(idealRayTracerResolution, screenWidth);
             rayTracer = new RayTracer(idealRayTracerResolution, fov);
