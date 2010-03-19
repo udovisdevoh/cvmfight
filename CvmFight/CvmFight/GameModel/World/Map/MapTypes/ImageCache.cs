@@ -44,23 +44,32 @@ namespace CvmFight
                 int position = 0;
                 int length = (int)binaryReader.BaseStream.Length;
 
+                List<bool> boolList = new List<bool>(8);
+                for (int i = 0; i < 8; i++)
+                    boolList.Add(false);
+
                 while (position < length)
                 {
-                    bool value = binaryReader.ReadBoolean();
+                    byte byteFromFile = binaryReader.ReadByte();
 
-                    if (value)
-                        mapCache[x, y] = wall;
-                    else
-                        mapCache[x, y] = null;
+                    WriteByteToBoolList(byteFromFile, boolList);
 
-                    x++;
-                    if (x == width)
+                    foreach (bool boolean in boolList)
                     {
-                        x = 0;
-                        y++;
+                        if (boolean)
+                            mapCache[x, y] = wall;
+                        else
+                            mapCache[x, y] = null;
+
+                        x++;
+                        if (x == width)
+                        {
+                            x = 0;
+                            y++;
+                        }
                     }
 
-                    position += sizeof(bool);
+                    position += sizeof(byte);
                 }
             }
 
@@ -71,14 +80,48 @@ namespace CvmFight
         {
             using (BinaryWriter binaryWriter = new BinaryWriter(File.Open(originalFileName + fileSuffix, FileMode.Create)))
             {
+                List<bool> boolList = new List<bool>();
+
                 for (int y = 0; y < height; y++)
                 {
                     for (int x = 0; x < width; x++)
                     {
-                        binaryWriter.Write(mapCache[x, y] != null);
+                        boolList.Add(mapCache[x, y] != null);
+                        if (boolList.Count == 8)
+                        {
+                            binaryWriter.Write(BoolListToByte(boolList));
+                            boolList.Clear();
+                        }
                     }
                 }
             }
+        }
+        #endregion
+
+        #region Private Methods
+        private void WriteByteToBoolList(byte byteNumber, List<bool> boolList)
+        {
+            byte mask = 1;
+            for (int index = 0; index < 8; index++)
+            {
+                boolList[index] = ((uint)(byteNumber & mask)) != 0;
+                mask *= 2;
+            }
+        }
+
+        private byte BoolListToByte(List<bool> boolList)
+        {
+            byte byteNumber = 0;
+            byte mask = 1;
+            foreach (bool boolNumber in boolList)
+            {
+                if (boolNumber)
+                {
+                    byteNumber |= mask;
+                }
+                mask *= 2;
+            }
+            return byteNumber;
         }
         #endregion
     }
