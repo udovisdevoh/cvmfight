@@ -55,7 +55,7 @@ namespace CvmFight
             spawner = new Spawner(random);
             //map = new HardCodedMap();
             //map = new CachedWaveMap(random);
-            map = new MapFromImage("Assets/Maps/CvmMap.png", random);
+            map = new MapFromImage("CvmFight/Assets/Maps/CvmMap.png", random);
             spritePool = new SpritePool(currentPlayer);
 
             sharedConsciousness = new SharedConsciousness(spritePool.Count);

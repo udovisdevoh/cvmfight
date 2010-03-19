@@ -23,11 +23,11 @@ namespace CvmFight
             MusicPlayer.EnableMusicFinishedCallback();
             this.random = random;
             musicFileNameList = new List<string>();
-            musicFileNameList.Add("Assets/Musics/iCanFeelItHey.ogg");
-            musicFileNameList.Add("Assets/Musics/WaveBuilder - Made in indonesia.ogg");
-            musicFileNameList.Add("Assets/Musics/WaveBuilder - Epic JediHads.ogg");
-            musicFileNameList.Add("Assets/Musics/WaveBuilder - Gypsy Orion.ogg");
-            musicFileNameList.Add("Assets/Musics/WaveBuilder - MadeInJapan.ogg");
+            musicFileNameList.Add("CvmFight/Assets/Musics/iCanFeelItHey.ogg");
+            musicFileNameList.Add("CvmFight/Assets/Musics/WaveBuilder - Made in indonesia.ogg");
+            musicFileNameList.Add("CvmFight/Assets/Musics/WaveBuilder - Epic JediHads.ogg");
+            musicFileNameList.Add("CvmFight/Assets/Musics/WaveBuilder - Gypsy Orion.ogg");
+            musicFileNameList.Add("CvmFight/Assets/Musics/WaveBuilder - MadeInJapan.ogg");
         }
         #endregion
 

@@ -70,8 +70,8 @@ namespace CvmFight
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
 
-            labelFont = new Font("Assets/Fonts/doom.ttf", 20 * screenWidth / 1024);
-            bigRed = new Font("Assets/Fonts/doom.ttf", 50 * screenWidth / 1024);
+            labelFont = new Font("CvmFight/Assets/Fonts/doom.ttf", 20 * screenWidth / 1024);
+            bigRed = new Font("CvmFight/Assets/Fonts/doom.ttf", 50 * screenWidth / 1024);
 
             hudColumn1 = 140 * screenWidth / 1024;
             hudColumn2 = 240 * screenWidth / 1024;
@@ -101,7 +101,7 @@ namespace CvmFight
         #region Private Methods
         private Surface BuildBlockSurface()
         {
-            Surface surface = new Surface("Assets/Hud/block001.png");
+            Surface surface = new Surface("CvmFight/Assets/Hud/block001.png");
             surface.Transparent = true;
             surface = surface.CreateScaledSurface((double)screenHeight / 4 / (double)surface.Height, true);
             return surface;
@@ -109,7 +109,7 @@ namespace CvmFight
 
         private Surface BuildBlockSuccessSurface()
         {
-            Surface surface = new Surface("Assets/Hud/block002.png");
+            Surface surface = new Surface("CvmFight/Assets/Hud/block002.png");
             surface.Transparent = true;
             surface = surface.CreateScaledSurface((double)screenHeight / 1.7 / (double)surface.Height, true);
             return surface;
@@ -117,7 +117,7 @@ namespace CvmFight
 
         private Surface BuildRestKickSurface()
         {
-            Surface surface = new Surface("Assets/Hud/kick001.png");
+            Surface surface = new Surface("CvmFight/Assets/Hud/kick001.png");
             surface.Transparent = true;
             surface = surface.CreateScaledSurface((double)screenHeight / 3 / (double)surface.Height, true);
             return surface;
@@ -125,7 +125,7 @@ namespace CvmFight
 
         private Surface BuildMidKickSurface()
         {
-            Surface surface = new Surface("Assets/Hud/kick002.png");
+            Surface surface = new Surface("CvmFight/Assets/Hud/kick002.png");
             surface.Transparent = true;
             surface = surface.CreateScaledSurface((double)screenHeight / 3 / (double)surface.Height, true);
             return surface;
@@ -133,7 +133,7 @@ namespace CvmFight
 
         private Surface BuildAttackKickSurface()
         {
-            Surface surface = new Surface("Assets/Hud/kick003.png");
+            Surface surface = new Surface("CvmFight/Assets/Hud/kick003.png");
             surface.Transparent = true;
             surface = surface.CreateScaledSurface((double)screenHeight / 3 / (double)surface.Height, true);
             return surface;
@@ -141,7 +141,7 @@ namespace CvmFight
 
         private Surface BuildAttackFistSurface()
         {
-            Surface surface = new Surface("Assets/Hud/punch002.png");
+            Surface surface = new Surface("CvmFight/Assets/Hud/punch002.png");
             surface.Transparent = true;
             surface = surface.CreateScaledSurface((double)screenHeight / 1.7 / (double)surface.Height,true);
             return surface;
@@ -149,7 +149,7 @@ namespace CvmFight
 
         private Surface BuildRestFistSurface()
         {
-            Surface surface = new Surface("Assets/Hud/punch001.png");            
+            Surface surface = new Surface("CvmFight/Assets/Hud/punch001.png");            
             surface.Transparent = true;
             surface = surface.CreateScaledSurface((double)screenHeight / 2.5 / (double)surface.Height,true);
             return surface;
