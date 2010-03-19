@@ -148,9 +148,10 @@ namespace CvmFight
                 channel = Play(SpinChargeEnemy);
             }
 
-            //We set the volume according to the distance
+            //We set the volume and the panning according to the distance
             if (channel != null)
             {
+                //We set the volume
                 double straightDistance = Optics.GetStraightDistance(currentPlayer, sprite);
                 if (straightDistance <= 0)
                     channel.Volume = 128;
