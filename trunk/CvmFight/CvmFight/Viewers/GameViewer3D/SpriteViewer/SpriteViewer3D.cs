@@ -29,6 +29,8 @@ namespace CvmFight
         private EnergyBarViewer energyBarViewer;
 
         private Random random;
+
+        private Rectangle rectangle = new Rectangle();
         #endregion
 
         #region Constructor
@@ -172,7 +174,30 @@ namespace CvmFight
             destinationY -= (int)(viewedSprite.PositionZ * theoreticalColumnHeight / 2);
 
             if (PointLoader.IsPositionValid(destinationX, destinationY))
-                mainSurface.Blit(spriteSurface, PointLoader.GetPoint(destinationX, destinationY));
+            {
+                if (destinationX < 0)
+                {
+                    rectangle.X = destinationX * -1;
+                    rectangle.Y = 0;
+                    rectangle.Width = spriteSurface.Width;
+                    rectangle.Height = spriteSurface.Height - destinationX;
+
+                    mainSurface.Blit(spriteSurface, PointLoader.GetPoint(0, destinationY), rectangle);
+                }
+                /*else if (destinationX + spriteSurface.Height > screenHeight)
+                {
+                    rectangle.X = 0;
+                    rectangle.Y = 0;
+                    rectangle.Width = spriteSurface.Width;
+                    rectangle.Height = screenHeight - destinationX;
+
+                    mainSurface.Blit(spriteSurface, PointLoader.GetPoint(destinationX, destinationY), rectangle);
+                }*/
+                else
+                {
+                    mainSurface.Blit(spriteSurface, PointLoader.GetPoint(destinationX, destinationY));
+                }
+            }
 
             //We show the viewed sprite's energy bar
             energyBarViewer.View(mainSurface, viewedSprite, PointLoader.GetPoint(destinationX, destinationY), theoreticalColumnHeight);

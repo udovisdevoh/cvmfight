@@ -153,7 +153,6 @@ namespace CvmFight
 
 
             //We manage attack buttons
-            //world.CurrentPlayer.IsAttackStraw = false;
             if (userInput.IsPressMouseButtonLeft)
             {
                 if (world.CurrentPlayer.ReceivedAttackCycle.GetCycleState() <= 0)
@@ -184,19 +183,6 @@ namespace CvmFight
                     }
                 }
             }
-            /*else if (userInput.IsPressMouseButtonCenter)
-            {
-                if (world.CurrentPlayer.ReceivedAttackCycle.GetCycleState() <= 0)
-                {
-                    if (!world.CurrentPlayer.StrongAttackCycle.IsFired)
-                    {
-                        if (!world.CurrentPlayer.FastAttackCycle.IsFired)
-                        {
-                            world.CurrentPlayer.IsAttackStraw = true;
-                        }
-                    }
-                }
-            }*/
             else
             {
                 if (world.CurrentPlayer.StrongAttackCycle.IsAtBegining)
@@ -221,16 +207,13 @@ namespace CvmFight
                 {
                     if (!world.CurrentPlayer.SpinAttackCycle.IsFired)
                     {
-                        if (!world.CurrentPlayer.IsAttackStraw)
+                        if (world.CurrentPlayer.ReceivedAttackCycle.IsAtBegining)
                         {
-                            if (world.CurrentPlayer.ReceivedAttackCycle.IsAtBegining)
+                            if (!world.CurrentPlayer.SpinChargeAttackCycle.IsFired)
                             {
-                                if (!world.CurrentPlayer.SpinChargeAttackCycle.IsFired)
+                                if (!userInput.IsPressJump)
                                 {
-                                    if (!userInput.IsPressJump)
-                                    {
-                                        world.CurrentPlayer.IsBlock = true;
-                                    }
+                                    world.CurrentPlayer.IsBlock = true;
                                 }
                             }
                         }

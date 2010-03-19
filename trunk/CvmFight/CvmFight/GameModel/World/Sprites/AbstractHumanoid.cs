@@ -68,11 +68,6 @@ namespace CvmFight
         private double attackPowerFast = 0.15;
 
         /// <summary>
-        /// Sprite's straw attack power
-        /// </summary>
-        private double attackPowerStraw = 0.05;
-
-        /// <summary>
         /// Sprite's attack range
         /// </summary>
         private double attackRange = 0;
@@ -108,8 +103,6 @@ namespace CvmFight
 
         private double attackRangeCrouchMultiplier;
 
-        private double attackAngleStrawMultiplier = 0.5;
-
         private double angleAtBeginingOfSpinAttackRadian;
 
         private bool isJustReceivedStrongPunch = false;
@@ -117,8 +110,6 @@ namespace CvmFight
         private bool isJustReceivedStrongKick = false;
 
         private bool isJustReceivedFastAttack = false;
-
-        private bool isAttackStraw = false;
         #endregion
 
         #region Parts
@@ -197,7 +188,6 @@ namespace CvmFight
             AttackAngleRange = GetAttackAngleRange();
             AttackPowerStrong = GetAttackPowerStrong();
             AttackPowerFast = GetAttackPowerFast();
-            AttackPowerStraw = GetAttackPowerStraw();
             DefaultHealth = GetDefaultHealth();
             Health = 0;
             MaxHealth = GetMaxHealth();
@@ -242,8 +232,6 @@ namespace CvmFight
         protected abstract double GetAttackPowerStrong();
 
         protected abstract double GetAttackPowerFast();
-
-        protected abstract double GetAttackPowerStraw();
 
         protected abstract double GetDefaultHealth();
 
@@ -457,12 +445,6 @@ namespace CvmFight
             set { attackPowerFast = value; }
         }
 
-        public double AttackPowerStraw
-        {
-            get { return attackPowerStraw; }
-            set { attackPowerStraw = value; }
-        }
-
         public double AttackRange
         {
             get { return attackRange; }
@@ -551,12 +533,6 @@ namespace CvmFight
             set { attackRangeCrouchMultiplier = value; }
         }
 
-        public double AttackAngleStrawMultiplier
-        {
-            get { return attackAngleStrawMultiplier; }
-            set { attackAngleStrawMultiplier = value; }
-        }
-
         public SpriteActionCycle BlockSuccessCycle
         {
             get { return blockSuccessCycle; }
@@ -590,12 +566,6 @@ namespace CvmFight
         {
             get { return angleAtBeginingOfSpinAttackRadian; }
             set { angleAtBeginingOfSpinAttackRadian = value; }
-        }
-
-        public bool IsAttackStraw
-        {
-            get { return isAttackStraw; }
-            set { isAttackStraw = value; }
         }
         #endregion
     }
