@@ -53,21 +53,21 @@ namespace CvmFight
             Mixer.ChannelsAllocated = 64;
 
             internalList = new CachedSound[15];
-            internalList[Block] = new CachedSound("Assets/Sounds/Block.ogg");
-            internalList[FastAttempt] = new CachedSound("Assets/Sounds/FastAttempt.ogg");
-            internalList[FastHit] = new CachedSound("Assets/Sounds/FastHit.ogg");
-            internalList[Jump] = new CachedSound("Assets/Sounds/Jump.ogg");
-            internalList[Ko] = new CachedSound("Assets/Sounds/Ko.ogg");
-            internalList[Perfect] = new CachedSound("Assets/Sounds/Perfect.ogg");
-            internalList[StrongKickAttempt] = new CachedSound("Assets/Sounds/StrongKickAttempt.ogg");
-            internalList[StrongKickHit] = new CachedSound("Assets/Sounds/StrongKickHit.ogg");
-            internalList[StrongPunchAttempt] = new CachedSound("Assets/Sounds/StrongPunchAttempt.ogg");
-            internalList[StrongPunchHit] = new CachedSound("Assets/Sounds/StrongPunchHit.ogg");
-            internalList[YouLose] = new CachedSound("Assets/Sounds/YouLose.ogg");
-            internalList[YouWin] = new CachedSound("Assets/Sounds/YouWin.ogg");
-            internalList[SpinAttack] = new CachedSound("Assets/Sounds/SpinAttack.ogg");
-            internalList[SpinCharge] = new CachedSound("Assets/Sounds/SpinCharge.ogg");
-            internalList[SpinChargeEnemy] = new CachedSound("Assets/Sounds/SpinChargeEnemy.ogg");
+            internalList[Block] = new CachedSound("CvmFight/Assets/Sounds/Block.ogg");
+            internalList[FastAttempt] = new CachedSound("CvmFight/Assets/Sounds/FastAttempt.ogg");
+            internalList[FastHit] = new CachedSound("CvmFight/Assets/Sounds/FastHit.ogg");
+            internalList[Jump] = new CachedSound("CvmFight/Assets/Sounds/Jump.ogg");
+            internalList[Ko] = new CachedSound("CvmFight/Assets/Sounds/Ko.ogg");
+            internalList[Perfect] = new CachedSound("CvmFight/Assets/Sounds/Perfect.ogg");
+            internalList[StrongKickAttempt] = new CachedSound("CvmFight/Assets/Sounds/StrongKickAttempt.ogg");
+            internalList[StrongKickHit] = new CachedSound("CvmFight/Assets/Sounds/StrongKickHit.ogg");
+            internalList[StrongPunchAttempt] = new CachedSound("CvmFight/Assets/Sounds/StrongPunchAttempt.ogg");
+            internalList[StrongPunchHit] = new CachedSound("CvmFight/Assets/Sounds/StrongPunchHit.ogg");
+            internalList[YouLose] = new CachedSound("CvmFight/Assets/Sounds/YouLose.ogg");
+            internalList[YouWin] = new CachedSound("CvmFight/Assets/Sounds/YouWin.ogg");
+            internalList[SpinAttack] = new CachedSound("CvmFight/Assets/Sounds/SpinAttack.ogg");
+            internalList[SpinCharge] = new CachedSound("CvmFight/Assets/Sounds/SpinCharge.ogg");
+            internalList[SpinChargeEnemy] = new CachedSound("CvmFight/Assets/Sounds/SpinChargeEnemy.ogg");
         }
         #endregion
 

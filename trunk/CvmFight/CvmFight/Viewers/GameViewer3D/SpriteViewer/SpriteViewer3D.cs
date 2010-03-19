@@ -42,10 +42,10 @@ namespace CvmFight
             spriteCollectionCache3D = new SpriteCollectionCache3D(spritePool, isEnableSpriteCache, isEnableLazySpriteImageLoad);
 
             splatCache3D = new SpriteCache3D(isEnableSpriteCache, isEnableLazySpriteImageLoad);
-            splatCache3D.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Undefined, SpriteScallableFrame.Undefined, "Assets/Sprites/Effects/splat001.png", isEnableLazySpriteImageLoad));
+            splatCache3D.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Undefined, SpriteScallableFrame.Undefined, "CvmFight/Assets/Sprites/Effects/splat001.png", isEnableLazySpriteImageLoad));
 
             chargeCache3D = new SpriteCache3D(isEnableSpriteCache, isEnableLazySpriteImageLoad);
-            chargeCache3D.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Undefined, SpriteScallableFrame.Undefined, "Assets/Sprites/Effects/charge001.png", isEnableLazySpriteImageLoad));
+            chargeCache3D.AddFrame(new SpriteScallableFrame(SpriteScallableFrame.Undefined, SpriteScallableFrame.Undefined, "CvmFight/Assets/Sprites/Effects/charge001.png", isEnableLazySpriteImageLoad));
 
             energyBarViewer = new EnergyBarViewer();
         }
