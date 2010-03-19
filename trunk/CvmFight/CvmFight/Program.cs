@@ -135,27 +135,13 @@ namespace CvmFight
             }
 
 
-            world.CurrentPlayer.IsBlock = false;
-            //Automatic Blocking
-            if (world.CurrentPlayer.StrongAttackCycle.IsAtBegining)
-            {
-                if (world.CurrentPlayer.FastAttackCycle.IsAtBegining)
-                {
-                    if (!world.CurrentPlayer.SpinAttackCycle.IsFired)
-                    {
-                        world.CurrentPlayer.IsBlock = true;
-                    }
-                }
-            }
-
-
+ 
             //Crouch and jump
             world.CurrentPlayer.IsCrouch = userInput.IsPressCrouch;   
 
             if (userInput.IsPressJump)
             {
                 world.CurrentPlayer.IsCrouch = false;
-                world.CurrentPlayer.IsBlock = false;
                 Physics.MakeJump(world.CurrentPlayer,timeDelta);
             }
             else
@@ -167,9 +153,9 @@ namespace CvmFight
 
 
             //We manage attack buttons
+            //world.CurrentPlayer.IsAttackStraw = false;
             if (userInput.IsPressMouseButtonLeft)
             {
-                world.CurrentPlayer.IsBlock = false;
                 if (world.CurrentPlayer.ReceivedAttackCycle.GetCycleState() <= 0)
                 {
                     if (!world.CurrentPlayer.FastAttackCycle.IsFired)
@@ -198,6 +184,19 @@ namespace CvmFight
                     }
                 }
             }
+            /*else if (userInput.IsPressMouseButtonCenter)
+            {
+                if (world.CurrentPlayer.ReceivedAttackCycle.GetCycleState() <= 0)
+                {
+                    if (!world.CurrentPlayer.StrongAttackCycle.IsFired)
+                    {
+                        if (!world.CurrentPlayer.FastAttackCycle.IsFired)
+                        {
+                            world.CurrentPlayer.IsAttackStraw = true;
+                        }
+                    }
+                }
+            }*/
             else
             {
                 if (world.CurrentPlayer.StrongAttackCycle.IsAtBegining)
@@ -209,8 +208,34 @@ namespace CvmFight
                 {
                     world.CurrentPlayer.SpinAttackCycle.Reset();
                     world.CurrentPlayer.SpinAttackCycle.Fire();
-                }    
+                }
                 world.CurrentPlayer.SpinChargeAttackCycle.Reset();
+            }
+
+
+            world.CurrentPlayer.IsBlock = false;
+            //Automatic Blocking
+            if (world.CurrentPlayer.StrongAttackCycle.IsAtBegining)
+            {
+                if (world.CurrentPlayer.FastAttackCycle.IsAtBegining)
+                {
+                    if (!world.CurrentPlayer.SpinAttackCycle.IsFired)
+                    {
+                        if (!world.CurrentPlayer.IsAttackStraw)
+                        {
+                            if (world.CurrentPlayer.ReceivedAttackCycle.IsAtBegining)
+                            {
+                                if (!world.CurrentPlayer.SpinChargeAttackCycle.IsFired)
+                                {
+                                    if (!userInput.IsPressJump)
+                                    {
+                                        world.CurrentPlayer.IsBlock = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
 

@@ -33,6 +33,11 @@ namespace CvmFight
                 predatorAttackIsAtParoxism = true;
                 isFastAttack = true;
             }
+            else if (predator.IsAttackStraw)
+            {
+                damage = predator.AttackPowerStraw;
+                predatorAttackIsAtParoxism = true;
+            }
             else if (predator.SpinAttackCycle.IsFired)
             {
                 damage = predator.AttackPowerStrong;
@@ -52,7 +57,7 @@ namespace CvmFight
                     if (prey == predator)
                         continue;
 
-                    if (BattlePhysics.IsWithinAttackRange(predator, prey))
+                    if (predator.IsAttackStraw || BattlePhysics.IsWithinAttackRange(predator, prey))
                     {
                         if (BattlePhysics.IsInAttackOrBlockAngle(predator, prey))
                         {
@@ -76,6 +81,12 @@ namespace CvmFight
                                     if (isFastAttack)
                                     {
                                         prey.ReceivedAttackCycle.PercentComplete = 0.25;
+                                        prey.ReceivedAttackCycle.IsForward = false;
+                                        prey.IsJustReceivedFastAttack = true;
+                                    }
+                                    else if (predator.IsAttackStraw)
+                                    {
+                                        prey.ReceivedAttackCycle.PercentComplete = 0.05;
                                         prey.ReceivedAttackCycle.IsForward = false;
                                         prey.IsJustReceivedFastAttack = true;
                                     }

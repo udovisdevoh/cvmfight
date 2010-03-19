@@ -57,14 +57,17 @@ namespace CvmFight
 
             double attackAngleRange = sprite1.AttackAngleRange;
 
-            if (sprite1.SpinChargeAttackCycle.IsFired)
-                attackAngleRange *= sprite1.AttackAngleSpinMultiplier;
+            if (sprite1.IsAttackStraw)
+            {
+                attackAngleRange *= sprite1.AttackAngleStrawMultiplier;
+                attackAngleRange /= Math.Pow(Physics.GetSpriteDistance(sprite1, sprite2),2);
+            }
 
-            if (Math.Abs(angleToSprite - sprite1.AngleRadian) < sprite1.AttackAngleRange)
+            if (Math.Abs(angleToSprite - sprite1.AngleRadian) < attackAngleRange)
                 return true;
-            else if (Math.Abs(angleToSprite - sprite1.AngleRadian + Math.PI * 2.0) < sprite1.AttackAngleRange)
+            else if (Math.Abs(angleToSprite - sprite1.AngleRadian + Math.PI * 2.0) < attackAngleRange)
                 return true;
-            else if (Math.Abs(angleToSprite - sprite1.AngleRadian + Math.PI * 2.0) < sprite1.AttackAngleRange)
+            else if (Math.Abs(angleToSprite - sprite1.AngleRadian + Math.PI * 2.0) < attackAngleRange)
                 return true;
 
             return false;
