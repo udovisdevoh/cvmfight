@@ -29,7 +29,7 @@ namespace CvmFight
             {
                 for (int y = 0; y < intHeight; y++)
                 {
-                    value = waveX.GetYValueAt(x / 100.0) + waveY.GetYValueAt(y / 100.0);
+                    value = waveX[x / 100.0] + waveY[y / 100.0];
 
                     while (value > 1.0)
                         value -= 1.0;

@@ -51,8 +51,8 @@ namespace CvmFight
             if (hardCodedMatterType == null)
                 return null;
 
-            x += waveX.GetYValueAt(Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2)));
-            y += waveY.GetYValueAt(Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2)));
+            x += waveX[Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2))];
+            y += waveY[Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2))];
 
             while (x < 0)
                 x += hardCodedMap.Width;
