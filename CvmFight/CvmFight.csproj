@@ -115,489 +115,489 @@
     <Compile Include="CvmFight\Viewers\MiniMap\MiniMap.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CvmFight\Assets\Maps\CvmMap.png">
+    <None Include="CvmFight\Assets\Maps\CvmMap.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Hud\block001.png">
+    </None>
+    <None Include="CvmFight\Assets\Hud\block001.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Hud\block002.png">
+    </None>
+    <None Include="CvmFight\Assets\Hud\block002.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Hud\kick001.png">
+    </None>
+    <None Include="CvmFight\Assets\Hud\kick001.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Hud\kick002.png">
+    </None>
+    <None Include="CvmFight\Assets\Hud\kick002.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Hud\kick003.png">
+    </None>
+    <None Include="CvmFight\Assets\Hud\kick003.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Hud\punch001.png">
+    </None>
+    <None Include="CvmFight\Assets\Hud\punch001.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Hud\punch002.png">
+    </None>
+    <None Include="CvmFight\Assets\Hud\punch002.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Musics\iCanFeelItHey.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Musics\iCanFeelItHey.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Musics\WaveBuilder - Epic JediHads.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Musics\WaveBuilder - Epic JediHads.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Musics\WaveBuilder - Gypsy Orion.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Musics\WaveBuilder - Gypsy Orion.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Musics\WaveBuilder - Made in indonesia.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Musics\WaveBuilder - Made in indonesia.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Musics\WaveBuilder - MadeInJapan.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Musics\WaveBuilder - MadeInJapan.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sounds\Block.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Sounds\Block.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sounds\Charge.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Sounds\Charge.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sounds\FastAttempt.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Sounds\FastAttempt.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sounds\FastHit.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Sounds\FastHit.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sounds\Jump.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Sounds\Jump.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sounds\Ko.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Sounds\Ko.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sounds\Perfect.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Sounds\Perfect.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sounds\SpinAttack.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Sounds\SpinAttack.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sounds\SpinCharge.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Sounds\SpinCharge.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sounds\SpinChargeEnemy.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Sounds\SpinChargeEnemy.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sounds\StrongKickAttempt.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Sounds\StrongKickAttempt.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sounds\StrongKickHit.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Sounds\StrongKickHit.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sounds\StrongPunchAttempt.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Sounds\StrongPunchAttempt.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sounds\StrongPunchHit.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Sounds\StrongPunchHit.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sounds\YouLose.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Sounds\YouLose.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sounds\YouWin.ogg">
+    </None>
+    <None Include="CvmFight\Assets\Sounds\YouWin.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinBackCrouch.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinBackCrouch.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinBackLeftCrouch.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinBackLeftCrouch.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinBackLeftWalk1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinBackLeftWalk1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinBackLeftWalk2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinBackLeftWalk2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinBackWalk1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinBackWalk1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinBackWalk2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinBackWalk2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontCrouch.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontCrouch.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontCrouchBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontCrouchBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontCrouchHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontCrouchHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontCrouchPunch1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontCrouchPunch1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontCrouchPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontCrouchPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftCrouch.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftCrouch.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftCrouchBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftCrouchBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftCrouchHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftCrouchHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftCrouchPunch1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftCrouchPunch1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftCrouchPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftCrouchPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftWalk1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftWalk1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftWalk2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontLeftWalk2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontPunch1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontPunch1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontWalk1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontWalk1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontWalk2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinFrontWalk2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftCrouch.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftCrouch.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftCrouchBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftCrouchBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftCrouchHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftCrouchHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftCrouchPunch1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftCrouchPunch1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftCrouchPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftCrouchPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftWalk1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftWalk1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftWalk2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Aladdin\AladdinLeftWalk2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Effects\charge001.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Effects\charge001.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Effects\FireBallDiagonalLeft.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Effects\FireBallDiagonalLeft.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Effects\FireBallFront.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Effects\FireBallFront.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Effects\FireBallLeft.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Effects\FireBallLeft.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\Effects\splat001.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\Effects\splat001.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackCrouch.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackCrouch.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftCrouch.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftCrouch.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftCrouchBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftCrouchBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftCrouchHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftCrouchHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftCrouchPunch1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftCrouchPunch1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftCrouchPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftCrouchPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftPunch1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftPunch1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftWalk1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftWalk1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftWalk2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackLeftWalk2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackPunch1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackPunch1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackWalk1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackWalk1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackWalk2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoBackWalk2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontCrouch.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontCrouch.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontCrouchBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontCrouchBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontCrouchHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontCrouchHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontCrouchPunch1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontCrouchPunch1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontCrouchPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontCrouchPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftCrouch.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftCrouch.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftCrouchBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftCrouchBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftCrouchHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftCrouchHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftCrouchPunch1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftCrouchPunch1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftCrouchPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftCrouchPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftPunch1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftPunch1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftWalk1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftWalk1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftWalk2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontLeftWalk2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontPunch1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontPunch1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontWalk1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontWalk1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontWalk2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoFrontWalk2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftCrouch.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftCrouch.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftCrouchBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftCrouchBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftCrouchHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftCrouchHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftCrouchPunch1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftCrouchPunch1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftCrouchPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftCrouchPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftPunch1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftPunch1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftWalk1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftWalk1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftWalk2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\NutKunDo\NutKunDoLeftWalk2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManBackCrouch.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManBackCrouch.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManBackHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManBackHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManBackLeftBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManBackLeftBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManBackLeftCrouchBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManBackLeftCrouchBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManBackLeftHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManBackLeftHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManBackLeftKick1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManBackLeftKick1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManBackLeftKick2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManBackLeftKick2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManBackLeftPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManBackLeftPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManBackLeftWalk1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManBackLeftWalk1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManBackLeftWalk2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManBackLeftWalk2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManBackWalk1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManBackWalk1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManBackWalk2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManBackWalk2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontCrouch.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontCrouch.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontCrouchBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontCrouchBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontCrouchHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontCrouchHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontKick1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontKick1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontKick2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontKick2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontLeftBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontLeftBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontLeftCrouchBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontLeftCrouchBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontLeftHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontLeftHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontLeftKick1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontLeftKick1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontLeftKick2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontLeftKick2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontLeftPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontLeftPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontLeftWalk1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontLeftWalk1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontLeftWalk2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontLeftWalk2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontPunch1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontPunch1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontWalk1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontWalk1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManFrontWalk2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManFrontWalk2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManLeftBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManLeftBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManLeftCrouch.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManLeftCrouch.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManLeftCrouchBlock.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManLeftCrouchBlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManLeftHit.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManLeftHit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManLeftKick1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManLeftKick1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManLeftKick2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManLeftKick2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManLeftPunch2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManLeftPunch2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManLeftWalk1.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManLeftWalk1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CvmFight\Assets\Sprites\StickMan\StickManLeftWalk2.png">
+    </None>
+    <None Include="CvmFight\Assets\Sprites\StickMan\StickManLeftWalk2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </None>
     <EmbeddedResource Include="jpeg.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -648,14 +648,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CvmFight\Assets\Fonts\doom.ttf">
+    <None Include="CvmFight\Assets\Fonts\doom.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CvmFight\Assets\Maps\CvmMap.png.bin">
+    <None Include="CvmFight\Assets\Maps\CvmMap.png.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Tao.Sdl.dll">
