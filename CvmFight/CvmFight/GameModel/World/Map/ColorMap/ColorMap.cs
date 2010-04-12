@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ArtificialArt.Waves;
 using Waves;
 
 namespace CvmFight
