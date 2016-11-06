@@ -12,33 +12,66 @@ using System.Threading;
 
 namespace CvmFight
 {
-    class Program
+    public class Program
     {
         #region Constants
+        /// <summary>
+        /// Width of screen
+        /// </summary>
         private const int screenWidth = 1280;
 
+        /// <summary>
+        /// Height of screen
+        /// </summary>
         private const int screenHeight = 720;
 
+        /// <summary>
+        /// How many columns in ray tracer
+        /// </summary>
         private static int idealRayTracerResolution = 320;
 
+        /// <summary>
+        /// Field of view (degrees)
+        /// </summary>
         private const int fov = 110;
 
+        /// <summary>
+        /// Desired frame per seconds
+        /// </summary>
         private const int targetFps = 60;
 
+        /// <summary>
+        /// How many enemies
+        /// </summary>
         private const int monsterCount = 10;
 
-        private const bool isDestroyMouse = true;
+        /// <summary>
+        /// Whether we hide mouse cursor
+        /// </summary>
+        private const bool isHideMouseCursor = true;
 
+        /// <summary>
+        /// Whether we play in full screen
+        /// </summary>
         private const bool isFullScreen = false;
 
+        /// <summary>
+        /// Whether we cache sprites
+        /// </summary>
         private const bool isEnableSpriteCache = false;
 
+        /// <summary>
+        /// Whether we load sprites only when first needed
+        /// </summary>
         private const bool isEnableLazySpriteImageLoad = false;
 
+        /// <summary>
+        /// Whether we enable sound effects and music
+        /// </summary>
         private const bool isSoundOn = true;
         #endregion
 
-        #region Fields and parts
+        #region Members
         private Random random = new Random();
 
         private World world;
@@ -62,7 +95,7 @@ namespace CvmFight
         private Surface mainSurface;
         #endregion
 
-        #region Constructor
+        #region Constructors
         public Program()
         {
             mainSurface = Video.SetVideoMode(screenWidth, screenHeight, false, false, isFullScreen, true);
@@ -82,10 +115,15 @@ namespace CvmFight
         public void Start()
         {
             if (isSoundOn)
+            {
                 gameViewer.SoundManager.PlayRandomMusic();
+            }
 
-            if (isDestroyMouse)
+            if (isHideMouseCursor)
+            {
                 Cursor.Hide();
+            }
+
             Events.TargetFps = targetFps;
             Events.Tick += Update;
             Events.KeyboardDown += OnKeyboardDown;
@@ -295,8 +333,10 @@ namespace CvmFight
             userInput.MouseMotionX = args.RelativeX;
             userInput.MouseMotionY = args.RelativeY;
 
-            if (isDestroyMouse)
+            if (isHideMouseCursor)
+            {
                 Cursor.Position = centerMousePositon;
+            }
         }
 
         public void OnMouseDown(object sender, MouseButtonEventArgs args)
