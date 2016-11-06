@@ -15,9 +15,9 @@ namespace CvmFight
     class Program
     {
         #region Constants
-        private const int screenWidth = 640;
+        private const int screenWidth = 1280;
 
-        private const int screenHeight = 480;
+        private const int screenHeight = 720;
 
         private static int idealRayTracerResolution = 320;
 
@@ -29,7 +29,7 @@ namespace CvmFight
 
         private const bool isDestroyMouse = true;
 
-        private const bool isFullScreen = true;
+        private const bool isFullScreen = false;
 
         private const bool isEnableSpriteCache = false;
 
