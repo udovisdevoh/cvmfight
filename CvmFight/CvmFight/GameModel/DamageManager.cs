@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CvmFight
 {
-    class DamageManager
+    public class DamageManager
     {
         #region Public Methods
         public void Update(SpritePool spritePool, AbstractHumanoid currentPlayer, AbstractMap map, double timeDelta, out bool isNeedRefreshHud)
@@ -35,12 +35,12 @@ namespace CvmFight
                 Physics.TryMakeWalk(sprite, sprite.ReceivedAttackAngleRadian - sprite.AngleRadian, spritePool, map, 1);
                 sprite.IsNeedToJumpAgain = false;
                 Physics.MakeJump(sprite, timeDelta);
-                sprite.Health -= sprite.LatestPredatorDamage;
+                sprite.Health -= sprite.LatestAttackerDamage;
 
                 if (!sprite.IsAlive)
                 {
                     isNeedRefreshHud = true;
-                    sprite.LatestPredator.FragCount++;
+                    sprite.LatestAttacker.FragCount++;
                     currentPlayer.RefreshRanking(spritePool);
                 }
 

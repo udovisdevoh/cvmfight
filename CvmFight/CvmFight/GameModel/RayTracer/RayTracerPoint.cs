@@ -23,7 +23,6 @@ namespace CvmFight
             x = viewerSprite.PositionX;
             y = viewerSprite.PositionY;
             
-
             while (true)
             {
                 x += xMove;
@@ -33,21 +32,33 @@ namespace CvmFight
                 yMove *= 1.01;
 
                 if (x < 0 || y < 0 || x > map.Width || y > map.Height)
+                {
                     break;
+                }
 
                 if (map.GetMatterTypeAt(x, y) != null)
+                {
                     break;
+                }
             }
 
             if (x < 0)
+            {
                 x = 0;
+            }
             else if (x > map.Width)
+            {
                 x = map.Width - xMove;
+            }
 
             if (y < 0)
+            {
                 y = 0;
+            }
             else if (y > map.Height)
+            {
                 y = map.Height - yMove;
+            }
         }
         #endregion
 

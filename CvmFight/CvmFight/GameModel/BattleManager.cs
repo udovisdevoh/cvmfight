@@ -5,38 +5,40 @@ using System.Text;
 
 namespace CvmFight
 {
-    class BattleManager
+    public class BattleManager
     {
         #region Public Methods
         public void Update(SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractHumanoid currentPlayer)
         {
             foreach (AbstractHumanoid sprite in spritePool)
+            {
                 Update(sprite, spritePool, sharedConsciousness, currentPlayer);
+            }
         }
         #endregion
 
         #region Private Methods
-        private void Update(AbstractHumanoid predator, SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractHumanoid currentPlayer)
+        private void Update(AbstractHumanoid attacker, SpritePool spritePool, SharedConsciousness sharedConsciousness, AbstractHumanoid currentPlayer)
         {
-            bool predatorAttackIsAtParoxism;
+            bool IsAttackerAttackAtParoxism;
             double damage;
             bool isFastAttack = false;
 
-            if (predator.StrongAttackCycle.IsAtParoxism)
+            if (attacker.StrongAttackCycle.IsAtParoxism)
             {
-                damage = predator.AttackPowerStrong;
-                predatorAttackIsAtParoxism = true;
+                damage = attacker.AttackPowerStrong;
+                IsAttackerAttackAtParoxism = true;
             }
-            else if (predator.FastAttackCycle.IsAtParoxism)
+            else if (attacker.FastAttackCycle.IsAtParoxism)
             {
-                damage = predator.AttackPowerFast;
-                predatorAttackIsAtParoxism = true;
+                damage = attacker.AttackPowerFast;
+                IsAttackerAttackAtParoxism = true;
                 isFastAttack = true;
             }
-            else if (predator.SpinAttackCycle.IsFired)
+            else if (attacker.SpinAttackCycle.IsFired)
             {
-                damage = predator.AttackPowerStrong;
-                predatorAttackIsAtParoxism = true;
+                damage = attacker.AttackPowerStrong;
+                IsAttackerAttackAtParoxism = true;
             }
             else
             {
@@ -45,73 +47,73 @@ namespace CvmFight
 
 
 
-            if (predatorAttackIsAtParoxism && predator.ReceivedAttackCycle.GetCycleState() <= 0)
+            if (IsAttackerAttackAtParoxism && attacker.ReceivedAttackCycle.GetCycleState() <= 0)
             {
-                foreach (AbstractHumanoid prey in spritePool)
+                foreach (AbstractHumanoid attacked in spritePool)
                 {
-                    if (prey == predator)
+                    if (attacked == attacker)
                         continue;
 
-                    if (BattlePhysics.IsWithinAttackRange(predator, prey))
+                    if (BattlePhysics.IsWithinAttackRange(attacker, attacked))
                     {
-                        if (BattlePhysics.IsInAttackOrBlockAngle(predator, prey))
+                        if (BattlePhysics.IsInAttackOrBlockAngle(attacker, attacked))
                         {
-                            if (BattlePhysics.IsInAttackHeight(predator, prey))
+                            if (BattlePhysics.IsInAttackHeight(attacker, attacked))
                             {
-                                if (!prey.IsBlock || !BattlePhysics.IsInAttackOrBlockAngle(prey, predator) || !BattlePhysics.IsInBlockingHeight(prey, predator))
+                                if (!attacked.IsBlock || !BattlePhysics.IsInAttackOrBlockAngle(attacked, attacker) || !BattlePhysics.IsInBlockingHeight(attacked, attacker))
                                 {
-                                    //We abort prey's attack
-                                    prey.FastAttackCycle.Reset();
-                                    prey.StrongAttackCycle.Reset();
-                                    prey.BlockSuccessCycle.Reset();
-                                    prey.SpinChargeAttackCycle.Reset();
-                                    prey.SpinAttackCycle.Reset();
+                                    //We abort attacked's attack
+                                    attacked.FastAttackCycle.Reset();
+                                    attacked.StrongAttackCycle.Reset();
+                                    attacked.BlockSuccessCycle.Reset();
+                                    attacked.SpinChargeAttackCycle.Reset();
+                                    attacked.SpinAttackCycle.Reset();
 
-                                    prey.FastAttackCycle.IsNeedToClickAgain = true;
-                                    prey.StrongAttackCycle.IsNeedToClickAgain = true;
+                                    attacked.FastAttackCycle.IsNeedToClickAgain = true;
+                                    attacked.StrongAttackCycle.IsNeedToClickAgain = true;
 
-                                    prey.ReceivedAttackAngleRadian = predator.AngleRadian;
-                                    prey.ReceivedAttackCycle.Fire();
+                                    attacked.ReceivedAttackAngleRadian = attacker.AngleRadian;
+                                    attacked.ReceivedAttackCycle.Fire();
 
                                     if (isFastAttack)
                                     {
-                                        prey.ReceivedAttackCycle.PercentComplete = 0.25;
-                                        prey.ReceivedAttackCycle.IsForward = false;
-                                        prey.IsJustReceivedFastAttack = true;
+                                        attacked.ReceivedAttackCycle.PercentComplete = 0.25;
+                                        attacked.ReceivedAttackCycle.IsForward = false;
+                                        attacked.IsJustReceivedFastAttack = true;
                                     }
                                     else
                                     {
-                                        if (predator.IsCrouch || predator.PositionZ >= 0)
-                                            prey.IsJustReceivedStrongKick = true;
+                                        if (attacker.IsCrouch || attacker.PositionZ >= 0)
+                                            attacked.IsJustReceivedStrongKick = true;
                                         else
-                                            prey.IsJustReceivedStrongPunch = true;
+                                            attacked.IsJustReceivedStrongPunch = true;
                                     }
 
-                                    prey.LatestPredator = predator;
-                                    prey.LatestPredatorDamage = damage;
+                                    attacked.LatestAttacker = attacker;
+                                    attacked.LatestAttackerDamage = damage;
 
-                                    if (!(prey is Player))
+                                    if (!(attacked is Player))
                                     {
-                                        prey.StateJumpCrouch.Reset();
-                                        prey.StateMovement.Reset();
-                                        prey.StateAttackBlock.Reset();
-                                        if (prey.StateAttackBlock.GetCurrentState() == SpriteStates.SpinCharge)
+                                        attacked.StateJumpCrouch.Reset();
+                                        attacked.StateMovement.Reset();
+                                        attacked.StateAttackBlock.Reset();
+                                        if (attacked.StateAttackBlock.GetCurrentState() == SpriteStates.SpinCharge)
                                         {
-                                            prey.StateAttackBlock.Reset();
+                                            attacked.StateAttackBlock.Reset();
                                         }
                                     }
 
-                                    if (!(predator is Player))
+                                    if (!(attacker is Player))
                                     {
-                                        predator.StateJumpCrouch.Renew();
-                                        predator.StateMovement.Renew();
-                                        predator.StateAttackBlock.Renew();
+                                        attacker.StateJumpCrouch.Renew();
+                                        attacker.StateMovement.Renew();
+                                        attacker.StateAttackBlock.Renew();
                                     }
                                 }
-                                else if (prey.IsBlock)
+                                else if (attacked.IsBlock)
                                 {
-                                    prey.BlockSuccessCycle.Reset();
-                                    prey.BlockSuccessCycle.Fire();
+                                    attacked.BlockSuccessCycle.Reset();
+                                    attacked.BlockSuccessCycle.Fire();
                                 }
                             }
                         }

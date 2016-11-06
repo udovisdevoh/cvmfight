@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CvmFight
 {
-    abstract class AbstractMatterType
+    public abstract class AbstractMatterType
     {
     }
 }

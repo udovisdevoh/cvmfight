@@ -8,26 +8,28 @@ namespace CvmFight
 {
     class RayTracer : IEnumerable<RayTracerPoint>
     {
-        #region Constants
-        private const double rayDistanceResolution = 0.01;
-        #endregion
-
         #region Fields
         private int fov;
 
         private int columnCount;
 
         private List<RayTracerPoint> pointList;
+
+        private double rayDistanceResolution;
         #endregion
 
         #region Constructor
-        public RayTracer(int howManyColumn, int fov)
+        public RayTracer(int howManyColumn, int fov, double rayDistanceResolution)
         {
             this.fov = fov;
             this.columnCount = howManyColumn;
+            this.rayDistanceResolution = rayDistanceResolution;
+
             pointList = new List<RayTracerPoint>(this.columnCount);
             for (int i = 0; i < howManyColumn; i++)
+            {
                 pointList.Add(new RayTracerPoint());
+            }
         }
         #endregion
 

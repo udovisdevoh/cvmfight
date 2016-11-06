@@ -8,7 +8,7 @@ namespace CvmFight
     /// <summary>
     /// Represents common conscousness among sprites
     /// </summary>
-    class SharedConsciousness
+    public class SharedConsciousness
     {
         #region Fields
         private int spriteCount;

@@ -9,7 +9,7 @@ namespace CvmFight
     /// <summary>
     /// Abstract sprite
     /// </summary>
-    abstract class AbstractHumanoid : AbstractSprite
+    public abstract class AbstractHumanoid : AbstractSprite
     {
         #region Fields
         /// <summary>
@@ -509,13 +509,13 @@ namespace CvmFight
             get { return mouseLook; }
         }
 
-        public AbstractHumanoid LatestPredator
+        public AbstractHumanoid LatestAttacker
         {
             get { return latestPredator; }
             set { latestPredator = value; }
         }
 
-        public double LatestPredatorDamage
+        public double LatestAttackerDamage
         {
             get{return latestPredatorDamage;}
             set{latestPredatorDamage=value;}

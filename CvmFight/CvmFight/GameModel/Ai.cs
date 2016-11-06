@@ -5,7 +5,10 @@ using System.Text;
 
 namespace CvmFight
 {
-    class Ai
+    /// <summary>
+    /// Monster's artificial intelligence
+    /// </summary>
+    public class Ai
     {
         #region Fields
         private int howManyFrameBeforeChoosingPreyAgain;
@@ -209,7 +212,7 @@ namespace CvmFight
                 //    continue;
 
 
-                if (sharedConsciousness.IsSpriteViewable(predator, prey, map, fov) || (sharedConsciousness.IsSpriteViewable(prey, predator, map, fov) && predator.LatestPredator == prey))
+                if (sharedConsciousness.IsSpriteViewable(predator, prey, map, fov) || (sharedConsciousness.IsSpriteViewable(prey, predator, map, fov) && predator.LatestAttacker == prey))
                 {
                     double currentDistance = Physics.GetSpriteDistance(predator, prey);
 

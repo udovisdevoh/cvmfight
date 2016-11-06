@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CvmFight
 {
-    class SpritePool : IList<AbstractSprite>
+    public class SpritePool : IList<AbstractSprite>
     {
         #region Fields
         private HashSet<AbstractSprite> internalHash = new HashSet<AbstractSprite>();

@@ -8,7 +8,7 @@ namespace CvmFight
     /// <summary>
     /// Represents an abstract map for the game
     /// </summary>
-    abstract class AbstractMap
+    public abstract class AbstractMap
     {
         /// <summary>
         /// Returns what kind of matter is present at x,y

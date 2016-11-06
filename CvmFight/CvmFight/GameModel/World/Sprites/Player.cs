@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CvmFight
 {
-    class Player : AbstractHumanoid
+    public class Player : AbstractHumanoid
     {
         #region Abstract Sprite Members
         protected override double GetHeight()

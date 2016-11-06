@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CvmFight
 {
-    abstract class AbstractSprite : IComparable<AbstractSprite>
+    public abstract class AbstractSprite : IComparable<AbstractSprite>
     {
         #region Fields
         /// <summary>

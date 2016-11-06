@@ -6,11 +6,11 @@ using System.Text;
 namespace CvmFight
 {
     /// <summary>
-    /// Represents the world
+    /// Represents the map, the player and the monsters
     /// </summary>
-    class World
+    public class World
     {
-        #region Fields and parts
+        #region Members
         /// <summary>
         /// How many desired monsters
         /// </summary>

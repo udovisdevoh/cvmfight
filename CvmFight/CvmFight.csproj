@@ -101,8 +101,8 @@
     <Compile Include="CvmFight\GameModel\World\Sprites\SpriteState.cs" />
     <Compile Include="CvmFight\GameModel\World\Sprites\SpriteStates.cs" />
     <Compile Include="CvmFight\GameModel\World\World.cs" />
-    <Compile Include="CvmFight\UserInput.cs" />
-    <Compile Include="CvmFight\Program.cs" />
+    <Compile Include="CvmFight\InputState.cs" />
+    <Compile Include="CvmFight\AppController.cs" />
     <Compile Include="CvmFight\Viewers\AbstractGameViewer.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\Gradient.cs" />
     <Compile Include="CvmFight\Viewers\GameViewer3D\ColumnViewer.cs" />

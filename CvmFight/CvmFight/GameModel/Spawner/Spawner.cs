@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace CvmFight
 {
-    class Spawner
+    public class Spawner
     {
         #region Fields and parts
         private AbstractMap map = null;

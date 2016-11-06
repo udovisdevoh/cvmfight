@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CvmFight
 {
-    class SpriteState
+    public class SpriteState
     {
         #region Fields
         private double currentTime = 0;

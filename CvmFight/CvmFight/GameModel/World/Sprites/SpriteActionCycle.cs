@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CvmFight
 {
-    class SpriteActionCycle
+    public class SpriteActionCycle
     {
         #region Fields
         private double cycleLength;

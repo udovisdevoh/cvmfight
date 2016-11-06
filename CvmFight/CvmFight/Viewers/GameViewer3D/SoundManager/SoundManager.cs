@@ -87,7 +87,7 @@ namespace CvmFight
                 {
                     channel = Play(YouLose);
                 }
-                else if (sprite.LatestPredator == currentPlayer)
+                else if (sprite.LatestAttacker == currentPlayer)
                 {
                     if (currentPlayer.Health >= currentPlayer.DefaultHealth)
                     {
