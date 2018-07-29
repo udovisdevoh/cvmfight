@@ -58,7 +58,7 @@ namespace CvmFight
         /// <summary>
         /// Whether we play in full screen
         /// </summary>
-        private const bool isFullScreen = false;
+        private const bool isFullScreen = true;
 
         /// <summary>
         /// Whether we cache sprites
