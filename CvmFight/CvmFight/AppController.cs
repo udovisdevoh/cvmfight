@@ -28,7 +28,7 @@ namespace CvmFight
         /// <summary>
         /// How many columns in ray tracer
         /// </summary>
-        private static int idealRayTracerResolution = 320;
+        private static int idealRayTracerResolution = 360;
 
         /// <summary>
         /// Minimum resolution of ray tracer's distance's unit size
@@ -58,7 +58,7 @@ namespace CvmFight
         /// <summary>
         /// Whether we play in full screen
         /// </summary>
-        private const bool isFullScreen = false;
+        private const bool isFullScreen = true;
 
         /// <summary>
         /// Whether we cache sprites
@@ -366,15 +366,18 @@ namespace CvmFight
                 Events.QuitApplication();
         }
 
-        public void OnMouseMotion(object sender, MouseMotionEventArgs args)
+        public void OnMouseMotion(object sender, MouseMotionEventArgs mouseEventArgs)
         {
-            inputState.MouseMotionX = args.RelativeX;
-            inputState.MouseMotionY = args.RelativeY;
+            short relativeX = mouseEventArgs.RelativeX;
+            short relativeY = mouseEventArgs.RelativeY;
 
-            if (isHideMouseCursor)
-            {
-                Cursor.Position = screenCenterPosition;
-            }
+            inputState.MouseMotionX = (short)(-relativeX - inputState.RecenterOffsetX);
+            inputState.MouseMotionY = (short)(-relativeY - inputState.RecenterOffsetY);
+
+            Mouse.MousePosition = this.screenCenterPosition;
+
+            inputState.RecenterOffsetX = (Mouse.MousePosition.X - this.screenCenterPosition.X);
+            inputState.RecenterOffsetY = (Mouse.MousePosition.Y - this.screenCenterPosition.Y);
         }
 
         public void OnMouseDown(object sender, MouseButtonEventArgs args)
